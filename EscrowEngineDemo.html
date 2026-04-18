@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Syntry Escrow Engine Demo</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+             inter: ['Inter', 'sans-serif'],
+             space: ['Space Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      background-color: #050810; 
+      background-image: 
+        radial-gradient(circle at top right, rgba(26, 37, 71, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at bottom left, rgba(0, 245, 212, 0.05) 0%, transparent 40%);
+      min-height: 100vh; 
+      margin: 0;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    @keyframes scan {
+      0% { top: -10%; }
+      100% { top: 110%; }
+    }
+    .animate-scan {
+      animation: scan 2.5s linear infinite;
+    }
+  </style>
+</head>
+<body class="flex flex-col md:flex-row items-center justify-center p-8 gap-12 md:gap-24 h-full md:h-screen">
+  
+  <div id="root" class="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // --- Dynamic TrustCard Component ---
+    const TrustCard = ({ status, healthScore, escrowStatus, escrowMsg, isCleared, view3D, setView3D }) => {
+      const [displayScore, setDisplayScore] = useState(0);
+      
+      useEffect(() => {
+        let startTimestamp = null;
+        let animationFrameId;
+
+        const animateScore = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / 1000, 1); // 1 second duration
+          
+          setDisplayScore(Math.floor(progress * healthScore));
+          
+          if (progress < 1) {
+            animationFrameId = requestAnimationFrame(animateScore);
+          } else {
+             setDisplayScore(healthScore); // Ensure it ends exactly on the target
+          }
+        };
+
+        animationFrameId = requestAnimationFrame(animateScore);
+
+        return () => cancelAnimationFrame(animationFrameId);
+      }, [healthScore]);
+
+      const radius = 42;
+      const circumference = 2 * Math.PI * radius;
+      const strokeDashoffset = circumference - (displayScore / 100) * circumference;
+
+      return (
+        <div className={`relative w-full max-w-[420px] backdrop-blur-xl bg-[rgba(11,18,33,0.8)] rounded-3xl p-7 font-inter transition-all duration-700 hover:-translate-y-2 ${isCleared ? 'border border-[#00F5D4]/60 shadow-[0_15px_40px_rgba(0,245,212,0.15)]' : 'border border-gray-700'}`}>
+          
+          {isCleared && (
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#00F5D4]/20 to-[#00F5D4]/0 rounded-3xl blur-xl -z-10 opacity-50 transition-opacity duration-1000"></div>
+          )}
+
+          <div className="flex justify-between items-start mb-8">
+            <div>
+              <h2 className="text-white text-xl font-semibold tracking-tight">Syntry Property</h2>
+              <p className="text-[#00F5D4] text-xs font-semibold mt-1.5 tracking-wider uppercase flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F5D4] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00F5D4]"></span>
+                </span>
+                Verified 4 hours ago
+              </p>
+            </div>
+            <div className={`px-3.5 py-1.5 rounded-full flex items-center gap-2 text-xs font-bold uppercase tracking-wider transition-colors duration-500 ${isCleared ? 'bg-[#00F5D4]/10 text-[#00F5D4] shadow-[0_0_15px_rgba(0,245,212,0.15)] border border-[#00F5D4]/30' : 'bg-gray-800 text-gray-400 border border-gray-600'}`}>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isCleared ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
+              </svg>
+              {status}
+            </div>
+          </div>
+
+          <div className="flex gap-7 mb-7 pb-7 border-b border-white/10 items-center">
+            <div className="relative flex items-center justify-center shrink-0 group">
+              <svg className="transform -rotate-90 w-[100px] h-[100px]">
+                <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.05)" strokeWidth="8" fill="none" />
+                <circle cx="50" cy="50" r="42" stroke={isCleared ? "#00F5D4" : "#4B5563"} strokeWidth="8" fill="none" 
+                  strokeDasharray={circumference} 
+                  strokeDashoffset={strokeDashoffset} 
+                  className="transition-all duration-100 ease-linear drop-shadow-[0_0_8px_rgba(0,245,212,0.5)]" strokeLinecap="round" />
+              </svg>
+              <div className="absolute flex flex-col items-center justify-center translate-y-0.5">
+                <span className="font-space text-[34px] font-bold text-white leading-none tracking-tighter">{displayScore}</span>
+                <span className="text-[9px] text-gray-400 font-semibold uppercase tracking-[0.2em] mt-1 -translate-x-0.5">Score</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center gap-3.5 w-full">
+              <div className="flex justify-between items-center bg-white/[0.02] p-2 rounded-lg">
+                <span className="text-gray-400 text-xs font-medium">Topography</span>
+                <span className={`text-sm font-semibold transition-colors duration-500 ${isCleared ? 'text-white' : 'text-gray-500'}`}>
+                    {isCleared ? '98% Match' : 'Pending'}
+                </span>
+              </div>
+              <div className="flex justify-between items-center bg-white/[0.02] p-2 rounded-lg">
+                <span className="text-gray-400 text-xs font-medium">Legal Chain</span>
+                <span className={`text-sm font-semibold flex items-center gap-1.5 transition-colors duration-500 ${isCleared ? 'text-[#00F5D4]' : 'text-gray-500'}`}>
+                  {isCleared && <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
+                  {isCleared ? 'Verified' : 'Pending'}
+                </span>
+              </div>
+              <div className="flex justify-between items-center bg-white/[0.02] p-2 rounded-lg">
+                <span className="text-gray-400 text-xs font-medium">Scan Date</span>
+                <span className="text-white text-sm font-semibold">March 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <button 
+            onClick={() => setView3D(!view3D)}
+            className="w-full relative overflow-hidden group bg-white/[0.03] border border-white/10 rounded-xl py-4 mb-6 hover:bg-white/10 transition-colors duration-300 flex items-center justify-center gap-2"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00F5D4]/15 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1500ms] ease-in-out"></div>
+            <span className="text-white text-[13px] font-semibold tracking-wide uppercase">{view3D ? 'Hide LiDAR Overlay' : 'View 3D Ground-Truth'}</span>
+          </button>
+
+          <div className={`overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${view3D ? 'h-[160px] opacity-100 mb-6' : 'h-0 opacity-0 mb-0'}`}>
+            <div className="w-full h-full bg-[#050810] rounded-xl border border-[#00F5D4]/20 relative overflow-hidden flex items-center justify-center">
+                <div className="absolute inset-0" style={{ 
+                  background: 'linear-gradient(rgba(0,245,212,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,212,0.15) 1px, transparent 1px)', 
+                  backgroundSize: '20px 20px', 
+                  transform: 'rotateX(60deg) scale(2.5) translateY(-20px)', 
+                  perspective: '1000px', transformOrigin: 'top center'
+                }}></div>
+                <div className="absolute w-full h-[2px] bg-[#00F5D4] shadow-[0_0_20px_2px_#00F5D4] opacity-70 animate-scan"></div>
+            </div>
+          </div>
+
+          {/* Dynamic Escrow Footer */}
+          <div className={`bg-[#050810]/60 rounded-xl p-4 border flex items-center gap-4 transition-all duration-500 ${isCleared ? 'border-[#00F5D4]/30 shadow-[0_0_15px_rgba(0,245,212,0.05)]' : 'border-white/10'}`}>
+            <div className={`p-2.5 rounded-lg transition-colors duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)] ${isCleared ? 'bg-[#00F5D4]/10 text-[#00F5D4]' : 'bg-gray-800 text-gray-400'}`}>
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isCleared ? ( // Unlocked Icon
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                ) : ( // Locked Icon
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                )}
+              </svg>
+            </div>
+            <div>
+              <h4 className={`text-xs font-bold uppercase tracking-wider mb-1 transition-colors duration-500 ${isCleared ? 'text-white' : 'text-gray-400'}`}>{escrowStatus}</h4>
+              <p className="text-gray-400 text-[11px] leading-relaxed">{escrowMsg}</p>
+            </div>
+          </div>
+
+        </div>
+      );
+    };
+
+    // --- Admin Controller Simulation ---
+    const VaultController = ({ isCleared, onVerify }) => {
+      
+      return (
+        <div className="w-full max-w-[380px] bg-gray-900/80 backdrop-blur-md rounded-2xl border border-gray-800 p-8 shadow-2xl">
+          <h2 className="text-xl font-bold text-white mb-2">VaultAdmin Data Sync</h2>
+          <p className="text-sm text-gray-400 mb-8 border-b border-gray-800 pb-6">Simulating Oracle Triggers resolving Truth-Signals to state changes in DB.</p>
+          
+          <div className="space-y-4 mb-8">
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-300">LiDAR Scan Match</span>
+              <span className={`text-xs font-bold px-2 py-1 rounded ${isCleared ? 'bg-green-900/50 text-green-400' : 'bg-yellow-900/50 text-yellow-500'}`}>{isCleared ? 'TRUE' : 'WAITING'}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-300">Title Deed Oracle</span>
+              <span className={`text-xs font-bold px-2 py-1 rounded ${isCleared ? 'bg-green-900/50 text-green-400' : 'bg-yellow-900/50 text-yellow-500'}`}>{isCleared ? 'TRUE' : 'WAITING'}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-300">GPS Boundary Check</span>
+              <span className={`text-xs font-bold px-2 py-1 rounded ${isCleared ? 'bg-green-900/50 text-green-400' : 'bg-yellow-900/50 text-yellow-500'}`}>{isCleared ? 'TRUE' : 'WAITING'}</span>
+            </div>
+          </div>
+
+          <button 
+            onClick={onVerify}
+            disabled={isCleared}
+            className={`w-full py-4 rounded-xl font-bold tracking-wide transition-all duration-300 shadow-lg ${isCleared ? 'bg-gray-800 text-gray-500 cursor-not-allowed hidden' : 'bg-indigo-600 hover:bg-indigo-500 text-white hover:-translate-y-1 hover:shadow-indigo-500/25'}`}
+          >
+            VERIFY & RELEASE ESCROW
+          </button>
+          
+          {isCleared && (
+             <div className="w-full py-4 rounded-xl font-bold tracking-wide bg-green-900/20 text-green-400 border border-green-800/50 text-center">
+                ✓ ESCROW STATUS: VERIFIED
+             </div>
+          )}
+        </div>
+      )
+    }
+
+    // --- Main App Wrapper ---
+    const EscrowEngineApp = () => {
+      const [isCleared, setIsCleared] = useState(false);
+      const [view3D, setView3D] = useState(false);
+
+      const [state, setState] = useState({
+        status: 'Pending',
+        healthScore: 0,
+        escrowStatus: 'Locked',
+        escrowMsg: 'Protected indefinitely by Syntry-Vault.'
+      });
+
+      const handleVerify = () => {
+        setIsCleared(true);
+        setView3D(false); // reset 3D view if open
+        
+        // Trigger the "Magic Moment" State Change
+        setState({
+          status: 'Cleared for Transfer',
+          healthScore: 98,
+          escrowStatus: 'Funds Ready',
+          escrowMsg: 'Escrow conditions met. Ready for legal handover.'
+        });
+      };
+
+      return (
+        <React.Fragment>
+          <div className="flex-1 flex justify-center w-full max-w-md">
+            <VaultController isCleared={isCleared} onVerify={handleVerify} />
+          </div>
+          
+          <div className="hidden md:flex flex-col items-center justify-center text-gray-600">
+             <svg className="w-8 h-8 animate-pulse text-[#00F5D4]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+             </svg>
+             <span className="text-[10px] mt-2 uppercase tracking-widest font-bold">Real-time WebSocket</span>
+          </div>
+
+          <div className="flex-1 flex justify-center w-full max-w-md">
+            <TrustCard 
+              isCleared={isCleared}
+              status={state.status}
+              healthScore={state.healthScore}
+              escrowStatus={state.escrowStatus}
+              escrowMsg={state.escrowMsg}
+              view3D={view3D}
+              setView3D={setView3D}
+            />
+          </div>
+        </React.Fragment>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<EscrowEngineApp />);
+  </script>
+</body>
+</html>

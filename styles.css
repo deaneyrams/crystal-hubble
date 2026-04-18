@@ -1,0 +1,140 @@
+:root {
+  /* Dynamic Obsidian Navy - Deep rich base */
+  --color-obsidian-900: #0B1021;
+  --color-obsidian-800: #121A33;
+  --color-obsidian-700: #1A2447;
+  --color-obsidian-600: #263359;
+  
+  /* Refreshing Mint Palette - Accents & Highlights */
+  --color-mint-300: #A8F0CA;
+  --color-mint-400: #7AE5A9;
+  --color-mint-500: #4CD989;
+  --color-mint-600: #33BD6D;
+  
+  /* Text and neutrals */
+  --color-text-main: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  
+  /* Layout and Effects */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-bg: rgba(18, 26, 51, 0.7);
+  --glass-border: rgba(168, 240, 202, 0.15);
+  --glow-mint: 0 4px 20px rgba(76, 217, 137, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-obsidian-900);
+  background-image: radial-gradient(circle at top right, var(--color-obsidian-700) 0%, transparent 40%),
+                    radial-gradient(circle at bottom left, var(--color-obsidian-800) 0%, transparent 30%);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+/* Base Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* Trust Card Component */
+.trust-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.trust-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-mint-400), var(--color-mint-600));
+  opacity: 0.8;
+}
+
+.trust-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(168, 240, 202, 0.3);
+  box-shadow: var(--glow-mint), 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.trust-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trust-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(76, 217, 137, 0.1);
+  color: var(--color-mint-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 1px solid rgba(76, 217, 137, 0.2);
+}
+
+.trust-card-title {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+}
+
+.trust-card-body {
+  font-size: 0.95rem;
+}
+
+.trust-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.trust-card-badge {
+  background: rgba(76, 217, 137, 0.1);
+  color: var(--color-mint-400);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
