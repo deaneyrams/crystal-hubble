@@ -367,6 +367,7 @@ export default function LoginPage() {
         </div>
 
       </div>
+      </main>
 
       {/* Mini Auth Footer */}
       <footer className="w-full bg-slate-100/50 border-t border-slate-200 py-6 mt-10">
@@ -382,7 +383,6 @@ export default function LoginPage() {
             </div>
          </div>
       </footer>
-
     </div>
   );
 }
