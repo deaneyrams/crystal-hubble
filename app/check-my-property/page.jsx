@@ -103,8 +103,8 @@ export default function CheckMyPropertyPage() {
     setIsChatThinking(true);
 
     try {
-      // Connecting to the high-velocity Vercel + Gemini 1.5 backend
-      const res = await fetch("https://syntry-sovereign-exchange.vercel.app/api/syntry-ai", {
+      // Connecting to the high-velocity production Vercel + Gemini 1.5 backend
+      const res = await fetch("https://syntry-ai-backend-ovdel11oi-deaneyrams-5131s-projects.vercel.app/api/syntry-ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: userMessage })

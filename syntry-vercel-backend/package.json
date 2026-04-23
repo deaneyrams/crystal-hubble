@@ -1,0 +1,8 @@
+{
+  "name": "syntry-ai-backend",
+  "version": "1.0.0",
+  "main": "api/syntry-ai.js",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  }
+}
