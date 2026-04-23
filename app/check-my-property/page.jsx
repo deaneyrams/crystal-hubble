@@ -15,6 +15,7 @@ export default function CheckMyPropertyPage() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [aiFeedback, setAiFeedback] = useState(null);
   const [isVerified, setIsVerified] = useState(false);
+  const [showResults, setShowResults] = useState(false);
 
   const formRef = useRef(null);
 
@@ -246,10 +247,20 @@ export default function CheckMyPropertyPage() {
                     {/* Final Action */}
                     <div className="pt-4">
                       <button 
+                        onClick={() => {
+                           setIsVerifying(true);
+                           setTimeout(() => {
+                              setIsVerifying(false);
+                              setShowResults(true);
+                              setTimeout(() => {
+                                document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+                              }, 100);
+                           }, 2000);
+                        }}
                         className="w-full bg-[#00C853] text-white py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_-10px_rgba(0,200,83,0.3)] hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 border-b-4 border-[#00a846]"
                         disabled={!aiFeedback && !inputValue && coordinates === null}
                       >
-                         Run Full 8-Layer Verification
+                         {isVerifying ? 'Verifying...' : 'Run Full 8-Layer Verification'}
                       </button>
                       <p className="text-center text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-6">
                         Statutory audit powered by Syntry Oracle Protocol
@@ -299,6 +310,140 @@ export default function CheckMyPropertyPage() {
                 </div>
               </div>
             </section>
+
+            {/* RESULTS DASHBOARD: Smart Results Area */}
+            {showResults && (
+              <section id="results-dashboard" className="py-24 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+                <div className="bg-white border-t-8 border-t-[#00C853] border border-slate-200 rounded-[3rem] p-8 md:p-12 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.08)] relative overflow-hidden text-slate-900">
+                  
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                    <div>
+                      <h2 className="text-3xl md:text-4xl font-black tracking-tight flex items-center gap-3">
+                        <span className="text-4xl">🏛️</span> Verified Sovereign Status
+                      </h2>
+                      <p className="text-slate-500 font-medium mt-2">Analysis complete for Registry No. GA-509-2026. Asset secured.</p>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <span className="bg-[#00C853]/10 text-[#00C853] px-5 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest border border-[#00C853]/20 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse shadow-[0_0_8px_currentColor]"></span> Mortgage-Ready
+                      </span>
+                      <span className="bg-slate-100 text-slate-500 px-5 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest border border-slate-200">
+                        Litigation: 0.00%
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+                    
+                    {/* Map & Coordinates */}
+                    <div className="space-y-6">
+                       <div className="w-full h-64 bg-slate-100 rounded-[2.5rem] overflow-hidden border border-slate-200 relative group shadow-inner">
+                          <div className="absolute inset-0 bg-[#00C853]/5 opacity-20 pointer-events-none"></div>
+                          
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <div className="w-10 h-10 bg-[#00C853] rounded-full shadow-[0_0_30px_#00C853] border-4 border-white animate-bounce relative z-10"></div>
+                            <div className="w-10 h-10 bg-[#00C853] rounded-full absolute top-0 left-0 animate-ping opacity-75"></div>
+                          </div>
+                          
+                          <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-[#00C853] border border-[#00C853]/20 shadow-lg">
+                             Geospatial Lock Confirmed
+                          </div>
+                       </div>
+
+                       <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 space-y-4">
+                          <div>
+                            <p className="text-[10px] text-slate-400 font-black uppercase tracking-[2px] mb-1">Coordinates</p>
+                            <p className="text-base font-bold text-slate-900 font-mono tracking-tight">{coordinates ? `${coordinates.lat}, ${coordinates.lng}` : '5.6037° N, -0.1870° W'}</p>
+                          </div>
+                          <div>
+                            <p className="text-[10px] text-slate-400 font-black uppercase tracking-[2px] mb-1">Digital Address</p>
+                            <p className="text-base font-bold text-slate-900 bg-white border border-slate-200 inline-block px-3 py-1 rounded-lg shadow-sm">GA-183-8164</p>
+                          </div>
+                       </div>
+                    </div>
+
+                    {/* Property History & Valuation */}
+                    <div className="lg:col-span-2 space-y-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <div className="p-1">
+                          <p className="text-[10px] text-slate-400 font-black uppercase tracking-[2px] mb-6 border-b border-slate-100 pb-2">Chain of Trust</p>
+                          <div className="space-y-6 relative border-l-2 border-slate-100 pl-6 ml-2">
+                             {[
+                               { date: 'Oct 2021', event: 'Transfer of Title', party: 'K. Asamoah Ltd', active: true },
+                               { date: 'Mar 2019', event: 'Lease Registration', party: 'Registry Entry', active: false },
+                               { date: 'Nov 2015', event: 'Initial Registration', party: 'Original Owner', active: false }
+                             ].map((item, i) => (
+                               <div key={i} className="relative">
+                                  <div className={`absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full border-2 bg-white transition-colors ${item.active ? 'border-[#00C853] shadow-[0_0_10px_#00C853]' : 'border-slate-300'}`}></div>
+                                  <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">{item.date}</p>
+                                  <p className="text-sm font-black text-slate-900">{item.event}</p>
+                                  <p className="text-xs font-medium text-slate-500">{item.party}</p>
+                               </div>
+                             ))}
+                          </div>
+                        </div>
+
+                        <div className="bg-slate-900 rounded-[2.5rem] p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-2xl">
+                           <div className="absolute top-0 right-0 w-32 h-32 bg-[#00C853]/20 blur-3xl -mr-10 -mt-10"></div>
+                           <div>
+                             <p className="text-[10px] text-[#00C853] font-black uppercase tracking-[3px] mb-2 flex items-center gap-2">
+                               <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full animate-pulse"></span> Sovereign Valuation
+                             </p>
+                             <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00C853] to-emerald-300">GH₵ 3.2M</p>
+                           </div>
+                           <div className="mt-8 flex gap-6">
+                              <div>
+                                <p className="text-[9px] text-slate-500 font-bold uppercase mb-1">Rental Yield</p>
+                                <p className="text-xl font-bold">12.4% <span className="text-[10px] text-[#00C853]">APY</span></p>
+                              </div>
+                              <div>
+                                <p className="text-[9px] text-slate-500 font-bold uppercase mb-1">Status</p>
+                                <p className="text-xl font-bold flex items-center gap-2">
+                                   <span className="w-2 h-2 bg-[#00C853] rounded-full"></span> Tier-1
+                                </p>
+                              </div>
+                           </div>
+                        </div>
+
+                      </div>
+
+                      {/* 8-Layer Grid Status */}
+                      <div className="pt-4">
+                        <p className="text-[10px] text-slate-400 font-black uppercase tracking-[2px] mb-6">8-Layer Statutory Audit</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                           {[
+                              'GPS Lock', 'Title ID', 'Nii Auth', 'Registry', 
+                              'Stool Land', 'Survey Map', 'Consent', 'Sovereign'
+                           ].map(layer => (
+                             <div key={layer} className="bg-white border border-slate-100 p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm hover:border-[#00C853]/30 transition-colors group text-slate-900">
+                                <span className="w-8 h-8 bg-[#00C853]/10 text-[#00C853] rounded-full flex items-center justify-center text-[10px] font-black mb-3 group-hover:scale-110 transition-transform">✓</span>
+                                <span className="text-[10px] font-black uppercase tracking-wider">{layer}</span>
+                             </div>
+                           ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions Section */}
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 border-t border-slate-100">
+                    <button className="w-full sm:w-auto bg-slate-900 text-white px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-800 transition-all flex items-center justify-center gap-3 shadow-xl">
+                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                       Download Full Report PDF
+                    </button>
+                    <button className="w-full sm:w-auto bg-white border-2 border-slate-200 text-slate-900 px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:border-[#00C853] hover:text-[#00C853] transition-all flex items-center justify-center gap-3">
+                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                       Share to WhatsApp
+                    </button>
+                    <button className="w-full sm:w-auto bg-[#00C853] text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#00a846] transition-all shadow-[0_15px_30px_-5px_rgba(0,200,83,0.3)]">
+                       🚀 List This Property
+                    </button>
+                  </div>
+
+                </div>
+              </section>
+            )}
 
           </div>
         </main>
