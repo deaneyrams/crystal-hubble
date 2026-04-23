@@ -26,6 +26,8 @@ export default function CheckMyPropertyPage() {
   // New Detection States
   const [isAutoDetecting, setIsAutoDetecting] = useState(false);
   const [locationMeta, setLocationMeta] = useState(null);
+  const [accuracyRadius, setAccuracyRadius] = useState(null);
+  const [accuracyWarning, setAccuracyWarning] = useState(false);
 
   const handleFileUpload = (e) => {
     const selectedFile = e.target.files?.[0];
@@ -64,34 +66,44 @@ export default function CheckMyPropertyPage() {
     }
     
     setIsAutoDetecting(true);
-    setLocationStatus('Detecting your location... (This may take a few seconds)');
+    setLocationStatus('Getting precise GPS location... (using high accuracy mode)');
+    setAccuracyWarning(false);
     
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const lat = position.coords.latitude.toFixed(6);
         const lng = position.coords.longitude.toFixed(6);
+        const accuracy = Math.round(position.coords.accuracy);
         
-        // Simulated Reverse Geocoding for Ghana context
+        setAccuracyRadius(accuracy);
+        
+        if (accuracy > 500) {
+          setAccuracyWarning(true);
+        }
+
+        // Simulated Reverse Geocoding for Ghana context (Alajo / Achimota)
         const mockMeta = {
-          address: "Pokuase, Greater Accra Region",
-          ghanaPost: "GW-1042-5592",
-          landmarks: "Near Pokuase Interchange",
-          accuracy: "98.2%"
+          address: "Alajo, Greater Accra Region",
+          ghanaPost: "GA-183-8164",
+          landmarks: "Near Alajo Market, Close to Achimota Overhead",
+          signalStrength: "Orbital Locked"
         };
 
         setCoordinates({ lat, lng });
         setLocationMeta(mockMeta);
-        setLocationStatus(`GPS Locked: High Accuracy Signal (${mockMeta.accuracy})`);
+        setLocationStatus(accuracy > 500 ? 'Accuracy is low. Please use manual input below for better results.' : 'Sovereign GPS Lock Successful.');
         setIsAutoDetecting(false);
 
-        // Automatically trigger verification after showing map
-        setTimeout(() => {
-          triggerVerification();
-        }, 3000);
+        // Automatically trigger verification if accuracy is acceptable
+        if (accuracy <= 500) {
+          setTimeout(() => {
+            triggerVerification();
+          }, 3000);
+        }
       },
       (error) => {
         setIsAutoDetecting(false);
-        setLocationStatus('Detection failed. Please check GPS permissions and try again.');
+        setLocationStatus('Detection failed. Please check GPS permissions or use manual entry.');
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
@@ -159,7 +171,7 @@ export default function CheckMyPropertyPage() {
                   Auto-detect your GPS • Get land history • AI document analysis • <span className="text-slate-900 font-bold border-b-2 border-[#00C853]/30">Zero Litigation Check</span>
                 </p>
 
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-6">
                   <div className="relative group max-w-md">
                     <button 
                       onClick={handleAutoDetect}
@@ -169,7 +181,7 @@ export default function CheckMyPropertyPage() {
                       {isAutoDetecting ? (
                         <span className="flex items-center gap-3">
                            <span className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin"></span>
-                           Detecting Location...
+                           Locking Satellites...
                         </span>
                       ) : (
                         <>📍 Auto-Detect My Location & Coordinates</>
@@ -177,38 +189,63 @@ export default function CheckMyPropertyPage() {
                     </button>
                     
                     {locationStatus && (
-                      <div className={`mt-4 p-4 rounded-xl text-sm font-bold flex items-center gap-3 animate-in slide-in-from-top-2 border ${coordinates ? 'bg-[#00C853]/10 text-[#00C853] border-[#00C853]/20' : 'bg-slate-50 text-slate-500 border-slate-200'}`}>
-                        {coordinates ? '🎯' : '📡'} {locationStatus}
+                      <div className={`mt-4 p-4 rounded-xl text-xs font-bold flex items-center gap-3 animate-in slide-in-from-top-2 border ${coordinates && !accuracyWarning ? 'bg-[#00C853]/10 text-[#00C853] border-[#00C853]/20' : accuracyWarning ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-slate-50 text-slate-500 border-slate-200'}`}>
+                        {coordinates && !accuracyWarning ? '🎯' : accuracyWarning ? '⚠️' : '📡'} {locationStatus}
                       </div>
+                    )}
+
+                    {!coordinates && !isAutoDetecting && (
+                       <button 
+                         onClick={() => {
+                           document.getElementById('audit-engine')?.scrollIntoView({ behavior: 'smooth' });
+                           setInputType('title');
+                         }}
+                         className="w-full mt-4 bg-slate-900 text-white py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg"
+                       >
+                         Enter Manually (Title / Address)
+                       </button>
                     )}
                   </div>
 
                   {/* Smart Location Output & Map */}
                   {coordinates && locationMeta && (
-                    <div className="animate-in fade-in slide-in-from-top-8 duration-1000 space-y-6">
-                       <div className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-8 shadow-sm">
-                          <div className="space-y-4">
+                    <div className="animate-in fade-in slide-in-from-top-8 duration-1000 space-y-6 max-w-2xl">
+                       <div className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-8 shadow-sm relative overflow-hidden">
+                          <div className="space-y-5 relative z-10">
                              <div>
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Detected Coordinates</p>
+                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+                                   Coordinates 
+                                   {accuracyRadius && <span className="bg-white px-2 py-0.5 rounded-full border border-slate-200 text-slate-500 text-[8px]">Accurate to ±{accuracyRadius}m</span>}
+                                </p>
                                 <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{coordinates.lat}, {coordinates.lng}</p>
                              </div>
                              <div>
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Readable Address</p>
+                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Human-Readable Reference</p>
                                 <p className="text-xl font-bold text-slate-800">{locationMeta.address}</p>
                              </div>
-                             <div className="flex gap-8">
+                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Digital Address</p>
-                                   <p className="text-sm font-black bg-white border border-slate-200 px-3 py-1.5 rounded-lg text-slate-900 shadow-sm">{locationMeta.ghanaPost}</p>
+                                   <p className="text-xs font-black bg-white border border-slate-200 px-3 py-1.5 rounded-lg text-slate-900 shadow-sm">{locationMeta.ghanaPost}</p>
                                 </div>
                                 <div>
-                                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Landmarks</p>
-                                   <p className="text-sm font-bold text-slate-600">⛰️ {locationMeta.landmarks}</p>
+                                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Status</p>
+                                   <p className="text-xs font-black text-[#00C853] uppercase tracking-widest flex items-center gap-1.5">
+                                      <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full"></span> 
+                                      {locationMeta.signalStrength}
+                                   </p>
                                 </div>
+                             </div>
+                             <div>
+                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Nearby Landmarks</p>
+                                <p className="text-xs font-medium text-slate-500 leading-relaxed italic">{locationMeta.landmarks}</p>
                              </div>
                           </div>
 
-                          <div className="w-full h-48 md:h-full min-h-[180px] bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-inner group">
+                          <div className="w-full h-48 md:h-full min-h-[220px] bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-inner group relative">
+                             <div className="absolute inset-x-0 top-0 h-1 bg-[#00C853]/20 z-20 overflow-hidden">
+                                <div className="h-full bg-[#00C853] w-1/3 animate-[slide_2s_infinite_linear]"></div>
+                             </div>
                              <iframe 
                                 width="100%" 
                                 height="100%" 
@@ -216,19 +253,33 @@ export default function CheckMyPropertyPage() {
                                 scrolling="no" 
                                 marginHeight="0" 
                                 marginWidth="0" 
-                                src={`https://maps.google.com/maps?q=${coordinates.lat},${coordinates.lng}&z=15&output=embed`}
-                                className="opacity-90 group-hover:opacity-100 transition-opacity"
+                                src={`https://maps.google.com/maps?q=${coordinates.lat},${coordinates.lng}&z=16&output=embed`}
+                                className="opacity-90 group-hover:opacity-100 transition-opacity grayscale-[20%] group-hover:grayscale-0 duration-500"
                              ></iframe>
+                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow-xl pointer-events-none z-30 pulse-red"></div>
                           </div>
                        </div>
-                       <div className="flex items-center gap-3 text-sm font-black text-[#00C853] animate-pulse">
-                          <span>🔍 Syntry Oracle is cross-referencing your GPS with Stool Land boundaries...</span>
-                       </div>
+                       
+                       {accuracyWarning && (
+                          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-center gap-4">
+                             <span className="text-2xl">⚠️</span>
+                             <div>
+                                <p className="text-amber-800 font-bold text-sm">Signal Integrity Warning</p>
+                                <p className="text-amber-700 text-xs font-medium">GPS accuracy is above the statutory threshold (>500m). For legal verification, please use manual coordinate entry.</p>
+                             </div>
+                          </div>
+                       )}
+
+                       {!accuracyWarning && (
+                          <div className="flex items-center gap-3 text-sm font-black text-[#00C853] animate-pulse">
+                             <span>🔍 Syntry Oracle is performing a real-time spatial cross-reference...</span>
+                          </div>
+                       )}
                     </div>
                   )}
 
                   <p className="text-[12px] font-bold text-slate-400 uppercase tracking-[2px] flex items-center justify-center lg:justify-start gap-2">
-                    <span className="text-lg">⏱️</span> Takes &lt;60 seconds • Results sent to WhatsApp
+                    <span className="text-lg">⏱️</span> Professional audit takes &lt;60 seconds
                   </p>
                 </div>
               </div>
@@ -255,8 +306,8 @@ export default function CheckMyPropertyPage() {
                   </div>
                 </div>
                 <div className="absolute -top-6 -right-6 bg-white border border-slate-100 p-4 rounded-2xl shadow-xl animate-bounce">
-                   <p className="text-[8px] font-black text-[#00C853] uppercase tracking-widest mb-1 font-mono">Sat Link Active</p>
-                   <p className="text-xs font-bold text-slate-900">GA-LOC: {coordinates ? coordinates.lat.slice(-3) : '301.2'}</p>
+                   <p className="text-[8px] font-black text-[#00C853] uppercase tracking-widest mb-1 font-mono text-xs italic">Sat Link 001</p>
+                   <p className="text-xs font-black text-slate-900 uppercase">Indexing Area...</p>
                 </div>
               </div>
             </section>
@@ -316,7 +367,7 @@ export default function CheckMyPropertyPage() {
 
                   {(isAnalyzing || aiFeedback) && (
                     <div className="animate-in fade-in slide-in-from-top-6 duration-700 bg-slate-900 text-white rounded-[2rem] p-8">
-                      <div className="flex items-center gap-4 mb-6">
+                       <div className="flex items-center gap-4 mb-6">
                         {isAnalyzing ? (
                           <div className="flex items-center gap-3 text-[#00C853]">
                             <span className="w-4 h-4 border-2 border-[#00C853]/30 border-t-[#00C853] rounded-full animate-spin"></span>
@@ -503,6 +554,22 @@ export default function CheckMyPropertyPage() {
               </div>
            </button>
         </div>
+
+        <style jsx global>{`
+           @keyframes slide {
+              from { transform: translateX(-100%); }
+              to { transform: translateX(300%); }
+           }
+           .pulse-red {
+              box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+              animation: pulse-red 2s infinite;
+           }
+           @keyframes pulse-red {
+              0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(239, 44, 44, 0.7); }
+              70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 10px rgba(239, 44, 44, 0); }
+              100% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(239, 44, 44, 0); }
+           }
+        `}</style>
       </div>
     </Suspense>
   );
