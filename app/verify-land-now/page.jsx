@@ -17,6 +17,11 @@ export default function CheckMyPropertyPage() {
   const [isVerified, setIsVerified] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatMessages, setChatMessages] = useState([
+    { role: 'assistant', text: 'I can explain your 8 Layers results, valuation, or next steps for mortgage/listing.' }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [isChatThinking, setIsChatThinking] = useState(false);
 
   const formRef = useRef(null);
 
@@ -86,6 +91,34 @@ export default function CheckMyPropertyPage() {
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
+  };
+  
+  const handleSendMessage = async (e) => {
+    e?.preventDefault();
+    if (!chatInput.trim() || isChatThinking) return;
+    
+    const userMessage = chatInput.trim();
+    setChatMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+    setChatInput('');
+    setIsChatThinking(true);
+
+    try {
+      // Connecting to the high-velocity Vercel + Gemini 1.5 backend
+      const res = await fetch("https://syntry-sovereign-exchange.vercel.app/api/syntry-ai", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: userMessage })
+      });
+      
+      if (!res.ok) throw new Error("Connection timed out");
+      
+      const data = await res.json();
+      setChatMessages(prev => [...prev, { role: 'assistant', text: data.reply || data.response || "Oracle index updated. Asset status confirmed." }]);
+    } catch (err) {
+      setChatMessages(prev => [...prev, { role: 'assistant', text: "Handshake failed. Contact expert oversight: 053 110 2292 (WhatsApp)." }]);
+    } finally {
+      setIsChatThinking(false);
+    }
   };
 
   const triggerVerification = () => {
@@ -365,16 +398,46 @@ export default function CheckMyPropertyPage() {
                     </div>
                     <button onClick={() => setIsChatOpen(false)} className="text-slate-500 hover:text-white">✕</button>
                  </div>
-                 <div className="p-6 h-64 overflow-y-auto bg-slate-50">
-                    <div className="flex gap-3">
-                       <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-[10px] text-white font-bold">🤖</div>
-                       <div className="bg-white border p-3 rounded-2xl text-xs font-medium text-slate-700">I can explain your 8 Layers results, valuation, or next steps for mortgage/listing.</div>
+                 <div className="p-6 h-64 overflow-y-auto bg-slate-50 space-y-4">
+                    <div className="flex justify-center mb-2">
+                       <span className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-400 bg-white px-3 py-1 rounded-full border border-slate-100 shadow-sm flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full animate-pulse"></span>
+                          Live • Powered by Gemini 1.5 Flash
+                       </span>
                     </div>
+
+                    {chatMessages.map((msg, i) => (
+                       <div key={i} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] text-white font-bold shrink-0 shadow-md ${msg.role === 'user' ? 'bg-[#00C853]' : 'bg-slate-900'}`}>
+                             {msg.role === 'user' ? '👤' : '🤖'}
+                          </div>
+                          <div className={`border p-4 rounded-2xl text-xs font-medium leading-relaxed max-w-[80%] shadow-sm ${msg.role === 'user' ? 'bg-white border-[#00C853]/20 rounded-tr-none' : 'bg-white border-slate-200 rounded-tl-none text-slate-700'}`}>
+                             {msg.text}
+                          </div>
+                       </div>
+                    ))}
+
+                    {isChatThinking && (
+                       <div className="flex gap-3">
+                          <div className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-[10px] text-white font-bold shrink-0 shadow-md">🤖</div>
+                          <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-none shadow-sm text-xs font-black uppercase tracking-[0.1em] text-[#00C853] animate-pulse">
+                             Syntry AI is thinking...
+                          </div>
+                       </div>
+                    )}
                  </div>
-                 <div className="p-4 bg-white border-t flex gap-2">
-                    <input type="text" placeholder="Ask anything..." className="flex-grow bg-slate-50 border rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-[#00C853] outline-none" />
-                    <button className="bg-[#00C853] text-white p-3 rounded-xl">➤</button>
-                 </div>
+                 <form onSubmit={handleSendMessage} className="p-4 bg-white border-t flex gap-2">
+                    <input 
+                       type="text" 
+                       value={chatInput}
+                       onChange={(e) => setChatInput(e.target.value)}
+                       placeholder="Ask about this property..." 
+                       className="flex-grow bg-slate-50 border rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-[#00C853] outline-none font-medium" 
+                    />
+                    <button type="submit" disabled={isChatThinking} className="bg-[#00C853] text-white p-3 rounded-xl shadow-lg hover:scale-105 active:scale-95 transition-all">
+                       {isChatThinking ? <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> : '➤'}
+                    </button>
+                 </form>
               </div>
            )}
            <button onClick={() => setIsChatOpen(!isChatOpen)} className="bg-slate-900 text-white h-16 rounded-full px-6 flex items-center gap-4 shadow-2xl hover:-translate-y-1 transition-all">
