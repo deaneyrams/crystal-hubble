@@ -38,8 +38,8 @@ fi
 
 # 4. Process Management
 echo "🚀 Starting application with PM2 on port 3001..."
-# We use 'next start -p 3001' to ensure it runs on the specific institutional port
-pm2 start npm --name "syntry-engine" -- start -- -p 3001
+# We use 'node .next/standalone/server.js' for standalone output compatibility
+PORT=3001 pm2 start "node .next/standalone/server.js" --name "syntry-engine"
 
 # 5. Network Handshake
 echo "🤝 Performing Network Handshake (Cloudflared)..."
