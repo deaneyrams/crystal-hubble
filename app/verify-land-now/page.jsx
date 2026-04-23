@@ -103,19 +103,18 @@ export default function CheckMyPropertyPage() {
     setIsChatThinking(true);
 
     try {
-      // Connecting to the high-velocity production Vercel + Gemini 1.5 backend
       const res = await fetch("https://syntry-ai-backend-ovdel11oi-deaneyrams-5131s-projects.vercel.app/api/syntry-ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: userMessage })
       });
       
-      if (!res.ok) throw new Error("Connection timed out");
+      if (!res.ok) throw new Error("API_ERROR");
       
       const data = await res.json();
       setChatMessages(prev => [...prev, { role: 'assistant', text: data.reply || data.response || "Oracle index updated. Asset status confirmed." }]);
     } catch (err) {
-      setChatMessages(prev => [...prev, { role: 'assistant', text: "Handshake failed. Contact expert oversight: 053 110 2292 (WhatsApp)." }]);
+      setChatMessages(prev => [...prev, { role: 'assistant', text: "Sorry, connection issue. Please try again or WhatsApp 053 110 2292" }]);
     } finally {
       setIsChatThinking(false);
     }
