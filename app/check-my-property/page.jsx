@@ -16,6 +16,7 @@ export default function CheckMyPropertyPage() {
   const [aiFeedback, setAiFeedback] = useState(null);
   const [isVerified, setIsVerified] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const formRef = useRef(null);
 
@@ -447,6 +448,86 @@ export default function CheckMyPropertyPage() {
 
           </div>
         </main>
+
+        {/* FINAL CLOSING SECTION: CONVERSION OPTIMIZED */}
+        <section className="py-24 border-t border-slate-100 bg-slate-50/30">
+           <div className="max-w-4xl mx-auto px-4 text-center">
+              <div className="w-20 h-20 bg-[#00C853]/10 text-[#00C853] rounded-3xl flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm border border-[#00C853]/20">🚀</div>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">Your Next Strategic Move</h2>
+              <p className="text-lg md:text-xl text-slate-500 font-medium mb-12 leading-relaxed">
+                 Whether you are securing a mortgage, liquidating assets, or protecting generational wealth, Syntry provides the immediate infrastructure to execute.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                 <button className="w-full sm:w-auto bg-[#00C853] text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#00a846] transition-all shadow-[0_15px_30px_-5px_rgba(0,200,83,0.3)] hover:-translate-y-1">
+                    Get Full Report
+                 </button>
+                 <button className="w-full sm:w-auto bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl hover:-translate-y-1">
+                    Proceed to Marketplace
+                 </button>
+              </div>
+
+              <div className="mt-12 pt-12 border-t border-slate-100">
+                 <p className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-3">
+                    Need Expert Help? 
+                    <a href="https://wa.me/233531102292" className="text-[#00C853] hover:underline flex items-center gap-2">
+                       <span className="text-lg">💬</span> Talk to a Verification Expert: 053 110 2292
+                    </a>
+                 </p>
+              </div>
+           </div>
+        </section>
+
+        {/* FLOATING SMART AI ASSISTANT */}
+        <div className="fixed bottom-8 right-8 z-[1000] flex flex-col items-end">
+           {isChatOpen && (
+              <div className="bg-white w-[350px] md:w-[420px] rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.2)] border border-slate-200 mb-6 overflow-hidden animate-in slide-in-from-bottom-6 duration-300 origin-bottom-right">
+                 <div className="bg-slate-900 text-white p-6 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#00C853]/10 blur-3xl -mr-10 -mt-10"></div>
+                    <div className="flex items-center gap-4 relative z-10">
+                       <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-2xl border border-white/10 backdrop-blur-sm">🤖</div>
+                       <div>
+                          <p className="font-black text-sm tracking-wide text-white">Syntry AI Assistant</p>
+                          <p className="text-[10px] text-[#00C853] uppercase font-black tracking-widest">Sovereign Oracle Active</p>
+                       </div>
+                       <button onClick={() => setIsChatOpen(false)} className="ml-auto text-slate-400 hover:text-white transition-colors">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                       </button>
+                    </div>
+                 </div>
+                 
+                 <div className="p-6 h-80 overflow-y-auto bg-slate-50 space-y-4">
+                    <div className="flex items-start gap-3">
+                       <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-[10px] flex-shrink-0 shadow-lg text-white font-bold">🤖</div>
+                       <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-none shadow-sm text-sm font-medium text-slate-700 leading-relaxed">
+                          I can explain your 8 Layers results, valuation, or next steps for mortgage/listing. How can I assist you today?
+                       </div>
+                    </div>
+                 </div>
+                 
+                 <div className="p-4 bg-white border-t border-slate-100 flex gap-2">
+                    <input type="text" placeholder="Ask about this property..." className="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#00C853] transition-all" />
+                    <button className="bg-[#00C853] text-white p-3 rounded-xl hover:bg-[#00a846] transition-all shadow-lg flex items-center justify-center">
+                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                 </div>
+              </div>
+           )}
+
+           <button 
+              onClick={() => setIsChatOpen(!isChatOpen)}
+              className="group bg-slate-900 text-white h-16 rounded-full px-6 flex items-center gap-4 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all border border-slate-800"
+           >
+              <div className="relative">
+                 <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xl border border-white/10 group-hover:scale-110 transition-transform">🤖</div>
+                 {!isChatOpen && <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#00C853] rounded-full border-2 border-slate-900 animate-pulse"></span>}
+              </div>
+              <div className="flex flex-col items-start leading-tight">
+                 <span className="text-[9px] uppercase font-black tracking-widest text-[#00C853]">Ask Syntry AI</span>
+                 <span className="text-xs font-bold">About this property</span>
+              </div>
+           </button>
+        </div>
 
         <GlobalFooter />
       </div>
