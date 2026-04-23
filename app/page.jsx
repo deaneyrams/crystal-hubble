@@ -32,7 +32,7 @@ export default function Home() {
               Ghana’s modern property exchange. Pass your land through the 8 Layers of Grounded Truth and unlock its true value.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-center lg:justify-start">
-               <a href="/check-my-property" className="w-full sm:w-auto bg-[#D4AF37] text-[#003300] px-16 py-6 rounded-2xl font-bold text-2xl hover:scale-105 transition-all shadow-2xl shadow-[#D4AF37]/30 text-center">
+               <a href="/verify-land-now" className="w-full sm:w-auto bg-[#D4AF37] text-[#003300] px-16 py-6 rounded-2xl font-bold text-2xl hover:scale-105 transition-all shadow-2xl shadow-[#D4AF37]/30 text-center">
                  Verify Land Now – Free
                </a>
                <a href="/marketplace" className="w-full sm:w-auto bg-[#00BFFF] text-white px-10 py-6 rounded-2xl font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all text-center">
@@ -105,7 +105,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <h2 className="text-4xl md:text-7xl font-bold mb-10 italic tracking-tighter leading-none">The Future of <br /> Property in Ghana.</h2>
               <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
-                 <a href="/check-my-property" className="w-full md:w-auto bg-[#D4AF37] text-[#003300] px-16 py-8 rounded-[2.5rem] font-bold text-2xl hover:scale-105 transition-all shadow-2xl">
+                 <a href="/verify-land-now" className="w-full md:w-auto bg-[#D4AF37] text-[#003300] px-16 py-8 rounded-[2.5rem] font-bold text-2xl hover:scale-105 transition-all shadow-2xl">
                     Verify Land Now – Free
                  </a>
                  <a href="https://wa.me/233531102292" className="text-[10px] font-bold uppercase tracking-[4px] border-b-2 border-white/20 pb-2 hover:border-[#D4AF37] transition-all">Chat with Advisor</a>

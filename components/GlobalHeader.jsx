@@ -84,7 +84,7 @@ export default function GlobalHeader() {
             <a href="/login" className="hidden lg:block text-[#F8F1E3]/60 font-bold text-[10px] uppercase tracking-widest hover:text-[#D4AF37] transition-all">
               Login
             </a>
-            <a href="/check-my-property" className="hidden md:block bg-[#D4AF37] text-[#003300] px-8 py-3.5 rounded-2xl font-bold text-[10px] uppercase tracking-[2px] hover:scale-105 transition-all shadow-xl shadow-[#D4AF37]/20">
+            <a href="/verify-land-now" className="hidden md:block bg-[#D4AF37] text-[#003300] px-8 py-3.5 rounded-2xl font-bold text-[10px] uppercase tracking-[2px] hover:scale-105 transition-all shadow-xl shadow-[#D4AF37]/20">
               Verify Land Now – Free
             </a>
             
@@ -122,7 +122,7 @@ export default function GlobalHeader() {
                   {link.label}
                 </a>
               ))}
-              <a href="/check-my-property" className="mt-8 bg-[#D4AF37] text-[#003300] px-10 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest">
+              <a href="/verify-land-now" className="mt-8 bg-[#D4AF37] text-[#003300] px-10 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest">
                 Verify Land Now – Free
               </a>
             </nav>
