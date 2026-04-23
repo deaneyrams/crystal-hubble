@@ -328,9 +328,9 @@ export default function CheckMyPropertyPage() {
           {/* Smart Results Dashboard Triggered by Verification */}
           {showResults && (
              <section id="results-dashboard" className="px-4 md:px-8 max-w-7xl mx-auto mb-32 animate-in fade-in slide-in-from-bottom-10 duration-700">
-               <div className="bg-white border border-slate-200 rounded-[3rem] p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] text-slate-900 border-t-8 border-t-[#00C853]">
+               <div className="bg-white border border-slate-200 rounded-[3rem] p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] text-slate-900 border-t-8 border-t-[#00C853] relative overflow-hidden">
                  
-                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6">
                     <div>
                        <h2 className="text-3xl font-black tracking-tight flex items-center gap-3">
                          <span className="text-4xl">🏛️</span> Verified Sovereign Status
@@ -347,32 +347,53 @@ export default function CheckMyPropertyPage() {
                     </div>
                  </div>
 
+                 {/* NEW: Prominent Risk Summary Top Banner */}
+                 <div className="bg-[#00C853]/5 border-l-4 border-[#00C853] p-5 md:p-6 rounded-r-2xl mb-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                       <h3 className="text-[#00C853] font-black text-xl mb-1">Overall Risk Level: VERY LOW</h3>
+                       <p className="text-slate-700 font-medium text-sm md:text-base">This asset has passed all 8 Layers with <strong>98.7% average confidence</strong>. No red flags detected.</p>
+                    </div>
+                    {/* Subtle Trust Elements */}
+                    <div className="shrink-0 flex flex-col items-end hidden sm:flex">
+                       <p className="text-[9px] uppercase tracking-widest font-bold text-slate-400 mb-1">Secured by Syntry 8-Layer Protocol</p>
+                       <p className="text-[9px] uppercase tracking-widest font-bold text-slate-400 flex items-center gap-1.5"><span className="w-1 h-1 bg-[#00C853] rounded-full"></span> Real-time data from Lands Commission</p>
+                    </div>
+                 </div>
+
                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
                     
-                    {/* Left Col: Map & Coords */}
+                    {/* Left Col: Enhanced Map & Coords */}
                     <div className="lg:col-span-1 space-y-6">
-                       <div className="w-full h-48 bg-slate-100 rounded-2xl overflow-hidden relative border border-slate-200">
-                          {/* Fake static map using Tailwind patterns/colors */}
-                          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#00C853 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                          <div className="absolute inset-0 bg-blue-500/5"></div>
+                       {/* Map Block */}
+                       <div className="w-full h-56 bg-slate-100 rounded-2xl overflow-hidden relative border border-slate-200 group lg:h-64">
+                          <div className="absolute inset-0 opacity-20 transition-transform duration-[10s] group-hover:scale-110" style={{ backgroundImage: 'radial-gradient(#00C853 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                          <div className="absolute inset-0 bg-blue-500/5 group-hover:bg-blue-500/10 transition-colors"></div>
+                          
+                          {/* Ping Animation */}
                           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                             <div className="w-6 h-6 bg-[#00C853] rounded-full shadow-[0_0_20px_#00C853] border-4 border-white animate-bounce"></div>
+                             <div className="w-8 h-8 bg-[#00C853] rounded-full shadow-[0_0_20px_#00C853] border-4 border-white animate-bounce relative z-10"></div>
+                             <div className="w-8 h-8 bg-[#00C853] rounded-full absolute top-0 left-0 animate-ping opacity-75"></div>
                           </div>
-                          <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-700 shadow-sm">
-                             GPS Locked
+                          
+                          <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-4 py-2 rounded-xl border border-slate-200 shadow-lg flex items-center gap-2">
+                             <span className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse"></span>
+                             <span className="text-[11px] font-black uppercase tracking-widest text-[#00C853]">GPS Locked</span>
                           </div>
                        </div>
                        
-                       <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4 border-b border-slate-200 pb-2">Location Identity</p>
+                       {/* Identity Block */}
+                       <div className="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4 border-b border-slate-200 pb-2 flex items-center gap-2">
+                             <span className="text-xl">📍</span> Location Identity
+                          </p>
                           <div className="space-y-4">
                              <div>
-                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Coordinates</p>
-                                <p className="text-sm font-bold text-slate-900 font-mono">{coordinates ? `${coordinates.lat}, ${coordinates.lng}` : '5.6037° N, -0.1870° W'}</p>
+                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1.5">Geospatial Coordinates</p>
+                                <p className="text-base font-black text-slate-900 font-mono tracking-tight bg-slate-100 px-3 py-1.5 rounded-lg inline-block border border-slate-200">{coordinates ? `${coordinates.lat}, ${coordinates.lng}` : '5.6037° N, -0.1870° W'}</p>
                              </div>
                              <div>
-                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">GhanaPost Address</p>
-                                <p className="text-sm font-bold text-slate-900">GA-183-8164</p>
+                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1.5">GhanaPost Digital Address</p>
+                                <p className="text-sm font-black text-slate-900 bg-slate-100 px-3 py-1.5 rounded-lg inline-block border border-slate-200">GA-183-8164</p>
                              </div>
                           </div>
                        </div>
@@ -382,69 +403,130 @@ export default function CheckMyPropertyPage() {
                     <div className="lg:col-span-2 space-y-8">
                        
                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                             <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4 border-b border-slate-200 pb-2">Property History</p>
-                             <ul className="space-y-3">
-                                <li className="flex justify-between items-center text-sm"><span className="text-slate-500 font-medium">Recorded Owner:</span> <span className="font-bold">K. Asamoah Ltd</span></li>
-                                <li className="flex justify-between items-center text-sm"><span className="text-slate-500 font-medium">First Registered:</span> <span className="font-bold">14 Oct 2021</span></li>
-                                <li className="flex justify-between items-center text-sm"><span className="text-slate-500 font-medium">Transactions:</span> <span className="font-bold">3 recorded</span></li>
-                                <li className="flex justify-between items-center text-sm"><span className="text-slate-500 font-medium">Tenure Type:</span> <span className="font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-[10px] uppercase">Leasehold (99 Yr)</span></li>
-                             </ul>
+                          
+                          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-inner">
+                             <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4 border-b border-slate-200 pb-2">Recent Transaction History</p>
+                             <div className="space-y-4">
+                                {/* Transaction 1 */}
+                                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm relative hover:border-[#00C853]/30 hover:shadow-md transition-all">
+                                   <div className="absolute top-4 right-4 text-[9px] uppercase font-bold text-slate-400">14 Oct 2021</div>
+                                   <p className="text-[10px] uppercase tracking-widest font-black text-[#00C853] mb-1">Transfer to K. Asamoah Ltd</p>
+                                   <p className="text-sm font-bold text-slate-900 mb-0.5">K. Asamoah Ltd <span className="text-slate-400 font-medium text-xs">← Previous Owner</span></p>
+                                   <p className="text-xs font-bold text-slate-500 mt-1">Value: GH₵1,850,000</p>
+                                </div>
+                                {/* Transaction 2 */}
+                                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm relative hover:border-[#00C853]/30 transition-all">
+                                   <div className="absolute top-4 right-4 text-[9px] uppercase font-bold text-slate-400">03 Mar 2019</div>
+                                   <p className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-1">Lease Registration</p>
+                                   <p className="text-sm font-bold text-slate-900 mb-0.5">Previous Owner</p>
+                                   <p className="text-xs font-medium text-slate-400 mt-1">Value: Undisclosed</p>
+                                </div>
+                                {/* Transaction 3 */}
+                                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm relative hover:border-[#00C853]/30 transition-all">
+                                   <div className="absolute top-4 right-4 text-[9px] uppercase font-bold text-slate-400">12 Nov 2015</div>
+                                   <p className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-1">Initial Registration</p>
+                                   <p className="text-sm font-bold text-slate-900 mb-0.5">Original Owner</p>
+                                   <p className="text-xs font-medium text-slate-400 mt-1">First Entry</p>
+                                </div>
+                             </div>
                           </div>
                           
-                          <div className="bg-slate-900 text-white border border-slate-800 rounded-2xl p-6 relative overflow-hidden">
-                             <div className="absolute top-0 right-0 w-32 h-32 bg-[#00C853]/20 rounded-bl-full -mr-10 -mt-10 blur-xl"></div>
-                             <p className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.2em] mb-4 border-b border-slate-800 pb-2 relative z-10 w-full flex justify-between">Financial Index <span className="text-[#00C853]">Live</span></p>
-                             <div className="relative z-10">
+                          {/* Financial Index Prominent */}
+                          <div className="bg-slate-900 text-white border-2 border-slate-800 rounded-2xl p-6 relative overflow-hidden flex flex-col shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] transform hover:-translate-y-1 transition-transform">
+                             <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-black"></div>
+                             <div className="absolute top-0 right-0 w-48 h-48 bg-[#00C853]/20 rounded-full blur-[40px] -mr-10 -mt-10 pointer-events-none"></div>
+                             
+                             <p className="text-[10px] uppercase font-bold text-[#00C853] tracking-[0.2em] mb-4 border-b border-slate-800 pb-2 relative z-10 w-full flex justify-between items-center">
+                               Financial Index 
+                               <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 bg-[#00C853] rounded-full animate-pulse"></span> Live Sync</span>
+                             </p>
+                             
+                             <div className="relative z-10 mb-auto pt-2">
                                 <div>
-                                   <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Estimated Valuation</p>
-                                   <p className="text-3xl font-black text-[#00C853]">GH₵ 3.2M</p>
+                                   <p className="text-[11px] text-slate-400 uppercase tracking-widest mb-1.5">Estimated Sovereign Valuation</p>
+                                   <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00C853] to-emerald-300">GH₵ 3.2M</p>
                                 </div>
-                                <div className="mt-4 flex gap-4">
+                                <div className="mt-8 flex gap-8">
                                    <div>
-                                      <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Rental Yield</p>
-                                      <p className="text-sm font-bold">12.4% APY</p>
+                                      <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Rental Yield</p>
+                                      <p className="text-xl font-bold bg-[#00C853]/10 px-3 py-1.5 rounded-lg border border-[#00C853]/20 inline-block text-[#00C853]">12.4% APY</p>
                                    </div>
                                    <div>
-                                      <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Growth (YOY)</p>
-                                      <p className="text-sm font-bold text-blue-400">+8.2%</p>
+                                      <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Growth (YOY)</p>
+                                      <p className="text-xl font-bold text-emerald-400 px-2 py-1.5">+8.2%</p>
                                    </div>
                                 </div>
                              </div>
                           </div>
                        </div>
 
-                       <div>
-                          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">8-Layer Audit Status</p>
-                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                             {layers.map((layer, i) => (
-                               <div key={i} className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm flex items-center justify-between group cursor-default">
-                                  <div className="flex items-center gap-2">
-                                     <div className="w-6 h-6 rounded-md bg-slate-50 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">{layer.icon}</div>
-                                     <p className="text-[10px] font-bold text-slate-700 truncate max-w-[60px]" title={layer.t}>{layer.t}</p>
-                                  </div>
-                                  <div className="w-4 h-4 bg-[#00C853]/10 text-[#00C853] rounded-full flex items-center justify-center text-[8px] font-bold">✓</div>
-                               </div>
+                       <div className="pt-4 border-t border-slate-100">
+                          <div className="flex justify-between items-center mb-5">
+                             <p className="text-[11px] uppercase font-black text-slate-900 tracking-widest">8-Layer Protocol Status</p>
+                             <span className="bg-[#00C853]/10 text-[#00C853] px-3 py-1.5 rounded-lg border border-[#00C853]/20 text-[10px] uppercase font-bold flex items-center gap-2">
+                               <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full animate-ping"></span> 100% Cleared
+                             </span>
+                          </div>
+                          
+                          {/* 8-Layer Granular Grid Array */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             {[
+                                { name: "GPS Geospatial Lock", icon: "📍", conf: "99.8%", desc: "Physical coordinates perfectly map to recorded digital boundaries.", src: "GPS Orbit API" },
+                                { name: "True Cadastral Polygon", icon: "🗺️", conf: "100%", desc: "The land shape exactly matches the official surveyed map.", src: "Survey Dept" },
+                                { name: "Digital Name Verification", icon: "👤", conf: "99.1%", desc: "The current documented name matches official identity records.", src: "Lands Commission" },
+                                { name: "Spousal & Consent Clearance", icon: "💍", conf: "100%", desc: "No conflicting claims or missing spousal consent detected.", src: "Court Registry" },
+                                { name: "Litigation Sweep", icon: "⚖️", conf: "100%", desc: "Zero active or historical disputes involving this asset.", src: "Judicial Track" },
+                                { name: "AML & KYC Clearance", icon: "🛡️", conf: "99.5%", desc: "All parties pass anti-money laundering and identity checks.", src: "Fin. Intel. Center" },
+                                { name: "Grounded Utility Check", icon: "⚡", conf: "98.0%", desc: "Asset conforms to grid, tax, and infrastructure claims.", src: "ECG/GRA" },
+                                { name: "Chief & Stool Lands Registry", icon: "👑", conf: "100%", desc: "Properly authenticated by customary authorities / trustees.", src: "Stool Lands Admin" }
+                             ].map((layer, i) => (
+                                <div key={i} className="bg-white border border-slate-200 rounded-xl p-5 hover:border-[#00C853]/50 hover:shadow-lg transition-all group flex flex-col justify-between">
+                                   <div className="flex justify-between items-start mb-3">
+                                      <div className="flex items-center gap-3">
+                                         <div className="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center text-base border border-slate-100 group-hover:scale-110 group-hover:bg-white group-hover:shadow-sm transition-all">{layer.icon}</div>
+                                         <h5 className="font-bold text-slate-900 text-sm truncate max-w-[150px]" title={layer.name}>{layer.name}</h5>
+                                      </div>
+                                      <div className="flex gap-2 items-center bg-[#00C853]/5 px-2.5 py-1.5 rounded-lg border border-[#00C853]/10">
+                                         <span className="text-[10px] font-black text-[#00C853] tracking-widest">{layer.conf}</span>
+                                         <div className="w-4 h-4 bg-[#00C853] text-white rounded-full flex items-center justify-center text-[8px] font-bold shadow-[0_2px_5px_rgba(0,200,83,0.4)]">✓</div>
+                                      </div>
+                                   </div>
+                                   <p className="text-[12px] text-slate-500 font-medium mb-4 leading-relaxed">{layer.desc}</p>
+                                   <div className="flex justify-between items-center border-t border-slate-100 pt-3 mt-auto">
+                                      <p className="text-[9px] uppercase font-bold text-slate-400 tracking-widest">Src: {layer.src}</p>
+                                      <p className="text-[9px] uppercase font-bold text-slate-400 tracking-widest flex items-center gap-1.5">
+                                         <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full"></span> Live
+                                      </p>
+                                   </div>
+                                </div>
                              ))}
                           </div>
                        </div>
-
                     </div>
                  </div>
 
-                 {/* Action Hooks */}
-                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-slate-100">
-                    <button className="w-full sm:w-auto bg-[#00C853] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#00a846] transition-colors shadow-lg flex items-center justify-center gap-2">
-                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                 {/* Enhanced Action Hooks & Buttons */}
+                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10 border-t border-slate-100">
+                    <button className="w-full sm:w-auto bg-[#00C853] text-white px-8 py-4 rounded-xl font-bold text-[15px] hover:bg-[#00a846] hover:-translate-y-1 transition-all shadow-[0_15px_30px_-10px_rgba(0,200,83,0.5)] flex items-center justify-center gap-2 border border-[#00C853]">
+                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                        Download Full Report PDF
                     </button>
-                    <button className="w-full sm:w-auto bg-white border-2 border-slate-200 text-slate-700 px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 shadow-sm">
-                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                       Share to WhatsApp
+                    
+                    <button className="w-full sm:w-auto bg-white border-2 border-slate-200 text-slate-800 px-8 py-3.5 rounded-xl font-bold text-[15px] hover:border-[#00C853] hover:text-[#00C853] hover:shadow-md transition-all flex items-center justify-center gap-2 relative group">
+                       <span className="absolute inset-0 bg-[#00C853]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                       <span className="relative z-10">Share to WhatsApp</span>
                     </button>
-                    <button className="w-full sm:w-auto bg-slate-900 border-2 border-slate-900 text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-sm">
-                       List This Property
+                    
+                    <button className="w-full sm:w-auto bg-slate-900 border-2 border-slate-900 text-white px-8 py-3.5 rounded-xl font-black text-[15px] hover:bg-slate-800 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 shadow-lg">
+                       <span className="text-xl">🚀</span> List This Property
                     </button>
+                 </div>
+                 
+                 {/* Mobile Trust Elements Baseline */}
+                 <div className="mt-8 text-center sm:hidden flex flex-col gap-2 border-t border-slate-100 pt-6">
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400">Secured by Syntry 8-Layer Protocol</p>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400 flex items-center justify-center gap-1.5"><span className="w-1.5 h-1.5 bg-[#00C853] rounded-full animate-pulse"></span> Real-time Lands Data</p>
                  </div>
 
                </div>

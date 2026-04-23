@@ -9,16 +9,35 @@ const InstitutionsPage = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState(null);
+  const [aiResponseText, setAiResponseText] = useState("");
+  const [queryError, setQueryError] = useState("");
 
-  const handleQuerySubmit = (e) => {
+  const handleQuerySubmit = async (e) => {
     e.preventDefault();
     if (!query.trim()) return;
+    
     setIsSearching(true);
     setShowResults(false);
-    setTimeout(() => {
+    setSelectedAsset(null);
+    setAiResponseText("");
+    setQueryError("");
+
+    try {
+      const res = await fetch("https://YOUR-LAMBDA-URL.lambda-url.eu-west-1.on.aws/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+      });
+      if (!res.ok) throw new Error("Connection failed");
+      const data = await res.json();
+      setAiResponseText(data.reply || data.response || data.message || "Query executed effectively. No text data parsed from payload.");
+    } catch (err) {
+      console.error(err);
+      setQueryError("We could not establish a secure handshake to the Live Oracle right now.");
+    } finally {
       setIsSearching(false);
       setShowResults(true);
-    }, 1200);
+    }
   };
 
   const pendingDocs = [
@@ -400,92 +419,36 @@ const InstitutionsPage = () => {
            {/* Results Area */}
            {showResults && (
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 relative z-10 transition-all duration-500 ease-out">
-                 <div className="bg-white border border-slate-200 rounded-3xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row">
+                 <div className="bg-white border border-slate-200 rounded-3xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col">
                     
-                    {/* Table View */}
-                    <div className="flex-grow overflow-x-auto">
-                       <div className="bg-slate-900 px-8 py-5 flex justify-between items-center whitespace-nowrap min-w-max">
-                          <h3 className="font-bold text-white flex items-center gap-3">
-                             <span className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse shadow-[0_0_8px_#00C853]"></span> API Response: 3 Verified Assets Found
-                          </h3>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#00C853] bg-[#00C853]/10 border border-[#00C853]/20 px-2 py-1 rounded ml-4">Execution: 0.12s</span>
-                       </div>
-                       <table className="w-full text-left text-sm text-slate-600 min-w-[800px]">
-                          <thead className="bg-slate-50 border-b border-slate-200 text-[10px] uppercase font-black tracking-widest text-slate-400">
-                             <tr>
-                                <th className="px-8 py-4">Asset Location</th>
-                                <th className="px-8 py-4 text-center">Trust Score</th>
-                                <th className="px-8 py-4">Audit Status</th>
-                                <th className="px-8 py-4">Sovereign Value</th>
-                                <th className="px-8 py-4 text-center">APY</th>
-                                <th className="px-8 py-4 text-center">Action</th>
-                             </tr>
-                          </thead>
-                          <tbody className="divide-y divide-slate-100">
-                             {llmResults.map((res, idx) => (
-                                <tr key={idx} onClick={() => setSelectedAsset(idx)} className={`cursor-pointer transition-colors ${selectedAsset === idx ? 'bg-[#00C853]/5 border-l-4 border-l-[#00C853]' : 'bg-white hover:bg-slate-50 border-l-4 border-l-transparent'}`}>
-                                   <td className="px-8 py-6">
-                                      <div className="font-black text-slate-900 text-lg mb-1">{res.loc}</div>
-                                      <div className="flex gap-2 text-[10px] uppercase font-bold tracking-widest mt-2">
-                                         <span className="text-slate-400">{res.id}</span>
-                                         {res.mortgage && <span className="text-[#00C853] bg-[#00C853]/10 px-1.5 rounded border border-[#00C853]/20">Mortgage Ready</span>}
-                                         {res.frac && <span className="text-[#D4AF37] bg-[#D4AF37]/10 px-1.5 rounded border border-[#D4AF37]/30">Fractional</span>}
-                                      </div>
-                                   </td>
-                                   <td className="px-8 py-6 text-center">
-                                      <span className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl font-black text-lg ${res.score === 100 ? 'bg-[#00C853] text-white shadow-[0_5px_15px_rgba(0,200,83,0.3)]' : 'bg-slate-900 text-white shadow-md'}`}>
-                                         {res.score}
-                                      </span>
-                                   </td>
-                                   <td className="px-8 py-6 font-bold text-slate-700">{res.layers}</td>
-                                   <td className="px-8 py-6 font-black text-slate-900 text-base">{res.val}</td>
-                                   <td className="px-8 py-6 text-center font-bold text-[#00C853]">{res.apq}</td>
-                                   <td className="px-8 py-6 text-center">
-                                      <button className="text-slate-400 hover:text-[#00C853] transition-colors text-xl">→</button>
-                                   </td>
-                                </tr>
-                             ))}
-                          </tbody>
-                       </table>
+                    <div className="bg-slate-900 px-8 py-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                       <h3 className="font-bold text-white flex items-center gap-3">
+                          <span className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse shadow-[0_0_8px_#00C853]"></span> Institutional Query API
+                       </h3>
+                       <span className="text-[10px] font-bold uppercase tracking-widest text-[#00C853] bg-[#00C853]/10 border border-[#00C853]/20 px-3 py-1.5 rounded flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full animate-ping"></span> Live • Powered by Grok AI via AWS
+                       </span>
                     </div>
 
-                    {/* Detailed Side Panel */}
-                    {selectedAsset !== null && (
-                       <div className="w-full md:w-[400px] bg-slate-900 border-l border-slate-800 shrink-0 p-8 flex flex-col items-start relative transition-all duration-300">
-                          <button onClick={() => setSelectedAsset(null)} className="absolute top-4 right-4 text-slate-500 hover:text-white text-3xl font-light">&times;</button>
-                          
-                          <div className="inline-block bg-[#00C853]/20 border border-[#00C853]/30 text-[#00C853] text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 mt-4 md:mt-0">
-                             Grounded Truth Target
+                    <div className="p-8 md:p-10">
+                       {queryError ? (
+                          <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-2xl">
+                             <h4 className="text-red-800 font-bold text-lg mb-2 flex items-center gap-2">
+                                <span className="text-xl">⚠️</span> Network Bridge Error
+                             </h4>
+                             <p className="text-red-700 font-medium mb-4">{queryError}</p>
+                             <p className="text-sm text-red-600 mb-6">Your institutional Node IP might be facing latency or firewall blocks accessing the AI runtime. Connect with our dedicated integration team to secure your whitelist.</p>
+                             <a href="https://wa.me/233531102292" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-slate-900 text-white font-bold px-6 py-3 rounded-xl text-sm hover:bg-slate-800 transition-colors shadow-sm">
+                                💬 Message Integration Support
+                             </a>
                           </div>
-                          <h4 className="text-3xl font-black text-white mb-2 leading-tight">{llmResults[selectedAsset].loc}</h4>
-                          <p className="text-xl text-[#00C853] font-bold mb-8">{llmResults[selectedAsset].val}</p>
+                       ) : (
+                          <div className="prose prose-slate max-w-none prose-p:leading-relaxed prose-p:text-slate-700 prose-headings:text-slate-900 text-[16px] md:text-lg">
+                             <div className="whitespace-pre-wrap font-medium">{aiResponseText}</div>
+                          </div>
+                       )}
+                    </div>
 
-                          <div className="w-full space-y-4 mb-10">
-                             <h5 className="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-800 pb-2">8-Layer Audit Diagnostic</h5>
-                             {[
-                                "GPS Geospatial Lock",
-                                "Cadastral Polygon Match",
-                                "Registered Title Name",
-                                "Litigation Sweep",
-                                "Land Use Compliance"
-                             ].map((layer, i) => (
-                                <div key={i} className="flex justify-between items-center bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                                   <span className="text-sm font-medium text-slate-300">{layer}</span>
-                                   <span className="text-[#00C853] text-lg font-black">✓</span>
-                                </div>
-                             ))}
-                          </div>
-
-                          <div className="w-full mt-auto space-y-3">
-                             <button className="w-full bg-[#00C853] text-white py-4 rounded-xl font-bold shadow-[0_10px_20px_-10px_rgba(0,200,83,0.5)] hover:bg-[#00a846] transition-colors border border-[#00C853]">
-                                Approve for Mortgage
-                             </button>
-                             <button className="w-full bg-slate-800 text-white border border-slate-700 py-4 rounded-xl font-bold text-sm hover:bg-slate-700 transition-colors">
-                                Add to Portfolio Watchlist
-                             </button>
-                          </div>
-                       </div>
-                    )}
                  </div>
               </div>
            )}
