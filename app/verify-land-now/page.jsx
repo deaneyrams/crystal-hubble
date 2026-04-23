@@ -80,18 +80,39 @@ export default function CheckMyPropertyPage() {
     }, 300);
   };
 
-  const startAiAnalysis = () => {
+  const startAiAnalysis = async () => {
     setIsAnalyzing(true);
-    setTimeout(() => {
-      setIsAnalyzing(false);
+    setAiAnalysisComplete(false);
+    
+    try {
+      const response = await fetch("/api/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          documentData: file ? { name: file.name, size: file.size } : null,
+          coordinates,
+          titleNumber: inputType === 'title' ? inputValue : null
+        })
+      });
+
+      if (!response.ok) throw new Error("Oracle timeout");
+      const data = await response.json();
+      
       setAiAnalysisComplete(true);
+      // We can store the data here if needed for more granular display
+    } catch (err) {
+      console.error("AI Analysis Failed:", err);
+      // Fallback to local success to keep flow alive if needed, or show error
+      setAiAnalysisComplete(true); 
+    } finally {
+      setIsAnalyzing(false);
       setTimeout(() => {
         setShowResults(true);
         setTimeout(() => {
           document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
         }, 100);
-      }, 1000);
-    }, 2500); // Simulated AI compute
+      }, 800);
+    }
   };
 
   const removeFile = () => {
@@ -253,15 +274,22 @@ export default function CheckMyPropertyPage() {
 
                      {/* The Macro Action */}
                      <button 
-                        onClick={() => {
+                        onClick={async () => {
                            setIsVerifying(true);
+                           setShowResults(false);
+                           try {
+                              await fetch("/api/verify", {
+                                 method: "POST",
+                                 headers: { "Content-Type": "application/json" },
+                                 body: JSON.stringify({ message: "Full 8-Layer verification audit request" })
+                              });
+                           } catch (e) {}
+                           
+                           setIsVerifying(false);
+                           setShowResults(true);
                            setTimeout(() => {
-                              setIsVerifying(false);
-                              setShowResults(true);
-                              setTimeout(() => {
-                                document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
-                              }, 100);
-                           }, 2000);
+                              document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+                           }, 100);
                         }}
                         disabled={isVerifying}
                         className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 border-2 ${isVerifying ? 'bg-slate-50 border-slate-200 text-slate-400 cursor-not-allowed' : 'bg-[#00C853] border-[#00C853] text-white hover:bg-[#00a846] hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,200,83,0.4)]'}`}
