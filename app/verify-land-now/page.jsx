@@ -1,9 +1,11 @@
 'use client';
-import { Suspense, useState, useRef, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import GlobalHeader from '../../components/GlobalHeader';
 import GlobalFooter from '../../components/GlobalFooter';
 
-export default function CheckMyPropertyPage() {
+export default function VerifyLandNowPage() {
+  const [hasMounted, setHasMounted] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
   const [locationStatus, setLocationStatus] = useState('');
   const [coordinates, setCoordinates] = useState(null);
@@ -28,6 +30,11 @@ export default function CheckMyPropertyPage() {
   const [locationMeta, setLocationMeta] = useState(null);
   const [accuracyRadius, setAccuracyRadius] = useState(null);
   const [accuracyWarning, setAccuracyWarning] = useState(false);
+
+  // Hydration Guard
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   const handleFileUpload = (e) => {
     const selectedFile = e.target.files?.[0];
@@ -60,7 +67,7 @@ export default function CheckMyPropertyPage() {
   };
 
   const handleAutoDetect = () => {
-    if (!navigator.geolocation) {
+    if (typeof window === 'undefined' || !navigator.geolocation) {
       setLocationStatus('Geolocation is not supported by your browser.');
       return;
     }
@@ -142,10 +149,23 @@ export default function CheckMyPropertyPage() {
       setIsVerifying(false);
       setShowResults(true);
       setTimeout(() => {
-        document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+        if (typeof document !== 'undefined') {
+          document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+        }
       }, 500);
     }, 2500);
   };
+
+  if (!hasMounted) {
+    return (
+      <div className="bg-white min-h-screen flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-[#00C853]/20 border-t-[#00C853] rounded-full animate-spin"></div>
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Loading Sovereign Core...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Suspense fallback={<div className="bg-white min-h-screen" />}>
@@ -163,12 +183,12 @@ export default function CheckMyPropertyPage() {
                 </div>
 
                 <h1 className="text-4xl md:text-6xl lg:text-[72px] font-black leading-[1.05] tracking-tight">
-                  Check My Property – <br />
-                  <span className="text-[#00C853]">Instant 8-Layer Verification</span>
+                  Verify Land Now – <br />
+                  <span className="text-[#00C853]">Instant 8-Layer Handshake</span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
-                  Auto-detect your GPS • Get land history • AI document analysis • <span className="text-slate-900 font-bold border-b-2 border-[#00C853]/30">Zero Litigation Check</span>
+                  Auto-detect GPS • Forensic History • AI Title Analysis • <span className="text-slate-900 font-bold border-b-2 border-[#00C853]/30">Ghana Real Estate Oracle</span>
                 </p>
 
                 <div className="flex flex-col gap-6">
@@ -197,7 +217,8 @@ export default function CheckMyPropertyPage() {
                     {!coordinates && !isAutoDetecting && (
                        <button 
                          onClick={() => {
-                           document.getElementById('audit-engine')?.scrollIntoView({ behavior: 'smooth' });
+                           const el = document.getElementById('audit-engine');
+                           if (el) el.scrollIntoView({ behavior: 'smooth' });
                            setInputType('title');
                          }}
                          className="w-full mt-4 bg-slate-900 text-white py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg"
@@ -213,10 +234,10 @@ export default function CheckMyPropertyPage() {
                        <div className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-8 shadow-sm relative overflow-hidden">
                           <div className="space-y-5 relative z-10">
                              <div>
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 flex items-center gap-2">
                                    Coordinates 
                                    {accuracyRadius && <span className="bg-white px-2 py-0.5 rounded-full border border-slate-200 text-slate-500 text-[8px]">Accurate to ±{accuracyRadius}m</span>}
-                                </p>
+                                </div>
                                 <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{coordinates.lat}, {coordinates.lng}</p>
                              </div>
                              <div>
@@ -226,14 +247,14 @@ export default function CheckMyPropertyPage() {
                              <div className="grid grid-cols-2 gap-4">
                                 <div>
                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Digital Address</p>
-                                   <p className="text-xs font-black bg-white border border-slate-200 px-3 py-1.5 rounded-lg text-slate-900 shadow-sm">{locationMeta.ghanaPost}</p>
+                                   <div className="text-xs font-black bg-white border border-slate-200 px-3 py-1.5 rounded-lg text-slate-900 shadow-sm inline-block">{locationMeta.ghanaPost}</div>
                                 </div>
                                 <div>
                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Status</p>
-                                   <p className="text-xs font-black text-[#00C853] uppercase tracking-widest flex items-center gap-1.5">
+                                   <div className="text-xs font-black text-[#00C853] uppercase tracking-widest flex items-center gap-1.5">
                                       <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full"></span> 
                                       {locationMeta.signalStrength}
-                                   </p>
+                                   </div>
                                 </div>
                              </div>
                              <div>
@@ -247,6 +268,7 @@ export default function CheckMyPropertyPage() {
                                 <div className="h-full bg-[#00C853] w-1/3 animate-[slide_2s_infinite_linear]"></div>
                              </div>
                              <iframe 
+                                title="Location Map"
                                 width="100%" 
                                 height="100%" 
                                 frameBorder="0" 
@@ -256,7 +278,7 @@ export default function CheckMyPropertyPage() {
                                 src={`https://maps.google.com/maps?q=${coordinates.lat},${coordinates.lng}&z=16&output=embed`}
                                 className="opacity-90 group-hover:opacity-100 transition-opacity grayscale-[20%] group-hover:grayscale-0 duration-500"
                              ></iframe>
-                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow-xl pointer-events-none z-30 pulse-red"></div>
+                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow-xl pointer-events-none z-30" style={{ boxShadow: '0 0 0 0 rgba(239, 68, 68, 0.7)', animation: 'pulse-red 2s infinite' }}></div>
                           </div>
                        </div>
                        
@@ -265,7 +287,7 @@ export default function CheckMyPropertyPage() {
                              <span className="text-2xl">⚠️</span>
                              <div>
                                 <p className="text-amber-800 font-bold text-sm">Signal Integrity Warning</p>
-                                <p className="text-amber-700 text-xs font-medium">GPS accuracy is above the statutory threshold (>500m). For legal verification, please use manual coordinate entry.</p>
+                                <p className="text-amber-700 text-xs font-medium">GPS accuracy is above the statutory threshold (&gt;500m). For legal verification, please use manual coordinate entry.</p>
                              </div>
                           </div>
                        )}
@@ -278,9 +300,9 @@ export default function CheckMyPropertyPage() {
                     </div>
                   )}
 
-                  <p className="text-[12px] font-bold text-slate-400 uppercase tracking-[2px] flex items-center justify-center lg:justify-start gap-2">
+                  <div className="text-[12px] font-bold text-slate-400 uppercase tracking-[2px] flex items-center justify-center lg:justify-start gap-2">
                     <span className="text-lg">⏱️</span> Professional audit takes &lt;60 seconds
-                  </p>
+                  </div>
                 </div>
               </div>
 
@@ -413,6 +435,7 @@ export default function CheckMyPropertyPage() {
                     <div className="space-y-6">
                        <div className="w-full h-64 bg-slate-100 rounded-[2.5rem] overflow-hidden border border-slate-200 relative shadow-inner group">
                           <iframe 
+                            title="Results Map"
                             width="100%" 
                             height="100%" 
                             frameBorder="0" 
@@ -425,7 +448,7 @@ export default function CheckMyPropertyPage() {
                        </div>
                        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 space-y-4 shadow-sm">
                           <div><p className="text-[10px] text-slate-400 font-black uppercase mb-1">Coordinates</p><p className="text-sm font-bold font-mono text-slate-900">{coordinates ? `${coordinates.lat}, ${coordinates.lng}` : '5.6037° N, -0.1870° W'}</p></div>
-                          <div><p className="text-[10px] text-slate-400 font-black uppercase mb-1">Digital Address</p><p className="text-sm font-black bg-white border border-slate-200 px-3 py-1.5 rounded-lg inline-block text-[#00C853] shadow-sm">{locationMeta?.ghanaPost || 'GA-183-8164'}</p></div>
+                          <div><p className="text-[10px] text-slate-400 font-black uppercase mb-1">Digital Address</p><div className="text-sm font-black bg-white border border-slate-200 px-3 py-1.5 rounded-lg inline-block text-[#00C853] shadow-sm">{locationMeta?.ghanaPost || 'GA-183-8164'}</div></div>
                        </div>
                     </div>
 
@@ -449,7 +472,7 @@ export default function CheckMyPropertyPage() {
                              <p className="text-[10px] text-[#00C853] font-black uppercase tracking-widest mb-1.5">Sovereign Valuation</p>
                              <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00C853] to-emerald-300">GH₵ 3.2M</p>
                            </div>
-                           <p className="text-xl font-bold mt-4 flex items-center gap-2">12.4% <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded font-black tracking-widest">APY YIELD</span></p>
+                           <div className="text-xl font-bold mt-4 flex items-center gap-2">12.4% <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded font-black tracking-widest">APY YIELD</span></div>
                         </div>
                       </div>
 
@@ -559,10 +582,6 @@ export default function CheckMyPropertyPage() {
            @keyframes slide {
               from { transform: translateX(-100%); }
               to { transform: translateX(300%); }
-           }
-           .pulse-red {
-              box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
-              animation: pulse-red 2s infinite;
            }
            @keyframes pulse-red {
               0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(239, 44, 44, 0.7); }
