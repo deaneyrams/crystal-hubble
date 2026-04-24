@@ -1,4 +1,18 @@
 import './globals.css';
+import { Inter, IBM_Plex_Mono } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'SYNTRY — Property Markets. Unified.',
@@ -7,12 +21,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
-        <style>{'html,body{background:#050508!important;color:white!important;}'}</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('dark')` }} />
       </head>
-      <body className="antialiased font-sans bg-[#050508] text-white" style={{ backgroundColor: '#050508', color: 'white' }} suppressHydrationWarning>
+      <body className="bg-syntry-obsidian text-white antialiased font-sans" suppressHydrationWarning>
         {children}
       </body>
     </html>

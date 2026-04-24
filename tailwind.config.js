@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -16,8 +17,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        heading: ['Inter', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+        heading: ['var(--font-inter)', 'sans-serif'],
       },
     },
   },
