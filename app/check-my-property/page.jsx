@@ -2,8 +2,8 @@
 import "../globals.css";
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-const GlobalHeader = dynamic(() => import('../../components/GlobalHeader'), { ssr: false });
-const GlobalFooter = dynamic(() => import('../../components/GlobalFooter'), { ssr: false });
+const GlobalHeader = dynamic(() => import('@/components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('@/components/GlobalFooter'), { ssr: false });
 
 const EIGHT_LAYERS = [
   { id: 'gps', name: 'GPS Lock', confidence: 99.8, source: 'Orbital Satellite Matrix', desc: 'Precise coordinates cross-referenced against the 2026 digital boundary map.' },

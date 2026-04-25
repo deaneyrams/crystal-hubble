@@ -2,8 +2,8 @@
 import { Suspense, useState } from 'react';
 import React from 'react';
 import dynamic from 'next/dynamic';
-const GlobalHeader = dynamic(() => import('../../components/GlobalHeader'), { ssr: false });
-const GlobalFooter = dynamic(() => import('../../components/GlobalFooter'), { ssr: false });
+const GlobalHeader = dynamic(() => import('@/components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('@/components/GlobalFooter'), { ssr: false });
 
 const MortgageEnablementPage = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -49,6 +49,7 @@ const MortgageEnablementPage = () => {
   return (
     <Suspense fallback={<div className="bg-[#050508] min-h-screen" />}>
       <div className="bg-[#F8F1E3] min-h-screen text-[#003300] font-sans">
+        <div className="w-full h-1 bg-red-500 fixed top-0 left-0 z-[9999]" />
         <GlobalHeader />
 
         <main className="pt-32 pb-20 overflow-hidden">

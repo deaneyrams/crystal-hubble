@@ -2,8 +2,8 @@
 import { Suspense } from 'react';
 import React from 'react';
 import dynamic from 'next/dynamic';
-const GlobalHeader = dynamic(() => import('../../components/GlobalHeader'), { ssr: false });
-const GlobalFooter = dynamic(() => import('../../components/GlobalFooter'), { ssr: false });
+const GlobalHeader = dynamic(() => import('@/components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('@/components/GlobalFooter'), { ssr: false });
 
 const DiasporaPage = () => {
   const challenges = [

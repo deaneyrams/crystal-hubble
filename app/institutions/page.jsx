@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-const GlobalHeader = dynamic(() => import('../../components/GlobalHeader'), { ssr: false });
-const GlobalFooter = dynamic(() => import('../../components/GlobalFooter'), { ssr: false });
+const GlobalHeader = dynamic(() => import('@/components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('@/components/GlobalFooter'), { ssr: false });
 import "../globals.css";
 
 const InstitutionsPage = () => {

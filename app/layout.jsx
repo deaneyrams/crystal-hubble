@@ -25,6 +25,10 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('dark')` }} />
+        <style dangerouslySetInnerHTML={{ __html: `
+          body { background-color: #050508 !important; color: white !important; margin: 0; padding: 0; font-family: sans-serif; }
+          .min-h-screen { min-height: 100vh; }
+        ` }} />
       </head>
       <body className="bg-syntry-obsidian text-white antialiased font-sans min-h-screen" suppressHydrationWarning>
         {children}
