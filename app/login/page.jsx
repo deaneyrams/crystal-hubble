@@ -270,7 +270,7 @@ export default function LoginPage() {
                              </svg>
                            </div>
                            <span className="text-[13px] font-medium text-slate-600 leading-snug select-none group-hover:text-slate-900 transition-colors">
-                             I agree to the <a href="#" className="text-[#00C853] font-bold hover:underline">Terms of Service</a>, <a href="#" className="text-[#00C853] font-bold hover:underline">Privacy Policy</a>, and consent to digital KYC processing.
+                             I agree to the <a href="/legal/accord" className="text-[#00C853] font-bold hover:underline">Terms of Service</a>, <a href="/privacy" className="text-[#00C853] font-bold hover:underline">Privacy Policy</a>, and consent to digital KYC processing.
                            </span>
                          </label>
                        </div>

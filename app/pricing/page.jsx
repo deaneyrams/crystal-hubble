@@ -106,7 +106,7 @@ export default function PricingPage() {
                     <li className="flex items-start gap-3"><span className="text-[#00C853] font-bold mt-0.5">✓</span> <span>1 property verification</span></li>
                     <li className="flex items-start gap-3"><span className="text-[#00C853] font-bold mt-0.5">✓</span> <span>Limited marketplace access</span></li>
                  </ul>
-                 <a href="/register" className="block w-full border-2 border-slate-200 text-slate-700 text-center py-4 rounded-xl font-bold text-lg hover:border-[#00C853] hover:text-[#00C853] transition-colors shadow-sm">Get Started Free</a>
+                 <a href="/login?tab=signup" className="block w-full border-2 border-slate-200 text-slate-700 text-center py-4 rounded-xl font-bold text-lg hover:border-[#00C853] hover:text-[#00C853] transition-colors shadow-sm">Get Started Free</a>
               </div>
 
               {/* Premium Tier (Highlighted) */}
@@ -348,7 +348,7 @@ export default function PricingPage() {
                  </p>
                  
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
-                    <a href="/register" className="w-full sm:w-auto bg-white text-[#00C853] px-10 py-5 rounded-2xl font-bold text-[17px] hover:bg-slate-50 transition-all shadow-xl hover:-translate-y-1 block md:inline-block">
+                    <a href="/login?tab=signup" className="w-full sm:w-auto bg-white text-[#00C853] px-10 py-5 rounded-2xl font-bold text-[17px] hover:bg-slate-50 transition-all shadow-xl hover:-translate-y-1 block md:inline-block">
                        Start Free Today
                     </a>
                     <a href="https://wa.me/233531102292" className="w-full sm:w-auto bg-black/20 backdrop-blur-md border border-white/20 text-white px-8 py-5 rounded-2xl font-bold text-[17px] hover:bg-black/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-3">

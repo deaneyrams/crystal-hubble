@@ -36,18 +36,23 @@ else
     exit 1
 fi
 
-# 4. Process Management
+# 4. Standalone Asset Preparation
+echo "📦 Preparing standalone assets (static & public)..."
+cp -r .next/static .next/standalone/.next/static
+cp -r public .next/standalone/public
+
+# 5. Process Management
 echo "🚀 Starting application with PM2 on port 3001..."
 # We use 'node .next/standalone/server.js' for standalone output compatibility
 PORT=3001 pm2 start "node .next/standalone/server.js" --name "syntry-engine"
 
-# 5. Network Handshake
+# 6. Network Handshake
 echo "🤝 Performing Network Handshake (Cloudflared)..."
 sudo systemctl restart cloudflared || echo "⚠️ cloudflared restart failed. Manual check required."
 
-# 6. Verification
+# 7. Verification
 echo "🛡️ Verifying Network Integrity..."
-sleep 5 # Wait for PM2 to stabilize
+sleep 10 # Wait for PM2 to stabilize and serve assets
 if lsof -Pi :3001 -sTCP:LISTEN -t >/dev/null ; then
     echo "***************************************************"
     echo "   ✅ DEPLOYMENT SUCCESSFUL: syntry-engine LIVE   "

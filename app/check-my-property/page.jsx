@@ -302,9 +302,9 @@ export default function VerifyLandNowPage() {
                           <p className="text-xl font-bold">Secured by Syntry Protocol • Real-time Sync active.</p>
                        </div>
                        <div className="flex flex-wrap justify-center gap-4">
-                          <button className="bg-[#00C853] text-white px-8 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all">Sovereign Report <span className="opacity-60 ml-2">GH₵950</span></button>
-                          <button className="bg-white text-slate-900 px-8 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:-translate-y-1 transition-all">Fix My Status</button>
-                          <button className="bg-[#D4AF37] text-white px-8 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all">List as Syntry Gold</button>
+                          <a href="/upgrade" className="bg-[#00C853] text-white px-8 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all text-center">Sovereign Report <span className="opacity-60 ml-2">GH₵950</span></a>
+                          <a href="https://wa.me/233531102292?text=I%20need%20to%20fix%20my%20property%20status" className="bg-white text-slate-900 px-8 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:-translate-y-1 transition-all text-center">Fix My Status</a>
+                          <a href="/marketplace" className="bg-[#D4AF37] text-white px-8 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all text-center">List as Syntry Gold</a>
                        </div>
                     </div>
                  </div>

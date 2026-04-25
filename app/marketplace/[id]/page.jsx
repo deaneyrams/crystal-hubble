@@ -113,12 +113,12 @@ const PropertyDetailPage = ({ params }) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <button className="bg-[#00BFFF] text-[#003300] py-4 rounded-xl font-bold hover:scale-105 transition-all text-sm">
+              <a href="/mortgage" className="bg-[#00BFFF] text-[#003300] py-4 rounded-xl font-bold hover:scale-105 transition-all text-sm text-center">
                 Apply Mortgage on This Property
-              </button>
-              <button className="border border-[#F8F1E3]/20 py-4 rounded-xl font-bold hover:bg-[#F8F1E3]/5 transition-all text-sm">
+              </a>
+              <a href="https://wa.me/233531102292?text=I%20want%20to%20download%20the%20valuation%20report%20for%20property%20ID%3A%201" className="border border-[#F8F1E3]/20 py-4 rounded-xl font-bold hover:bg-[#F8F1E3]/5 transition-all text-sm text-center">
                 Download Valuation Report
-              </button>
+              </a>
             </div>
           </div>
 

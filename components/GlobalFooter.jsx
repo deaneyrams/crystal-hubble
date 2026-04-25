@@ -27,7 +27,13 @@ export default function GlobalFooter() {
     resources: [
       { label: 'FAQ', href: '/support' },
       { label: 'MARKET INSIGHTS', href: '/invest' },
-      { label: 'API DOCUMENTATION', href: '/partner/api-docs' }
+      { label: 'API DOCUMENTATION', href: '/partner/api-docs' },
+      { label: 'SECURITY COMMAND', href: '/security' }
+    ],
+    legal: [
+      { label: 'PRIVACY PROTOCOL', href: '/privacy' },
+      { label: 'LEGAL ACCORD', href: '/legal/accord' },
+      { label: 'STATUTORY AUDIT', href: '/how-it-works' }
     ]
   };
 
@@ -36,7 +42,7 @@ export default function GlobalFooter() {
   return (
     <footer className="bg-[#050508] pt-32 pb-16 px-6 overflow-hidden border-t border-white/5 relative z-10">
       <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 mb-24 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-12 mb-24 text-center md:text-left">
           
           {/* Column 1: Company */}
           <div className="space-y-8">
@@ -85,6 +91,20 @@ export default function GlobalFooter() {
             <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">Resources</h4>
             <ul className="flex flex-col gap-5">
               {footerLinks.resources.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-[10px] font-sans tracking-[2px] text-white/30 hover:text-[#D4AF37] transition-colors uppercase font-medium">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 5: Legal */}
+          <div className="space-y-8">
+            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">Legal</h4>
+            <ul className="flex flex-col gap-5">
+              {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className="text-[10px] font-sans tracking-[2px] text-white/30 hover:text-[#D4AF37] transition-colors uppercase font-medium">
                     {link.label}
