@@ -1,4 +1,4 @@
-import './globals.css';
+import '@/app/globals.css';
 import { Inter, IBM_Plex_Mono } from 'next/font/google';
 
 const inter = Inter({

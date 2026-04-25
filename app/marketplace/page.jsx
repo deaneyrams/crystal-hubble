@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react';
-import GlobalHeader from '../../components/GlobalHeader';
-import GlobalFooter from '../../components/GlobalFooter';
+import dynamic from 'next/dynamic';
+const GlobalHeader = dynamic(() => import('../../components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('../../components/GlobalFooter'), { ssr: false });
 
 const MarketplacePage = () => {
   const [mortgageOnly, setMortgageOnly] = useState(false);

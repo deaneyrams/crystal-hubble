@@ -1,8 +1,9 @@
 "use client";
 import { Suspense } from 'react';
 import React from 'react';
-import GlobalHeader from '../../components/GlobalHeader';
-import GlobalFooter from '../../components/GlobalFooter';
+import dynamic from 'next/dynamic';
+const GlobalHeader = dynamic(() => import('../../components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('../../components/GlobalFooter'), { ssr: false });
 
 const OwnersPage = () => {
   const realityCheck = [
