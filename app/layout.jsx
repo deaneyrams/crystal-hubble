@@ -1,4 +1,5 @@
 import './globals.css';
+import '../app/globals.css'; // Redundant import to force detection
 import { Inter, IBM_Plex_Mono } from 'next/font/google';
 
 const inter = Inter({
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('dark')` }} />
       </head>
-      <body className="bg-syntry-obsidian text-white antialiased font-sans" suppressHydrationWarning>
-        {children}
+      <body className="bg-[#050508] text-white antialiased font-sans min-h-screen" style={{ backgroundColor: '#050508' }} suppressHydrationWarning>
+        <div id="syntry-root-context" className="min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );
