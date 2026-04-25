@@ -17,7 +17,7 @@ export async function POST(request) {
 
     // Creating a Stripe Checkout Session
     // We mock the URL assuming standard Next.js localhost or production origin
-    const origin = request.headers.get('origin') || 'http://localhost:3000';
+    const origin = request.headers.get('origin') || 'https://www.syntry.co';
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -49,7 +49,7 @@ export async function POST(request) {
     console.error('Stripe Checkout Error:', error);
     // Fallback: If Stripe fails (e.g., due to mock key), we can still simulate success
     // for demonstration purposes by returning a mock URL that directs to the success page
-    const origin = request.headers.get('origin') || 'http://localhost:3000';
+    const origin = request.headers.get('origin') || 'https://www.syntry.co';
     return NextResponse.json({ 
         url: `${origin}/admin/control-tower?session_id=mock_session_123&plotId=mock&payment=success`,
         isMocked: true 

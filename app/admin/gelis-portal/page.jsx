@@ -61,7 +61,7 @@ export default function GelisPortalPage() {
       gelisEnrollmentID: submissionResult.enrollmentId,
       status: mockPlot.status,
       timestamp: submissionResult.timestamp,
-      verificationLink: `http://localhost:3001/share/${mockPlot.deedHash}`
+      verificationLink: `https://www.syntry.co/share/${mockPlot.deedHash}`
     };
 
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dsrContent, null, 2));
