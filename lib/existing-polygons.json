@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "SYN-ADJ-001", "owner_hash": "0x1a...f9", "status": "Verified Sovereign", "zone": "Amasaman Focus Node" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.35, 5.65 ], [ -0.30, 5.65 ], [ -0.30, 5.70 ], [ -0.35, 5.70 ], [ -0.35, 5.65 ]]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "SYN-ADJ-002", "owner_hash": "0x4b...2d", "status": "Verified Sovereign", "zone": "Pokuase High Density" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.25, 5.65 ], [ -0.20, 5.65 ], [ -0.20, 5.70 ], [ -0.25, 5.70 ], [ -0.25, 5.65 ]]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "SYN-ADJ-003", "owner_hash": "0x9c...3c", "status": "Verified Sovereign", "zone": "Test Encroachment Boundary" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.1870, 5.6037 ], [ -0.1865, 5.6037 ], [ -0.1865, 5.6042 ], [ -0.1870, 5.6042 ], [ -0.1870, 5.6037 ]]
+        ]
+      }
+    }
+  ]
+}

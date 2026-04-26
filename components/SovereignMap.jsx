@@ -1,5 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
+import existingPolygons from '@/lib/existing-polygons.json';
 import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
 import { EditControl } from 'react-leaflet-draw';
 import * as turf from '@turf/turf';
@@ -14,6 +16,15 @@ const GREATER_ACCRA_BOUNDS = {
   maxLng: 0.70
 };
 
+// Mock Simulated Physical Edge Network (Walls, Fences, Roads extracted from Satellite)
+const MOCK_PHYSICAL_BOUNDARIES = turf.featureCollection([
+   turf.lineString([[ -0.35, 5.65 ], [ -0.25, 5.65 ]]),
+   turf.lineString([[ -0.25, 5.65 ], [ -0.25, 5.75 ]]),
+   turf.lineString([[ -0.15, 5.60 ], [ -0.10, 5.60 ]]),
+   turf.lineString([[ -0.1870, 5.6037 ], [ -0.1860, 5.6040 ]]), // Example boundary near default coordinate
+   turf.lineString([[ -0.1860, 5.6040 ], [ -0.1860, 5.6030 ]])
+]);
+
 const MapResizer = () => {
   const map = useMap();
   useEffect(() => {
@@ -24,9 +35,48 @@ const MapResizer = () => {
   return null;
 };
 
-const SovereignMap = ({ onAreaCalculated, onLocationVerified, initialPos = [5.6037, -0.1870] }) => {
-  const [area, setArea] = useState(0);
+const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidated, initialPos = [5.6037, -0.1870] }) => {
+  const [areaInAcres, setAreaInAcres] = useState(0);
+  const [areaInSqMeters, setAreaInSqMeters] = useState(0);
+  const [centroidNode, setCentroidNode] = useState(null);
   const [error, setError] = useState(null);
+  const [activeLayer, setActiveLayer] = useState(null);
+  const [isSnapped, setIsSnapped] = useState(false);
+  const [encroachments, setEncroachments] = useState([]);
+
+  const handleCollisions = (geojsonToTest, calcArea, leafletLayer) => {
+    let conflicts = [];
+    let isRed = false;
+
+    existingPolygons.features.forEach(neighbor => {
+      try {
+        const intersection = turf.intersect(turf.featureCollection([geojsonToTest, neighbor]));
+        if (intersection) {
+          const overlapArea = turf.area(intersection);
+          const percentOverlap = (overlapArea / calcArea) * 100;
+          if (percentOverlap > 0.5) {
+             conflicts.push({
+               id: neighbor.properties.id,
+               areaSqM: overlapArea.toFixed(2),
+               percent: percentOverlap.toFixed(2)
+             });
+             isRed = true;
+          }
+        }
+      } catch (err) {
+         console.warn('Intersection check error:', err);
+      }
+    });
+
+    setEncroachments(conflicts);
+    if (isRed) {
+       if (leafletLayer) leafletLayer.setStyle({ color: '#FF0000', fillColor: '#FF0000', weight: 4 });
+       return true;
+    } else {
+       if (!isSnapped && leafletLayer) leafletLayer.setStyle({ color: '#3388ff', fillColor: '#3388ff', weight: 3 });
+       return false;
+    }
+  };
 
   const checkGeofence = (lat, lng) => {
     const isInside = 
@@ -40,11 +90,24 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, initialPos = [5.60
   const _onCreate = (e) => {
     const { layerType, layer } = e;
     if (layerType === 'polygon') {
+      setActiveLayer(layer);
+      setIsSnapped(false);
       const geojson = layer.toGeoJSON();
       
       // Calculate Area via Turf
       const calculatedArea = turf.area(geojson); // SQ Meters
-      const areaInAcres = (calculatedArea * 0.000247105).toFixed(2);
+      const aSqM = calculatedArea.toFixed(2);
+      const aAcres = (calculatedArea * 0.000247105).toFixed(2);
+      
+      // Verify Centroid Node against Neighborhoods
+      const centroid = turf.centroid(geojson);
+      let validNeighborhood = null;
+      neighborhoodBounds.features.forEach(feature => {
+        if (turf.booleanPointInPolygon(centroid, feature)) {
+          validNeighborhood = feature.properties.name;
+        }
+      });
+      setCentroidNode(validNeighborhood);
       
       // Verify Geofence (Accra Guard)
       const coords = geojson.geometry.coordinates[0];
@@ -55,13 +118,16 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, initialPos = [5.60
 
       if (outOfBounds) {
         setError('GEOFENCING ALERT: Location falls outside Greater Accra Syntry Nodes.');
-        onLocationVerified(false);
+        onLocationVerified(false, null);
         layer.setStyle({ color: '#ff0000', fillColor: '#ff0000' });
       } else {
+        const hasEncroachment = handleCollisions(geojson, calculatedArea, layer);
         setError(null);
-        setArea(areaInAcres);
-        onAreaCalculated(areaInAcres);
-        onLocationVerified(true);
+        setAreaInAcres(aAcres);
+        setAreaInSqMeters(aSqM);
+        onAreaCalculated({ acres: aAcres, sqMeters: aSqM });
+        onLocationVerified(!hasEncroachment, geojson);
+        if (onCentroidValidated) onCentroidValidated(validNeighborhood);
       }
     }
   };
@@ -71,10 +137,72 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, initialPos = [5.60
     e.layers.eachLayer(layer => {
       const geojson = layer.toGeoJSON();
       const calculatedArea = turf.area(geojson);
-      const areaInAcres = (calculatedArea * 0.000247105).toFixed(2);
-      setArea(areaInAcres);
-      onAreaCalculated(areaInAcres);
+      const aSqM = calculatedArea.toFixed(2);
+      const aAcres = (calculatedArea * 0.000247105).toFixed(2);
+
+      const centroid = turf.centroid(geojson);
+      let validNeighborhood = null;
+      neighborhoodBounds.features.forEach(feature => {
+        if (turf.booleanPointInPolygon(centroid, feature)) {
+          validNeighborhood = feature.properties.name;
+        }
+      });
+      setCentroidNode(validNeighborhood);
+
+        const hasEncroachment = handleCollisions(geojson, calculatedArea, layer);
+        setAreaInAcres(aAcres);
+        setAreaInSqMeters(aSqM);
+        onAreaCalculated({ acres: aAcres, sqMeters: aSqM });
+        onLocationVerified(!hasEncroachment, geojson);
+        if (onCentroidValidated) onCentroidValidated(validNeighborhood);
     });
+  };
+
+  const applyAutoSnap = () => {
+     if (!activeLayer) return;
+     const geojson = activeLayer.toGeoJSON();
+     const oldCoords = geojson.geometry.coordinates[0];
+     
+     // Pull vertices to geometric edges
+     const snappedCoords = oldCoords.map(coord => {
+        const pt = turf.point(coord);
+        let nearestPt = null;
+        let minDist = Infinity;
+        
+        MOCK_PHYSICAL_BOUNDARIES.features.forEach(line => {
+           const snapped = turf.nearestPointOnLine(line, pt);
+           // We are doing a 2km distance threshold for snapping validation testing
+           if (snapped.properties.dist < minDist && snapped.properties.dist < 2) {
+              minDist = snapped.properties.dist;
+              nearestPt = snapped;
+           }
+        });
+        
+        return nearestPt ? nearestPt.geometry.coordinates : coord;
+     });
+     
+     // Push modifications via leafet standard
+     geojson.geometry.coordinates = [snappedCoords];
+     const latlngs = snappedCoords.map(c => [c[1], c[0]]);
+     activeLayer.setLatLngs(latlngs);
+     activeLayer.setStyle({ color: '#D4AF37', fillColor: '#D4AF37', weight: 3 }); // Relic Gold snap styling
+     setIsSnapped(true);
+
+     // Refresh calculations for Truth Guard
+     const calculatedArea = turf.area(geojson);
+     const aSqM = calculatedArea.toFixed(2);
+     const aAcres = (calculatedArea * 0.000247105).toFixed(2);
+     
+     const hasEncroachment = handleCollisions(geojson, calculatedArea, activeLayer);
+     if (hasEncroachment) {
+        // Red style already applied by handleCollisions overriding gold
+        setIsSnapped(false); // Consider snap invalid if it hits an encroachment
+     }
+
+     setAreaInAcres(aAcres);
+     setAreaInSqMeters(aSqM);
+     onAreaCalculated({ acres: aAcres, sqMeters: aSqM });
+     onLocationVerified(!hasEncroachment, geojson);
   };
 
   return (
@@ -108,10 +236,39 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, initialPos = [5.60
 
       {/* Overlays */}
       <div className="absolute top-4 left-12 z-[1000] space-y-2">
-        {area > 0 && (
-          <div className="bg-slate-900 border border-gold-500/50 text-white px-4 py-2 rounded-xl shadow-2xl backdrop-blur-md">
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#00C853]">Calculated Footprint</p>
-            <p className="text-xl font-black">{area} <span className="text-xs">Acres</span></p>
+        {areaInSqMeters > 0 && (
+          <div className="bg-slate-900 border border-gold-500/50 text-white px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md">
+            <p className="text-[10px] font-black uppercase tracking-widest text-[#00C853] mb-1">Calculated Footprint</p>
+            <div className="flex gap-4">
+               <p className="text-xl font-black">{areaInSqMeters} <span className="text-[10px] font-bold text-slate-400">SQM</span></p>
+               <div className="w-[1px] bg-slate-700"></div>
+               <p className="text-xl font-black">{areaInAcres} <span className="text-[10px] font-bold text-slate-400">ACRES</span></p>
+            </div>
+            {centroidNode && (
+               <p className="text-[9px] font-bold text-slate-400 mt-2 bg-slate-800 px-2 py-1 rounded inline-block shadow-sm">Node: {centroidNode}</p>
+            )}
+            
+            {!isSnapped && encroachments.length === 0 && (
+               <button onClick={applyAutoSnap} className="block mt-4 w-full bg-[#D4AF37] text-slate-900 text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg shadow-xl hover:scale-[1.02] transition-transform">
+                  Auto-Snap to Boundaries ⚡
+               </button>
+            )}
+            {isSnapped && encroachments.length === 0 && (
+               <span className="block mt-4 text-[#D4AF37] text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+                  ✓ Snapped to Grid
+               </span>
+            )}
+            
+            {encroachments.length > 0 && (
+               <div className="mt-4 bg-red-600/20 border border-red-500/50 rounded-lg p-2 animate-pulse">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#FF0000] mb-1">CRITICAL: ENCROACHMENT DETECTED</p>
+                  {encroachments.map((enc, idx) => (
+                     <div key={idx} className="text-xs text-white">
+                        <span className="font-bold opacity-80">{enc.id}:</span> <span className="text-[#FF0000] font-bold">{enc.areaSqM} SQM ({enc.percent}%)</span>
+                     </div>
+                  ))}
+               </div>
+            )}
           </div>
         )}
         {error && (

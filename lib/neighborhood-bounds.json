@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Amasaman" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.35, 5.65 ], [ -0.25, 5.65 ], [ -0.25, 5.75 ], [ -0.35, 5.75 ], [ -0.35, 5.65 ]]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Pokuase" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.25, 5.65 ], [ -0.15, 5.65 ], [ -0.15, 5.75 ], [ -0.25, 5.75 ], [ -0.25, 5.65 ]]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "East Legon" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.15, 5.60 ], [ -0.10, 5.60 ], [ -0.10, 5.65 ], [ -0.15, 5.65 ], [ -0.15, 5.60 ]]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Cantonments" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+           [[ -0.20, 5.55 ], [ -0.15, 5.55 ], [ -0.15, 5.60 ], [ -0.20, 5.60 ], [ -0.20, 5.55 ]]
+        ]
+      }
+    },
+    {
+       "type": "Feature",
+       "properties": { "name": "Aburi Hills" },
+       "geometry": {
+         "type": "Polygon",
+         "coordinates": [
+            [[ -0.20, 5.75 ], [ -0.10, 5.75 ], [ -0.10, 5.85 ], [ -0.20, 5.85 ], [ -0.20, 5.75 ]]
+         ]
+       }
+    }
+  ]
+}

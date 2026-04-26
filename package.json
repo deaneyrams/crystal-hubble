@@ -1,6 +1,6 @@
 {
   "name": "syntry-core",
-  "version": "1.0.2-SOVEREIGN-HANDSHAKE-LIVE",
+  "version": "1.0.3-GEOMETRY-GUARD-ACTIVE",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
