@@ -1,7 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import SovereignMap from '@/components/SovereignMap';
+import dynamic from 'next/dynamic';
+const SovereignMap = dynamic(() => import('@/components/SovereignMap'), { ssr: false });
 
 export default function DownloadPage() {
   const [terminalLogs, setTerminalLogs] = useState([
