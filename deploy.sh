@@ -15,8 +15,8 @@ if [ ! -z "$PORT_PID" ]; then
 fi
 
 echo "🛑 Stopping PM2 syntry-engine..."
-pm2 stop syntry-engine || true
-pm2 delete syntry-engine || true
+pm2 stop syntry-engine 2>/dev/null || true
+pm2 delete syntry-engine 2>/dev/null || true
 
 # 2. Clean State
 echo "🧹 Cleaning build artifacts and cache..."
