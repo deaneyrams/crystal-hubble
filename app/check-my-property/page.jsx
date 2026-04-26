@@ -46,6 +46,7 @@ export default function CheckMyPropertyPage() {
   const [centroidValid, setCentroidValid] = useState(null);
   const [geometryVerified, setGeometryVerified] = useState(false);
   const [isLocationValid, setIsLocationValid] = useState(true);
+  const [savedGeoJSON, setSavedGeoJSON] = useState(null);
   const [ocrStatus, setOcrStatus] = useState('');
   const [registryAlert, setRegistryAlert] = useState(null);
 
@@ -282,7 +283,7 @@ export default function CheckMyPropertyPage() {
                     <div className="w-full h-[500px] bg-slate-100 rounded-[2.5rem] overflow-hidden shadow-inner border-2 border-slate-200 relative group">
                        <SovereignMap 
                           onAreaCalculated={(data) => { setAreaSize(data.acres); setAreaSqMeters(data.sqMeters); }}
-                          onLocationVerified={(valid) => setIsLocationValid(valid)}
+                          onLocationVerified={(valid, geojson) => { setIsLocationValid(valid); if(geojson) setSavedGeoJSON(geojson); }}
                           onCentroidValidated={(validNeighborhood) => setCentroidValid(validNeighborhood)}
                           initialPos={[coordinates.lat, coordinates.lng]}
                        />
