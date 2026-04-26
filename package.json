@@ -19,7 +19,7 @@
     "express-rate-limit": "^8.3.2",
     "framer-motion": "^12.38.0",
     "html2canvas": "^1.4.1",
-    "jspdf": "^4.2.0",
+    "jspdf": "^4.2.1",
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
     "lucide-react": "^0.577.0",
