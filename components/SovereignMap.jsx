@@ -66,33 +66,6 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
      setIsFilingWhistleblower(false);
   };
 
-  const [isFilingWhistleblower, setIsFilingWhistleblower] = useState(false);
-  const [whistleblowerSuccess, setWhistleblowerSuccess] = useState(null);
-
-  const fileWhistleblowerReport = async () => {
-     if (!activeLayer || encroachments.length === 0) return;
-     setIsFilingWhistleblower(true);
-     
-     try {
-       const userCoords = activeLayer.toGeoJSON().geometry.coordinates[0];
-       const res = await fetch('/api/whistleblower', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({
-            encroachments,
-            userCoordinates: userCoords
-         })
-       });
-       const result = await res.json();
-       if (result.success) {
-          setWhistleblowerSuccess(result);
-       }
-     } catch (err) {
-       console.error(err);
-     }
-     setIsFilingWhistleblower(false);
-  };
-
   const handleCollisions = (geojsonToTest, calcArea, leafletLayer) => {
     let conflicts = [];
     let isRed = false;
