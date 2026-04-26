@@ -43,6 +43,55 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   const [activeLayer, setActiveLayer] = useState(null);
   const [isSnapped, setIsSnapped] = useState(false);
   const [encroachments, setEncroachments] = useState([]);
+  const [isFilingWhistleblower, setIsFilingWhistleblower] = useState(false);
+  const [whistleblowerSuccess, setWhistleblowerSuccess] = useState(null);
+
+  const fileWhistleblowerReport = async () => {
+     if (!activeLayer || encroachments.length === 0) return;
+     setIsFilingWhistleblower(true);
+     try {
+       const userCoords = activeLayer.toGeoJSON().geometry.coordinates[0];
+       const res = await fetch('/api/whistleblower', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({ encroachments, userCoordinates: userCoords })
+       });
+       const result = await res.json();
+       if (result.success) {
+          setWhistleblowerSuccess(result);
+       }
+     } catch (err) {
+       console.error(err);
+     }
+     setIsFilingWhistleblower(false);
+  };
+
+  const [isFilingWhistleblower, setIsFilingWhistleblower] = useState(false);
+  const [whistleblowerSuccess, setWhistleblowerSuccess] = useState(null);
+
+  const fileWhistleblowerReport = async () => {
+     if (!activeLayer || encroachments.length === 0) return;
+     setIsFilingWhistleblower(true);
+     
+     try {
+       const userCoords = activeLayer.toGeoJSON().geometry.coordinates[0];
+       const res = await fetch('/api/whistleblower', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({
+            encroachments,
+            userCoordinates: userCoords
+         })
+       });
+       const result = await res.json();
+       if (result.success) {
+          setWhistleblowerSuccess(result);
+       }
+     } catch (err) {
+       console.error(err);
+     }
+     setIsFilingWhistleblower(false);
+  };
 
   const handleCollisions = (geojsonToTest, calcArea, leafletLayer) => {
     let conflicts = [];
@@ -267,6 +316,25 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
                         <span className="font-bold opacity-80">{enc.id}:</span> <span className="text-[#FF0000] font-bold">{enc.areaSqM} SQM ({enc.percent}%)</span>
                      </div>
                   ))}
+                  
+                   {!whistleblowerSuccess && (
+                     <button 
+                        onClick={fileWhistleblowerReport} 
+                        disabled={isFilingWhistleblower}
+                        className="mt-3 w-full bg-[#FF0000] text-white text-[9px] font-black uppercase tracking-widest py-2 rounded-lg shadow-xl hover:scale-[1.02] transition-transform disabled:opacity-50"
+                     >
+                        {isFilingWhistleblower ? 'Generating Cryptographic Report...' : 'File Whistleblower Act 720 Report'}
+                     </button>
+                   )}
+                   {whistleblowerSuccess && (
+                     <div className="mt-3 bg-slate-900 border border-slate-700 p-2 rounded-lg text-[9px]">
+                        <p className="text-[#00C853] font-bold">✓ Report Filed Securely</p>
+                        <p className="text-slate-400 mt-1">Hash: <span className="text-white">{whistleblowerSuccess.disputeHash.substring(0, 16)}...</span></p>
+                        {whistleblowerSuccess.emailPreviewUrl && (
+                           <a href={whistleblowerSuccess.emailPreviewUrl} target="_blank" className="text-[#D4AF37] underline mt-1 block">View Official Compliance Email</a>
+                        )}
+                     </div>
+                   )}
                </div>
             )}
           </div>

@@ -1,6 +1,6 @@
 {
   "name": "syntry-core",
-  "version": "1.0.3-GEOMETRY-GUARD-ACTIVE",
+  "version": "1.0.4-WHISTLEBLOWER-ACT-LIVE",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,11 +9,13 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@sendgrid/mail": "^8.1.6",
+    "@solana/web3.js": "^1.98.4",
     "@stripe/stripe-js": "^8.11.0",
     "@supabase/supabase-js": "^2.0.0",
     "@turf/turf": "^7.3.5",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.0.0",
+    "crypto": "^1.0.1",
     "express-rate-limit": "^8.3.2",
     "framer-motion": "^12.38.0",
     "html2canvas": "^1.4.1",
@@ -23,6 +25,7 @@
     "lucide-react": "^0.577.0",
     "mapbox-gl": "^3.20.0",
     "next": "^14.0.0",
+    "nodemailer": "^8.0.6",
     "otplib": "^13.4.0",
     "paystack-api": "^2.0.6",
     "pdfkit": "^0.18.0",
