@@ -1,7 +1,9 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import GlobalHeader from '@/components/GlobalHeader';
 import GlobalFooter from '@/components/GlobalFooter';
+import SentinelWatch from '@/components/SentinelWatch';
 
 const DashboardPage = () => {
   // Mock data for initial build
@@ -113,6 +115,11 @@ const DashboardPage = () => {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Sentinel Community Network */}
+        <section className="mt-12">
+           <SentinelWatch />
         </section>
 
         {/* Quick Actions */}

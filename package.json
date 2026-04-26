@@ -1,6 +1,6 @@
 {
   "name": "syntry-core",
-  "version": "1.0.4-WHISTLEBLOWER-ACT-LIVE",
+  "version": "1.0.5-SENTINEL-COMMUNITY-LIVE",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

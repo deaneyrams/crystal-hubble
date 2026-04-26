@@ -1,69 +1,55 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import * as turf from '@turf/turf';
+import existingPolygons from '@/lib/existing-polygons.json';
 
-export async function POST(request) {
+export async function POST(req) {
   try {
-    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GEMINI_API_KEY;
-    
-    if (!apiKey) {
-      return NextResponse.json(
-        { error: "Google Generative AI API key is missing. Please add GOOGLE_GENERATIVE_AI_API_KEY to your .env.local file." },
-        { status: 500 }
-      );
+    const data = await req.json();
+    const { submittedPolygon } = data; // GeoJSON structure
+
+    if (!submittedPolygon) {
+       return NextResponse.json({ error: 'Missing polygon' }, { status: 400 });
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
+    // 1. Proximity Buffer: create a 50m radius around the boundary
+    let buffer;
+    try {
+      buffer = turf.buffer(submittedPolygon, 50, { units: 'meters' });
+    } catch(err) {
+      return NextResponse.json({ error: 'Invalid Geometry provided for Buffer generation.' }, { status: 400 });
+    }
+
+    // 2. Notification Engine (Intersection check)
+    const affectedNeighbors = [];
     
-    // Initialize the model with the exact System Instruction requested
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-pro",
-      systemInstruction: 'You are the Syntry Forensic Land Analyst. Analyze GPS coordinates, documents, and Title IDs. Cross-reference coordinates against Stool Land boundaries (Nii Ashalley Annang Family) and identify red flags like double mapping or missing stamps. Return a strict JSON object with: verification_score (0-100), owner_details (current_legal_holder, root_of_title), transaction_history (array of events), geospatial_feedback (lat_long_match, boundary_conflict), and grid_status (stool_land_auth, lands_commission, litigation_check).'
+    existingPolygons.features.forEach(neighbor => {
+       try {
+          const overlap = turf.intersect(turf.featureCollection([buffer, neighbor]));
+          if (overlap) {
+             // 5. Privacy Guard: Strip PII, Return only ID and Shape
+             affectedNeighbors.push({
+                eventId: `EVT-${Math.random().toString(36).substring(2, 9).toUpperCase()}`,
+                plotId: neighbor.properties.id,
+                zone: neighbor.properties.zone,
+                proximityMeters: 50, // Approximation based on buffer intersect
+                timestamp: new Date().toISOString(),
+                // Providing the new verify-er’s shape for the neighbor's dashboard context securely
+                suspectGeometry: submittedPolygon
+             });
+          }
+       } catch (err) {
+          // Geometry bounds errors occasionally from Turf intersections, safe to skip invalid nodes
+       }
     });
 
-    // Parse the incoming request payload
-    let body;
-    try {
-        body = await request.json();
-    } catch (e) {
-        return NextResponse.json({ error: "Invalid JSON body provided." }, { status: 400 });
-    }
-
-    const { documentData, coordinates, titleNumber } = body;
-
-    const prompt = `Please perform a forensic analysis on the following asset data:
-- Coordinates: ${coordinates ? JSON.stringify(coordinates) : 'Not provided'}
-- Title Number: ${titleNumber || 'Not provided'}
-- Document Data: ${documentData ? JSON.stringify(documentData) : 'Not provided'}
-
-Ensure the output is exclusively the strict JSON object as requested in the system instructions.`;
-
-    // Force the model to output strict JSON
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      generationConfig: {
-        responseMimeType: "application/json",
-      }
+    return NextResponse.json({
+      success: true,
+      alertCount: affectedNeighbors.length,
+      triggers: affectedNeighbors
     });
-
-    const responseText = result.response.text();
     
-    // Parse to ensure it is clean JSON before sending back to the client
-    let parsedData;
-    try {
-      parsedData = JSON.parse(responseText);
-    } catch (parseError) {
-      // Fallback cleanup if the model accidentally wraps it in markdown ticks
-      const cleanJson = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
-      parsedData = JSON.parse(cleanJson);
-    }
-
-    return NextResponse.json(parsedData, { status: 200 });
-
   } catch (error) {
-    console.error("[Syntry Oracle Error]:", error);
-    return NextResponse.json(
-      { error: "Oracle forensic verification failed due to an internal error.", details: error.message },
-      { status: 500 }
-    );
+    console.error("Sentinel Proximity API Error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
