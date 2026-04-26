@@ -1,6 +1,6 @@
 {
   "name": "syntry-core",
-  "version": "1.0.1-SOVEREIGN-STABILIZED",
+  "version": "1.0.2-SOVEREIGN-HANDSHAKE-LIVE",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

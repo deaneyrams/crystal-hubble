@@ -15,8 +15,8 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: 'SYNTRY — Property Markets. Unified.',
-  description: 'SYNTRY is the synchronised entry into every property market.',
+  title: 'SYNTRY — Sovereign Real Estate Exchange',
+  description: 'Grounded Truth through 8 Layers of Verification. Unlock the true value of your land.',
 };
 
 export default function RootLayout({ children }) {
