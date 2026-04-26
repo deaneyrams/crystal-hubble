@@ -1,26 +1,35 @@
-import React from 'react';
-import GlobalHeader from '../../../components/GlobalHeader';
-import GlobalFooter from '../../../components/GlobalFooter';
+'use client';
+import "../../globals.css";
+import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+const GlobalHeader = dynamic(() => import('@/components/GlobalHeader'), { ssr: false });
+const GlobalFooter = dynamic(() => import('@/components/GlobalFooter'), { ssr: false });
 
 const PropertyDetailPage = ({ params }) => {
-  // Mock data for ID: 1
+  const [hasMounted, setHasMounted] = useState(false);
+  
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // Mock data for the property
   const property = {
-    id: 1,
-    title: "Aburi Hills Nodal Sector 4",
-    location: "Aburi Hills, Eastern Region",
-    price: "3,250,000",
+    id: params?.id || 1,
+    title: params?.id === '2' ? "Commercial Retail Node - Cantonments" : "Aburi Hills Nodal Sector 4",
+    location: params?.id === '2' ? "Cantonments, Accra" : "Aburi Hills, Eastern Region",
+    price: params?.id === '2' ? "5,400,000" : "3,250,000",
     size: "2.4 Acres Residential Plot",
     apy: "+18.2%",
-    description: "Premium nodal sector land positioned at the highest elevation of Aburi Hills. This site offers panoramic views of the Greater Accra skyline and is designated for high-value residential development. Fully surveyed and cleared for statutory finality.",
+    description: "Premium nodal sector land positioned at the highest elevation. This site offers panoramic views and is designated for high-value development. Fully surveyed and cleared for statutory finality through the Syntry Sovereign Protocol.",
     layers: [
-      { name: "Cadastral Survey", status: "Verified" },
-      { name: "Title Search", status: "Verified" },
-      { name: "Traditional Authority", status: "Verified" },
-      { name: "Lands Commission", status: "Verified" },
-      { name: "Geological Audit", status: "Verified" },
-      { name: "Lien & Debt Search", status: "Verified" },
-      { name: "Encroachment Scan", status: "Verified" },
-      { name: "Statutory Finality", status: "Stamped" }
+      { name: "Cadastral Survey", status: "Verified", source: "Geospatial Dept" },
+      { name: "Title Search", status: "Verified", source: "Lands Commission" },
+      { name: "Traditional Authority", status: "Verified", source: "Stool Office" },
+      { name: "Lands Commission", status: "Verified", source: "Ministerial Node" },
+      { name: "Geological Audit", status: "Verified", source: "Syntry Labs" },
+      { name: "Lien & Debt Search", status: "Verified", source: "Forensic Index" },
+      { name: "Encroachment Scan", status: "Verified", source: "Orbital Scan" },
+      { name: "Statutory Finality", status: "Stamped", source: "Sovereign Seal" }
     ],
     mortgage: {
       isEligible: true,
@@ -29,127 +38,163 @@ const PropertyDetailPage = ({ params }) => {
     }
   };
 
+  if (!hasMounted) return <div className="bg-white min-h-screen" />;
+
   return (
-    <div className="bg-[#F8F1E3] min-h-screen text-[#003300] font-sans">
+    <div className="bg-white min-h-screen text-slate-900 font-sans flex flex-col overflow-x-hidden">
       <GlobalHeader />
 
-      <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+      <main className="flex-grow pt-32 pb-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 mb-8 text-[10px] font-black uppercase tracking-widest text-slate-400">
+           <a href="/" className="hover:text-slate-900 transition-colors">Syntry</a>
+           <span>/</span>
+           <a href="/marketplace" className="hover:text-slate-900 transition-colors">Marketplace</a>
+           <span>/</span>
+           <span className="text-[#00C853]">{property.title}</span>
+        </div>
+
         {/* Hero Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <div className="rounded-3xl overflow-hidden bg-[#003300]/5 aspect-video flex items-center justify-center text-xs opacity-40 border border-[#D4AF37]/10">
-            [Optimized WebP Hero Background]
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+          <div className="rounded-[3rem] overflow-hidden bg-slate-50 aspect-square md:aspect-video lg:aspect-square flex flex-col items-center justify-center text-center p-12 border-4 border-slate-100 relative group group">
+            <div className="absolute inset-0 bg-[#00C853]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <span className="text-8xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">🏙️</span>
+            <h3 className="text-xl font-black text-slate-900 mb-2">Satellite Visual Node</h3>
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Grounded Truth Feed Active</p>
+            
+            <div className="absolute bottom-10 left-10 right-10 flex justify-between items-center bg-white/90 backdrop-blur p-4 rounded-2xl border border-slate-200">
+               <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse"></span>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-600">Scan status: Match Found</p>
+               </div>
+               <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Layer 01 Verified</p>
+            </div>
           </div>
           
-          <div className="flex flex-col justify-center">
-            <div className="flex gap-2 mb-6">
-              <span className="bg-[#D4AF37] text-[#003300] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                Verified Sovereign
+          <div className="flex flex-col justify-center space-y-8">
+            <div className="flex flex-wrap gap-3">
+              <span className="bg-[#00C853] text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-[#00C853]/20">
+                ✓ Sovereign Certified
               </span>
-              <span className="bg-[#00BFFF] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+              <span className="bg-slate-900 text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">
                 Mortgage Eligible
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">{property.title}</h1>
+            <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-slate-900 leading-tight">{property.title}</h1>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 border-y border-[#003300]/10 py-8">
-              <div>
-                <p className="text-[10px] uppercase opacity-60 mb-1 font-bold">Price</p>
-                <p className="text-lg font-bold">GH₵{property.price}</p>
+            <div className="grid grid-cols-2 gap-8 border-y border-slate-100 py-10">
+              <div className="space-y-1">
+                <p className="text-[10px] uppercase text-slate-400 font-black tracking-widest">Outright Price</p>
+                <p className="text-4xl font-black text-slate-900 tracking-tight">GH₵{property.price}</p>
               </div>
-              <div>
-                <p className="text-[10px] uppercase opacity-60 mb-1 font-bold">Size</p>
-                <p className="text-lg font-bold">2.4 Acres</p>
+              <div className="space-y-1 border-l border-slate-100 pl-8">
+                <p className="text-[10px] uppercase text-slate-400 font-black tracking-widest">Expected APY</p>
+                <p className="text-4xl font-black text-[#00C853] tracking-tight">{property.apy}</p>
               </div>
-              <div>
-                <p className="text-[10px] uppercase opacity-60 mb-1 font-bold">APY</p>
-                <p className="text-lg font-bold text-[#00BFFF]">{property.apy}</p>
+              <div className="space-y-1">
+                <p className="text-[10px] uppercase text-slate-400 font-black tracking-widest">Physical Size</p>
+                <p className="text-xl font-bold text-slate-700">{property.size}</p>
               </div>
-              <div>
-                <p className="text-[10px] uppercase opacity-60 mb-1 font-bold">Location</p>
-                <p className="text-lg font-bold">Aburi</p>
+              <div className="space-y-1 border-l border-slate-100 pl-8">
+                <p className="text-[10px] uppercase text-slate-400 font-black tracking-widest">Location Node</p>
+                <p className="text-xl font-bold text-slate-700">{property.location}</p>
               </div>
             </div>
 
-            <p className="text-lg opacity-80 leading-relaxed mb-8">
+            <p className="text-lg text-slate-500 font-medium leading-relaxed">
               {property.description}
             </p>
+            
+            <div className="flex flex-wrap gap-4 pt-4">
+               <button className="bg-slate-900 text-white px-10 py-6 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl hover:-translate-y-1 transition-all">Download Audit Report</button>
+               <button className="bg-white border-2 border-slate-200 text-slate-900 px-10 py-6 rounded-2xl font-black text-xs uppercase tracking-widest hover:border-slate-900 transition-all">Verify Coordinates</button>
+            </div>
           </div>
         </section>
 
-        {/* 8 Layers Panel */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-bold mb-8">8 Layers of Grounded Truth</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* 8 Layers Detailed Panel */}
+        <section className="mb-24">
+          <div className="flex justify-between items-end mb-12">
+             <div className="space-y-2">
+                <p className="text-[10px] font-black text-[#00C853] uppercase tracking-widest">Statutory Assurance</p>
+                <h2 className="text-4xl font-black tracking-tight text-slate-900">8 Layers of Grounded Truth</h2>
+             </div>
+             <p className="text-xs font-bold text-slate-400 border-b border-slate-200 pb-2">Full Statutory Protocol v3.1</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {property.layers.map((layer, i) => (
-              <div key={i} className="bg-white border border-[#D4AF37]/20 p-6 rounded-2xl flex flex-col justify-center shadow-sm">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-tighter">Layer 0{i+1}</span>
-                  <span className="w-2 h-2 bg-[#1D9E75] rounded-full"></span>
+              <div key={i} className="bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:bg-white hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-20 transition-opacity text-4xl">🛡️</div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Layer 0{i+1}</span>
+                  <span className="w-3 h-3 bg-[#00C853] rounded-full shadow-[0_0_8px_#00C853]"></span>
                 </div>
-                <h4 className="font-bold text-sm mb-1">{layer.name}</h4>
-                <p className="text-[10px] font-bold text-[#1D9E75] uppercase">{layer.status}</p>
+                <h4 className="font-black text-slate-900 text-lg mb-2">{layer.name}</h4>
+                <p className="text-[10px] font-black text-[#00C853] uppercase tracking-widest">{layer.status} • {layer.source}</p>
               </div>
             ))}
           </div>
-          <div className="mt-8 bg-[#D4AF37]/5 border border-[#D4AF37] p-6 rounded-2xl text-center">
-            <span className="text-[#D4AF37] font-bold uppercase tracking-widest text-xs">Stamped with Statutory Finality</span>
+          
+          <div className="mt-12 bg-slate-900 rounded-[3rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+             <div className="flex items-center gap-6">
+                <div className="w-16 h-16 bg-[#00C853] text-white rounded-2xl flex items-center justify-center text-3xl shadow-xl">⚖️</div>
+                <div>
+                   <p className="text-[10px] font-black text-[#00C853] uppercase tracking-widest mb-1">Exchange Status</p>
+                   <p className="text-xl font-bold">Stamped with Statutory Finality. 0.00% Risk Index.</p>
+                </div>
+             </div>
+             <button className="bg-white text-slate-900 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-all">View Registry Log</button>
           </div>
         </section>
 
-        {/* Mortgage & Acquisition */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          <div className="md:col-span-2 bg-[#003300] text-[#F8F1E3] p-10 rounded-3xl shadow-xl border border-[#D4AF37]/20 relative overflow-hidden">
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-2xl -mb-16 -mr-16"></div>
-            <h2 className="text-3xl font-bold mb-4">Ready for Mortgage?</h2>
-            <div className="flex items-center gap-3 mb-8">
-              <span className="w-3 h-3 bg-[#1D9E75] rounded-full animate-pulse"></span>
-              <p className="text-lg font-bold text-[#1D9E75]">{property.mortgage.preApprovalMatch}</p>
+        {/* Acquisition & Financing */}
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
+          <div className="lg:col-span-2 bg-[#D4AF37]/5 border-4 border-[#D4AF37]/10 p-12 rounded-[4rem] flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[100px] group-hover:bg-[#D4AF37]/20 transition-all duration-1000"></div>
+            
+            <div className="space-y-6 relative z-10">
+               <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 px-4 py-2 rounded-full border border-[#D4AF37]/30">
+                  <span className="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest">Enzyme Underwriting</span>
+               </div>
+               <h2 className="text-5xl font-black tracking-tighter text-slate-900 leading-none">Unlock Institutional <br /> Financing Instantly</h2>
+               <p className="text-xl text-slate-600 font-medium max-w-xl">This asset is pre-verified for institutional debt financing. No manual appraisal required.</p>
             </div>
             
-            <div className="mb-10">
-              <p className="opacity-60 text-xs uppercase mb-2 tracking-widest">Est. Monthly Repayment</p>
-              <h3 className="text-4xl font-bold text-[#D4AF37]">GH₵{property.mortgage.estMonthly} <span className="text-lg opacity-40">/ month</span></h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a href="/mortgage" className="bg-[#00BFFF] text-[#003300] py-4 rounded-xl font-bold hover:scale-105 transition-all text-sm text-center">
-                Apply Mortgage on This Property
-              </a>
-              <a href="https://wa.me/233531102292?text=I%20want%20to%20download%20the%20valuation%20report%20for%20property%20ID%3A%201" className="border border-[#F8F1E3]/20 py-4 rounded-xl font-bold hover:bg-[#F8F1E3]/5 transition-all text-sm text-center">
-                Download Valuation Report
-              </a>
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 relative z-10">
+               <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Mortgage Estimate</p>
+                  <p className="text-4xl font-black text-slate-900 tracking-tighter">GH₵{property.mortgage.estMonthly}<span className="text-lg text-slate-400 font-bold ml-1">/mo</span></p>
+                  <p className="text-[10px] font-black text-[#00C853] uppercase tracking-widest mt-4">✓ fits your pre-approval</p>
+               </div>
+               <div className="flex flex-col gap-4">
+                  <a href="/mortgage" className="w-full bg-[#00C853] text-white py-5 rounded-2xl font-black text-xs text-center uppercase tracking-widest shadow-xl shadow-[#00C853]/20 hover:-translate-y-1 transition-all">Start Mortgage App</a>
+                  <a href="https://wa.me/233531102292" className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black text-xs text-center uppercase tracking-widest hover:-translate-y-1 transition-all">Talk to Underwriter</a>
+               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#D4AF37]/20 p-8 rounded-3xl shadow-lg h-full">
-            <h4 className="font-bold text-xl mb-6">Express Interest</h4>
-            <p className="text-sm opacity-70 mb-8">
-              Connect directly with the verified owner or a Syntry advisor to start the acquisition process.
-            </p>
-            <a 
-              href="https://wa.me/233531102292" 
-              className="bg-[#25D366] text-white w-full py-4 rounded-xl font-bold hover:scale-105 transition-all flex items-center justify-center gap-3 text-sm mb-4"
-            >
-              Express via WhatsApp
-            </a>
-            <p className="text-[10px] text-center opacity-40 uppercase font-bold">Response time: ~15 mins</p>
+          <div className="bg-white border-2 border-slate-100 p-12 rounded-[4rem] shadow-xl flex flex-col justify-between">
+            <div className="space-y-6 text-center lg:text-left">
+               <h4 className="font-black text-3xl text-slate-900 tracking-tight">Express Interest</h4>
+               <p className="text-slate-500 font-medium leading-relaxed">
+                 Connect directly with the verified owner or a Syntry sovereign advisor to start procurement.
+               </p>
+            </div>
+            
+            <div className="space-y-4 mt-12">
+               <a 
+                 href={`https://wa.me/233531102292?text=I%20am%20interested%20in%20${encodeURIComponent(property.title)}`} 
+                 className="w-full bg-[#25D366] text-white py-6 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl"
+               >
+                 <span className="text-2xl">💬</span> Express via WhatsApp
+               </a>
+               <p className="text-[10px] text-center font-black text-slate-400 uppercase tracking-widest">Syntry Verified Advisor Node active</p>
+            </div>
           </div>
         </section>
       </main>
-
-      {/* Sticky Mobile Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#003300] p-4 flex gap-3 md:hidden z-50 border-t border-[#D4AF37]/20 shadow-2xl">
-        <a 
-          href="https://wa.me/233531102292" 
-          className="flex-1 bg-[#D4AF37] text-[#003300] py-3 rounded-lg font-bold text-center text-xs"
-        >
-          Express Interest
-        </a>
-        <button className="flex-1 bg-[#00BFFF] text-[#003300] py-3 rounded-lg font-bold text-xs">
-          Apply Mortgage
-        </button>
-      </div>
 
       <GlobalFooter />
     </div>

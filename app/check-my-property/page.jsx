@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 const GlobalHeader = dynamic(() => import('@/components/GlobalHeader'), { ssr: false });
 const GlobalFooter = dynamic(() => import('@/components/GlobalFooter'), { ssr: false });
+const SovereignMap = dynamic(() => import('@/components/SovereignMap'), { ssr: false });
+import Tesseract from 'tesseract.js';
 
 const EIGHT_LAYERS = [
   { id: 'gps', name: 'GPS Lock', confidence: 99.8, source: 'Orbital Satellite Matrix', desc: 'Precise coordinates cross-referenced against the 2026 digital boundary map.' },
@@ -23,14 +25,13 @@ const CHAIN_OF_TRUST = [
   { year: '1998', event: 'Original Grant', detail: 'Initial leasehold agreement granted by Nii Odoi Stool.' }
 ];
 
-export default function VerifyLandNowPage() {
+export default function CheckMyPropertyPage() {
   const [hasMounted, setHasMounted] = useState(false);
   const [activeTab, setActiveTab] = useState('auto'); // 'auto', 'manual', 'upload'
   const [isVerifying, setIsVerifying] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [activeLayer, setActiveLayer] = useState(null);
   
-  // Input States
   const [coordinates, setCoordinates] = useState({ lat: '5.6037', lng: '-0.1870' });
   const [ghanaPost, setGhanaPost] = useState('');
   const [titleNumber, setTitleNumber] = useState('');
@@ -38,6 +39,10 @@ export default function VerifyLandNowPage() {
   const [manualLng, setManualLng] = useState('');
   const [file, setFile] = useState(null);
   const [isAutoDetecting, setIsAutoDetecting] = useState(false);
+  const [areaSize, setAreaSize] = useState(0);
+  const [isLocationValid, setIsLocationValid] = useState(true);
+  const [ocrStatus, setOcrStatus] = useState('');
+  const [registryAlert, setRegistryAlert] = useState(null);
 
   useEffect(() => {
     setHasMounted(true);
@@ -66,15 +71,53 @@ export default function VerifyLandNowPage() {
     triggerVerification();
   };
 
-  const triggerVerification = () => {
+  const handleFileProcessing = async (selectedFile) => {
+    setFile(selectedFile);
+    setOcrStatus('Syntry AI Node: Extracting metadata...');
+    
+    try {
+      const { data: { text } } = await Tesseract.recognize(selectedFile, 'eng');
+      const titleMatch = text.match(/[A-Z]{2}[-][0-9]{4}[-][0-9]{3,}/i);
+      if (titleMatch) {
+        setTitleNumber(titleMatch[0]);
+        setOcrStatus('Metadata Extracted: Title ' + titleMatch[0]);
+      } else {
+        setOcrStatus('OCR Warning: Title Number not found. Manual entry required.');
+      }
+      const dateMatch = text.match(/\d{1,2}[/-]\d{1,2}[/-]\d{2,4}/);
+      if (dateMatch) setOcrStatus(prev => prev + ' | Date: ' + dateMatch[0]);
+    } catch (err) {
+      setOcrStatus('OCR Failed. High-res scan required.');
+    }
+  };
+
+  const triggerVerification = async () => {
+    if (!isLocationValid) return;
     setIsVerifying(true);
+    setRegistryAlert(null);
+
+    const registryPromise = new Promise((resolve) => {
+       setTimeout(() => {
+          if (titleNumber.includes('DISPUTE') || titleNumber.includes('ERROR')) {
+             resolve({ status: 'mismatch', message: 'Verification Failed: Data Mismatch with Land Registry records.' });
+          } else {
+             resolve({ status: 'success' });
+          }
+       }, 2000);
+    });
+
+    const result = await registryPromise;
+    setIsVerifying(false);
+
+    if (result.status === 'mismatch') {
+       setRegistryAlert({ type: 'error', message: result.message });
+       return;
+    }
+
+    setShowResults(true);
     setTimeout(() => {
-      setIsVerifying(false);
-      setShowResults(true);
-      setTimeout(() => {
-        document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-    }, 2000);
+      document.getElementById('results-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
   };
 
   if (!hasMounted) return <div className="bg-white min-h-screen" />;
@@ -84,7 +127,6 @@ export default function VerifyLandNowPage() {
       <GlobalHeader />
 
       <main className="flex-grow pt-32 pb-24">
-        {/* TOP LEVEL INPUT & MAP SECTION */}
         <div className="max-w-6xl mx-auto px-4 mb-16 space-y-12">
           <div className="text-center space-y-4 animate-in fade-in slide-in-from-top-8 duration-700">
              <div className="inline-flex items-center gap-2 bg-[#00C853]/10 px-4 py-2 rounded-full border border-[#00C853]/20">
@@ -95,7 +137,6 @@ export default function VerifyLandNowPage() {
              <p className="text-slate-500 font-medium text-lg">Syntry orbital scan detects boundaries and litigation status in real-time.</p>
           </div>
 
-          {/* Tabbed Interface */}
           <div className="bg-white rounded-[3rem] border border-slate-200 overflow-hidden shadow-2xl">
              <div className="flex border-b border-slate-100 bg-slate-50/50">
                 {[
@@ -181,50 +222,50 @@ export default function VerifyLandNowPage() {
 
                    {activeTab === 'upload' && (
                       <div className="space-y-6 animate-in slide-in-from-left-4">
-                         <div className="border-4 border-dashed border-slate-100 rounded-3xl p-12 bg-slate-50 flex flex-col items-center text-center cursor-pointer hover:bg-white hover:border-[#00C853]/40 transition-all group">
+                         <div className="border-4 border-dashed border-slate-100 rounded-3xl p-12 bg-slate-50 flex flex-col items-center text-center cursor-pointer hover:bg-white hover:border-[#00C853]/40 transition-all group relative">
                             <span className="text-4xl mb-4 grayscale group-hover:grayscale-0 transition-all">📄</span>
-                            <p className="text-lg font-black text-slate-900">Upload Site Plan</p>
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">PDF, JPG up to 20MB</p>
-                            <input type="file" className="absolute opacity-0" onChange={(e) => setFile(e.target.files[0])} />
+                            <p className="text-lg font-black text-slate-900">{file ? file.name : 'Upload Site Plan'}</p>
+                            <p className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.2em] mt-2">{ocrStatus}</p>
+                            <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={(e) => handleFileProcessing(e.target.files[0])} />
                          </div>
+                         {registryAlert && registryAlert.type === 'error' && (
+                            <div className="bg-red-50 border-2 border-red-200 text-red-600 p-6 rounded-3xl animate-bounce flex items-center gap-4">
+                              <span className="text-2xl">⚠️</span>
+                              <p className="font-black uppercase text-xs tracking-widest">{registryAlert.message}</p>
+                            </div>
+                         )}
                          <button 
-                           disabled={!file}
+                           disabled={!file || isVerifying}
                            onClick={triggerVerification}
                            className="w-full bg-[#00C853] text-white py-6 rounded-2xl font-black text-xl shadow-xl hover:-translate-y-1 transition-all disabled:opacity-30"
                          >
-                            Run Forensic AI Analysis
+                            {isVerifying ? 'Scanning Registry...' : 'Run Forensic AI Analysis'}
                          </button>
                       </div>
                    )}
                 </div>
 
                 <div className="space-y-4">
-                   <div className="w-full h-[400px] bg-slate-100 rounded-3xl overflow-hidden shadow-inner border border-slate-200 relative group">
-                      <iframe 
-                         key={coordinates.lat + coordinates.lng}
-                         title="Verification Map"
-                         width="100%" height="100%" frameBorder="0" scrolling="no" 
-                         src={`https://maps.google.com/maps?q=${coordinates.lat},${coordinates.lng}&z=17&output=embed`}
-                         className="opacity-90 group-hover:opacity-100 transition-opacity"
-                      ></iframe>
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 w-8 h-8 bg-red-600 rounded-full border-4 border-white shadow-2xl" 
-                           style={{ boxShadow: '0 0 0 0 rgba(220, 38, 38, 0.7)', animation: 'pulse-red 2s infinite' }}></div>
-                      <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-200 text-[10px] font-black uppercase tracking-widest text-slate-600 shadow-lg">
-                         GPS Locked • {coordinates.lat}° N, {coordinates.lng}° W
-                      </div>
-                   </div>
-                   <p className="text-[10px] font-bold text-slate-400 text-center uppercase tracking-widest">Interactive map showing surrounding landmarks and indexed properties.</p>
+                    <div className="w-full h-[500px] bg-slate-100 rounded-[2.5rem] overflow-hidden shadow-inner border-2 border-slate-200 relative group">
+                       <SovereignMap 
+                          onAreaCalculated={(area) => setAreaSize(area)}
+                          onLocationVerified={(valid) => setIsLocationValid(valid)}
+                          initialPos={[coordinates.lat, coordinates.lng]}
+                       />
+                    </div>
+                    <div className="flex justify-between items-center px-4">
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Draw your polygon on the map to calculate official size.</p>
+                       {areaSize > 0 && <span className="text-[10px] bg-[#00C853] text-white px-3 py-1 rounded-full font-black uppercase tracking-widest animate-pulse">Auto-Survey Active ({areaSize} Acres)</span>}
+                    </div>
                 </div>
              </div>
           </div>
         </div>
 
-        {/* VERIFIED STATUS CARD SECTION */}
         {showResults && (
            <div id="results-dashboard" className="py-24 animate-in fade-in slide-in-from-bottom-12 duration-1000">
               <div className="max-w-6xl mx-auto px-4">
                  <div className="bg-white border-t-[12px] border-[#00C853] border-x border-b border-slate-200 rounded-[4rem] overflow-hidden shadow-2xl">
-                    {/* Header Summary */}
                     <div className="p-8 md:p-16 border-b border-slate-100 flex flex-col lg:flex-row justify-between gap-12 bg-slate-50/30 font-sans">
                        <div className="space-y-6">
                           <div className="flex items-center gap-4">
@@ -250,7 +291,6 @@ export default function VerifyLandNowPage() {
                     </div>
 
                     <div className="p-8 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-16">
-                       {/* Left Column: Chain of Trust */}
                        <div className="lg:col-span-4 space-y-10">
                           <h3 className="text-xs font-black text-slate-400 uppercase tracking-[3px] border-b pb-4">Chain of Trust</h3>
                           <div className="relative pl-10 border-l-2 border-slate-100 space-y-12">
@@ -265,7 +305,6 @@ export default function VerifyLandNowPage() {
                           </div>
                        </div>
 
-                       {/* Right Column: 8-Layers Matrix */}
                        <div className="lg:col-span-8 space-y-10 font-sans">
                           <h3 className="text-xs font-black text-slate-400 uppercase tracking-[3px] border-b pb-4">Sovereign 8-Layer Matrix</h3>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -296,7 +335,6 @@ export default function VerifyLandNowPage() {
                        </div>
                     </div>
 
-                    {/* Action Bar */}
                     <div className="p-8 md:p-16 bg-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-12 font-sans">
                        <div className="space-y-2 text-center md:text-left">
                           <p className="text-[10px] font-black text-[#00C853] uppercase tracking-widest">Institutional Assurance</p>
@@ -314,7 +352,6 @@ export default function VerifyLandNowPage() {
         )}
       </main>
 
-      {/* Layer Detail Modal */}
       {activeLayer && (
          <div className="fixed inset-0 z-[3000] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm animate-in fade-in font-sans">
             <div className="bg-white w-full max-w-lg rounded-[3rem] p-12 shadow-3xl relative animate-in zoom-in-95">
@@ -338,13 +375,6 @@ export default function VerifyLandNowPage() {
       )}
 
       <GlobalFooter />
-      <style jsx global>{`
-        @keyframes pulse-red {
-          0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
-          70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
-          100% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
-        }
-      `}</style>
     </div>
   );
 }
