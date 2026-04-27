@@ -513,7 +513,7 @@ const MarketplacePage = () => {
                   onSubmit={(e) => { 
                      e.preventDefault(); 
                      // TODO: Connect to Synapse AI Gateway
-                     // const res = await fetch('/api/ai/chat', { method: 'POST', body: JSON.stringify({ message }) });
+                     // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/ai/chat`, { method: 'POST', body: JSON.stringify({ message }) });
                      alert("Syntry AI Node Connected. Processing intent..."); 
                   }}
                >

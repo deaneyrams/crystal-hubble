@@ -64,7 +64,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
      setIsFilingWhistleblower(true);
      try {
        const userCoords = activeLayer.toGeoJSON().geometry.coordinates[0];
-       const res = await fetch('/api/whistleblower', {
+       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/whistleblower`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({ encroachments, userCoordinates: userCoords })

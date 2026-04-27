@@ -554,7 +554,7 @@ export default function AdminControlTower() {
     if (!selectedPlot || isEmergencyLocked) return;
     try {
       // Create Stripe Checkout Session
-      const res = await fetch('/api/checkout', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/checkout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ plotId: selectedPlot.id, amount: Math.floor(selectedPlot.value * 0.7) })
@@ -619,7 +619,7 @@ export default function AdminControlTower() {
     setAuditStream(prev => ({ ...prev, started: true }));
 
     try {
-      const response = await fetch('/api/oracle-audit', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/oracle-audit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

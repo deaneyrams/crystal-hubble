@@ -53,7 +53,7 @@ export default function SentinelWatch() {
     if (newFlagCount >= 2) {
        // ESCALATION PROTOCOL ACTIVATED
        try {
-         const res = await fetch('/api/whistleblower', {
+         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/whistleblower`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

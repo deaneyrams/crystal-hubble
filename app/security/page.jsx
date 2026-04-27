@@ -14,7 +14,7 @@ export default function SecuritySettings() {
 
   const initiateSetup = async () => {
     setStep('setup');
-    const response = await fetch('/api/security/totp/setup', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/security/totp/setup`, {
       method: 'POST',
       body: JSON.stringify({ userId, email })
     });
@@ -25,7 +25,7 @@ export default function SecuritySettings() {
   const handleVerify = async () => {
     setIsEnabling(true);
     setError('');
-    const response = await fetch('/api/security/totp/verify', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/security/totp/verify`, {
       method: 'POST',
       body: JSON.stringify({ userId, token: totpToken })
     });

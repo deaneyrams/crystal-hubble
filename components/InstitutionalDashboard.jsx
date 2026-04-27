@@ -280,7 +280,7 @@ export default function InstitutionalDashboard() {
     
     try {
       setTimeout(async () => {
-         await fetch('/api/whatsapp', {
+         await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/whatsapp`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ phone: waPhone })
@@ -305,7 +305,7 @@ export default function InstitutionalDashboard() {
        if (newAttempts >= 3) {
           setIsLocked(true);
           // Simulate automated WhatsApp security alert
-          fetch('/api/whatsapp', { method: 'POST', body: JSON.stringify({ phone: waPhone, alert: 'Account locked due to 3 failed 2FA attempts.' }) }).catch(()=>null);
+          fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/whatsapp`, { method: 'POST', body: JSON.stringify({ phone: waPhone, alert: 'Account locked due to 3 failed 2FA attempts.' }) }).catch(()=>null);
        }
        return; // Fail silently or display error
     }
@@ -370,7 +370,7 @@ export default function InstitutionalDashboard() {
          }
          
          // Dispatch Welcome Email Trigger
-         fetch('/api/send-bond', {
+         fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/send-bond`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 

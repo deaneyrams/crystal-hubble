@@ -15,7 +15,7 @@ export default function CEODashboard() {
     setVerificationError('');
     
     try {
-      const response = await fetch('/api/security/transaction/verify', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/security/transaction/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
