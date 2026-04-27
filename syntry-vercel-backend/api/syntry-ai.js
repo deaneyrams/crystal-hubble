@@ -7,7 +7,13 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 module.exports = async (req, res) => {
   // CORS Headers
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  const allowedOrigins = ["https://www.syntry.co", "https://syntry.co"];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  } else {
+    res.setHeader("Access-Control-Allow-Origin", "https://www.syntry.co"); // Fallback
+  }
   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
   res.setHeader(
     "Access-Control-Allow-Headers",
