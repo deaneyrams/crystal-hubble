@@ -36,6 +36,12 @@ const MapResizer = () => {
 };
 
 const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidated, initialPos = [5.6037, -0.1870] }) => {
+  const [hasMounted, setHasMounted] = useState(false);
+  
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const [areaInAcres, setAreaInAcres] = useState(0);
   const [areaInSqMeters, setAreaInSqMeters] = useState(0);
   const [centroidNode, setCentroidNode] = useState(null);
@@ -45,6 +51,8 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   const [encroachments, setEncroachments] = useState([]);
   const [isFilingWhistleblower, setIsFilingWhistleblower] = useState(false);
   const [whistleblowerSuccess, setWhistleblowerSuccess] = useState(null);
+
+  if (!hasMounted || typeof window === 'undefined') return null;
 
   const fileWhistleblowerReport = async () => {
      if (!activeLayer || encroachments.length === 0) return;
