@@ -1,19 +1,19 @@
-import PropertyClient from './PropertyClient';
+import dynamic from 'next/dynamic';
 
+export const dynamicParams = true;
+
+// This allows the build to pass by pre-rendering no specific IDs
 export async function generateStaticParams() {
-  // Pre-render the IDs identified in the marketplace
-  // In a real app, you might fetch this from a DB.
-  return [
-    { id: '1' },
-    { id: '2' },
-    { id: '3' },
-    { id: '4' },
-    { id: '5' },
-    { id: '6' }
-  ];
+  return [];
 }
 
-export default function Page({ params }) {
-  const { id } = params;
-  return <PropertyClient id={id} />;
-}
+const MarketplaceItem = ({ params }) => {
+  return (
+    <div className="min-h-screen bg-obsidian text-white p-8">
+      <h1 className="text-relic-gold">Marketplace Item: {params.id}</h1>
+      <p>Loading forensic land data...</p>
+    </div>
+  );
+};
+
+export default MarketplaceItem;
