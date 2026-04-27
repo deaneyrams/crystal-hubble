@@ -1,22 +1,69 @@
+'use client';
+
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
-const SovereignMap = dynamic(() => import('@/components/SovereignMap'), { ssr: false, loading: () => <div className="h-full w-full bg-[#0a0f1d] animate-pulse" /> });
-import { verifyAndConsumeToken } from '@/lib/sovereign-crypto';
+const SovereignMap = dynamic(() => import('@/components/SovereignMap'), { 
+  ssr: false, 
+  loading: () => <div className="h-full w-full bg-[#0a0f1d] animate-pulse rounded-xl" /> 
+});
 import GraviticDecoupler from '@/components/GraviticDecoupler';
 
-export default async function GuestViewerPage({ params }) {
-  const { token } = params;
-  
-  // Decrypt and validate token Server-Side (Zero-Login security check)
-  const validation = await verifyAndConsumeToken(token);
+function ShareContent() {
+  const searchParams = useSearchParams();
+  const token = searchParams.get('token');
+  const [loading, setLoading] = useState(true);
+  const [validation, setValidation] = useState(null);
+  const [error, setError] = useState(null);
 
-  if (!validation.valid) {
+  useEffect(() => {
+    if (!token) {
+      setError('Missing security token.');
+      setLoading(false);
+      return;
+    }
+
+    async function verifyToken() {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        const res = await fetch(`${apiUrl}/api/share/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token })
+        });
+        const data = await res.json();
+        if (data.valid) {
+          setValidation(data);
+        } else {
+          setError(data.error || 'Token verification failed.');
+        }
+      } catch (err) {
+        setError('Connection to Sovereign Node failed.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    verifyToken();
+  }, [token]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#050810] flex flex-col items-center justify-center space-y-4">
+        <div className="w-12 h-12 border-4 border-[#00F5D4]/20 border-t-[#00F5D4] rounded-full animate-spin"></div>
+        <p className="text-[#00F5D4] font-mono text-xs uppercase tracking-widest animate-pulse">Establishing Secure Handshake...</p>
+      </div>
+    );
+  }
+
+  if (error || !validation?.valid) {
     return (
       <div className="min-h-screen bg-[#050810] text-red-500 font-mono flex flex-col items-center justify-center p-8 text-center space-y-6">
          <div className="text-6xl animate-pulse">🔒</div>
          <div>
             <h1 className="text-3xl font-bold uppercase tracking-widest mb-2">Access Denied</h1>
             <p className="text-lg text-red-400">
-              {validation.error || "This Sovereign Link has been consumed or is invalid."}
+              {error || "This Sovereign Link has been consumed or is invalid."}
             </p>
          </div>
          <p className="text-sm text-gray-500 max-w-md italic mt-8 border-t border-red-900/50 pt-8">
@@ -27,7 +74,6 @@ export default async function GuestViewerPage({ params }) {
   }
 
   const { plotId, exp } = validation.payload;
-  // Mock Data retrieval based on plotId for the external viewer
   const zkpData = {
     id: plotId.toUpperCase(),
     area: "Ashifla-Otatten Site Plan",
@@ -90,10 +136,6 @@ export default async function GuestViewerPage({ params }) {
                     <p className="text-[11px] font-mono text-white">{zkpData.registryId}</p>
                   </div>
                 </div>
-                
-                <p className="text-[10px] text-gray-500 italic mt-4 border-l-2 border-indigo-500/30 pl-3">
-                  This is a Zero-Knowledge Proof (ZKP) representation. Sensitive administrative datums (revenue, owner keys) have been omitted.
-                </p>
               </div>
            </div>
 
@@ -104,7 +146,7 @@ export default async function GuestViewerPage({ params }) {
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-white/5 bg-black/40 text-center flex flex-col items-center">
+        <div className="p-4 border-t border-white/5 bg-black/40 text-center flex flex-col items-center shrink-0">
           <GraviticDecoupler />
           <p className="text-[9px] text-gray-600 uppercase tracking-widest mt-6">
             Cryptographically Signed Audit &bull; {zkpData.auditDate}
@@ -116,5 +158,13 @@ export default async function GuestViewerPage({ params }) {
 
       </div>
     </div>
+  );
+}
+
+export default function GuestViewerPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#050810]" />}>
+      <ShareContent />
+    </Suspense>
   );
 }
