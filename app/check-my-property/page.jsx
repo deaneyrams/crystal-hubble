@@ -285,7 +285,7 @@ export default function CheckMyPropertyPage() {
                           onAreaCalculated={(data) => { setAreaSize(data.acres); setAreaSqMeters(data.sqMeters); }}
                           onLocationVerified={(valid, geojson) => { setIsLocationValid(valid); if(geojson) setSavedGeoJSON(geojson); }}
                           onCentroidValidated={(validNeighborhood) => setCentroidValid(validNeighborhood)}
-                          initialPos={[coordinates.lat, coordinates.lng]}
+                          initialPos={[parseFloat(coordinates.lat), parseFloat(coordinates.lng)]}
                        />
                     </div>
                     <div className="flex justify-between items-center px-4">

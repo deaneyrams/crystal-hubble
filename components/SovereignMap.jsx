@@ -7,6 +7,11 @@ import { EditControl } from 'react-leaflet-draw';
 import * as turf from '@turf/turf';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
+import L from 'leaflet';
+
+if (typeof window !== 'undefined') {
+  window.L = L;
+}
 
 // Greater Accra Bounding Box (Enhanced for Syntry Guard)
 const GREATER_ACCRA_BOUNDS = {
@@ -238,7 +243,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   return (
     <div className="relative w-full h-full">
       <MapContainer 
-        center={initialPos} 
+        center={[parseFloat(initialPos[0]) || 5.6037, parseFloat(initialPos[1]) || -0.1870]} 
         zoom={13} 
         className="w-full h-full rounded-2xl z-10"
         scrollWheelZoom={true}
