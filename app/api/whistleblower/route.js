@@ -1,13 +1,15 @@
 import { NextResponse } from 'next/server';
-import PDFDocument from 'pdfkit';
 import crypto from 'crypto';
-import nodemailer from 'nodemailer';
 import { Connection, Keypair, SystemProgram, Transaction } from '@solana/web3.js';
 
 export async function POST(req) {
   try {
     const data = await req.json();
     const { encroachments, userCoordinates } = data;
+
+    // Dynamic imports to prevent static export failure
+    const PDFDocument = (await import('pdfkit')).default;
+    const nodemailer = (await import('nodemailer')).default;
 
     // 1. Generate Dispute Hash & Timestamp
     const timestamp = new Date().toISOString();
