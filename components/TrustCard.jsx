@@ -74,7 +74,7 @@ export default function TrustCard({ transaction, isCleared, isReserved }) {
             </p>
           </div>
         </div>
-        <div className={`px-4 py-1.5 rounded-full border font-mono text-[8px] font-bold uppercase tracking-[3px] transition-all 
+        <div className={`px-4 py-1.5 rounded-full border font-mono text-[8px] font-medium uppercase tracking-[3px] transition-all 
             ${isCleared ? 'bg-[#B8FF3C]/10 text-[#B8FF3C] border-[#B8FF3C]/20' 
             : isReserved ? 'bg-[#D4AF37]/10 text-[#D4AF37] border-[#D4AF37]/20' 
             : 'bg-white/5 text-white/20 border-white/5'}`}>
@@ -106,7 +106,7 @@ export default function TrustCard({ transaction, isCleared, isReserved }) {
           ].map((item, i) => (
             <div key={i} className="flex justify-between items-center bg-white/[0.02] p-4 rounded-lg border border-white/5">
               <span className="font-mono text-[7px] text-white/40 uppercase tracking-[2px]">{item.label}</span>
-              <span className={`font-mono text-[8px] font-bold tracking-[1px] ${item.val === 'PENDING' ? 'text-white/20' : 'text-[#B8FF3C]'}`}>{item.val}</span>
+              <span className={`font-mono text-[8px] font-medium tracking-[1px] ${item.val === 'PENDING' ? 'text-white/20' : 'text-[#B8FF3C]'}`}>{item.val}</span>
             </div>
           ))}
         </div>
@@ -158,7 +158,7 @@ export default function TrustCard({ transaction, isCleared, isReserved }) {
           </svg>
         </div>
         <div className="space-y-1">
-          <h4 className={`font-mono text-[9px] font-bold uppercase tracking-[3px] ${isCleared ? 'text-[#B8FF3C]' : isReserved ? 'text-[#D4AF37]' : 'text-white/40'}`}>
+          <h4 className={`font-mono text-[9px] font-medium uppercase tracking-[3px] ${isCleared ? 'text-[#B8FF3C]' : isReserved ? 'text-[#D4AF37]' : 'text-white/40'}`}>
             Vault {escrowStatus}
           </h4>
           <p className="text-white/40 text-[10px] leading-relaxed font-body">{escrowMsg}</p>

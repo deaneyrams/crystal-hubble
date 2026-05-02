@@ -108,7 +108,7 @@ export default function MapDrillDown() {
         <div className="mt-4 p-5 bg-[#00F5D4]/5 border border-[#00F5D4]/20 rounded-xl animate-in fade-in slide-in-from-top-2 duration-500 shadow-lg">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <p className="text-[#00F5D4] text-[10px] font-black uppercase tracking-widest mb-1">GELIS Real-Time Sync Result</p>
+              <p className="text-[#00F5D4] text-[10px] font-medium tracking-tight uppercase tracking-widest mb-1">GELIS Real-Time Sync Result</p>
               <p className="text-white text-xs font-semibold">Coordinate Security Verification Successful</p>
             </div>
             <div className="bg-[#00F5D4]/20 p-1.5 rounded-full">
@@ -121,24 +121,24 @@ export default function MapDrillDown() {
           <div className="max-h-[160px] overflow-y-auto pr-2 custom-scrollbar scroll-smooth">
             <div className="grid grid-cols-2 gap-y-4 gap-x-6">
               <div>
-                <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tighter">SMD Barcode</p>
+                <p className="text-[8px] text-gray-500 uppercase font-medium tracking-tighter">SMD Barcode</p>
                 <p className="text-[10px] text-white font-mono">{verificationResult.smd_barcode}</p>
               </div>
               <div>
-                <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tighter">Premium Status</p>
-                <p className="text-[10px] text-[#00F5D4] font-bold">{verificationResult.premium_status}</p>
+                <p className="text-[8px] text-gray-500 uppercase font-medium tracking-tighter">Premium Status</p>
+                <p className="text-[10px] text-[#00F5D4] font-medium">{verificationResult.premium_status}</p>
               </div>
               <div>
-                <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tighter">Current Owner</p>
+                <p className="text-[8px] text-gray-500 uppercase font-medium tracking-tighter">Current Owner</p>
                 <p className="text-[10px] text-white font-medium">{verificationResult.current_owner}</p>
               </div>
               <div>
-                <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tighter">Registry Status</p>
-                <p className="text-[10px] text-indigo-400 font-bold">{verificationResult.registry_status}</p>
+                <p className="text-[8px] text-gray-500 uppercase font-medium tracking-tighter">Registry Status</p>
+                <p className="text-[10px] text-indigo-400 font-medium">{verificationResult.registry_status}</p>
               </div>
               {/* Future-proofing for long audit trails */}
               <div className="col-span-2 pt-2">
-                <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tighter mb-1">Audit Trail Reference</p>
+                <p className="text-[8px] text-gray-500 uppercase font-medium tracking-tighter mb-1">Audit Trail Reference</p>
                 <p className="text-[9px] text-gray-400 line-clamp-2 italic">Official verification logged under ELIS-SYN-2026-X. Encrypted handshake verified via GELIS Protocol Layer 2.</p>
               </div>
             </div>
@@ -154,7 +154,7 @@ export default function MapDrillDown() {
       <button 
         onClick={handleVerify}
         disabled={!view.coord || isVerifying}
-        className={`w-full mt-4 py-4 rounded-xl font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3
+        className={`w-full mt-4 py-4 rounded-xl font-medium uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3
           ${!view.coord || isVerifying 
             ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700' 
             : 'bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/20 border border-indigo-400/30 active:scale-95'}`}

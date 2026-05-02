@@ -43,7 +43,7 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
       </div>
 
       <div className="relative z-10 flex flex-col space-y-6">
-        <h3 className="text-white font-bold tracking-widest uppercase text-sm border-b border-white/10 pb-2 flex items-center gap-2">
+        <h3 className="text-white font-medium tracking-widest uppercase text-sm border-b border-white/10 pb-2 flex items-center gap-2">
           <span>📡</span> GELIS Ecosystem Tracker
         </h3>
 
@@ -64,7 +64,7 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
 
                 {/* Content */}
                 <div className={`transition-all duration-300 ${isPending ? 'opacity-40' : 'opacity-100'}`}>
-                  <h4 className={`text-xs font-bold uppercase tracking-widest ${isCompleted ? 'text-white' : isCurrent ? 'text-indigo-300' : 'text-gray-500'}`}>
+                  <h4 className={`text-xs font-medium uppercase tracking-widest ${isCompleted ? 'text-white' : isCurrent ? 'text-indigo-300' : 'text-gray-500'}`}>
                     {stage.label}
                   </h4>
                   {isCurrent && (
@@ -88,7 +88,7 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
         {currentStage === stages.length - 1 && (
            <div className="p-3 bg-gradient-to-r from-[#00F5D4]/20 to-indigo-900/20 border border-[#00F5D4]/40 rounded-xl mt-4 animate-in slide-in-from-bottom flex justify-between items-center">
               <div>
-                <p className="text-[10px] text-[#00F5D4] uppercase font-black tracking-widest">Digital Title Issued</p>
+                <p className="text-[10px] text-[#00F5D4] uppercase font-medium tracking-tight tracking-widest">Digital Title Issued</p>
                 <p className="text-[9px] text-gray-300 mt-0.5">Asset successfully transitioned to Custody Protocol.</p>
               </div>
               <span className="text-2xl">🏆</span>

@@ -7,7 +7,7 @@ import GlobalFooter from '@/components/GlobalFooter';
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#050508] text-white min-h-screen selection:bg-[#B8FF3C] selection:text-black">
+    <div className="bg-[#0F172A] text-white min-h-screen selection:bg-[#B8FF3C] selection:text-black">
       <GlobalHeader />
       
       {/* 1. Hero Section: The Radical Transparency */}
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-6xl md:text-[120px] font-head font-black tracking-tighter leading-[0.8] uppercase mb-12"
+          className="text-6xl md:text-[120px] font-head font-medium tracking-tight tracking-tighter leading-[0.8] uppercase mb-12"
         >
           WE BUILD THE <br/>
           <span className="text-white/20 italic">GROUND TRUTH.</span>
@@ -41,7 +41,7 @@ export default function AboutPage() {
       {/* 2. THE PROBLEM NARRATIVE (The "Why") */}
       <section className="py-32 px-6 max-w-5xl mx-auto text-center">
          <div className="space-y-12">
-            <h3 className="text-4xl font-head font-black uppercase tracking-tight">The Failure of Trust</h3>
+            <h3 className="text-4xl font-head font-medium tracking-tight uppercase tracking-tight">The Failure of Trust</h3>
             <div className="text-white/50 text-lg md:text-xl leading-relaxed space-y-8 font-body">
                <p>For too long, owning land in Ghana felt like a gamble. We saw families lose their lifetime savings and investors lose their confidence due to opaque documentation and double mapping.</p>
                <p>Syntry was born to end the chaos. We didn't just build a platform; we built a <strong>Protocol for Truth</strong>. We replace legal uncertainty with mathematical and statutory precision.</p>
@@ -65,7 +65,7 @@ export default function AboutPage() {
                  <span className="text-[10px] font-mono text-white/10 uppercase tracking-[10px]">Founder Profile</span>
               </div>
               <div className="absolute bottom-10 left-10">
-                 <div className="text-[9px] font-mono text-[#B8FF3C] uppercase tracking-[4px] mb-2 font-black">Authorized Signature</div>
+                 <div className="text-[9px] font-mono text-[#B8FF3C] uppercase tracking-[4px] mb-2 font-medium tracking-tight">Authorized Signature</div>
                  <div className="text-3xl font-serif italic text-white/80 tracking-widest px-4 py-2 border-l-2 border-[#B8FF3C]">Eyram Abusah</div>
               </div>
            </motion.div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
               <motion.h3 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-4xl lg:text-5xl font-head font-black tracking-tight leading-[1.1]"
+                className="text-4xl lg:text-5xl font-head font-medium tracking-tight tracking-tight leading-[1.1]"
               >
                 "WE ARE BUILDING A NATION WHERE A <span className="text-[#B8FF3C]">DEED</span> IS AS GOOD AS <span className="text-[#B8FF3C]">GOLD.</span>"
               </motion.h3>
@@ -85,8 +85,8 @@ export default function AboutPage() {
               </div>
               
               <div>
-                <p className="font-head text-3xl font-black text-white uppercase tracking-widest">Eyram Abusah</p>
-                <p className="text-[#b8ff3c] font-mono text-[10px] uppercase tracking-[5px] font-black">Founder & CEO, Syntry / Relic Group</p>
+                <p className="font-head text-3xl font-medium tracking-tight text-white uppercase tracking-widest">Eyram Abusah</p>
+                <p className="text-[#b8ff3c] font-mono text-[10px] uppercase tracking-[5px] font-medium tracking-tight">Founder & CEO, Syntry / Relic Group</p>
               </div>
            </div>
         </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
       {/* 4. THE NODES OF EXECUTION (Ecosystem) */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto text-center mb-20">
-           <h2 className="text-5xl font-head font-black uppercase tracking-tight mb-4">The Execution <span className="text-[#B8FF3C]">Nodes</span></h2>
+           <h2 className="text-5xl font-head font-medium tracking-tight uppercase tracking-tight mb-4">The Execution <span className="text-[#B8FF3C]">Nodes</span></h2>
            <p className="text-white/20 font-mono text-[10px] uppercase tracking-[8px]">The Full-Stack Nation Architecture</p>
         </div>
 
@@ -125,7 +125,7 @@ export default function AboutPage() {
               className="bg-[#111118] border border-white/5 p-12 rounded-[48px] hover:border-[#B8FF3C]/20 transition-all group"
             >
               <div className="text-4xl mb-8 group-hover:scale-110 transition-transform">{node.icon}</div>
-              <h3 className="text-2xl font-head font-black text-white mb-4 uppercase tracking-widest">{node.node}</h3>
+              <h3 className="text-2xl font-head font-medium tracking-tight text-white mb-4 uppercase tracking-widest">{node.node}</h3>
               <p className="text-sm text-white/30 leading-relaxed font-body group-hover:text-white/60 transition-colors">
                 {node.desc}
               </p>
@@ -137,7 +137,7 @@ export default function AboutPage() {
       {/* 5. INVESTOR DATA GRID: RADICAL TRANSPARENCY */}
       <section className="py-40 px-6 bg-[#0A0A10] border-y border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-           <h2 className="text-5xl font-head font-black uppercase tracking-tight mb-20">Transparency <span className="text-[#B8FF3C]">Report.</span></h2>
+           <h2 className="text-5xl font-head font-medium tracking-tight uppercase tracking-tight mb-20">Transparency <span className="text-[#B8FF3C]">Report.</span></h2>
            
            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-32">
               {[
@@ -147,7 +147,7 @@ export default function AboutPage() {
               ].map((stat, i) => (
                 <div key={i} className="space-y-4">
                    <div className="text-[10px] font-mono text-white/20 uppercase tracking-[6px]">{stat.label}</div>
-                   <div className="text-7xl font-head font-black text-[#B8FF3C] glow-text-lime">{stat.value}</div>
+                   <div className="text-7xl font-head font-medium tracking-tight text-[#B8FF3C] glow-text-lime">{stat.value}</div>
                    <div className="text-[9px] font-mono text-white/40 uppercase tracking-[2px]">{stat.change}</div>
                 </div>
               ))}
@@ -157,7 +157,7 @@ export default function AboutPage() {
               <div className="text-[10px] font-mono text-white/10 uppercase tracking-[10px] mb-12">Institutional Landing Nodes</div>
               <div className="flex flex-wrap justify-center gap-16 md:gap-32 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
                  {['ABSA', 'GCB', 'STANBIC', 'ECOBANK'].map(bank => (
-                   <div key={bank} className="text-3xl font-head font-black tracking-[4px] text-white/50">{bank}</div>
+                   <div key={bank} className="text-3xl font-head font-medium tracking-tight tracking-[4px] text-white/50">{bank}</div>
                  ))}
               </div>
            </div>
@@ -167,7 +167,7 @@ export default function AboutPage() {
       {/* 6. THE INSTITUTIONAL BRIDGE */}
       <section className="py-40 px-6 text-center border-b border-white/5">
          <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-4xl md:text-6xl font-head font-black uppercase tracking-tight leading-[0.9]">
+            <h2 className="text-4xl md:text-6xl font-head font-medium tracking-tight uppercase tracking-tight leading-[0.9]">
                Syntry is <span className="text-[#B8FF3C]">Open-Lending</span> <br/> Infrastructure.
             </h2>
             <p className="text-xl text-white/40 font-body leading-relaxed max-w-2xl mx-auto">

@@ -7,7 +7,7 @@ import GlobalFooter from '@/components/GlobalFooter';
 
 const MortgagePage = () => {
   return (
-    <div className="bg-[#050508] text-white min-h-screen font-sans selection:bg-[#B8FF3C] selection:text-black">
+    <div className="bg-[#0F172A] text-white min-h-screen font-sans selection:bg-[#B8FF3C] selection:text-black">
       <GlobalHeader />
       
       {/* 1. Hero Section: Strategic Promise */}
@@ -27,7 +27,7 @@ const MortgagePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-head font-black tracking-tight leading-[0.85] uppercase mb-10"
+            className="text-5xl md:text-8xl font-head font-medium tracking-tight tracking-tight leading-[0.85] uppercase mb-10"
           >
             Own Your Home. <br/>
             <span className="text-white/40 italic">Your Bank. Our Security.</span>
@@ -48,10 +48,10 @@ const MortgagePage = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row justify-center gap-6"
           >
-            <button className="px-12 py-6 bg-[#B8FF3C] text-black font-head font-black uppercase tracking-[4px] text-xs rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
+            <button className="px-12 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-[4px] text-xs rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
               Check My Eligibility
             </button>
-            <button className="px-12 py-6 border border-white/10 text-white font-head font-black uppercase tracking-[4px] text-xs rounded-xl hover:bg-white/5 transition-all">
+            <button className="px-12 py-6 border border-white/10 text-white font-head font-medium tracking-tight uppercase tracking-[4px] text-xs rounded-xl hover:bg-white/5 transition-all">
               Partner with Us (For Banks)
             </button>
           </motion.div>
@@ -87,7 +87,7 @@ const MortgagePage = () => {
               className="bg-[#111118] border border-white/5 p-12 rounded-[40px] hover:border-[#B8FF3C]/20 transition-all group"
             >
               <div className="text-4xl mb-8 group-hover:scale-110 transition-transform">{pillar.icon}</div>
-              <h3 className="text-2xl font-head font-black text-white mb-4 uppercase tracking-widest">{pillar.title}</h3>
+              <h3 className="text-2xl font-head font-medium tracking-tight text-white mb-4 uppercase tracking-widest">{pillar.title}</h3>
               <p className="text-sm text-white/30 leading-relaxed font-body group-hover:text-white/60 transition-colors">
                 {pillar.desc}
               </p>
@@ -103,7 +103,7 @@ const MortgagePage = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
             <div>
-              <h2 className="text-4xl md:text-6xl font-head font-black uppercase mb-10 tracking-tight leading-[0.9]">
+              <h2 className="text-4xl md:text-6xl font-head font-medium tracking-tight uppercase mb-10 tracking-tight leading-[0.9]">
                 Why Institutional <br/> Capital loves <br/> <span className="text-[#B8FF3C]">Syntry.</span>
               </h2>
               <ul className="space-y-10">
@@ -113,9 +113,9 @@ const MortgagePage = () => {
                   { num: "03", title: "Drone-Scan Transparency", desc: "Access 24/7 LiDAR and GIS asset monitoring from your dashboard. Absolute ground-truth visibility." }
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-6 group">
-                    <span className="text-xl font-head font-black text-[#B8FF3C] opacity-40 group-hover:opacity-100 transition-opacity mt-1">{item.num}</span>
+                    <span className="text-xl font-head font-medium tracking-tight text-[#B8FF3C] opacity-40 group-hover:opacity-100 transition-opacity mt-1">{item.num}</span>
                     <div>
-                      <h4 className="text-lg font-head font-black text-white uppercase tracking-widest mb-1">{item.title}</h4>
+                      <h4 className="text-lg font-head font-medium tracking-tight text-white uppercase tracking-widest mb-1">{item.title}</h4>
                       <p className="text-sm text-white/30 leading-relaxed group-hover:text-white/60 transition-colors">{item.desc}</p>
                     </div>
                   </li>
@@ -139,7 +139,7 @@ const MortgagePage = () => {
                      <div className="space-y-4">
                         <div className="flex justify-between items-end">
                            <div className="text-[10px] font-mono uppercase text-white/20 tracking-[4px]">Location Node</div>
-                           <div className="text-2xl font-head font-black uppercase tracking-widest">Pokuase Hills</div>
+                           <div className="text-2xl font-head font-medium tracking-tight uppercase tracking-widest">Pokuase Hills</div>
                         </div>
                         <div className="h-1 bg-white/5 w-full rounded-full overflow-hidden">
                            <motion.div 
@@ -154,7 +154,7 @@ const MortgagePage = () => {
                      <div className="grid grid-cols-2 gap-12 border-t border-white/5 pt-10">
                         <div>
                            <div className="text-[8px] font-mono text-white/20 uppercase tracking-[4px] mb-2">Annual Growth</div>
-                           <div className="text-3xl font-head font-black text-[#B8FF3C]">+18.4%</div>
+                           <div className="text-3xl font-head font-medium tracking-tight text-[#B8FF3C]">+18.4%</div>
                         </div>
                         <div>
                            <div className="text-[8px] font-mono text-white/20 uppercase tracking-[4px] mb-2">Asset Type</div>
@@ -170,8 +170,8 @@ const MortgagePage = () => {
 
       {/* 4. Strategic CTA */}
       <section className="py-40 px-6 text-center border-t border-white/5 bg-black relative">
-        <h2 className="text-4xl md:text-6xl font-head font-black uppercase mb-12 tracking-tight">Ready to build your <br/> <span className="text-[#B8FF3C]">Sovereign Legacy?</span></h2>
-        <button className="px-16 py-7 bg-white text-black font-head font-black tracking-[4px] uppercase text-sm rounded-xl shadow-2xl shadow-white/5 hover:bg-[#B8FF3C] transition-all hover:scale-105 active:scale-95">
+        <h2 className="text-4xl md:text-6xl font-head font-medium tracking-tight uppercase mb-12 tracking-tight">Ready to build your <br/> <span className="text-[#B8FF3C]">Sovereign Legacy?</span></h2>
+        <button className="px-16 py-7 bg-white text-black font-head font-medium tracking-tight tracking-[4px] uppercase text-sm rounded-xl shadow-2xl shadow-white/5 hover:bg-[#B8FF3C] transition-all hover:scale-105 active:scale-95">
           Join the Protocol node
         </button>
       </section>

@@ -28,26 +28,26 @@ const MyRequestsPage = () => {
   ];
 
   return (
-    <div className="bg-[#F8F1E3] min-h-screen text-[#003300] font-sans">
+    <div className="bg-[#F8F1E3] min-h-screen text-[#0F172A] font-sans">
       <GlobalHeader />
 
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-4 tracking-tight">My Requests</h1>
+          <h1 className="text-4xl font-medium mb-4 tracking-tight">My Requests</h1>
           <p className="text-lg opacity-70 mb-8">Maintain statutory oversight of your property interests and mortgage progress.</p>
           
           {/* Tab Navigation */}
-          <div className="flex gap-8 border-b border-[#003300]/10">
+          <div className="flex gap-8 border-b border-[#0F172A]/10">
             <button 
               onClick={() => setActiveTab('active')}
-              className={`pb-4 text-sm font-bold uppercase tracking-widest relative transition-all ${activeTab === 'active' ? 'text-[#003300]' : 'opacity-40 hover:opacity-100'}`}
+              className={`pb-4 text-sm font-medium uppercase tracking-widest relative transition-all ${activeTab === 'active' ? 'text-[#0F172A]' : 'opacity-40 hover:opacity-100'}`}
             >
               Active Requests
               {activeTab === 'active' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D4AF37]"></div>}
             </button>
             <button 
               onClick={() => setActiveTab('past')}
-              className={`pb-4 text-sm font-bold uppercase tracking-widest relative transition-all ${activeTab === 'past' ? 'text-[#003300]' : 'opacity-40 hover:opacity-100'}`}
+              className={`pb-4 text-sm font-medium uppercase tracking-widest relative transition-all ${activeTab === 'past' ? 'text-[#0F172A]' : 'opacity-40 hover:opacity-100'}`}
             >
               Past History
               {activeTab === 'past' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D4AF37]"></div>}
@@ -61,29 +61,29 @@ const MyRequestsPage = () => {
             {activeTab === 'active' ? (
               requests.map((req) => (
                 <div key={req.id} className="bg-white border border-[#D4AF37]/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
-                  <div className="w-full md:w-32 h-24 bg-[#003300]/5 rounded-xl flex items-center justify-center text-[8px] opacity-40 italic">
+                  <div className="w-full md:w-32 h-24 bg-[#0F172A]/5 rounded-xl flex items-center justify-center text-[8px] opacity-40 italic">
                     {req.img}
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <p className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">{req.type}</p>
-                        <h3 className="text-xl font-bold">{req.title}</h3>
+                        <p className="text-[10px] font-medium text-[#D4AF37] uppercase tracking-widest">{req.type}</p>
+                        <h3 className="text-xl font-medium">{req.title}</h3>
                       </div>
-                      <span className="bg-[#1D9E75]/10 text-[#1D9E75] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">
+                      <span className="bg-[#1D9E75]/10 text-[#1D9E75] text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-tighter">
                         {req.status}
                       </span>
                     </div>
                     <p className="text-xs opacity-40 mb-4">Submitted on {req.date}</p>
                     
                     <div className="flex items-center gap-4">
-                      <div className="flex-1 h-1 bg-[#003300]/5 rounded-full overflow-hidden">
+                      <div className="flex-1 h-1 bg-[#0F172A]/5 rounded-full overflow-hidden">
                         <div className="h-full bg-[#00BFFF]" style={{ width: `${req.progress}%` }}></div>
                       </div>
-                      <span className="text-[10px] font-bold opacity-60">{req.progress}%</span>
+                      <span className="text-[10px] font-medium opacity-60">{req.progress}%</span>
                     </div>
                   </div>
-                  <button className="w-full md:w-auto bg-[#003300] text-[#F8F1E3] px-6 py-3 rounded-xl font-bold text-xs hover:bg-[#004d00] transition-all">
+                  <button className="w-full md:w-auto bg-[#0F172A] text-[#F8F1E3] px-6 py-3 rounded-xl font-medium text-xs hover:bg-[#004d00] transition-all">
                     View Tracker
                   </button>
                 </div>
@@ -95,27 +95,27 @@ const MyRequestsPage = () => {
 
           {/* Status Legend & Support */}
           <aside className="space-y-8">
-            <div className="bg-[#003300] text-[#F8F1E3] p-8 rounded-3xl shadow-xl border border-[#D4AF37]/20">
-              <h4 className="font-bold text-lg mb-6 text-[#D4AF37]">Status Legend</h4>
+            <div className="bg-[#0F172A] text-[#F8F1E3] p-8 rounded-3xl shadow-xl border border-[#D4AF37]/20">
+              <h4 className="font-medium text-lg mb-6 text-[#D4AF37]">Status Legend</h4>
               <ul className="space-y-4">
                 <li className="flex gap-3">
                   <span className="w-1.5 h-1.5 bg-[#1D9E75] rounded-full mt-1.5"></span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-tight">Interest Sent</p>
+                    <p className="text-xs font-medium uppercase tracking-tight">Interest Sent</p>
                     <p className="text-[10px] opacity-60">Seller is being notified of your verified offer.</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="w-1.5 h-1.5 bg-[#00BFFF] rounded-full mt-1.5"></span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-tight">Advisor Review</p>
+                    <p className="text-xs font-medium uppercase tracking-tight">Advisor Review</p>
                     <p className="text-[10px] opacity-60">Syntry facilitator is curating the statutory reports.</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full mt-1.5"></span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-tight">Sent to Bank</p>
+                    <p className="text-xs font-medium uppercase tracking-tight">Sent to Bank</p>
                     <p className="text-[10px] opacity-60">Mortgage documents are under institutional underwriting.</p>
                   </div>
                 </li>
@@ -123,11 +123,11 @@ const MyRequestsPage = () => {
             </div>
 
             <div className="bg-white border border-[#D4AF37]/20 p-8 rounded-3xl shadow-sm">
-              <h4 className="font-bold text-lg mb-4">Need Assistance?</h4>
+              <h4 className="font-medium text-lg mb-4">Need Assistance?</h4>
               <p className="text-xs opacity-60 mb-6 font-medium">Your dedicated advisor Kwame is monitoring your requests.</p>
               <a 
                 href="https://wa.me/233531102292" 
-                className="bg-[#25D366] text-white w-full py-4 rounded-xl font-bold hover:scale-105 transition-all flex items-center justify-center gap-3 text-sm mb-4"
+                className="bg-[#25D366] text-white w-full py-4 rounded-xl font-medium hover:scale-105 transition-all flex items-center justify-center gap-3 text-sm mb-4"
               >
                 Chat via WhatsApp
               </a>

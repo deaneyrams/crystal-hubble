@@ -9,7 +9,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
   const [recommendation, setRecommendation] = useState("");
   const [isComputing, setIsComputing] = useState(true);
 
-  if (!plotData) return <div className="p-6 text-center text-indigo-400 text-sm tracking-widest font-bold uppercase border border-indigo-500/30 rounded-2xl bg-[#0a0514] animate-pulse shadow-xl">Initialising Asset Oracle...</div>;
+  if (!plotData) return <div className="p-6 text-center text-indigo-400 text-sm tracking-widest font-medium uppercase border border-indigo-500/30 rounded-2xl bg-[#0a0514] animate-pulse shadow-xl">Initialising Asset Oracle...</div>;
 
   useEffect(() => {
     setIsComputing(true);
@@ -46,7 +46,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
         {/* Header */}
         <div className="flex justify-between items-center border-b border-indigo-500/20 pb-4">
            <div>
-              <h2 className="text-indigo-400 font-black tracking-widest uppercase text-lg flex items-center gap-2">
+              <h2 className="text-indigo-400 font-medium tracking-tight tracking-widest uppercase text-lg flex items-center gap-2">
                  <span className="animate-pulse">👁️‍🗨️</span> Sovereign AI Oracle
               </h2>
               <p className="text-[10px] text-indigo-300 font-mono mt-1 opacity-70">
@@ -58,14 +58,14 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
               </span>
-              <span className="text-[10px] uppercase font-bold text-indigo-400 tracking-widest">Model Online</span>
+              <span className="text-[10px] uppercase font-medium text-indigo-400 tracking-widest">Model Online</span>
            </div>
         </div>
 
         {isComputing ? (
            <div className="py-12 flex flex-col items-center justify-center space-y-4">
               <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin"></div>
-              <p className="text-xs uppercase tracking-widest text-indigo-400 font-bold animate-pulse">Running Monte Carlo Simulations...</p>
+              <p className="text-xs uppercase tracking-widest text-indigo-400 font-medium animate-pulse">Running Monte Carlo Simulations...</p>
            </div>
         ) : (
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -75,7 +75,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
                  
                  {/* 36-Month Projection Box */}
                  <div className="bg-[#110922] p-5 rounded-xl border border-indigo-500/30 shadow-inner">
-                    <h3 className="text-[10px] uppercase tracking-widest text-indigo-400 font-bold mb-4">36-Month Value Projection</h3>
+                    <h3 className="text-[10px] uppercase tracking-widest text-indigo-400 font-medium mb-4">36-Month Value Projection</h3>
                     
                     <div className="flex justify-between items-end mb-2">
                        <div>
@@ -83,7 +83,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
                          <p className="font-mono text-sm text-white">${forecast.baseValuation.toLocaleString()}</p>
                        </div>
                        <div className="text-right">
-                         <p className="text-[9px] text-indigo-400 uppercase font-bold">Predicted (2029)</p>
+                         <p className="text-[9px] text-indigo-400 uppercase font-medium">Predicted (2029)</p>
                          <p className="font-mono text-xl text-[#00F5D4]">${forecast.targetValuation.toLocaleString()}</p>
                        </div>
                     </div>
@@ -115,9 +115,9 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
 
                  {/* Risk Meter */}
                  <div className="bg-[#110922] p-5 rounded-xl border border-indigo-500/30">
-                    <h3 className="text-[10px] uppercase tracking-widest text-indigo-400 font-bold mb-2">Automated Risk Score</h3>
+                    <h3 className="text-[10px] uppercase tracking-widest text-indigo-400 font-medium mb-2">Automated Risk Score</h3>
                     <div className="flex justify-between items-center mb-3">
-                       <span className={`text-xs font-black tracking-widest px-2 py-1 rounded border ${
+                       <span className={`text-xs font-medium tracking-tight tracking-widest px-2 py-1 rounded border ${
                           risk.level === 'LOW-RISK' ? 'bg-green-900/40 text-green-400 border-green-500/50' : 
                           risk.level === 'MODERATE-RISK' ? 'bg-yellow-900/40 text-yellow-400 border-yellow-500/50' : 
                           'bg-red-900/40 text-red-400 border-red-500/50'
@@ -138,10 +138,10 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
                  {/* AI Commentary Box */}
                  <div className="flex-grow bg-[#0c051a] p-5 rounded-xl border border-indigo-400/40 shadow-[0_0_15px_rgba(79,70,229,0.15)] relative">
                     <div className="absolute -top-3 -right-3 text-3xl opacity-20">🧠</div>
-                    <h3 className="text-[10px] uppercase tracking-widest text-indigo-300 font-bold mb-4">AI Commentary</h3>
+                    <h3 className="text-[10px] uppercase tracking-widest text-indigo-300 font-medium mb-4">AI Commentary</h3>
                     <div className="space-y-4">
                        <p className="text-sm text-gray-200 leading-relaxed font-light">
-                          <span className="text-indigo-400 font-bold">Syntry Oracle:</span> Ashifla-Otatten is positioned in a High-Growth corridor. 
+                          <span className="text-indigo-400 font-medium">Syntry Oracle:</span> Ashifla-Otatten is positioned in a High-Growth corridor. 
                           Estimated 2029 valuation: <span className="font-mono text-[#00F5D4]">~${forecast.targetValuation.toLocaleString()}</span> based on local infrastructure delivery timelines.
                        </p>
                        {forecast.infrastructureBonusApplied && (
@@ -154,7 +154,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
 
                  {/* Next Best Move Recommender */}
                  <div className="bg-gradient-to-r from-indigo-900/50 to-[#0e071c] p-5 rounded-xl border border-[#00F5D4]/30 animate-pulse-slow">
-                    <h3 className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-bold mb-2 flex items-center gap-2">
+                    <h3 className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium mb-2 flex items-center gap-2">
                        <span>🎯</span> Next Best Move
                     </h3>
                     <p className="text-sm text-indigo-200">

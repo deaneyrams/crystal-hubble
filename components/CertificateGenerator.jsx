@@ -57,7 +57,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
       <button
         onClick={handleDownload}
         disabled={isGenerating}
-        className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 transition-all duration-300
+        className={`w-full py-4 rounded-xl font-medium uppercase tracking-widest text-xs flex items-center justify-center gap-3 transition-all duration-300
           ${isGenerating 
             ? 'bg-[#00F5D4]/10 text-[#00F5D4]/40 cursor-wait' 
             : 'bg-gradient-to-r from-[#00F5D4]/20 via-[#00F5D4]/10 to-[#00F5D4]/20 hover:from-[#00F5D4]/30 hover:to-[#00F5D4]/30 text-[#00F5D4] border border-[#00F5D4]/40 shadow-[0_0_20px_rgba(0,245,212,0.15)] hover:shadow-[0_0_30px_rgba(0,245,212,0.3)] hover:scale-[1.02]'
@@ -114,22 +114,22 @@ export default function CertificateGenerator({ plot, auditResult }) {
                    </svg>
                 </div>
                 <div>
-                  <h1 className="text-4xl font-black tracking-tighter text-white uppercase italic">Syntry <span className="text-[#00F5D4] not-italic">Protocol</span></h1>
-                  <p className="text-[10px] tracking-[0.5em] uppercase text-[#00F5D4]/60 font-bold">Autonomous Land Intelligence Network</p>
+                  <h1 className="text-4xl font-medium tracking-tight tracking-tighter text-white uppercase italic">Syntry <span className="text-[#00F5D4] not-italic">Protocol</span></h1>
+                  <p className="text-[10px] tracking-[0.5em] uppercase text-[#00F5D4]/60 font-medium">Autonomous Land Intelligence Network</p>
                 </div>
               </div>
             </div>
             <div className="text-right">
               <div className="inline-block px-4 py-2 border-2 border-[#1E3A8A] bg-[#1E3A8A]/20 backdrop-blur-sm rounded-lg">
-                <p className="text-[8px] uppercase tracking-widest text-[#00F5D4] font-bold">Verification Index</p>
-                <p className="text-lg font-mono font-bold">S-DEED-{plot.id.split('-')[1]?.toUpperCase() || 'MINT'}</p>
+                <p className="text-[8px] uppercase tracking-widest text-[#00F5D4] font-medium">Verification Index</p>
+                <p className="text-lg font-mono font-medium">S-DEED-{plot.id.split('-')[1]?.toUpperCase() || 'MINT'}</p>
               </div>
             </div>
           </div>
 
           {/* Main Title */}
           <div className="relative z-10 text-center mb-20">
-            <h2 className="text-6xl font-extralight tracking-[0.2em] uppercase text-white mb-6">Sovereign <span className="font-bold">Deed</span></h2>
+            <h2 className="text-6xl font-extralight tracking-[0.2em] uppercase text-white mb-6">Sovereign <span className="font-medium">Deed</span></h2>
             <div className="h-px w-64 mx-auto bg-gradient-to-r from-transparent via-[#00F5D4] to-transparent mb-6"></div>
             <p className="text-lg text-gray-400 italic font-serif">A Permanent Asset Class Verification under the Syntry Vault Lock system.</p>
           </div>
@@ -138,13 +138,13 @@ export default function CertificateGenerator({ plot, auditResult }) {
           <div className="relative z-10 grid grid-cols-2 gap-12 mb-20">
             <div className="space-y-8">
               <div className="p-8 border border-white/10 bg-black/40 rounded-2xl backdrop-blur-md">
-                <h4 className="text-xs uppercase tracking-widest text-[#00F5D4] mb-6 font-bold flex items-center gap-2">
+                <h4 className="text-xs uppercase tracking-widest text-[#00F5D4] mb-6 font-medium flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#00F5D4]"></span> Asset Coordinates
                 </h4>
                 <div className="space-y-4 font-mono">
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-500 uppercase">Plot identifier</span>
-                    <span className="text-white font-bold">{plot.id.toUpperCase()}</span>
+                    <span className="text-white font-medium">{plot.id.toUpperCase()}</span>
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-500 uppercase">GPS Latitude</span>
@@ -162,7 +162,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
               </div>
 
               <div className="p-8 border border-white/10 bg-black/40 rounded-2xl backdrop-blur-md">
-                <h4 className="text-xs uppercase tracking-widest text-[#00F5D4] mb-6 font-bold flex items-center gap-2">
+                <h4 className="text-xs uppercase tracking-widest text-[#00F5D4] mb-6 font-medium flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#00F5D4]"></span> Financial Ledger
                 </h4>
                 <div className="space-y-4 font-mono text-xs">
@@ -172,7 +172,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-500">NETWORK STATUS</span>
-                    <span className="text-[#00F5D4] font-bold">SETTLED (L2-VAULT)</span>
+                    <span className="text-[#00F5D4] font-medium">SETTLED (L2-VAULT)</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-500">MINT TIMESTAMP</span>
@@ -188,7 +188,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
 
             {/* Trust Block with Stamps */}
             <div className="relative p-10 border-2 border-[#1E3A8A] bg-[#1E3A8A]/5 rounded-3xl overflow-hidden flex flex-col justify-center">
-              <h4 className="text-sm uppercase tracking-[0.3em] font-black text-white mb-10 text-center border-b border-[#1E3A8A] pb-4">Oracle Trust Verification</h4>
+              <h4 className="text-sm uppercase tracking-[0.3em] font-medium tracking-tight text-white mb-10 text-center border-b border-[#1E3A8A] pb-4">Oracle Trust Verification</h4>
               
               <div className="space-y-10">
                  {[
@@ -198,13 +198,13 @@ export default function CertificateGenerator({ plot, auditResult }) {
                  ].map((check, i) => (
                    <div key={i} className="relative flex justify-between items-center">
                       <div>
-                        <p className="text-white font-bold tracking-tight">{check.label}</p>
+                        <p className="text-white font-medium tracking-tight">{check.label}</p>
                         <p className="text-[9px] font-mono text-gray-500 italic mt-1">{check.code}</p>
                       </div>
                       <div className="relative">
                         <div className="text-[10px] text-gray-400 font-mono">200 OK</div>
                         {/* PASSED STAMP */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-[#00F5D4]/40 text-[#00F5D4]/40 font-black px-4 py-1 text-2xl uppercase tracking-tighter -rotate-12 pointer-events-none scale-110">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-[#00F5D4]/40 text-[#00F5D4]/40 font-medium tracking-tight px-4 py-1 text-2xl uppercase tracking-tighter -rotate-12 pointer-events-none scale-110">
                            PASSED
                         </div>
                       </div>
@@ -214,7 +214,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
 
               {/* Verified Hologram Seal */}
               <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-gradient-to-br from-[#00F5D4]/20 to-transparent rounded-full flex items-center justify-center border border-[#00F5D4]/20 rotate-12">
-                 <div className="text-[8px] font-black text-[#00F5D4]/40 text-center uppercase leading-tight">
+                 <div className="text-[8px] font-medium tracking-tight text-[#00F5D4]/40 text-center uppercase leading-tight">
                    Syntry<br/>Sovereign<br/>Verified
                  </div>
               </div>

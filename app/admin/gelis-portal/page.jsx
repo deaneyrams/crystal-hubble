@@ -120,7 +120,7 @@ export default function GelisPortalPage() {
              {isCustodyState ? (
                 <div className="flex items-center gap-2 border border-[#D4AF37]/40 px-4 py-2 rounded-lg bg-[#D4AF37]/10">
                    <span className="text-xl">🏆</span>
-                   <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold">
+                   <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
                      Asset Secured
                    </span>
                 </div>
@@ -131,7 +131,7 @@ export default function GelisPortalPage() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F5D4] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00F5D4]"></span>
                     </span>
-                    <span className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-bold">
+                    <span className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium">
                       API Live
                     </span>
                     <span className="text-[10px] text-gray-400 font-mono ml-2 border-l border-white/10 pl-3">
@@ -149,30 +149,30 @@ export default function GelisPortalPage() {
             
             {/* Left Col: Asset Overview */}
             <div className={`bg-[#0E1629] border rounded-2xl p-6 space-y-6 transition-colors duration-1000 ${isCustodyState ? 'border-[#D4AF37]/30' : 'border-white/10'}`}>
-              <h2 className="text-sm border-b border-white/5 pb-2 uppercase tracking-widest font-bold text-gray-400">
+              <h2 className="text-sm border-b border-white/5 pb-2 uppercase tracking-widest font-medium text-gray-400">
                 {isCustodyState ? 'Certificate of Truth' : 'Asset Payload'}
               </h2>
               
               <div className="space-y-4">
                 {isCustodyState ? (
                    <div className="bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] p-6 rounded-xl border border-[#D4AF37]/40 text-center space-y-3 shadow-inner">
-                      <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-bold">Master Sovereign Hash</p>
+                      <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-medium">Master Sovereign Hash</p>
                       <p className="font-mono text-2xl text-white tracking-wider">{mockPlot.deedHash}</p>
                       <p className="text-[9px] text-gray-500 italic mt-2">This is the unalterable, cryptographically secured anchor for the asset.</p>
                    </div>
                 ) : (
                    <>
                     <div>
-                       <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Target Region</p>
+                       <p className="text-[10px] text-gray-500 uppercase font-medium tracking-widest">Target Region</p>
                        <p className="font-mono text-lg text-white">{mockPlot.area}</p>
                     </div>
                     <div className="flex justify-between items-end">
                        <div>
-                         <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Syntry Deed Hash</p>
+                         <p className="text-[10px] text-gray-500 uppercase font-medium tracking-widest">Syntry Deed Hash</p>
                          <p className="font-mono text-indigo-300 text-sm">{mockPlot.deedHash}</p>
                        </div>
                        <div>
-                          <span className={`px-2 py-1 rounded text-[9px] uppercase font-black border tracking-widest ${
+                          <span className={`px-2 py-1 rounded text-[9px] uppercase font-medium tracking-tight border tracking-widest ${
                              mockPlot.status === 'IN-REGISTRATION' 
                              ? 'bg-blue-900/40 text-blue-400 border-blue-500/50 animate-pulse'
                              : 'bg-green-900/40 text-green-400 border-green-500/50'
@@ -189,7 +189,7 @@ export default function GelisPortalPage() {
                 <button
                   onClick={handlePushToRegistry}
                   disabled={isSubmitting}
-                  className={`w-full py-4 text-sm font-bold tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
+                  className={`w-full py-4 text-sm font-medium tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
                     ${isSubmitting 
                      ? 'bg-indigo-900/20 text-indigo-500 border border-indigo-500/30 cursor-wait'
                      : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] border border-indigo-400'
@@ -202,7 +202,7 @@ export default function GelisPortalPage() {
               {isCustodyState && (
                  <button
                    onClick={handleArchiveProperty}
-                   className="w-full py-4 bg-gradient-to-r from-[#D4AF37] to-[#aa8022] hover:from-[#e5c04b] hover:to-[#cfa030] text-black rounded-xl text-sm font-black tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-[#f0d473]/50 transform hover:scale-[1.02]"
+                   className="w-full py-4 bg-gradient-to-r from-[#D4AF37] to-[#aa8022] hover:from-[#e5c04b] hover:to-[#cfa030] text-black rounded-xl text-sm font-medium tracking-tight tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-[#f0d473]/50 transform hover:scale-[1.02]"
                  >
                    📥 Archive Property (.syntry-vault)
                  </button>
@@ -220,7 +220,7 @@ export default function GelisPortalPage() {
                
                {mockPlot.status === 'MINTED - IMMUTABLE' && (
                   <>
-                    <h2 className="text-sm border-b border-white/5 pb-2 uppercase tracking-widest font-bold text-gray-400 mb-4 z-10">
+                    <h2 className="text-sm border-b border-white/5 pb-2 uppercase tracking-widest font-medium text-gray-400 mb-4 z-10">
                       Telemetry & Handshake
                     </h2>
                     <div className="absolute inset-0 opacity-20 pointer-events-none text-blue-500 text-[8px] leading-tight select-none z-0">
@@ -230,7 +230,7 @@ export default function GelisPortalPage() {
                     </div>
                     <div className="z-10 flex-grow flex flex-col justify-center space-y-6">
                       <div className="space-y-2">
-                        <div className="flex justify-between items-center text-[10px] uppercase font-bold tracking-widest text-[#00F5D4]">
+                        <div className="flex justify-between items-center text-[10px] uppercase font-medium tracking-widest text-[#00F5D4]">
                           <span>Handshake State</span>
                           <span>{progressStep}/4</span>
                         </div>
@@ -258,7 +258,7 @@ export default function GelisPortalPage() {
                         <span className="text-3xl">🔒</span>
                      </div>
                      <div>
-                       <h3 className="text-white font-bold tracking-widest uppercase text-sm">Property Envaulted</h3>
+                       <h3 className="text-white font-medium tracking-widest uppercase text-sm">Property Envaulted</h3>
                        <p className="text-[10px] text-gray-500 mt-2 max-w-xs mx-auto">
                          The asset lifecycle is complete. All logs, chats, and immutable audit trails are sealed. This interface is now permanently Read-Only.
                        </p>
@@ -266,7 +266,7 @@ export default function GelisPortalPage() {
                      {submissionResult && (
                        <button 
                          onClick={downloadDSR}
-                         className="mt-2 text-[#D4AF37] hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold underline decoration-[#D4AF37]/50 underline-offset-4"
+                         className="mt-2 text-[#D4AF37] hover:text-white transition-colors text-[10px] uppercase tracking-widest font-medium underline decoration-[#D4AF37]/50 underline-offset-4"
                        >
                          Download Registry DSR Backup
                        </button>

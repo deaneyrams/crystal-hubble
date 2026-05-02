@@ -719,7 +719,7 @@ export default function AdminControlTower() {
                  <div className="flex items-center gap-2">
                      {isRunning && <span className="animate-spin h-3 w-3 border-[1.5px] border-indigo-400 border-t-transparent rounded-full" />}
                      {(isCompleted || isFailed) && (
-                         <span className={`text-xs font-bold ${passed ? 'text-[#00F5D4]' : 'text-red-400'}`}>
+                         <span className={`text-xs font-medium ${passed ? 'text-[#00F5D4]' : 'text-red-400'}`}>
                              {passed ? 'PASS' : 'FAIL'}
                          </span>
                      )}
@@ -812,7 +812,7 @@ export default function AdminControlTower() {
         {isPublicView && (
            <div className="absolute top-4 right-4 z-[45] bg-emerald-900/80 backdrop-blur-md border border-emerald-500/50 px-4 py-2 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center gap-2 animate-in slide-in-from-right-4 duration-500">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10B981]"></span>
-              <span className="text-[10px] text-emerald-300 uppercase font-black tracking-widest">Certified by Node 08</span>
+              <span className="text-[10px] text-emerald-300 uppercase font-medium tracking-tight tracking-widest">Certified by Node 08</span>
            </div>
         )}
 
@@ -824,7 +824,7 @@ export default function AdminControlTower() {
                  <div key={i} className="w-8 h-8 rounded bg-gradient-to-br from-[#FFD700] to-yellow-600 shadow-[0_0_15px_rgba(255,215,0,0.8)] border border-white/50 animate-bounce" style={{ animationDelay: `${i * 15}ms`, transform: `rotate(${Math.random() * 45}deg)` }} />
                ))}
                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <h1 className="text-4xl font-black text-white uppercase tracking-widest drop-shadow-[0_0_20px_#FFD700] bg-black/40 px-6 py-2 rounded-xl backdrop-blur-sm border border-white/10">Deed Decomposition...</h1>
+                  <h1 className="text-4xl font-medium tracking-tight text-white uppercase tracking-widest drop-shadow-[0_0_20px_#FFD700] bg-black/40 px-6 py-2 rounded-xl backdrop-blur-sm border border-white/10">Deed Decomposition...</h1>
                </div>
             </div>
             <p className="mt-8 text-[#00F5D4] font-mono animate-pulse text-lg tracking-widest uppercase">Converting SYN-DEED to Liquid Fragments</p>
@@ -845,10 +845,10 @@ export default function AdminControlTower() {
           <div className="absolute top-4 right-4 w-80 bg-[#0E1629]/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 z-20 animate-in fade-in slide-in-from-right-8 duration-300">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-2">
-                 <h3 className="text-lg font-bold text-white tracking-wide uppercase">Oracle Detail</h3>
+                 <h3 className="text-lg font-medium text-white tracking-wide uppercase">Oracle Detail</h3>
                  <button 
                    onClick={() => setShowOracleView(!showOracleView)} 
-                   className="text-[10px] bg-indigo-900/50 hover:bg-indigo-500/30 text-indigo-400 border border-indigo-500/50 px-2 py-1 rounded uppercase tracking-widest font-black transition-colors"
+                   className="text-[10px] bg-indigo-900/50 hover:bg-indigo-500/30 text-indigo-400 border border-indigo-500/50 px-2 py-1 rounded uppercase tracking-widest font-medium tracking-tight transition-colors"
                  >
                    {showOracleView ? 'Close AI Oracle' : 'Launch AI'}
                  </button>
@@ -873,24 +873,24 @@ export default function AdminControlTower() {
               <div className="bg-black/30 p-4 rounded-xl border border-white/5 relative">
                 
                 {/* Proximity Overlay Label */}
-                <span className="absolute -top-3 left-4 bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/30 px-2 py-0.5 rounded text-[8px] uppercase font-black tracking-widest shadow-[0_0_8px_rgba(0,245,212,0.3)] backdrop-blur-sm">
+                <span className="absolute -top-3 left-4 bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/30 px-2 py-0.5 rounded text-[8px] uppercase font-medium tracking-tight tracking-widest shadow-[0_0_8px_rgba(0,245,212,0.3)] backdrop-blur-sm">
                    5 mins to West Hills Mall
                 </span>
 
                 <div className="flex justify-between items-center mb-2 mt-2">
-                  <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Asset Locator</span>
-                  <span className="text-sm font-mono text-[#00F5D4] font-black">{selectedPlot.id.split('-').pop().toUpperCase()}</span>
+                  <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">Asset Locator</span>
+                  <span className="text-sm font-mono text-[#00F5D4] font-medium tracking-tight">{selectedPlot.id.split('-').pop().toUpperCase()}</span>
                 </div>
                 
                 {/* Investor Trust Bar & Price */}
                 <div className="flex justify-between items-end mt-4 mb-2 pb-4 border-b border-white/10">
                   <div className="flex flex-col">
-                     <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Current Valuation</span>
+                     <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-medium">Current Valuation</span>
                      <span className="text-2xl font-light text-white tracking-tight">${selectedPlot.value.toLocaleString()}</span>
                   </div>
                   <div className="bg-emerald-900/20 border border-emerald-500/50 px-2 py-1 rounded flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                     <span className="text-[8px] uppercase tracking-widest font-black text-emerald-300">Node 08 Verified</span>
+                     <span className="text-[8px] uppercase tracking-widest font-medium tracking-tight text-emerald-300">Node 08 Verified</span>
                   </div>
                 </div>
 
@@ -898,26 +898,26 @@ export default function AdminControlTower() {
                 <div className="space-y-2 mt-4">
                    <div className="flex justify-between items-center text-[10px]">
                       <span className="text-gray-400 uppercase tracking-widest">1% Fractional Packet</span>
-                      <span className="text-gray-200 font-mono font-bold">${Math.round(selectedPlot.value * 0.01).toLocaleString()}</span>
+                      <span className="text-gray-200 font-mono font-medium">${Math.round(selectedPlot.value * 0.01).toLocaleString()}</span>
                    </div>
                    <div className="flex justify-between items-center text-[10px]">
                       <span className="text-gray-400 uppercase tracking-widest">+ 2.5% Exchange Fee</span>
-                      <span className="text-gray-200 font-mono font-bold">${Math.round((selectedPlot.value * 0.01) * 0.025).toLocaleString()}</span>
+                      <span className="text-gray-200 font-mono font-medium">${Math.round((selectedPlot.value * 0.01) * 0.025).toLocaleString()}</span>
                    </div>
                    <div className="flex justify-between items-center text-xs mt-2 pt-2 border-t border-white/5">
-                      <span className="text-indigo-400 uppercase tracking-widest font-bold">Total Reserve Deposit</span>
-                      <span className="text-[#FFD700] font-mono font-black shadow-sm">${Math.round((selectedPlot.value * 0.01) * 1.025).toLocaleString()}</span>
+                      <span className="text-indigo-400 uppercase tracking-widest font-medium">Total Reserve Deposit</span>
+                      <span className="text-[#FFD700] font-mono font-medium tracking-tight shadow-sm">${Math.round((selectedPlot.value * 0.01) * 1.025).toLocaleString()}</span>
                    </div>
                 </div>
 
                 <div className="mt-5 relative">
                   {/* Scarcity Engine Countdown */}
-                  <div className="absolute -top-6 right-0 text-[8px] text-red-400 uppercase tracking-widest font-black flex items-center gap-1 animate-pulse">
+                  <div className="absolute -top-6 right-0 text-[8px] text-red-400 uppercase tracking-widest font-medium tracking-tight flex items-center gap-1 animate-pulse">
                      <span>⏱️</span> Early Bird Closes in 14:59
                   </div>
                   <button 
                     onClick={handleInitiateEscrow}
-                    className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:from-yellow-500 hover:to-[#ffd700] text-black font-black py-3 px-4 rounded-xl text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-[1.02] flex justify-center items-center gap-2 border border-yellow-400/50"
+                    className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:from-yellow-500 hover:to-[#ffd700] text-black font-medium tracking-tight py-3 px-4 rounded-xl text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-[1.02] flex justify-center items-center gap-2 border border-yellow-400/50"
                   >
                     Reserve Packet - ${Math.round((selectedPlot.value * 0.01) * 1.025).toLocaleString()}
                   </button>
@@ -928,7 +928,7 @@ export default function AdminControlTower() {
                     <div className="bg-[#FFD700]/10 border border-[#FFD700]/30 rounded-lg p-3 mb-3">
                       <div className="flex items-center justify-between">
                         <div className="flex flex-col">
-                          <span className="text-[#FFD700] font-black text-[10px] tracking-[0.1em] uppercase">🛡️ REFORM COMPLIANT</span>
+                          <span className="text-[#FFD700] font-medium tracking-tight text-[10px] tracking-[0.1em] uppercase">🛡️ REFORM COMPLIANT</span>
                           <span className="text-[8px] text-gray-400">Premium: 70% Secured in Escrow</span>
                         </div>
                         
@@ -942,19 +942,19 @@ export default function AdminControlTower() {
                                    setSelectedPlot(prev => ({ ...prev, ministerialId: 'VERIFIED' }));
                                  }, 3000);
                              }}
-                             className="text-[9px] bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-full font-bold uppercase tracking-widest transition-colors shadow-[0_0_10px_rgba(79,70,229,0.4)]"
+                             className="text-[9px] bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-full font-medium uppercase tracking-widest transition-colors shadow-[0_0_10px_rgba(79,70,229,0.4)]"
                            >
                              Run Audit
                            </button>
                         )}
                         
                         {selectedPlot.ministerialId === 'SCANNING' && (
-                           <span className="text-[10px] text-[#00F5D4] font-black uppercase tracking-widest animate-pulse drop-shadow-[0_0_5px_#00F5D4]">
+                           <span className="text-[10px] text-[#00F5D4] font-medium tracking-tight uppercase tracking-widest animate-pulse drop-shadow-[0_0_5px_#00F5D4]">
                              Scanning...
                            </span>
                         )}
                         {selectedPlot.ministerialId === 'VERIFIED' && (
-                           <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest line-through">
+                           <span className="text-[10px] text-gray-500 font-medium uppercase tracking-widest line-through">
                              Awaiting...
                            </span>
                         )}
@@ -962,11 +962,11 @@ export default function AdminControlTower() {
                       
                       {selectedPlot.ministerialId === 'VERIFIED' && (
                          <div className="mt-4 p-2 bg-emerald-900/40 border border-emerald-500/60 rounded-lg flex flex-col items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)] animate-in fade-in zoom-in-95 duration-500 text-center">
-                            <span className="text-emerald-400 font-black text-[11px] uppercase tracking-wider flex items-center gap-2 mb-1">
+                            <span className="text-emerald-400 font-medium tracking-tight text-[11px] uppercase tracking-wider flex items-center gap-2 mb-1">
                                <span className="animate-pulse drop-shadow-[0_0_12px_#10B981] text-lg">✅</span> 
                                VERIFIED: Ministerial Node 08
                             </span>
-                            <span className="text-[9px] text-emerald-300 mb-2 uppercase tracking-widest font-black">
+                            <span className="text-[9px] text-emerald-300 mb-2 uppercase tracking-widest font-medium tracking-tight">
                                (Lands Commission ELIS-2.0)
                             </span>
                             <span className="text-[9px] text-gray-500 font-mono tracking-tighter bg-black/60 px-3 py-1.5 rounded w-full border border-white/5 opacity-80 backdrop-blur-sm">
@@ -978,7 +978,7 @@ export default function AdminControlTower() {
                     
                     {selectedPlot.status === 'escrowed' && (
                       <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Ministerial Oversight ID</label>
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-medium">Ministerial Oversight ID</label>
                         <input 
                           type="text" 
                           placeholder="MLNR-2026-XXXX"
@@ -999,9 +999,9 @@ export default function AdminControlTower() {
                 {selectedPlot.transparencyStatus && (
                   <div className="mt-4 pt-4 border-t border-white/5 space-y-3">
                     <div className="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/10">
-                      <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Anti-Corruption Audit</span>
+                      <span className="text-[10px] uppercase tracking-widest text-gray-500 font-medium">Anti-Corruption Audit</span>
                       <div className="relative group cursor-help">
-                        <span className={`text-[9px] px-2 py-1 rounded-full font-black uppercase tracking-tighter shadow-sm inline-block
+                        <span className={`text-[9px] px-2 py-1 rounded-full font-medium tracking-tight uppercase tracking-tighter shadow-sm inline-block
                           ${selectedPlot.transparencyStatus === 'verified_clean' 
                             ? 'bg-[#00F5D4]/20 text-[#00F5D4] border border-[#00F5D4]/30' 
                             : 'bg-yellow-500/20 text-yellow-500 border border-yellow-500/30'}`}>
@@ -1027,17 +1027,17 @@ export default function AdminControlTower() {
                 {selectedPlot.area === "Ashifla-Otatten Site Plan" && (
                   <div className="mt-4 pt-4 border-t border-white/5 space-y-2 animate-in slide-in-from-top-2 duration-500">
                     <div className="flex justify-between items-center mb-1">
-                      <p className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-black">GELIS Sync Findings</p>
+                      <p className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium tracking-tight">GELIS Sync Findings</p>
                       <span className="text-[8px] bg-[#00F5D4]/10 text-[#00F5D4] px-1.5 py-0.5 rounded font-mono">SITE-PLAN v1.2</span>
                     </div>
                     <div className="grid grid-cols-1 gap-2">
                        <div className="bg-[#00F5D4]/5 border border-[#00F5D4]/20 p-2 rounded-lg">
-                          <p className="text-[8px] text-gray-500 uppercase font-bold">Compliance Status</p>
+                          <p className="text-[8px] text-gray-500 uppercase font-medium">Compliance Status</p>
                           <p className="text-[10px] text-white font-mono">{selectedPlot.compliance || 'VERIFIED'}</p>
                        </div>
                        <div className="bg-red-500/5 border border-red-500/20 p-2 rounded-lg">
-                          <p className="text-[8px] text-gray-500 uppercase font-bold">Operational Risk Indicator</p>
-                          <p className="text-[10px] text-red-400 font-bold">{selectedPlot.risk || 'NORMAL'}</p>
+                          <p className="text-[8px] text-gray-500 uppercase font-medium">Operational Risk Indicator</p>
+                          <p className="text-[10px] text-red-400 font-medium">{selectedPlot.risk || 'NORMAL'}</p>
                        </div>
                     </div>
                   </div>
@@ -1046,8 +1046,8 @@ export default function AdminControlTower() {
                 {/* [MISSION: MAP THE BIG PUSH] Appreciation Factor */}
                 <div className="mt-4 pt-4 border-t border-white/5">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Appreciation Factor</span>
-                    <span className="text-[10px] font-black uppercase" style={{ color: calculateAppreciation(selectedPlot).color }}>
+                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-medium">Appreciation Factor</span>
+                    <span className="text-[10px] font-medium tracking-tight uppercase" style={{ color: calculateAppreciation(selectedPlot).color }}>
                       {calculateAppreciation(selectedPlot).category}
                     </span>
                   </div>
@@ -1065,14 +1065,14 @@ export default function AdminControlTower() {
                        const url = typeof window !== 'undefined' ? `${window.location.origin}/share/${token}` : `http://localhost:3001/share/${token}`;
                        setShareLink(url);
                      }}
-                     className="w-full px-4 py-3 bg-indigo-600/20 hover:bg-indigo-600/40 border border-indigo-500/50 text-indigo-300 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-500/10"
+                     className="w-full px-4 py-3 bg-indigo-600/20 hover:bg-indigo-600/40 border border-indigo-500/50 text-indigo-300 rounded-lg text-xs font-medium flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-500/10"
                    >
                      <span className="text-lg">🔗</span> Generate Sovereign Share
                    </button>
 
                    {shareLink && (
                       <div className="mt-3 p-3 bg-red-900/20 border border-red-500/30 rounded-xl space-y-2 animate-in fade-in zoom-in-95">
-                         <p className="text-[10px] text-red-400 font-bold uppercase tracking-widest leading-relaxed flex items-center gap-2">
+                         <p className="text-[10px] text-red-400 font-medium uppercase tracking-widest leading-relaxed flex items-center gap-2">
                             <span className="animate-pulse">⚠️</span> SOVEREIGN SECURITY
                          </p>
                          <p className="text-[9px] text-gray-400 italic">
@@ -1090,7 +1090,7 @@ export default function AdminControlTower() {
                                  navigator.clipboard.writeText(shareLink);
                                  alert("One-Time Link Copied!");
                               }}
-                              className="px-2 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded text-[10px] uppercase font-bold"
+                              className="px-2 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded text-[10px] uppercase font-medium"
                             >
                               Copy
                             </button>
@@ -1105,7 +1105,7 @@ export default function AdminControlTower() {
                   <button
                     onClick={handleInitiateEscrow}
                     disabled={isEmergencyLocked}
-                    className={`w-full py-3 rounded-lg font-bold uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all 
+                    className={`w-full py-3 rounded-lg font-medium uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all 
                     ${isEmergencyLocked ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
                       : 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-white shadow-[0_0_15px_rgba(234,179,8,0.5)] border border-yellow-400/50'}`}
                   >
@@ -1120,7 +1120,7 @@ export default function AdminControlTower() {
               {/* [MISSION: INITIATE ORACLE VERIFICATION] Scanning Progress */}
               {isAuditing && (
                 <div className="mt-4 space-y-2 animate-in fade-in duration-300">
-                  <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-400 font-bold">
+                  <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-400 font-medium">
                     <span>Scanning...</span>
                     <span>{Math.round(auditProgress)}%</span>
                   </div>
@@ -1137,7 +1137,7 @@ export default function AdminControlTower() {
                 <button
                   onClick={handleRunAudit}
                   disabled={isEmergencyLocked}
-                  className={`w-full py-3 rounded-lg font-bold uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all 
+                  className={`w-full py-3 rounded-lg font-medium uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all 
                   ${isEmergencyLocked ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
                     : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_0_15px_rgba(79,70,229,0.5)] border border-indigo-400/50'}`}
                 >
@@ -1153,7 +1153,7 @@ export default function AdminControlTower() {
                       setSelectedPlot(prev => ({ ...prev, status: 'verified' }));
                    }}
                    disabled={isEmergencyLocked || !selectedPlot.ministerialId}
-                   className={`w-full py-3 rounded-lg font-bold uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all 
+                   className={`w-full py-3 rounded-lg font-medium uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all 
                    ${isEmergencyLocked || !selectedPlot.ministerialId ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
                      : 'bg-gradient-to-r from-[#00F5D4] to-indigo-500 hover:from-[#05ffd4] hover:to-indigo-400 text-white shadow-[0_0_20px_rgba(0,245,212,0.4)] border border-[#00F5D4]/50'}`}
                  >
@@ -1162,7 +1162,7 @@ export default function AdminControlTower() {
               )}
 
               {(selectedPlot.status === 'verified' || selectedPlot.status === 'MINTED - IMMUTABLE') && (
-                 <Suspense fallback={<div className="text-white text-sm p-6 border border-white/10 rounded-2xl mt-6 text-center uppercase tracking-widest font-black flex items-center justify-center gap-3">
+                 <Suspense fallback={<div className="text-white text-sm p-6 border border-white/10 rounded-2xl mt-6 text-center uppercase tracking-widest font-medium tracking-tight flex items-center justify-center gap-3">
                    <div className="w-4 h-4 rounded-full border-2 border-t-[#00F5D4] border-white/20 animate-spin"></div> Loading Sovereign Data...</div>}>
                    <MintingPanel 
                      plot={selectedPlot} 
@@ -1208,7 +1208,7 @@ export default function AdminControlTower() {
                     />
                     <div className="text-center">
                       <div className="text-2xl mb-2 opacity-40 group-hover:opacity-100 transition-opacity">📄</div>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Sync GELIS Site Plan</p>
+                      <p className="text-[10px] text-gray-400 uppercase tracking-widest font-medium">Sync GELIS Site Plan</p>
                       <p className="text-[8px] text-gray-500 mt-1 italic">Drop Ashifla-Otatten PDF here</p>
                     </div>
                  </div>
@@ -1219,8 +1219,8 @@ export default function AdminControlTower() {
                     <div className="flex items-center gap-3">
                       <span className="text-lg">📄</span>
                       <div className="overflow-hidden">
-                        <p className="text-[10px] text-white font-bold truncate w-40">{uploadedFile.name}</p>
-                        <p className="text-[8px] text-indigo-400 uppercase font-bold">Synced with GELIS</p>
+                        <p className="text-[10px] text-white font-medium truncate w-40">{uploadedFile.name}</p>
+                        <p className="text-[8px] text-indigo-400 uppercase font-medium">Synced with GELIS</p>
                       </div>
                     </div>
                     <button onClick={() => setUploadedFile(null)} className="text-gray-500 hover:text-red-400 transition-colors">
@@ -1243,12 +1243,12 @@ export default function AdminControlTower() {
                            {auditStream.verified ? (
                                <div className="text-center">
                                    <div className="text-2xl mb-1">✅</div>
-                                   <div className="text-[#00F5D4] font-bold text-sm tracking-wider uppercase">Vault Minted</div>
+                                   <div className="text-[#00F5D4] font-medium text-sm tracking-wider uppercase">Vault Minted</div>
                                </div>
                            ) : (
                                <div className="text-center">
                                    <div className="text-2xl mb-1">❌</div>
-                                   <div className="text-red-400 font-bold text-sm tracking-wider uppercase">Audit Failed</div>
+                                   <div className="text-red-400 font-medium text-sm tracking-wider uppercase">Audit Failed</div>
                                </div>
                            )}
                        </div>
@@ -1265,7 +1265,7 @@ export default function AdminControlTower() {
         {isEmergencyLocked && (
           <div className="absolute inset-0 bg-red-900/30 pointer-events-none flex items-center justify-center backdrop-blur-[2px] z-10 transition-all duration-500">
             <div className="bg-[#0b132b]/90 border border-red-500 px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(239,68,68,0.6)]">
-              <h2 className="text-red-500 text-2xl font-bold uppercase tracking-wider flex items-center gap-3">
+              <h2 className="text-red-500 text-2xl font-medium uppercase tracking-wider flex items-center gap-3">
                 <span className="animate-pulse">⚠️</span> Vault Transitions Paused
               </h2>
             </div>
@@ -1277,18 +1277,18 @@ export default function AdminControlTower() {
           <div className="absolute inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
              <div className="bg-[#0b132b] border border-indigo-500/30 p-8 rounded-2xl w-[500px] shadow-2xl relative animate-in zoom-in-95">
                 <button onClick={() => { setShowFractionalModal(false); setFractionalToken(null); }} className="absolute top-4 right-4 text-gray-500 hover:text-white">&times;</button>
-                <h2 className="text-xl font-bold text-white uppercase tracking-widest mb-2 flex items-center gap-2">
+                <h2 className="text-xl font-medium text-white uppercase tracking-widest mb-2 flex items-center gap-2">
                    <span className="text-indigo-400">⚡</span> Sovereign Liquidity Exit
                 </h2>
                 <p className="text-xs text-gray-400 mb-6">Offering public micro-investor liquidity slice against the SYN-DEED hash.</p>
                 
                 <div className="bg-white/5 border border-indigo-500/20 rounded-xl p-4 mb-6 space-y-3">
                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-500 uppercase tracking-wider text-[10px] font-bold">Total Asset Value</span>
+                      <span className="text-gray-500 uppercase tracking-wider text-[10px] font-medium">Total Asset Value</span>
                       <span className="text-gray-300 font-mono">${selectedPlot.value.toLocaleString()}</span>
                    </div>
                    <div className="flex justify-between items-center text-sm pt-3 border-t border-white/5">
-                      <span className="text-indigo-400 uppercase tracking-wider text-[10px] font-bold">10% Retail Offering</span>
+                      <span className="text-indigo-400 uppercase tracking-wider text-[10px] font-medium">10% Retail Offering</span>
                       <span className="text-[#00F5D4] font-mono text-xl shadow-sm drop-shadow-[0_0_5px_rgba(0,245,212,0.8)]">${(selectedPlot.value * 0.1).toLocaleString()}</span>
                    </div>
                 </div>
@@ -1302,7 +1302,7 @@ export default function AdminControlTower() {
                        const token = await generateSovereignToken(selectedPlot.id + "-10PERCENT");
                        setTimeout(() => setFractionalToken(token), 1500);
                      }}
-                     className="w-full bg-[#00F5D4] hover:bg-[#00f5d4]/80 text-black py-3 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(0,245,212,0.4)]"
+                     className="w-full bg-[#00F5D4] hover:bg-[#00f5d4]/80 text-black py-3 rounded-xl font-medium tracking-tight uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(0,245,212,0.4)]"
                    >
                      Mint Participation Rights
                    </button>
@@ -1311,7 +1311,7 @@ export default function AdminControlTower() {
                       <div className="bg-emerald-900/20 border border-emerald-500/30 p-3 rounded-xl flex items-center gap-3 animate-in slide-in-from-bottom-2">
                          <span className="text-emerald-400 text-xl">✅</span>
                          <div>
-                            <p className="text-[10px] uppercase text-emerald-400/80 font-bold tracking-widest">Public Listing Active</p>
+                            <p className="text-[10px] uppercase text-emerald-400/80 font-medium tracking-widest">Public Listing Active</p>
                             <p className="text-xs text-white break-all mt-1">{typeof window !== 'undefined' ? `${window.location.origin}/share/${fractionalToken}` : `http://localhost:3001/share/${fractionalToken}`}</p>
                          </div>
                       </div>
@@ -1330,16 +1330,16 @@ export default function AdminControlTower() {
              <div className="animate-in fade-in slide-in-from-top-4 duration-500">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 via-[#00F5D4] to-indigo-500"></div>
                 <h1 className="text-2xl font-light tracking-wide text-white flex items-center gap-2">
-                  Exchange <span className="font-bold text-[#00F5D4]">Live</span>
+                  Exchange <span className="font-medium text-[#00F5D4]">Live</span>
                   <span className="w-2.5 h-2.5 rounded-full bg-[#00F5D4] animate-ping ml-1"></span>
                 </h1>
                 
                 {/* Live Sales Ticker Hero */}
                 <div className="mt-4 bg-black/40 border border-[#00F5D4]/20 rounded-xl p-4 shadow-[0_0_20px_rgba(0,245,212,0.05)] text-center relative">
-                   <span className="text-[9px] uppercase tracking-widest text-[#00F5D4] font-black absolute top-2 right-2 border border-[#00F5D4]/30 bg-[#00F5D4]/10 px-1.5 py-0.5 rounded">High Demand</span>
-                   <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Ashifla-Otatten Pipeline</p>
+                   <span className="text-[9px] uppercase tracking-widest text-[#00F5D4] font-medium tracking-tight absolute top-2 right-2 border border-[#00F5D4]/30 bg-[#00F5D4]/10 px-1.5 py-0.5 rounded">High Demand</span>
+                   <p className="text-[10px] text-gray-500 uppercase tracking-widest font-medium mb-1">Ashifla-Otatten Pipeline</p>
                    <div className="text-3xl font-light tabular-nums tracking-tight text-white mb-2">
-                      <span className="font-bold">{100 - soldUnits}</span><span className="text-lg text-gray-500">/100</span>
+                      <span className="font-medium">{100 - soldUnits}</span><span className="text-lg text-gray-500">/100</span>
                    </div>
                    <p className="text-[10px] uppercase font-mono tracking-widest text-indigo-400">Packets Remaining</p>
                    
@@ -1355,7 +1355,7 @@ export default function AdminControlTower() {
           ) : (
              <>
                 <h1 className="text-2xl font-light tracking-wide text-white">
-                  Syntry <span className="font-bold text-[#00F5D4]">Control Tower</span>
+                  Syntry <span className="font-medium text-[#00F5D4]">Control Tower</span>
                 </h1>
                 <p className="text-sm text-gray-400 mt-2">Real-time Global Protocol State</p>
              </>
@@ -1366,7 +1366,7 @@ export default function AdminControlTower() {
             <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/10">
               <div className="flex items-center gap-3">
                  <div className={`w-2 h-2 rounded-full ${showInfrastructure ? 'bg-[#7c3aed] animate-pulse shadow-[0_0_8px_rgba(124,58,237,0.8)]' : 'bg-gray-600'}`}></div>
-                 <span className="text-[10px] uppercase tracking-widest font-bold text-gray-300">Infrastructure Catalyst</span>
+                 <span className="text-[10px] uppercase tracking-widest font-medium text-gray-300">Infrastructure Catalyst</span>
               </div>
               <button 
                 onClick={() => setShowInfrastructure(!showInfrastructure)}
@@ -1380,7 +1380,7 @@ export default function AdminControlTower() {
             <div className="flex items-center justify-between bg-emerald-900/10 p-3 rounded-xl border border-[#00F5D4]/30 shadow-[0_0_15px_rgba(0,245,212,0.05)]">
               <div className="flex items-center gap-3">
                  <div className={`w-2 h-2 rounded-full ${isPublicView ? 'bg-[#00F5D4] animate-pulse shadow-[0_0_10px_rgba(0,245,212,0.8)]' : 'bg-gray-600'}`}></div>
-                 <span className={`text-[10px] uppercase tracking-widest font-black transition-colors ${isPublicView ? 'text-[#00F5D4]' : 'text-gray-400'}`}>Public Gateway</span>
+                 <span className={`text-[10px] uppercase tracking-widest font-medium tracking-tight transition-colors ${isPublicView ? 'text-[#00F5D4]' : 'text-gray-400'}`}>Public Gateway</span>
               </div>
               <button 
                 onClick={() => setIsPublicView(!isPublicView)}
@@ -1430,14 +1430,14 @@ export default function AdminControlTower() {
             <div className="bg-gradient-to-br from-indigo-900/20 to-black/40 border border-indigo-500/20 rounded-xl p-4 cursor-crosshair group relative">
                <div className="flex justify-between items-end mb-4">
                  <div>
-                   <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">West Hills Alpha</p>
+                   <p className="text-[10px] text-gray-500 uppercase tracking-widest font-medium">West Hills Alpha</p>
                    <p className="text-[9px] text-indigo-300 mt-1">$1,050/sqm Average</p>
                  </div>
                  <div className="text-right">
                    <p className="text-lg font-mono text-[#00F5D4] group-hover:animate-pulse shadow-sm">+$151k</p>
                    <div className="flex items-center justify-end gap-2 mt-1">
-                     <p className="text-[9px] text-[#00F5D4] uppercase font-bold">+84% Yld</p>
-                     <p className="text-[8px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider flex items-center gap-1 animate-pulse border border-emerald-500/40">
+                     <p className="text-[9px] text-[#00F5D4] uppercase font-medium">+84% Yld</p>
+                     <p className="text-[8px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-medium uppercase tracking-wider flex items-center gap-1 animate-pulse border border-emerald-500/40">
                         <span className="w-1 h-1 bg-emerald-400 rounded-full"></span> 
                         +1.2% MoM
                      </p>
@@ -1484,13 +1484,13 @@ export default function AdminControlTower() {
             <div className="bg-black/40 border border-white/10 rounded-xl p-4 space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-400">Verified Clean</span>
-                <span className="text-xs font-bold text-[#00F5D4] bg-[#00F5D4]/10 px-2 py-0.5 rounded-full border border-[#00F5D4]/20">
+                <span className="text-xs font-medium text-[#00F5D4] bg-[#00F5D4]/10 px-2 py-0.5 rounded-full border border-[#00F5D4]/20">
                   {stats.cleanAuditCount} Plots
                 </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-400">Case-by-Case Review</span>
-                <span className="text-xs font-bold text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-full border border-yellow-500/20">
+                <span className="text-xs font-medium text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-full border border-yellow-500/20">
                   {stats.reviewAuditCount} Plots
                 </span>
               </div>
@@ -1527,7 +1527,7 @@ export default function AdminControlTower() {
           {/* [MISSION: GENERATE THE SOVEREIGN DEED] Sidebar Integration */}
           {selectedPlot?.status === 'verified' && (
             <div className="p-6 border-t border-white/10 bg-indigo-500/5 animate-in slide-in-from-bottom-4 duration-500">
-               <h3 className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-black mb-4">Verification Deed</h3>
+               <h3 className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium tracking-tight mb-4">Verification Deed</h3>
                <CertificateGenerator plot={selectedPlot} auditResult={auditStream} />
                <p className="text-[10px] text-gray-500 mt-3 italic text-center text-shadow-sm">
                  Sovereign Deed-Digital is cryptographically signed and ready for custodial transfer.
@@ -1539,7 +1539,7 @@ export default function AdminControlTower() {
           {stats.escrowedValue > 0 && (
              <div className="p-6 border-t border-white/10 bg-gradient-to-b from-indigo-900/20 to-black/40 animate-in fade-in duration-500">
                 <div className="flex justify-between items-center mb-4">
-                   <h3 className="text-[10px] uppercase tracking-widest text-[#FFD700] font-black flex items-center gap-2">
+                   <h3 className="text-[10px] uppercase tracking-widest text-[#FFD700] font-medium tracking-tight flex items-center gap-2">
                        <span className="w-2 h-2 rounded-full bg-[#FFD700] animate-pulse shadow-[0_0_8px_#FFD700]"></span> Treasury Payout
                    </h3>
                    <span className="text-[8px] bg-white/10 px-2 py-0.5 rounded text-gray-300 font-mono uppercase tracking-widest border border-white/5">0.5% Protocol Fee</span>
@@ -1547,7 +1547,7 @@ export default function AdminControlTower() {
                 <div className="space-y-4">
                    <div className="flex justify-between items-end border-b border-indigo-500/20 pb-4 mb-2">
                        <div className="flex flex-col">
-                           <span className="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Cleared Liquid Escrow</span>
+                           <span className="text-[9px] uppercase tracking-widest text-gray-500 font-medium">Cleared Liquid Escrow</span>
                            <span className="text-xl font-mono text-white mt-1.5 drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]">${stats.escrowedValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                        </div>
                    </div>
@@ -1563,7 +1563,7 @@ export default function AdminControlTower() {
                            btn.disabled = true;
                         }, 2500);
                      }}
-                     className="w-full py-4 text-[11px] font-black tracking-widest uppercase rounded-xl transition-all shadow-[0_0_20px_rgba(255,215,0,0.2)] bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:scale-[1.02] border border-yellow-400/50 text-black flex justify-center items-center"
+                     className="w-full py-4 text-[11px] font-medium tracking-tight tracking-widest uppercase rounded-xl transition-all shadow-[0_0_20px_rgba(255,215,0,0.2)] bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:scale-[1.02] border border-yellow-400/50 text-black flex justify-center items-center"
                    >
                       Withdraw to Bank/Wallet
                    </button>
@@ -1588,7 +1588,7 @@ export default function AdminControlTower() {
                  resetAuditState();
                }
             }}
-            className={`w-full py-4 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 ${
+            className={`w-full py-4 rounded-lg font-medium uppercase tracking-wider transition-all duration-300 ${
               isEmergencyLocked 
                 ? 'bg-red-500/10 text-red-500 border border-red-500/50 hover:bg-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.3)]' 
                 : 'bg-gradient-to-r from-red-600 to-red-800 text-white hover:shadow-[0_0_20px_rgba(220,38,38,0.8)] hover:scale-[1.02]'
@@ -1613,16 +1613,16 @@ export default function AdminControlTower() {
          <div className="fixed bottom-0 left-0 w-full md:hidden z-[110] bg-[#0E1629]/95 backdrop-blur-xl border-t border-indigo-500/30 p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] animate-in slide-in-from-bottom-full duration-300">
              <div className="flex justify-between items-center mb-3">
                  <div className="flex flex-col">
-                    <span className="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Node 08 Verified</span>
-                    <span className="text-white font-mono font-bold">${Math.round((selectedPlot.value * 0.01) * 1.025).toLocaleString()}</span>
+                    <span className="text-[9px] uppercase tracking-widest text-gray-400 font-medium">Node 08 Verified</span>
+                    <span className="text-white font-mono font-medium">${Math.round((selectedPlot.value * 0.01) * 1.025).toLocaleString()}</span>
                  </div>
-                 <div className="text-[10px] text-red-400 font-black animate-pulse">
+                 <div className="text-[10px] text-red-400 font-medium tracking-tight animate-pulse">
                     ⏱️ 14:59
                  </div>
              </div>
              <button 
                onClick={handleInitiateEscrow}
-               className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] text-black font-black py-3.5 rounded-xl uppercase tracking-widest shadow-[0_0_20px_rgba(255,215,0,0.3)] flex justify-center items-center"
+               className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] text-black font-medium tracking-tight py-3.5 rounded-xl uppercase tracking-widest shadow-[0_0_20px_rgba(255,215,0,0.3)] flex justify-center items-center"
              >
                Reserve Instantly
              </button>

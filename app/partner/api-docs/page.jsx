@@ -34,9 +34,9 @@ console.log(data.status); // Output: "Verified Sovereign"
         {/* Dark Mode Header */}
         <section className="mb-16 border-b border-white/10 pb-16">
           <div className="flex items-center gap-2 mb-4">
-            <span className="bg-[#D4AF37]/20 text-[#D4AF37] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Institutional SDK</span>
+            <span className="bg-[#D4AF37]/20 text-[#D4AF37] px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-widest">Institutional SDK</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white">API Documentation</h1>
+          <h1 className="text-4xl md:text-6xl font-medium mb-6 tracking-tight text-white">API Documentation</h1>
           <p className="text-xl opacity-60 max-w-2xl leading-relaxed">
             Access verified land data, mortgage status, and 8-Layer validation matrix through our secure sovereign API.
           </p>
@@ -45,7 +45,7 @@ console.log(data.status); // Output: "Verified Sovereign"
         {/* Auth & Setup */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
           <div className="bg-white/5 border border-white/10 p-10 rounded-3xl">
-            <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
+            <h3 className="text-xl font-medium mb-6 flex items-center gap-3">
               <span className="text-[#D4AF37]">🔑</span> Authentication
             </h3>
             <p className="text-sm opacity-60 mb-8 leading-relaxed">
@@ -54,17 +54,17 @@ console.log(data.status); // Output: "Verified Sovereign"
             <div className="bg-black/50 p-4 rounded-lg font-mono text-xs border border-white/10 mb-6">
               Authorization: Bearer YOUR_API_KEY
             </div>
-            <button className="text-[#00BFFF] text-xs font-bold uppercase tracking-widest hover:underline">Manage Keys in Portal ↗</button>
+            <button className="text-[#00BFFF] text-xs font-medium uppercase tracking-widest hover:underline">Manage Keys in Portal ↗</button>
           </div>
           
           <div className="bg-white/5 border border-white/10 p-10 rounded-3xl">
-            <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
+            <h3 className="text-xl font-medium mb-6 flex items-center gap-3">
               <span className="text-[#1D9E75]">⚡</span> Quick Setup
             </h3>
             <p className="text-sm opacity-60 mb-8 leading-relaxed">
               Integrate the Syntry 8-Layer validation matrix directly into your bank's internal underwriting platform.
             </p>
-            <button className="bg-[#D4AF37] text-[#003300] px-8 py-3 rounded-xl font-bold text-xs hover:scale-105 transition-all">
+            <button className="bg-[#D4AF37] text-[#0F172A] px-8 py-3 rounded-xl font-medium text-xs hover:scale-105 transition-all">
               Download Postman Collection
             </button>
           </div>
@@ -72,12 +72,12 @@ console.log(data.status); // Output: "Verified Sovereign"
 
         {/* Endpoints */}
         <section className="mb-20">
-          <h2 className="text-2xl font-bold mb-10">Main Endpoints</h2>
+          <h2 className="text-2xl font-medium mb-10">Main Endpoints</h2>
           <div className="space-y-4">
             {endpoints.map((ep, i) => (
               <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-white/[0.08] transition-all group">
                 <div className="flex items-center gap-6 w-full md:w-1/2">
-                   <span className={`px-4 py-1.5 rounded-lg font-bold text-[10px] tracking-widest ${ep.method === 'GET' ? 'bg-[#1D9E75]/20 text-[#1D9E75]' : 'bg-[#D4AF37]/20 text-[#D4AF37]'}`}>
+                   <span className={`px-4 py-1.5 rounded-lg font-medium text-[10px] tracking-widest ${ep.method === 'GET' ? 'bg-[#1D9E75]/20 text-[#1D9E75]' : 'bg-[#D4AF37]/20 text-[#D4AF37]'}`}>
                      {ep.method}
                    </span>
                    <code className="text-sm font-mono text-white/80">{ep.path}</code>
@@ -90,11 +90,11 @@ console.log(data.status); // Output: "Verified Sovereign"
 
         {/* Code Snippet */}
         <section className="mb-20">
-          <h2 className="text-2xl font-bold mb-10">Integration Example</h2>
+          <h2 className="text-2xl font-medium mb-10">Integration Example</h2>
           <div className="bg-[#121212] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
             <div className="bg-white/5 px-6 py-3 border-b border-white/10 flex justify-between items-center">
-              <span className="text-[10px] font-bold uppercase opacity-40">request.js</span>
-              <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">JavaScript SDK</span>
+              <span className="text-[10px] font-medium uppercase opacity-40">request.js</span>
+              <span className="text-[10px] font-medium text-[#D4AF37] uppercase tracking-widest">JavaScript SDK</span>
             </div>
             <pre className="p-8 text-xs font-mono text-[#D4AF37]/80 leading-relaxed overflow-x-auto">
               {codeExample}
@@ -105,7 +105,7 @@ console.log(data.status); // Output: "Verified Sovereign"
         {/* Rate Limits & Pricing */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center border-t border-white/10 pt-20">
            <div>
-             <h2 className="text-2xl font-bold mb-6">Rate Limits & Support</h2>
+             <h2 className="text-2xl font-medium mb-6">Rate Limits & Support</h2>
              <ul className="space-y-4 mb-10">
                {[
                  "Standard: 1,000 requests/day",
@@ -119,12 +119,12 @@ console.log(data.status); // Output: "Verified Sovereign"
                ))}
              </ul>
            </div>
-           <div className="bg-[#D4AF37] text-[#003300] p-12 rounded-[3rem] text-center md:text-left flex flex-col justify-between h-full shadow-2xl">
+           <div className="bg-[#D4AF37] text-[#0F172A] p-12 rounded-[3rem] text-center md:text-left flex flex-col justify-between h-full shadow-2xl">
               <div>
-                <h3 className="text-3xl font-bold mb-4 italic">Technical Support</h3>
+                <h3 className="text-3xl font-medium mb-4 italic">Technical Support</h3>
                 <p className="font-medium opacity-80 mb-8">Need help with your institutional integration or custom API schemas?</p>
               </div>
-              <a href="https://wa.me/233531102292" className="bg-[#003300] text-[#F8F1E3] py-5 px-8 rounded-2xl font-bold text-center hover:scale-105 transition-all text-sm">
+              <a href="https://wa.me/233531102292" className="bg-[#0F172A] text-[#F8F1E3] py-5 px-8 rounded-2xl font-medium text-center hover:scale-105 transition-all text-sm">
                 Chat with Technical Team ↗
               </a>
            </div>

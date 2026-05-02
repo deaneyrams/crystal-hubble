@@ -37,16 +37,16 @@ export default function GlobalFooter() {
     ]
   };
 
-  if (!mounted) return <div className="min-h-[400px] bg-[#050508] min-h-screen" />; // Safety Ghost Shell
+  if (!mounted) return <div className="min-h-[400px] bg-[#0F172A] min-h-screen" />; // Safety Ghost Shell
 
   return (
-    <footer className="bg-[#050508] pt-32 pb-16 px-6 overflow-hidden border-t border-white/5 relative z-10">
+    <footer className="bg-[#0F172A] pt-32 pb-16 px-6 overflow-hidden border-t border-white/5 relative z-10">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-12 mb-24 text-center md:text-left">
           
           {/* Column 1: Company */}
           <div className="space-y-8">
-            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">Company</h4>
+            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-medium">Company</h4>
             <ul className="flex flex-col gap-5">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -60,7 +60,7 @@ export default function GlobalFooter() {
 
           {/* Column 2: Product */}
           <div className="space-y-8">
-            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">Product</h4>
+            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-medium">Product</h4>
             <ul className="flex flex-col gap-5">
               {footerLinks.product.map((link) => (
                 <li key={link.label}>
@@ -74,7 +74,7 @@ export default function GlobalFooter() {
 
           {/* Column 3: For You */}
           <div className="space-y-8">
-            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">For You</h4>
+            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-medium">For You</h4>
             <ul className="flex flex-col gap-5">
               {footerLinks.forYou.map((link) => (
                 <li key={link.label}>
@@ -88,7 +88,7 @@ export default function GlobalFooter() {
 
           {/* Column 4: Resources */}
           <div className="space-y-8">
-            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">Resources</h4>
+            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-medium">Resources</h4>
             <ul className="flex flex-col gap-5">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
@@ -102,7 +102,7 @@ export default function GlobalFooter() {
 
           {/* Column 5: Legal */}
           <div className="space-y-8">
-            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-bold">Legal</h4>
+            <h4 className="text-[#D4AF37] font-sans text-[11px] uppercase tracking-[4px] font-medium">Legal</h4>
             <ul className="flex flex-col gap-5">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
@@ -118,7 +118,7 @@ export default function GlobalFooter() {
         {/* Contact & Statutory Block */}
         <div className="pt-20 border-t border-white/5 flex flex-col items-center text-center space-y-12">
            <div className="space-y-4">
-              <h3 className="text-white text-2xl font-bold italic tracking-tight uppercase">Call or WhatsApp 0531102292 | info@syntry.co</h3>
+              <h3 className="text-white text-2xl font-medium italic tracking-tight uppercase">Call or WhatsApp 0531102292 | info@syntry.co</h3>
               <div className="flex justify-center items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all">
                  <span className="text-white text-[10px] border border-white/20 px-3 py-1 rounded">MTN MoMo</span>
                  <span className="text-white text-[10px] border border-white/20 px-3 py-1 rounded">Vodafone Cash</span>
@@ -136,7 +136,7 @@ export default function GlobalFooter() {
                     <div className="w-4 bg-yellow-400"></div>
                     <div className="w-4 bg-green-700"></div>
                  </div>
-                 <span className="font-mono text-[9px] tracking-[2px] text-[#D4AF37] uppercase font-black">
+                 <span className="font-mono text-[9px] tracking-[2px] text-[#D4AF37] uppercase font-medium tracking-tight">
                     Verified Security Layer Active
                  </span>
               </div>

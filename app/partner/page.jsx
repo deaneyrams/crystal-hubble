@@ -62,22 +62,22 @@ export default function DevelopersPage() {
                 <tr className="hover:bg-white/5 transition-colors group">
                   <td className="px-8 py-6 text-white group-hover:text-[#B8FF3C]">Verification</td>
                   <td className="px-8 py-6">Paper-Based</td>
-                  <td className="px-8 py-6 text-[#B8FF3C] font-bold">Node 08 SYNC</td>
+                  <td className="px-8 py-6 text-[#B8FF3C] font-medium">Node 08 SYNC</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors group">
                   <td className="px-8 py-6 text-white group-hover:text-[#B8FF3C]">Capital Velocity</td>
                   <td className="px-8 py-6">Slow Settlement</td>
-                  <td className="px-8 py-6 text-[#B8FF3C] font-bold">Insta-Vault Lock</td>
+                  <td className="px-8 py-6 text-[#B8FF3C] font-medium">Insta-Vault Lock</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors group">
                   <td className="px-8 py-6 text-white group-hover:text-[#B8FF3C]">Market Access</td>
                   <td className="px-8 py-6">Local Lead Gen</td>
-                  <td className="px-8 py-6 text-[#B8FF3C] font-bold">Global Diaspora</td>
+                  <td className="px-8 py-6 text-[#B8FF3C] font-medium">Global Diaspora</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors group">
                   <td className="px-8 py-6 text-white group-hover:text-[#B8FF3C]">Data Shield</td>
                   <td className="px-8 py-6">Manual Search</td>
-                  <td className="px-8 py-6 text-[#B8FF3C] font-bold">End-to-End Enc.</td>
+                  <td className="px-8 py-6 text-[#B8FF3C] font-medium">End-to-End Enc.</td>
                 </tr>
               </tbody>
             </table>
@@ -113,7 +113,7 @@ export default function DevelopersPage() {
                 />
               </div>
               
-              <button className="btn btn-primary w-full py-6 bg-[#B8FF3C] text-black font-head text-sm tracking-[4px] uppercase font-bold hover:bg-white transition-all transform hover:-translate-y-1">
+              <button className="btn btn-primary w-full py-6 bg-[#B8FF3C] text-black font-head text-sm tracking-[4px] uppercase font-medium hover:bg-white transition-all transform hover:-translate-y-1">
                 SUBMIT NODE APPLICATION →
               </button>
             </form>

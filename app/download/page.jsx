@@ -98,13 +98,13 @@ export default function DownloadPage() {
             <div className="grid grid-cols-2 gap-4 border-t border-[#00FF41]/10 pt-4">
               <div className="bg-[#00FF41]/5 p-3 rounded-lg border border-[#00FF41]/10">
                 <div className="text-[8px] opacity-40 uppercase mb-1">GEOFENCE STATUS</div>
-                <div className={`text-[10px] font-bold ${geofenceStatus === 'LOCKED' ? 'text-[#B8FF3C]' : 'text-inherit'}`}>
+                <div className={`text-[10px] font-medium ${geofenceStatus === 'LOCKED' ? 'text-[#B8FF3C]' : 'text-inherit'}`}>
                   {geofenceStatus}
                 </div>
               </div>
               <div className="bg-[#00FF41]/5 p-3 rounded-lg border border-[#00FF41]/10">
                 <div className="text-[8px] opacity-40 uppercase mb-1">SYS NODE 08</div>
-                <div className="text-[10px] font-bold text-[#B8FF3C]">CONNECTED</div>
+                <div className="text-[10px] font-medium text-[#B8FF3C]">CONNECTED</div>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function DownloadPage() {
                 <div className="flex items-center gap-4">
                   <span className="text-xl">🤖</span>
                   <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest leading-none mb-1">Android Native</div>
+                    <div className="text-[10px] font-medium tracking-tight uppercase tracking-widest leading-none mb-1">Android Native</div>
                     <div className="text-[8px] opacity-60 uppercase font-mono">v1.2.4 (Latest Stable)</div>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ export default function DownloadPage() {
                 <div className="flex items-center gap-4">
                   <span className="text-xl">🍎</span>
                   <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest leading-none mb-1">Apple TestFlight</div>
+                    <div className="text-[10px] font-medium tracking-tight uppercase tracking-widest leading-none mb-1">Apple TestFlight</div>
                     <div className="text-[8px] opacity-40 uppercase font-mono">Request Beta Access</div>
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export default function DownloadPage() {
                 >
                   <div className="bg-[#0C0C14] rounded-[11px] p-6 flex items-center justify-between">
                     <div>
-                      <div className="text-[9px] text-[#B8FF3C] uppercase tracking-[4px] mb-2 font-black">Identified Parcel Node</div>
+                      <div className="text-[9px] text-[#B8FF3C] uppercase tracking-[4px] mb-2 font-medium tracking-tight">Identified Parcel Node</div>
                       <h4 className="text-white font-head uppercase text-xl leading-none">{identifiedPlot.plot_name}</h4>
                       <div className="mt-4 flex items-center gap-4">
                         <div className="bg-[#00FF41]/10 px-2 py-1 rounded text-[8px] text-[#00FF41] uppercase">{identifiedPlot.status}</div>
@@ -186,7 +186,7 @@ export default function DownloadPage() {
                     </div>
                     <button 
                       onClick={() => window.location.href = '/invest/'}
-                      className="px-6 py-4 bg-[#B8FF3C] text-black font-head font-black text-xs uppercase tracking-widest rounded-lg hover:scale-105 transition-transform"
+                      className="px-6 py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-xs uppercase tracking-widest rounded-lg hover:scale-105 transition-transform"
                     >
                       Audit Details
                     </button>
@@ -223,7 +223,7 @@ export default function DownloadPage() {
                   <label className="text-[10px] uppercase tracking-[4px] text-white/20">Authorized Email</label>
                   <input type="email" placeholder="investor@example.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white outline-none focus:border-[#B8FF3C] transition-all" />
                 </div>
-                <button className="w-full py-5 bg-[#B8FF3C] text-black font-head font-black tracking-widest uppercase text-xs rounded-xl shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
+                <button className="w-full py-5 bg-[#B8FF3C] text-black font-head font-medium tracking-tight tracking-widest uppercase text-xs rounded-xl shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
                   Submit Request
                 </button>
               </div>

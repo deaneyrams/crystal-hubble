@@ -19,7 +19,7 @@ const ReferralProgramPage = () => {
   const referralLink = "https://syntry.co/join?ref=kwame82";
 
   return (
-    <div className="bg-[#fdfcf9] min-h-screen text-[#003300] font-sans">
+    <div className="bg-[#fdfcf9] min-h-screen text-[#0F172A] font-sans">
       <GlobalHeader />
 
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-5xl mx-auto">
@@ -27,10 +27,10 @@ const ReferralProgramPage = () => {
         <section className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 border border-[#D4AF37]/20">
             <span className="text-lg">🎁</span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]">Syntry Rewards Program</span>
+            <span className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Syntry Rewards Program</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">My Referrals</h1>
-          <p className="text-2xl font-bold text-[#D4AF37] mb-8 tracking-tight">GH₵450 earned so far</p>
+          <h1 className="text-4xl md:text-6xl font-medium mb-4 tracking-tight">My Referrals</h1>
+          <p className="text-2xl font-medium text-[#D4AF37] mb-8 tracking-tight">GH₵450 earned so far</p>
           <p className="text-lg opacity-60 max-w-2xl mx-auto leading-relaxed font-medium">
             Share Syntry with other land owners and get rewarded as you help them secure their legacy.
           </p>
@@ -40,25 +40,25 @@ const ReferralProgramPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {rewards.map((r, i) => (
              <div key={i} className="bg-white border border-[#D4AF37]/10 p-10 rounded-[2.5rem] shadow-sm text-center hover:scale-105 transition-all">
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-4">{r.threshold}</p>
-                <h3 className="text-3xl font-bold text-[#D4AF37] mb-2">{r.bonus}</h3>
-                <p className="text-xs font-bold opacity-60">{r.perks}</p>
+                <p className="text-[10px] font-medium uppercase tracking-widest opacity-40 mb-4">{r.threshold}</p>
+                <h3 className="text-3xl font-medium text-[#D4AF37] mb-2">{r.bonus}</h3>
+                <p className="text-xs font-medium opacity-60">{r.perks}</p>
              </div>
           ))}
         </div>
 
         {/* Share Section */}
-        <section className="bg-[#003300] text-[#F8F1E3] p-12 md:p-16 rounded-[3rem] shadow-2xl mb-16 relative overflow-hidden">
+        <section className="bg-[#0F172A] text-[#F8F1E3] p-12 md:p-16 rounded-[3rem] shadow-2xl mb-16 relative overflow-hidden">
            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
            <div className="max-w-xl mx-auto text-center">
-             <h2 className="text-2xl font-bold mb-8 italic">Your Unique Referral Link</h2>
+             <h2 className="text-2xl font-medium mb-8 italic">Your Unique Referral Link</h2>
              <div className="bg-white/5 border border-white/10 p-6 rounded-2xl mb-8 flex items-center justify-between gap-4 group">
                <code className="text-sm font-mono text-[#D4AF37] truncate">{referralLink}</code>
-               <button className="text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-all">Copy</button>
+               <button className="text-[10px] font-medium uppercase tracking-widest opacity-60 hover:opacity-100 transition-all">Copy</button>
              </div>
              <a 
                href={`https://wa.me/?text=Join%20me%20on%20Syntry.co%20to%20verify%20your%20land%20and%20get%20mortgage%20pre-approval!%20Use%20my%20link:%20${referralLink}`}
-               className="bg-[#25D366] text-white py-4 px-10 rounded-2xl font-bold text-sm block hover:scale-[1.02] transition-all"
+               className="bg-[#25D366] text-white py-4 px-10 rounded-2xl font-medium text-sm block hover:scale-[1.02] transition-all"
              >
                Share on WhatsApp
              </a>
@@ -66,15 +66,15 @@ const ReferralProgramPage = () => {
         </section>
 
         {/* How It Works */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20 text-center px-8 border-b border-[#003300]/5 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20 text-center px-8 border-b border-[#0F172A]/5 pb-20">
            {[
              { s: "01", t: "Share Link", d: "Send your unique referral link to friends and colleagues." },
              { s: "02", t: "Verification", d: "Friend signs up and completes their first statutory land audit." },
              { s: "03", t: "Get Rewarded", d: "Rewards are credited to your account once verification is successful." }
            ].map((step, i) => (
              <div key={i} className="space-y-4">
-                <div className="text-5xl font-bold text-[#D4AF37] opacity-20 tracking-tighter">{step.s}</div>
-                <h4 className="font-bold text-lg">{step.t}</h4>
+                <div className="text-5xl font-medium text-[#D4AF37] opacity-20 tracking-tighter">{step.s}</div>
+                <h4 className="font-medium text-lg">{step.t}</h4>
                 <p className="text-xs opacity-60 leading-relaxed font-medium">{step.d}</p>
              </div>
            ))}
@@ -82,26 +82,26 @@ const ReferralProgramPage = () => {
 
         {/* Referral List */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-10">My Successful Referrals</h2>
+          <h2 className="text-2xl font-medium mb-10">My Successful Referrals</h2>
           <div className="space-y-4">
             {[
               { name: "John Tetteh", status: "Verified Property", reward: "GH₵150", date: "Oct 24" },
               { name: "Naa Ayeley", status: "Signed Up", reward: "GH₵50", date: "Oct 20" },
               { name: "David Mensah", status: "Mortgage Check", reward: "GH₵250", date: "Oct 15" }
             ].map((ref, i) => (
-               <div key={i} className="bg-white border border-[#003300]/5 p-8 rounded-3xl flex items-center justify-between shadow-sm group hover:border-[#D4AF37]/20 transition-all">
+               <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-3xl flex items-center justify-between shadow-sm group hover:border-[#D4AF37]/20 transition-all">
                   <div className="flex gap-6 items-center">
-                    <div className="w-12 h-12 bg-[#003300] text-[#D4AF37] rounded-full flex items-center justify-center font-bold text-lg">
+                    <div className="w-12 h-12 bg-[#0F172A] text-[#D4AF37] rounded-full flex items-center justify-center font-medium text-lg">
                       {ref.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-base group-hover:text-[#D4AF37] transition-all">{ref.name}</p>
-                      <p className="text-[10px] font-bold opacity-40 uppercase tracking-[2px]">{ref.status}</p>
+                      <p className="font-medium text-base group-hover:text-[#D4AF37] transition-all">{ref.name}</p>
+                      <p className="text-[10px] font-medium opacity-40 uppercase tracking-[2px]">{ref.status}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-lg font-bold text-[#1D9E75] mb-1">{ref.reward}</p>
-                    <p className="text-[10px] font-bold opacity-30 uppercase tracking-widest">{ref.date}</p>
+                    <p className="text-lg font-medium text-[#1D9E75] mb-1">{ref.reward}</p>
+                    <p className="text-[10px] font-medium opacity-30 uppercase tracking-widest">{ref.date}</p>
                   </div>
                </div>
             ))}
@@ -110,11 +110,11 @@ const ReferralProgramPage = () => {
 
         {/* Leaderboard Teaser */}
         <section className="bg-white border border-[#D4AF37]/10 p-10 rounded-[2.5rem] mb-20 text-center shadow-sm">
-           <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] mb-4">Community Impact</p>
-           <h3 className="text-xl font-bold mb-8 italic">Top referrers this month are winning exclusive land-survey sessions.</h3>
+           <p className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37] mb-4">Community Impact</p>
+           <h3 className="text-xl font-medium mb-8 italic">Top referrers this month are winning exclusive land-survey sessions.</h3>
            <div className="flex justify-center -space-x-4">
               {[1,2,3,4].map(i => (
-                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-[#003300] text-[#D4AF37] flex items-center justify-center font-bold text-xs ring-2 ring-[#D4AF37]/20 uppercase">
+                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-[#0F172A] text-[#D4AF37] flex items-center justify-center font-medium text-xs ring-2 ring-[#D4AF37]/20 uppercase">
                   {String.fromCharCode(64 + i)}
                 </div>
               ))}
@@ -122,16 +122,16 @@ const ReferralProgramPage = () => {
         </section>
 
         {/* Action CTA */}
-        <section className="bg-[#D4AF37] text-[#003300] p-12 md:p-16 rounded-[4rem] flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
+        <section className="bg-[#D4AF37] text-[#0F172A] p-12 md:p-16 rounded-[4rem] flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
            <div className="max-w-xl text-center md:text-left">
-             <h2 className="text-3xl font-bold mb-4 italic">Invite More Friends Now</h2>
-             <p className="font-bold text-sm mb-2 opacity-80">Help your inner circle ground their truth in verified soil.</p>
+             <h2 className="text-3xl font-medium mb-4 italic">Invite More Friends Now</h2>
+             <p className="font-medium text-sm mb-2 opacity-80">Help your inner circle ground their truth in verified soil.</p>
            </div>
            <div className="flex flex-col gap-4 w-full md:w-auto">
-             <a href="https://wa.me/233531102292" className="bg-[#003300] text-[#F8F1E3] px-12 py-5 rounded-2xl font-bold text-sm text-center hover:scale-[1.02] transition-all shadow-xl">
+             <a href="https://wa.me/233531102292" className="bg-[#0F172A] text-[#F8F1E3] px-12 py-5 rounded-2xl font-medium text-sm text-center hover:scale-[1.02] transition-all shadow-xl">
                Connect with Advisor Liaison
              </a>
-             <button className="bg-white/20 border border-[#003300]/20 text-[#003300] px-12 py-5 rounded-2xl font-bold text-sm text-center hover:bg-white/30 transition-all">
+             <button className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-2xl font-medium text-sm text-center hover:bg-white/30 transition-all">
                View Full Leaderboard
              </button>
            </div>

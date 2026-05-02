@@ -29,7 +29,7 @@ export default function DownloadApp() {
           {isMobile ? (
             <a 
               href={downloadUrl}
-              className="inline-block w-full md:w-auto px-12 py-6 bg-[#B8FF3C] text-black font-head font-black text-sm uppercase tracking-[4px] rounded-2xl shadow-[0_20px_40px_#B8FF3C33] hover:scale-105 active:scale-95 transition-all text-center"
+              className="inline-block w-full md:w-auto px-12 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-sm uppercase tracking-[4px] rounded-2xl shadow-[0_20px_40px_#B8FF3C33] hover:scale-105 active:scale-95 transition-all text-center"
             >
               INSTALL SYNTRY APP (Direct APK)
             </a>

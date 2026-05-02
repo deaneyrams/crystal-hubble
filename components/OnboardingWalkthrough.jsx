@@ -99,7 +99,7 @@ export default function OnboardingWalkthrough() {
              {activeSlide.icon}
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-2xl md:text-3xl font-medium text-white mb-6 tracking-tight">
             {activeSlide.title.split(': ')[1]}
           </h2>
           
@@ -110,7 +110,7 @@ export default function OnboardingWalkthrough() {
           <div className="flex flex-col w-full gap-4">
             <button 
               onClick={handleNext}
-              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:scale-[1.02] active:scale-95 border border-indigo-400/30"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-medium py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:scale-[1.02] active:scale-95 border border-indigo-400/30"
             >
               {currentSlide === slides.length - 1 ? 'Get Started' : 'Continue Walkthrough'}
             </button>

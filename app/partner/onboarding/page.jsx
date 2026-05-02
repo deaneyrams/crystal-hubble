@@ -40,9 +40,9 @@ export default function PartnerOnboarding() {
           className="bg-[#162A3E] p-12 md:p-20 rounded-[48px] border border-[#B8FF3C]/30 shadow-2xl max-w-2xl w-full"
         >
           <div className="w-20 h-20 bg-[#B8FF3C]/10 rounded-full flex items-center justify-center text-4xl mx-auto mb-8 border border-[#B8FF3C]/30">🛡️</div>
-          <h2 className="text-4xl font-head font-black uppercase tracking-tighter mb-4">Oracle Audit Initialized</h2>
+          <h2 className="text-4xl font-head font-medium tracking-tight uppercase tracking-tighter mb-4">Oracle Audit Initialized</h2>
           <p className="text-gray-400 mb-8 font-body">Your property is currently tagged as <span className="text-[#B8FF3C] font-mono">pending_verification</span>. Our legal nodes are auditing your title deeds. You will be notified once it goes <span className="text-[#B8FF3C] font-mono">live</span>.</p>
-          <a href="/partner/dashboard" className="px-10 py-4 bg-[#B8FF3C] text-black font-head font-black uppercase tracking-widest text-xs rounded-xl shadow-xl hover:scale-105 transition-all">
+          <a href="/partner/dashboard" className="px-10 py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-widest text-xs rounded-xl shadow-xl hover:scale-105 transition-all">
              Go to Partner Dashboard
           </a>
         </motion.div>
@@ -61,7 +61,7 @@ export default function PartnerOnboarding() {
 
       <header className="pt-40 pb-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-head font-black tracking-tighter uppercase mb-4 leading-none">
+          <h1 className="text-5xl md:text-7xl font-head font-medium tracking-tight tracking-tighter uppercase mb-4 leading-none">
             List on <span className="text-[#B8FF3C]">Syntry.</span>
           </h1>
           <p className="text-gray-400 font-body text-lg">Institutional-grade verification for your property assets.</p>
@@ -75,7 +75,7 @@ export default function PartnerOnboarding() {
               <motion.div key="s1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
                 <div className="space-y-2">
                   <span className="text-[10px] font-mono tracking-[4px] text-[#B8FF3C] uppercase">Step 01</span>
-                  <h2 className="text-3xl font-head font-black tracking-tight uppercase">Identity Verification</h2>
+                  <h2 className="text-3xl font-head font-medium tracking-tight tracking-tight uppercase">Identity Verification</h2>
                 </div>
                 <div className="space-y-6">
                   <div className="space-y-2">
@@ -83,7 +83,7 @@ export default function PartnerOnboarding() {
                     <input type="text" placeholder="GHA-XXXXXXXXX-X" className="w-full bg-black/40 border border-white/10 rounded-xl py-4 px-6 text-white focus:border-[#B8FF3C] outline-none font-mono" />
                   </div>
                   <div className="border-2 border-dashed border-white/10 rounded-2xl p-10 text-center hover:border-[#B8FF3C]/30 transition-all cursor-pointer">
-                    <p className="text-xs text-gray-500 uppercase tracking-widest font-black">Upload Business Registration / ID Copy</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-medium tracking-tight">Upload Business Registration / ID Copy</p>
                   </div>
                 </div>
               </motion.div>
@@ -93,7 +93,7 @@ export default function PartnerOnboarding() {
               <motion.div key="s2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
                 <div className="space-y-2">
                   <span className="text-[10px] font-mono tracking-[4px] text-[#B8FF3C] uppercase">Step 02</span>
-                  <h2 className="text-3xl font-head font-black tracking-tight uppercase">Property Asset Data</h2>
+                  <h2 className="text-3xl font-head font-medium tracking-tight tracking-tight uppercase">Property Asset Data</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -114,7 +114,7 @@ export default function PartnerOnboarding() {
                   </div>
                 </div>
                 <div className="border-2 border-dashed border-white/10 rounded-2xl p-10 text-center hover:border-[#B8FF3C]/30 transition-all cursor-pointer">
-                  <p className="text-xs text-gray-500 uppercase tracking-widest font-black">Drag & Drop Property Photos</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest font-medium tracking-tight">Drag & Drop Property Photos</p>
                 </div>
               </motion.div>
             )}
@@ -123,7 +123,7 @@ export default function PartnerOnboarding() {
               <motion.div key="s3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
                 <div className="space-y-2">
                   <span className="text-[10px] font-mono tracking-[4px] text-[#B8FF3C] uppercase">Step 03</span>
-                  <h2 className="text-3xl font-head font-black tracking-tight uppercase">Oracle Audit Fee</h2>
+                  <h2 className="text-3xl font-head font-medium tracking-tight tracking-tight uppercase">Oracle Audit Fee</h2>
                 </div>
                 <div className="bg-black/40 border border-white/10 p-8 rounded-2xl space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/5">
@@ -150,7 +150,7 @@ export default function PartnerOnboarding() {
             <button 
               onClick={step === 3 ? handleListingSubmit : () => setStep(s => Math.min(3, s + 1))}
               disabled={isSubmitting}
-              className="px-10 py-4 bg-[#B8FF3C] text-black font-head font-black uppercase tracking-[4px] text-[10px] rounded-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center min-w-[150px]"
+              className="px-10 py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-[4px] text-[10px] rounded-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center min-w-[150px]"
             >
               {isSubmitting ? (
                 <span className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin"></span>

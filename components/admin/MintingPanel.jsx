@@ -57,15 +57,15 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
     <div className="mt-6 border border-[#D4AF37]/40 rounded-2xl bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] shadow-2xl overflow-hidden text-[#e0e0e0] animate-in slide-in-from-bottom-5">
       {/* Header */}
       <div className="bg-[#111] p-4 border-b border-[#D4AF37]/30 flex items-center justify-between">
-        <h3 className="text-[#D4AF37] font-bold tracking-widest uppercase text-sm flex items-center gap-2">
+        <h3 className="text-[#D4AF37] font-medium tracking-widest uppercase text-sm flex items-center gap-2">
            ⚖️ Digital Deed Engine
         </h3>
         {!mintedHash ? (
-          <span className="bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/50 px-2 py-1 rounded text-[10px] uppercase font-black animate-pulse">
+          <span className="bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/50 px-2 py-1 rounded text-[10px] uppercase font-medium tracking-tight animate-pulse">
             Ready-to-Stamp
           </span>
         ) : (
-          <span className="bg-green-900/40 text-green-400 border border-green-500/50 px-2 py-1 rounded text-[10px] uppercase font-black">
+          <span className="bg-green-900/40 text-green-400 border border-green-500/50 px-2 py-1 rounded text-[10px] uppercase font-medium tracking-tight">
             Immutable Seal
           </span>
         )}
@@ -75,7 +75,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
         
         {/* Locked Data */}
         <div className="bg-black/50 p-4 rounded-xl border border-white/5 space-y-3">
-           <h4 className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold">Locked Asset Data</h4>
+           <h4 className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">Locked Asset Data</h4>
            <div className="grid grid-cols-2 gap-4">
               <div>
                 <span className="block text-[9px] text-gray-500 uppercase tracking-widest">Coordinates</span>
@@ -91,20 +91,20 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
         {/* Taxes and Duties */}
         <div className="bg-black/30 p-4 rounded-xl border border-white/5 space-y-2 text-sm">
            <div className="flex justify-between items-center text-gray-300">
-             <span className="text-[10px] uppercase tracking-wider font-bold text-gray-500">Valuation</span>
+             <span className="text-[10px] uppercase tracking-wider font-medium text-gray-500">Valuation</span>
              <span className="font-mono">${plot.value.toLocaleString()}</span>
            </div>
            <div className="flex justify-between items-center text-gray-300">
-             <span className="text-[10px] uppercase tracking-wider font-bold text-gray-500">GRA Stamp Duty <span className="text-[#D4AF37] border border-[#D4AF37] rounded px-1 ml-1 text-[8px] bg-[#D4AF37]/10">1%</span></span>
+             <span className="text-[10px] uppercase tracking-wider font-medium text-gray-500">GRA Stamp Duty <span className="text-[#D4AF37] border border-[#D4AF37] rounded px-1 ml-1 text-[8px] bg-[#D4AF37]/10">1%</span></span>
              <span className="font-mono text-[#D4AF37]">${stampDuty.toLocaleString()}</span>
            </div>
            <div className="flex justify-between items-center text-gray-300 border-b border-white/10 pb-2 pt-1 mt-1">
-             <span className="text-[10px] uppercase tracking-wider font-bold text-gray-500 flex flex-col">
+             <span className="text-[10px] uppercase tracking-wider font-medium text-gray-500 flex flex-col">
                Unified VAT <span className="text-gray-400 border border-gray-400 rounded px-1 w-max text-[8px] bg-gray-400/10 mt-1">20% Tier</span>
              </span>
              <span className="font-mono text-gray-400">${vatData.totalVatAmount.toLocaleString()}</span>
            </div>
-           <div className="flex justify-between items-center text-white font-black tracking-wide pt-2">
+           <div className="flex justify-between items-center text-white font-medium tracking-tight tracking-wide pt-2">
              <span className="text-[10px] uppercase">Authorized Transfer</span>
              <span className="font-mono">${(plot.value + stampDuty + vatData.totalVatAmount).toLocaleString()}</span>
            </div>
@@ -114,7 +114,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
           <>
             {/* Signature Input */}
             <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Legal Practitioner Digital Seal</label>
+              <label className="text-[10px] uppercase tracking-widest text-gray-400 font-medium">Legal Practitioner Digital Seal</label>
               <input 
                 type="text" 
                 placeholder="Type signature code (e.g., JD-10992)..."
@@ -128,7 +128,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
             <button
               onClick={handleMint}
               disabled={isMinting || !signature}
-              className={`w-full py-4 text-sm font-black tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
+              className={`w-full py-4 text-sm font-medium tracking-tight tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
                 ${isMinting 
                   ? 'bg-[#333] text-gray-500 cursor-wait shadow-inner'
                   : !signature 
@@ -142,13 +142,13 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
         ) : (
           <div className="space-y-4 animate-in fade-in zoom-in duration-500">
             <div className="bg-green-900/10 border border-green-500/30 p-4 rounded-xl text-center space-y-2">
-               <p className="text-[10px] uppercase text-green-400 font-bold tracking-widest">Immutable Deed Hash</p>
-               <p className="font-mono text-lg text-white font-bold">{mintedHash}</p>
+               <p className="text-[10px] uppercase text-green-400 font-medium tracking-widest">Immutable Deed Hash</p>
+               <p className="font-mono text-lg text-white font-medium">{mintedHash}</p>
             </div>
             
             <button
               onClick={handleDownloadPacket}
-              className="w-full py-4 bg-transparent border border-[#D4AF37] hover:bg-[#D4AF37]/10 text-[#D4AF37] rounded-xl text-xs font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 bg-transparent border border-[#D4AF37] hover:bg-[#D4AF37]/10 text-[#D4AF37] rounded-xl text-xs font-medium tracking-widest uppercase transition-all flex items-center justify-center gap-2"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
               Download Legal Packet

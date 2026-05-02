@@ -280,33 +280,33 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       <div className="absolute top-4 left-12 z-[1000] space-y-2">
         {areaInSqMeters > 0 && (
           <div className="bg-slate-900 border border-gold-500/50 text-white px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md">
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#00C853] mb-1">Calculated Footprint</p>
+            <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#0D9488] mb-1">Calculated Footprint</p>
             <div className="flex gap-4">
-               <p className="text-xl font-black">{areaInSqMeters} <span className="text-[10px] font-bold text-slate-400">SQM</span></p>
+               <p className="text-xl font-medium tracking-tight">{areaInSqMeters} <span className="text-[10px] font-medium text-slate-400">SQM</span></p>
                <div className="w-[1px] bg-slate-700"></div>
-               <p className="text-xl font-black">{areaInAcres} <span className="text-[10px] font-bold text-slate-400">ACRES</span></p>
+               <p className="text-xl font-medium tracking-tight">{areaInAcres} <span className="text-[10px] font-medium text-slate-400">ACRES</span></p>
             </div>
             {centroidNode && (
-               <p className="text-[9px] font-bold text-slate-400 mt-2 bg-slate-800 px-2 py-1 rounded inline-block shadow-sm">Node: {centroidNode}</p>
+               <p className="text-[9px] font-medium text-slate-400 mt-2 bg-slate-800 px-2 py-1 rounded inline-block shadow-sm">Node: {centroidNode}</p>
             )}
             
             {!isSnapped && encroachments.length === 0 && (
-               <button onClick={applyAutoSnap} className="block mt-4 w-full bg-[#D4AF37] text-slate-900 text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg shadow-xl hover:scale-[1.02] transition-transform">
+               <button onClick={applyAutoSnap} className="block mt-4 w-full bg-[#D4AF37] text-slate-900 text-[10px] font-medium tracking-tight uppercase tracking-widest py-1.5 rounded-lg shadow-xl hover:scale-[1.02] transition-transform">
                   Auto-Snap to Boundaries ⚡
                </button>
             )}
             {isSnapped && encroachments.length === 0 && (
-               <span className="block mt-4 text-[#D4AF37] text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+               <span className="block mt-4 text-[#D4AF37] text-[10px] font-medium tracking-tight uppercase tracking-widest flex items-center gap-1">
                   ✓ Snapped to Grid
                </span>
             )}
             
             {encroachments.length > 0 && (
                <div className="mt-4 bg-red-600/20 border border-red-500/50 rounded-lg p-2 animate-pulse">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#FF0000] mb-1">CRITICAL: ENCROACHMENT DETECTED</p>
+                  <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#FF0000] mb-1">CRITICAL: ENCROACHMENT DETECTED</p>
                   {encroachments.map((enc, idx) => (
                      <div key={idx} className="text-xs text-white">
-                        <span className="font-bold opacity-80">{enc.id}:</span> <span className="text-[#FF0000] font-bold">{enc.areaSqM} SQM ({enc.percent}%)</span>
+                        <span className="font-medium opacity-80">{enc.id}:</span> <span className="text-[#FF0000] font-medium">{enc.areaSqM} SQM ({enc.percent}%)</span>
                      </div>
                   ))}
                   
@@ -314,14 +314,14 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
                      <button 
                         onClick={fileWhistleblowerReport} 
                         disabled={isFilingWhistleblower}
-                        className="mt-3 w-full bg-[#FF0000] text-white text-[9px] font-black uppercase tracking-widest py-2 rounded-lg shadow-xl hover:scale-[1.02] transition-transform disabled:opacity-50"
+                        className="mt-3 w-full bg-[#FF0000] text-white text-[9px] font-medium tracking-tight uppercase tracking-widest py-2 rounded-lg shadow-xl hover:scale-[1.02] transition-transform disabled:opacity-50"
                      >
                         {isFilingWhistleblower ? 'Generating Cryptographic Report...' : 'File Whistleblower Act 720 Report'}
                      </button>
                    )}
                    {whistleblowerSuccess && (
                      <div className="mt-3 bg-slate-900 border border-slate-700 p-2 rounded-lg text-[9px]">
-                        <p className="text-[#00C853] font-bold">✓ Report Filed Securely</p>
+                        <p className="text-[#0D9488] font-medium">✓ Report Filed Securely</p>
                         <p className="text-slate-400 mt-1">Hash: <span className="text-white">{whistleblowerSuccess.disputeHash.substring(0, 16)}...</span></p>
                         {whistleblowerSuccess.emailPreviewUrl && (
                            <a href={whistleblowerSuccess.emailPreviewUrl} target="_blank" className="text-[#D4AF37] underline mt-1 block">View Official Compliance Email</a>
@@ -334,18 +334,18 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
         )}
         {error && (
           <div className="bg-red-600 text-white px-4 py-2 rounded-xl shadow-2xl animate-bounce">
-            <p className="text-[10px] font-black uppercase tracking-widest">Protocol Guard</p>
-            <p className="text-xs font-bold">{error}</p>
+            <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest">Protocol Guard</p>
+            <p className="text-xs font-medium">{error}</p>
           </div>
         )}
       </div>
 
       <div className="absolute bottom-4 left-4 z-[1000]">
         <div className="bg-white/90 backdrop-blur-md border border-slate-200 p-3 rounded-xl shadow-lg">
-          <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Syntry Geospatial Node</p>
+          <p className="text-[9px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1">Syntry Geospatial Node</p>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#00C853]"></div>
-            <p className="text-[10px] font-bold text-slate-900">Greater Accra Region Active</p>
+            <div className="w-2 h-2 rounded-full bg-[#0D9488]"></div>
+            <p className="text-[10px] font-medium text-slate-900">Greater Accra Region Active</p>
           </div>
         </div>
       </div>

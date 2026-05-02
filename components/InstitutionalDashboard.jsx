@@ -13,7 +13,7 @@ const SovereignMap = dynamic(() => import('./SovereignMap'), {
    ssr: false, 
    loading: () => (
       <div className="w-full h-full bg-[#0D1B2A] flex items-center justify-center animate-[pulse_2s_ease-in-out_infinite]">
-         <p className="text-[#2DD4BF] font-head font-black tracking-widest uppercase text-xs">Validating Ministerial Node 08...</p>
+         <p className="text-[#2DD4BF] font-head font-medium tracking-tight tracking-widest uppercase text-xs">Validating Ministerial Node 08...</p>
       </div>
    )
 });
@@ -465,10 +465,10 @@ export default function InstitutionalDashboard() {
                   SYNTRY is the synchronised entry into every property market. Unified Data, Ministerial Node 08 Verification, and Flexible Repayments with Absa.
                </p>
                <div className="flex flex-col sm:flex-row gap-6 relative z-50">
-                 <button onClick={() => window.location.href = '/invest/'} className="w-full sm:w-auto px-10 py-6 bg-[#B8FF3C] text-black font-head font-black tracking-widest text-xs rounded-2xl shadow-[0_20px_40px_rgba(184,255,60,0.3)] hover:scale-105 active:scale-95 transition-all">
+                 <button onClick={() => window.location.href = '/invest/'} className="w-full sm:w-auto px-10 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight tracking-widest text-xs rounded-2xl shadow-[0_20px_40px_rgba(184,255,60,0.3)] hover:scale-105 active:scale-95 transition-all">
                     ACCESS WEB TERMINAL →
                  </button>
-                 <button onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})} className="w-full sm:w-auto px-10 py-6 border border-white/20 text-white font-head font-black tracking-widest text-xs rounded-2xl hover:bg-white/5 transition-all">
+                 <button onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})} className="w-full sm:w-auto px-10 py-6 border border-white/20 text-white font-head font-medium tracking-tight tracking-widest text-xs rounded-2xl hover:bg-white/5 transition-all">
                     GET EARLY ACCESS
                  </button>
                </div>
@@ -519,7 +519,7 @@ export default function InstitutionalDashboard() {
          <div className="lg:hidden fixed bottom-0 left-0 right-0 p-6 z-[200] pointer-events-none">
             <button 
                onClick={() => window.location.href = '/invest/'}
-               className="pointer-events-auto w-full py-6 bg-[#B8FF3C] text-black font-head font-black text-sm uppercase tracking-[4px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] active:scale-95 transition-all"
+               className="pointer-events-auto w-full py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-sm uppercase tracking-[4px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] active:scale-95 transition-all"
             >
                VERIFY LAND NOW →
             </button>
@@ -530,7 +530,7 @@ export default function InstitutionalDashboard() {
             <div className="bg-[#0B141E] rounded-[32px] md:rounded-full shadow-[0_40px_80px_rgba(0,0,0,0.6)] px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 border border-white/10 dark-pill">
                <div className="relative w-full flex-1">
                   <span className="absolute left-6 top-1/2 -translate-y-1/2 text-lg">📍</span>
-                  <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-bold outline-none appearance-none cursor-pointer text-sm">
+                  <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-medium outline-none appearance-none cursor-pointer text-sm">
                      <option>Location ▾</option>
                      <option>Ashifla, Accra</option>
                      <option>East Legon</option>
@@ -539,7 +539,7 @@ export default function InstitutionalDashboard() {
                <div className="w-px h-10 bg-white/5 hidden md:block"></div>
                <div className="relative w-full flex-1">
                   <span className="absolute left-6 top-1/2 -translate-y-1/2 text-lg">💰</span>
-                  <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-bold outline-none appearance-none cursor-pointer text-sm">
+                  <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-medium outline-none appearance-none cursor-pointer text-sm">
                      <option>Budget ▾</option>
                      <option>Under $10k (GH₵150k)</option>
                      <option>$10k - $25k</option>
@@ -548,14 +548,14 @@ export default function InstitutionalDashboard() {
                <div className="w-px h-10 bg-white/5 hidden md:block"></div>
                <div className="relative w-full flex-1">
                   <span className="absolute left-6 top-1/2 -translate-y-1/2 text-lg">🏗️</span>
-                  <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-bold outline-none appearance-none cursor-pointer text-sm">
+                  <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-medium outline-none appearance-none cursor-pointer text-sm">
                      <option>Type ▾</option>
                      <option>Full Plot</option>
                      <option>Fractional</option>
                      <option>Home Construction</option>
                   </select>
                </div>
-               <button onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})} className="w-full md:w-auto px-8 md:px-10 bg-[#D4AF37] text-[#0D1B2A] font-head font-black text-xs uppercase tracking-widest py-4 md:py-6 rounded-[32px] hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(212,175,55,0.3)] shrink-0 self-center">
+               <button onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})} className="w-full md:w-auto px-8 md:px-10 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight text-xs uppercase tracking-widest py-4 md:py-6 rounded-[32px] hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(212,175,55,0.3)] shrink-0 self-center">
                   Explore Properties →
                </button>
             </div>
@@ -589,7 +589,7 @@ export default function InstitutionalDashboard() {
       {/* 3. The Sovereign Path (How it Works) - Redesigned */}
       <section id="how-it-works" className="bg-[#0D1B2A] py-[80px] md:py-[160px] px-6 border-b border-white/5">
          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-head font-black text-white text-center mb-24 uppercase tracking-tighter">The Sovereign Path</h2>
+            <h2 className="text-4xl md:text-6xl font-head font-medium tracking-tight text-white text-center mb-24 uppercase tracking-tighter">The Sovereign Path</h2>
             
             {/* Desktop Horizontal Timeline / Mobile Vertical Stepper */}
             <div className="relative flex flex-col md:flex-row items-start justify-between gap-12 md:gap-4">
@@ -609,7 +609,7 @@ export default function InstitutionalDashboard() {
                      className="flex-1 w-full flex flex-col items-center md:items-start text-center md:text-left group relative z-10"
                   >
                      <div className="w-20 h-20 bg-[#162A3E] rounded-[24px] border border-white/10 flex items-center justify-center text-3xl mb-8 group-hover:border-[#B8FF3C]/40 group-hover:bg-[#0D1B2A] transition-all relative">
-                        <span className="absolute -top-4 -left-4 bg-[#B8FF3C] text-black text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-xl">
+                        <span className="absolute -top-4 -left-4 bg-[#B8FF3C] text-black text-[10px] font-medium tracking-tight px-3 py-1 rounded-full uppercase tracking-widest shadow-xl">
                           Step {item.step}
                         </span>
                         {item.icon}
@@ -628,16 +628,16 @@ export default function InstitutionalDashboard() {
       {/* 4. Education Bridge: Comparison Table */}
       <section className="bg-[#0D1B2A] py-[64px] md:py-[120px] px-6">
          <div className="max-w-5xl mx-auto">
-            <h2 className="text-center font-head font-black text-5xl md:text-6xl text-white mb-6 uppercase tracking-tighter">Not a Listing Site.<br /><span className="text-[#2DD4BF]">A Sovereign Exchange.</span></h2>
+            <h2 className="text-center font-head font-medium tracking-tight text-5xl md:text-6xl text-white mb-6 uppercase tracking-tighter">Not a Listing Site.<br /><span className="text-[#2DD4BF]">A Sovereign Exchange.</span></h2>
             <p className="text-center text-[#94A3B8] font-body mb-[64px] md:mb-[80px] text-xl max-w-2xl mx-auto">Traditional real estate is broken. Syntry is engineered for legal finality on a massive scale.</p>
             
             <div className="bg-[#162A3E] rounded-[32px] md:rounded-[40px] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.5)] border border-white/10 p-4 md:p-10">
                {/* Desktop Table Header */}
                <div className="hidden md:block rounded-[24px] overflow-hidden border border-white/5 bg-[#0D1B2A]">
-                  <div className="grid grid-cols-[1.2fr_1fr_1.2fr] text-white py-8 px-10 text-[11px] font-black uppercase tracking-[0.25em] border-b border-white/5 bg-[#081018]">
+                  <div className="grid grid-cols-[1.2fr_1fr_1.2fr] text-white py-8 px-10 text-[11px] font-medium tracking-tight uppercase tracking-[0.25em] border-b border-white/5 bg-[#081018]">
                      <span>Framework Node</span>
                      <span className="text-center">Traditional</span>
-                     <span className="text-center text-[#0D1B2A] text-[12px] bg-[#D4AF37] px-6 py-2 rounded-full font-black ml-4">Syntry Advantage</span>
+                     <span className="text-center text-[#0D1B2A] text-[12px] bg-[#D4AF37] px-6 py-2 rounded-full font-medium tracking-tight ml-4">Syntry Advantage</span>
                   </div>
                   
                   {[
@@ -647,9 +647,9 @@ export default function InstitutionalDashboard() {
                      { f: "Risk Profile", t: "High Litigation Risk", s: "0% Counterparty Risk" }
                   ].map((row, i) => (
                      <div key={i} className="grid grid-cols-[1.2fr_1fr_1.2fr] py-8 px-10 border-b border-white/5 text-base items-center group hover:bg-white/[0.02] transition-colors">
-                        <span className="font-bold text-white uppercase tracking-tight text-sm lg:text-base">{row.f}</span>
+                        <span className="font-medium text-white uppercase tracking-tight text-sm lg:text-base">{row.f}</span>
                         <span className="text-center text-[#94A3B8] italic">{row.t}</span>
-                        <span className="text-center text-[#2DD4BF] font-black uppercase tracking-widest text-sm">{row.s}</span>
+                        <span className="text-center text-[#2DD4BF] font-medium tracking-tight uppercase tracking-widest text-sm">{row.s}</span>
                      </div>
                   ))}
                </div>
@@ -663,7 +663,7 @@ export default function InstitutionalDashboard() {
                      { f: "Risk Profile", t: "High Litigation Risk", s: "0% Counterparty Risk" }
                   ].map((row, i) => (
                      <div key={i} className="bg-[#0D1B2A] rounded-2xl border border-white/5 p-6 space-y-4">
-                        <div className="text-[10px] uppercase font-black tracking-[0.2em] text-white/20 border-b border-white/5 pb-2">
+                        <div className="text-[10px] uppercase font-medium tracking-tight tracking-[0.2em] text-white/20 border-b border-white/5 pb-2">
                            Framework Node {i+1}
                         </div>
                         <h4 className="text-white font-head uppercase text-lg tracking-tight leading-none">{row.f}</h4>
@@ -674,7 +674,7 @@ export default function InstitutionalDashboard() {
                               <div className="text-white/40 text-[10px] font-body italic leading-tight">{row.t}</div>
                            </div>
                            <div className="bg-[#D4AF37]/5 border border-[#D4AF37]/10 p-3 rounded-xl">
-                              <div className="text-[8px] uppercase tracking-widest text-[#D4AF37] mb-1 font-black">Syntry Advantage</div>
+                              <div className="text-[8px] uppercase tracking-widest text-[#D4AF37] mb-1 font-medium tracking-tight">Syntry Advantage</div>
                               <div className="text-[#B8FF3C] text-[10px] font-head uppercase tracking-tight flex items-center gap-1.5">
                                  <span className="text-[#D4AF37]">✓</span> {row.s}
                               </div>
@@ -693,13 +693,13 @@ export default function InstitutionalDashboard() {
          <div className="max-w-[1200px] mx-auto px-6 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                <div className="space-y-4">
-                  <h3 className="text-4xl md:text-5xl font-head font-black text-white uppercase tracking-tighter">Sovereign Asset Exchange</h3>
+                  <h3 className="text-4xl md:text-5xl font-head font-medium tracking-tight text-white uppercase tracking-tighter">Sovereign Asset Exchange</h3>
                   <div className="flex items-center gap-3">
                      <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
                      </span>
-                      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#10B981]">Ministerial Node 08: Real-time 3D Ground-Truth Active</span>
+                      <span className="text-[11px] font-medium tracking-tight uppercase tracking-[0.2em] text-[#10B981]">Ministerial Node 08: Real-time 3D Ground-Truth Active</span>
                   </div>
                </div>
             </div>
@@ -723,7 +723,7 @@ export default function InstitutionalDashboard() {
                         
                         {/* Gold Node Seal */}
                         <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B68C1C] rounded-full border-2 border-white/20 shadow-2xl flex items-center justify-center pointer-events-none transform rotate-12 group-hover:rotate-0 transition-transform z-20">
-                           <div className="text-[10px] font-black text-[#0D1B2A] text-center leading-[0.8] uppercase">
+                           <div className="text-[10px] font-medium tracking-tight text-[#0D1B2A] text-center leading-[0.8] uppercase">
                               Node<br />08
                            </div>
                         </div>
@@ -734,7 +734,7 @@ export default function InstitutionalDashboard() {
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
                            </span>
-                           <span className="text-[9px] font-black text-white uppercase tracking-widest">LIVE</span>
+                           <span className="text-[9px] font-medium tracking-tight text-white uppercase tracking-widest">LIVE</span>
                         </div>
                      </div>
                      
@@ -742,8 +742,8 @@ export default function InstitutionalDashboard() {
                      <div className="p-6 flex flex-grow flex-col gap-4">
                         <div className="flex justify-between items-start">
                            <div className="space-y-1">
-                              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#B8FF3C]">{plot.location}</div>
-                              <h4 className="text-xl font-head font-black text-white leading-tight uppercase tracking-tighter">{plot.name}</h4>
+                              <div className="text-[10px] font-medium tracking-tight uppercase tracking-[0.2em] text-[#B8FF3C]">{plot.location}</div>
+                              <h4 className="text-xl font-head font-medium tracking-tight text-white leading-tight uppercase tracking-tighter">{plot.name}</h4>
                               <p className="text-[10px] text-white/40 uppercase font-mono">{plot.plotSize} | {plot.category}</p>
                            </div>
                            
@@ -763,7 +763,7 @@ export default function InstitutionalDashboard() {
                                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
                                  />
                               </svg>
-                              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#B8FF3C]">98</div>
+                              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-medium tracking-tight text-[#B8FF3C]">98</div>
                            </div>
                         </div>
                         
@@ -771,16 +771,16 @@ export default function InstitutionalDashboard() {
                            <div className="flex justify-between items-end border-t border-white/5 pt-4">
                               <div>
                                  <div className="text-[8px] uppercase tracking-widest text-white/30 mb-1">Starting From</div>
-                                 <div className="text-2xl font-head font-black text-white tracking-tighter">
+                                 <div className="text-2xl font-head font-medium tracking-tight text-white tracking-tighter">
                                     {formatMoney(plot.priceGHS)}
                                  </div>
                               </div>
                               <div className="text-right">
-                                 <div className="text-[8px] uppercase tracking-widest text-[#B8FF3C] mb-1 font-black">Plan</div>
+                                 <div className="text-[8px] uppercase tracking-widest text-[#B8FF3C] mb-1 font-medium tracking-tight">Plan</div>
                                  <div className="text-[10px] text-white/60 font-mono">24M Installments</div>
                               </div>
                            </div>
-                           <button onClick={() => openDrawer(plot)} className="w-full py-4 bg-[#B8FF3C] text-black font-head font-black text-[10px] uppercase tracking-[0.2em] rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
+                           <button onClick={() => openDrawer(plot)} className="w-full py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-[10px] uppercase tracking-[0.2em] rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
                               View Plot Details →
                            </button>
                         </div>
@@ -798,7 +798,7 @@ export default function InstitutionalDashboard() {
          <div className="max-w-[1200px] mx-auto px-6 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
                <div className="text-center md:text-left">
-                  <h2 className="text-4xl md:text-5xl font-head font-black text-white mb-4 tracking-tighter">The Sovereign Guarantee</h2>
+                  <h2 className="text-4xl md:text-5xl font-head font-medium tracking-tight text-white mb-4 tracking-tighter">The Sovereign Guarantee</h2>
                   <p className="text-[#94A3B8] text-lg max-w-xl">Institutional-grade safety protocols protecting every statutory transaction.</p>
                </div>
                <div className="flex items-center gap-4 bg-[#0D1B2A] px-6 py-3 rounded-full border border-[#D4AF37]/30 shadow-2xl">
@@ -806,7 +806,7 @@ export default function InstitutionalDashboard() {
                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
                   </span>
-                  <span className="text-[11px] font-black uppercase tracking-widest text-white">Ministerial Node: <span className="text-[#10B981]">Verified Status [Active]</span></span>
+                  <span className="text-[11px] font-medium tracking-tight uppercase tracking-widest text-white">Ministerial Node: <span className="text-[#10B981]">Verified Status [Active]</span></span>
                </div>
             </div>
             
@@ -818,7 +818,7 @@ export default function InstitutionalDashboard() {
                ].map((item, idx) => (
                   <div key={idx} className="bg-[#0D1B2A] p-12 rounded-[40px] border border-white/5 shadow-2xl group hover:border-[#D4AF37]/30 transition-all">
                      <div className="text-5xl mb-8 group-hover:scale-110 transition-transform">{item.icon}</div>
-                     <h3 className="text-2xl font-head font-black mb-4 text-white uppercase tracking-tight">{item.title}</h3>
+                     <h3 className="text-2xl font-head font-medium tracking-tight mb-4 text-white uppercase tracking-tight">{item.title}</h3>
                      <p className="text-[#94A3B8] leading-relaxed font-body text-base">{item.desc}</p>
                   </div>
                ))}
@@ -830,13 +830,13 @@ export default function InstitutionalDashboard() {
       <section className="py-[64px] md:py-[120px] px-6 text-center bg-[#0D1B2A] relative overflow-hidden border-t border-white/5">
          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#2DD4BF 1px, transparent 1px)', backgroundSize: '64px 64px' }}></div>
          <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-head font-black text-white mb-8 tracking-tighter uppercase">Join the Sovereign Exchange.</h2>
+            <h2 className="text-5xl md:text-7xl font-head font-medium tracking-tight text-white mb-8 tracking-tighter uppercase">Join the Sovereign Exchange.</h2>
             <p className="text-[#94A3B8] text-xl mb-12 max-w-2xl mx-auto font-body">The secure framework for African real estate wealth. Skip the paper trail; enter the vault.</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-full sm:w-auto px-12 py-6 bg-[#D4AF37] text-[#0D1B2A] font-head font-black uppercase tracking-[0.2em] text-xs rounded-full shadow-[0_20px_40px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95 transition-all">
+               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-full sm:w-auto px-12 py-6 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight uppercase tracking-[0.2em] text-xs rounded-full shadow-[0_20px_40px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95 transition-all">
                   Browse Active Nodes →
                </button>
-               <button className="w-full sm:w-auto px-12 py-6 border-2 border-white/20 text-white font-head font-black uppercase tracking-[0.2em] text-xs rounded-full hover:bg-white hover:text-[#0D1B2A] transition-all">
+               <button className="w-full sm:w-auto px-12 py-6 border-2 border-white/20 text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-xs rounded-full hover:bg-white hover:text-[#0D1B2A] transition-all">
                   Institutional Login
                </button>
             </div>
@@ -889,10 +889,10 @@ export default function InstitutionalDashboard() {
                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
                               </span>
-                              <span className="text-[10px] font-black text-[#10B981] uppercase tracking-[0.2em] shadow-sm">Ministerial Node 08 Linked</span>
+                              <span className="text-[10px] font-medium tracking-tight text-[#10B981] uppercase tracking-[0.2em] shadow-sm">Ministerial Node 08 Linked</span>
                            </div>
-                           <h2 className="text-3xl font-head font-black text-white drop-shadow-md leading-none uppercase">{selectedProperty.name}</h2>
-                           <span className="block text-white font-bold bg-[#162A3E]/80 backdrop-blur px-3 py-1.5 rounded-full text-[9px] mt-2 w-max shadow-sm border border-white/5 uppercase tracking-widest">GPS Authenticated ✓</span>
+                           <h2 className="text-3xl font-head font-medium tracking-tight text-white drop-shadow-md leading-none uppercase">{selectedProperty.name}</h2>
+                           <span className="block text-white font-medium bg-[#162A3E]/80 backdrop-blur px-3 py-1.5 rounded-full text-[9px] mt-2 w-max shadow-sm border border-white/5 uppercase tracking-widest">GPS Authenticated ✓</span>
                         </div>
                         
                         {/* 1. The Drone Interface Launch Button */}
@@ -907,14 +907,14 @@ export default function InstitutionalDashboard() {
                            className="flex items-center gap-3 px-6 py-3 bg-[#0D1B2A]/90 backdrop-blur-md border border-[#D4AF37] rounded-full shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all group"
                         >
                            <span className="text-[#D4AF37] text-lg group-hover:rotate-12 transition-transform">🛰️</span>
-                           <span className="text-white font-black text-[10px] uppercase tracking-widest leading-none mt-0.5">Launch Drone View</span>
+                           <span className="text-white font-medium tracking-tight text-[10px] uppercase tracking-widest leading-none mt-0.5">Launch Drone View</span>
                            {/* Pulsing "Rec" Dot */}
                            <div className="flex items-center gap-1.5 bg-black/40 px-2.5 py-1 rounded-full border border-white/10 ml-2">
                               <span className="relative flex h-1.5 w-1.5">
                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
                               </span>
-                              <span className="text-red-500 text-[8px] font-black tracking-widest uppercase mb-[1px]">REC</span>
+                              <span className="text-red-500 text-[8px] font-medium tracking-tight tracking-widest uppercase mb-[1px]">REC</span>
                            </div>
                         </button>
                      </div>
@@ -923,7 +923,7 @@ export default function InstitutionalDashboard() {
                   {/* Payment Calculator ("Ride Fare") */}
                   <div className="w-full bg-[#162A3E] p-6 md:p-10 flex-grow overflow-y-auto custom-scrollbar">
                      <div className="relative">
-                        <h3 className="text-2xl font-head font-black text-white mb-1 uppercase tracking-tighter">Escrow Calculator</h3>
+                        <h3 className="text-2xl font-head font-medium tracking-tight text-white mb-1 uppercase tracking-tighter">Escrow Calculator</h3>
                         <p className="text-sm text-[#94A3B8] mb-8 font-body">Configure statutory payment timeline for this node.</p>
  
                      {/* Term Selector */}
@@ -931,15 +931,15 @@ export default function InstitutionalDashboard() {
                         {/* Added Beneficiary Toggle */}
                         <div className="mb-6 bg-[#0D1B2A] border border-white/5 p-4 rounded-[20px] flex items-center justify-between shadow-2xl">
                            <div>
-                              <h4 className="text-white font-bold text-sm">Asset Beneficiary Allocation</h4>
-                              <p className="text-[9px] text-[#94A3B8] uppercase tracking-widest font-black mt-1">Multi-Generational Custody Protocol</p>
+                              <h4 className="text-white font-medium text-sm">Asset Beneficiary Allocation</h4>
+                              <p className="text-[9px] text-[#94A3B8] uppercase tracking-widest font-medium tracking-tight mt-1">Multi-Generational Custody Protocol</p>
                            </div>
                            <label className="relative inline-flex items-center cursor-pointer">
                               <input type="checkbox" className="sr-only peer" />
                               <div className="w-11 h-6 bg-white/10 rounded-full peer peer-checked:bg-[#2DD4BF] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
                            </label>
                         </div>
-                        <label className="text-[10px] font-bold uppercase tracking-widest text-[#94A3B8] mb-4 block">Installment Timeline</label>
+                        <label className="text-[10px] font-medium uppercase tracking-widest text-[#94A3B8] mb-4 block">Installment Timeline</label>
                            <input 
                               type="range" 
                               min="0" 
@@ -949,7 +949,7 @@ export default function InstitutionalDashboard() {
                               onChange={(e) => setCalcMonths(parseInt(e.target.value))}
                               className="w-full accent-[#D4AF37] h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer"
                            />
-                        <div className="flex justify-between text-[10px] font-mono text-[#94A3B8] mt-3 font-bold">
+                        <div className="flex justify-between text-[10px] font-mono text-[#94A3B8] mt-3 font-medium">
                            <span>CASH (2% Off)</span>
                            <span>{selectedProperty.maxMonths / 2} Mo</span>
                            <span>{selectedProperty.maxMonths} Mo (Max)</span>
@@ -962,7 +962,7 @@ export default function InstitutionalDashboard() {
                            <button 
                              key={m}
                              onClick={() => setCalcMonths(m)}
-                             className={`flex-none py-2 px-4 rounded-btn border font-head font-bold text-[10px] transition-all whitespace-nowrap ${calcMonths === m ? 'bg-bg-base text-accent-teal border-[#0D1B2A]' : 'bg-transparent text-text-muted border-gray-200 hover:border-[#14b8a6]'}`}
+                             className={`flex-none py-2 px-4 rounded-btn border font-head font-medium text-[10px] transition-all whitespace-nowrap ${calcMonths === m ? 'bg-bg-base text-accent-teal border-[#0D1B2A]' : 'bg-transparent text-text-muted border-gray-200 hover:border-[#14b8a6]'}`}
                            >
                               {m === 0 ? 'Outright Cash' : `${m} Months`}
                            </button>
@@ -977,30 +977,30 @@ export default function InstitutionalDashboard() {
                               <div className="absolute top-0 right-0 w-32 h-32 bg-accent-teal/5 rounded-bl-[100px] pointer-events-none"></div>
                               <div className="flex justify-between items-end mb-6 relative z-10">
                                  <div>
-                                    <span className="block text-xs text-text-muted uppercase font-bold tracking-widest mb-1">Total Due</span>
-                                    <span className="text-4xl font-black text-text-primary">{formatMoney(calcState.totalGHS, !!selectedProperty.priceUSD)}</span>
+                                    <span className="block text-xs text-text-muted uppercase font-medium tracking-widest mb-1">Total Due</span>
+                                    <span className="text-4xl font-medium tracking-tight text-text-primary">{formatMoney(calcState.totalGHS, !!selectedProperty.priceUSD)}</span>
                                  </div>
                                  <div className="text-right flex flex-col items-end">
-                                    <span className="block text-xs text-text-muted uppercase font-bold tracking-widest mb-1">Discounted Price</span>
+                                    <span className="block text-xs text-text-muted uppercase font-medium tracking-widest mb-1">Discounted Price</span>
                                     <motion.span 
                                        key={calcMonths}
                                        initial={{ scale: 1 }}
                                        animate={{ scale: [1, 1.1, 1] }} 
                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                       className="text-2xl text-text-primary font-bold inline-block origin-right"
+                                       className="text-2xl text-text-primary font-medium inline-block origin-right"
                                     >
                                        {calcMonths === 0 ? 'N/A' : formatMoney(calcState.monthlyGHS, !!selectedProperty.priceUSD)}
                                     </motion.span>
                                  </div>
                               </div>
                               
-                              <button onClick={() => setShowToS(true)} className="w-full py-5 bg-[#0D1B2A] text-white font-head uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-[0_15px_30px_rgba(13,27,42,0.2)] active:scale-95 text-xs font-black">
+                              <button onClick={() => setShowToS(true)} className="w-full py-5 bg-[#0D1B2A] text-white font-head uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-[0_15px_30px_rgba(13,27,42,0.2)] active:scale-95 text-xs font-medium tracking-tight">
                                  Secure with Escrow 
                               </button>
                            </div>
                         );
                      })()}
-                     <p className="text-center text-[10px] text-text-secondary mt-4 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+                     <p className="text-center text-[10px] text-text-secondary mt-4 font-medium uppercase tracking-widest flex items-center justify-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#10B981]"></span>
                         Powered by Syntry Vault Escrow
                      </p>
@@ -1029,7 +1029,7 @@ export default function InstitutionalDashboard() {
                   
                   <div className="text-center mb-10">
                      <span className="text-5xl mx-auto block mb-6">🛡️</span>
-                     <h2 className="text-4xl font-head font-black text-white tracking-tighter leading-none mb-4 uppercase">The Sovereign Guarantee</h2>
+                     <h2 className="text-4xl font-head font-medium tracking-tight text-white tracking-tighter leading-none mb-4 uppercase">The Sovereign Guarantee</h2>
                      <p className="text-[#94A3B8] font-body text-sm px-4">Before entering the vault, you must accept our foundational security protocols.</p>
                   </div>
 
@@ -1040,9 +1040,9 @@ export default function InstitutionalDashboard() {
                         { step: "3. Digital Custody", desc: "Your title deeds and site plans are securely vaulted and bound exclusively to your verified Identity (KYC Node)." }
                      ].map((item, idx) => (
                         <div key={idx} className="flex gap-4 items-start bg-[#162A3E] p-5 rounded-[24px] border border-white/5 hover:border-[#D4AF37]/20 transition-all group">
-                           <span className="w-6 h-6 rounded-full bg-[#D4AF37] text-[#0D1B2A] flex items-center justify-center text-[10px] font-black shrink-0 mt-0.5">✓</span>
+                           <span className="w-6 h-6 rounded-full bg-[#D4AF37] text-[#0D1B2A] flex items-center justify-center text-[10px] font-medium tracking-tight shrink-0 mt-0.5">✓</span>
                            <div>
-                              <h4 className="text-white font-black text-xs uppercase tracking-widest mb-1">{item.step}</h4>
+                              <h4 className="text-white font-medium tracking-tight text-xs uppercase tracking-widest mb-1">{item.step}</h4>
                               <p className="text-[11px] text-[#94A3B8] font-body leading-relaxed">{item.desc}</p>
                            </div>
                         </div>
@@ -1054,18 +1054,18 @@ export default function InstitutionalDashboard() {
                            <div onClick={() => setTosAccepted(!tosAccepted)} className={`w-14 h-8 rounded-full transition-all relative shrink-0 ${tosAccepted ? 'bg-[#10B981] shadow-[0_0_15px_#10B981]' : 'bg-[#0D1B2A] border border-white/20'}`}>
                               <div className={`absolute top-1 w-6 h-6 rounded-full transition-all bg-white ${tosAccepted ? 'left-7' : 'left-1'}`}></div>
                            </div>
-                           <span className="text-white text-xs font-bold font-body leading-relaxed group-hover:text-[#D4AF37] transition-colors">
+                           <span className="text-white text-xs font-medium font-body leading-relaxed group-hover:text-[#D4AF37] transition-colors">
                               I have reviewed the <a href="/legal/accord" target="_blank" className="text-[#D4AF37] underline">Sovereign Accord</a> and agree to the Vault Security Protocols (Handshake Protocol).
                            </span>
                         </label>
                      </div>
 
                      <div className="flex flex-col sm:flex-row gap-4">
-                        <button onClick={() => setShowToS(false)} className="w-full py-4 text-[#94A3B8] font-black uppercase text-xs tracking-widest hover:text-white transition-colors">Decline Accord</button>
+                        <button onClick={() => setShowToS(false)} className="w-full py-4 text-[#94A3B8] font-medium tracking-tight uppercase text-xs tracking-widest hover:text-white transition-colors">Decline Accord</button>
                         <button 
                            disabled={!tosAccepted}
                            onClick={() => { setShowToS(false); handleCheckout(); }} 
-                           className={`w-full py-5 font-head font-black uppercase tracking-[0.2em] text-[10px] rounded-[16px] transition-all ${tosAccepted ? 'bg-[#D4AF37] text-[#0D1B2A] shadow-[0_20px_40px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95' : 'bg-gray-800 text-gray-500 cursor-not-allowed opacity-50'}`}
+                           className={`w-full py-5 font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-[16px] transition-all ${tosAccepted ? 'bg-[#D4AF37] text-[#0D1B2A] shadow-[0_20px_40px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95' : 'bg-gray-800 text-gray-500 cursor-not-allowed opacity-50'}`}
                         >
                            Commit Signature & Reserve →
                         </button>
@@ -1091,15 +1091,15 @@ export default function InstitutionalDashboard() {
                            <div className="w-1/2 h-[2px] bg-[#D4AF37] shadow-[0_0_15px_#D4AF37] absolute animate-[scan_2s_linear_infinite]"></div>
                            <span className="text-6xl filter drop-shadow-[0_0_20px_rgba(212,175,55,0.8)] opacity-50">👤</span>
                         </div>
-                        <h3 className="text-2xl font-head font-black text-white uppercase tracking-widest mb-2">Biometric Scan Required</h3>
+                        <h3 className="text-2xl font-head font-medium tracking-tight text-white uppercase tracking-widest mb-2">Biometric Scan Required</h3>
                         <p className="text-[#D4AF37] font-mono text-sm uppercase tracking-widest mb-8">High-Value Transaction (GH₵20k+)</p>
                         
                         <div className="space-y-4">
                            <p className="text-[#94A3B8] text-xs font-body max-w-xs mx-auto mb-8">Please align your face within the frame to authorize this transfer. Connecting to local FaceID API.</p>
-                           <button onClick={handleBiometricSuccess} className="w-full py-5 bg-[#D4AF37] text-[#0D1B2A] border-none font-head font-black uppercase tracking-[0.2em] text-[10px] rounded-full hover:bg-white transition-colors shadow-[0_15px_30px_rgba(212,175,55,0.3)]">
+                           <button onClick={handleBiometricSuccess} className="w-full py-5 bg-[#D4AF37] text-[#0D1B2A] border-none font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-full hover:bg-white transition-colors shadow-[0_15px_30px_rgba(212,175,55,0.3)]">
                               Initiate Hardware Handshake
                            </button>
-                           <button onClick={() => setShowBiometricScan(false)} className="text-white/50 hover:text-white text-xs uppercase font-bold tracking-widest mt-4 inline-block">Cancel Transaction</button>
+                           <button onClick={() => setShowBiometricScan(false)} className="text-white/50 hover:text-white text-xs uppercase font-medium tracking-widest mt-4 inline-block">Cancel Transaction</button>
                         </div>
                      </div>
                   ) : (
@@ -1119,7 +1119,7 @@ export default function InstitutionalDashboard() {
                         </div>
                         <motion.h3 
                            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                           className="text-2xl font-head font-black text-white uppercase tracking-widest mb-2"
+                           className="text-2xl font-head font-medium tracking-tight text-white uppercase tracking-widest mb-2"
                         >
                            Biometric Handshake Complete
                         </motion.h3>
@@ -1147,12 +1147,12 @@ export default function InstitutionalDashboard() {
                {/* Top Bar inside Portal */}
                <div className={`sticky top-0 w-full px-6 py-4 flex justify-between items-center z-50 border-b bg-[#0D1B2A]/90 backdrop-blur-xl border-white/5`}>
                   <div className="flex items-center gap-3">
-                     <div className="w-8 h-8 flex items-center justify-center bg-[#162A3E] text-white rounded-xl border border-white/10 font-black shadow-md">S</div>
-                     <span className={`font-head font-black tracking-widest uppercase text-xs text-white`}>Sovereign Account</span>
+                     <div className="w-8 h-8 flex items-center justify-center bg-[#162A3E] text-white rounded-xl border border-white/10 font-medium tracking-tight shadow-md">S</div>
+                     <span className={`font-head font-medium tracking-tight tracking-widest uppercase text-xs text-white`}>Sovereign Account</span>
                   </div>
                   
                   {isLoggedIn && (
-                     <div className="hidden md:flex items-center gap-2 bg-[#162A3E]/80 border border-[#D4AF37]/20 px-4 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-black text-white shadow-sm">
+                     <div className="hidden md:flex items-center gap-2 bg-[#162A3E]/80 border border-[#D4AF37]/20 px-4 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-medium tracking-tight text-white shadow-sm">
                         🛡️ Security Level: <span className="text-[#2DD4BF]">Sovereign High-Trust</span>
                      </div>
                   )}
@@ -1176,17 +1176,17 @@ export default function InstitutionalDashboard() {
                                     className="absolute top-12 right-0 w-80 bg-[#162A3E]/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden z-[500]"
                                  >
                                     <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0D1B2A]/50">
-                                       <h4 className="text-white font-head font-black uppercase text-xs tracking-widest">Notification Center</h4>
-                                       <span className="text-[#94A3B8] text-[9px] uppercase font-black px-2 py-0.5 rounded bg-white/5">2 New</span>
+                                       <h4 className="text-white font-head font-medium tracking-tight uppercase text-xs tracking-widest">Notification Center</h4>
+                                       <span className="text-[#94A3B8] text-[9px] uppercase font-medium tracking-tight px-2 py-0.5 rounded bg-white/5">2 New</span>
                                     </div>
                                     <div className="max-h-96 overflow-y-auto">
                                        {/* Wealth Alert: Market Appreciation */}
                                        <button onClick={() => setActiveWealthSignal(true)} className="w-full text-left p-4 hover:bg-[#2DD4BF]/5 transition-colors border-b border-white/5 flex gap-4 group">
                                           <span className="w-10 h-10 rounded-full bg-[#2DD4BF]/10 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">📈</span>
                                           <div>
-                                             <h5 className="text-white font-bold text-sm leading-tight flex items-center gap-2">Appreciation Alert <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] animate-pulse"></span></h5>
+                                             <h5 className="text-white font-medium text-sm leading-tight flex items-center gap-2">Appreciation Alert <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] animate-pulse"></span></h5>
                                              <p className="text-[#94A3B8] text-xs font-body mt-1 border-l-2 border-[#2DD4BF] pl-2">Market value in Ashifla Node 08 increased by 4.2% based on new sovereign sales.</p>
-                                             <span className="text-[#D4AF37] text-[9px] font-black uppercase tracking-widest mt-2 block">Trigger Wealth Growth Insight →</span>
+                                             <span className="text-[#D4AF37] text-[9px] font-medium tracking-tight uppercase tracking-widest mt-2 block">Trigger Wealth Growth Insight →</span>
                                           </div>
                                        </button>
 
@@ -1194,9 +1194,9 @@ export default function InstitutionalDashboard() {
                                        <div className="w-full text-left p-4 hover:bg-white/5 transition-colors border-b border-white/5 flex gap-4">
                                           <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-lg shrink-0">⚖️</span>
                                           <div>
-                                             <h5 className="text-white font-bold text-sm leading-tight">Milestone Reached</h5>
+                                             <h5 className="text-white font-medium text-sm leading-tight">Milestone Reached</h5>
                                              <p className="text-[#94A3B8] text-xs font-body mt-1">Indenture status updated to 70% Mature securely by Node Authorities.</p>
-                                             <button className="mt-3 px-4 py-1.5 bg-white/10 hover:bg-white text-white hover:text-black font-black uppercase tracking-widest text-[9px] rounded-full transition-colors border border-white/20">View Certificate</button>
+                                             <button className="mt-3 px-4 py-1.5 bg-white/10 hover:bg-white text-white hover:text-black font-medium tracking-tight uppercase tracking-widest text-[9px] rounded-full transition-colors border border-white/20">View Certificate</button>
                                           </div>
                                        </div>
 
@@ -1204,7 +1204,7 @@ export default function InstitutionalDashboard() {
                                        <div className="w-full text-left p-4 hover:bg-white/5 transition-colors flex gap-4 opacity-70">
                                           <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-lg shrink-0">🛡️</span>
                                           <div>
-                                             <h5 className="text-white font-bold text-sm leading-tight">Security Audit Complete</h5>
+                                             <h5 className="text-white font-medium text-sm leading-tight">Security Audit Complete</h5>
                                              <p className="text-[#94A3B8] text-xs font-body mt-1">Biometric handshake log synced securely to Command Center.</p>
                                           </div>
                                        </div>
@@ -1216,7 +1216,7 @@ export default function InstitutionalDashboard() {
                      )}
 
                      {isLoggedIn && authStep === 'dashboard' && (
-                        <button onClick={() => setDashMode(prev => prev === 'light' ? 'dark' : 'light')} className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#162A3E] text-white hover:bg-white/10 transition-all shadow-md border border-white/10 hidden`}>
+                        <button onClick={() => setDashMode(prev => prev === 'light' ? 'dark' : 'light')} className={`px-4 py-2 rounded-full text-[10px] font-medium uppercase tracking-widest bg-[#162A3E] text-white hover:bg-white/10 transition-all shadow-md border border-white/10 hidden`}>
                            {dashMode === 'light' ? 'Pro Mode' : 'Light Mode'}
                         </button>
                      )}
@@ -1233,28 +1233,28 @@ export default function InstitutionalDashboard() {
                            
                            <div className="text-center w-full max-w-md space-y-10 relative z-10">
                               <div className="space-y-4">
-                                 <h2 className="text-4xl md:text-5xl font-head font-black text-white tracking-tighter leading-tight mt-2">Syntry Guardian</h2>
+                                 <h2 className="text-4xl md:text-5xl font-head font-medium tracking-tight text-white tracking-tighter leading-tight mt-2">Syntry Guardian</h2>
                                  <p className="text-[#94A3B8] font-body text-base px-4">Institutional Authentication Protocol</p>
                               </div>
                               
                               <div className="space-y-4 text-left pt-6 max-w-sm mx-auto">
-                                 <button className="w-full py-4 px-6 bg-white border border-white/10 rounded-[16px] flex items-center justify-center gap-3 text-black font-bold shadow-[0_4px_10px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-transform">
+                                 <button className="w-full py-4 px-6 bg-white border border-white/10 rounded-[16px] flex items-center justify-center gap-3 text-black font-medium shadow-[0_4px_10px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-transform">
                                     <span className="text-xl"></span> Continue with Apple
                                  </button>
-                                 <button className="w-full py-4 px-6 bg-white border border-white/10 rounded-[16px] flex items-center justify-center gap-3 text-black font-bold shadow-[0_4px_10px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-transform">
+                                 <button className="w-full py-4 px-6 bg-white border border-white/10 rounded-[16px] flex items-center justify-center gap-3 text-black font-medium shadow-[0_4px_10px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-transform">
                                     <svg className="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                                     Continue with Google
                                  </button>
                                  <div className="flex items-center gap-4 py-4">
                                     <div className="h-px bg-white/10 flex-1"></div>
-                                    <span className="text-[10px] uppercase tracking-widest text-[#94A3B8] font-bold">Or</span>
+                                    <span className="text-[10px] uppercase tracking-widest text-[#94A3B8] font-medium">Or</span>
                                     <div className="h-px bg-white/10 flex-1"></div>
                                  </div>
                                  <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-white ml-1">Phone Number or Email</label>
-                                    <input type="text" value={waPhone} onChange={(e) => setWaPhone(e.target.value)} placeholder="+233 55 000 0000" className="w-full py-4 px-6 rounded-[16px] bg-[#162A3E] border border-white/10 text-sm font-bold text-white outline-none focus:border-[#2DD4BF] transition-all shadow-inner placeholder-white/20" />
+                                    <label className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-white ml-1">Phone Number or Email</label>
+                                    <input type="text" value={waPhone} onChange={(e) => setWaPhone(e.target.value)} placeholder="+233 55 000 0000" className="w-full py-4 px-6 rounded-[16px] bg-[#162A3E] border border-white/10 text-sm font-medium text-white outline-none focus:border-[#2DD4BF] transition-all shadow-inner placeholder-white/20" />
                                  </div>
-                                 <button onClick={handleSend2FA} disabled={isSending2FA || !waPhone} className="w-full py-4 mt-2 bg-[#D4AF37] text-[#0D1B2A] font-head font-black text-xs uppercase tracking-[0.2em] rounded-[24px] hover:bg-white active:scale-95 transition-all shadow-md shadow-[0_4px_10px_rgba(212,175,55,0.2)] disabled:opacity-50 flex justify-center items-center duration-300">
+                                 <button onClick={handleSend2FA} disabled={isSending2FA || !waPhone} className="w-full py-4 mt-2 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight text-xs uppercase tracking-[0.2em] rounded-[24px] hover:bg-white active:scale-95 transition-all shadow-md shadow-[0_4px_10px_rgba(212,175,55,0.2)] disabled:opacity-50 flex justify-center items-center duration-300">
                                     {isSending2FA ? (
                                        <span className="w-5 h-5 border-2 border-[#0D1B2A]/20 border-t-[#0D1B2A] rounded-full animate-spin"></span>
                                     ) : (
@@ -1272,19 +1272,19 @@ export default function InstitutionalDashboard() {
                            {isScanning ? (
                               <div className="text-center w-full max-w-md space-y-8 relative z-10 flex flex-col items-center">
                                  <div className="w-24 h-24 rounded-full border-4 border-[#2DD4BF]/20 border-t-[#2DD4BF] animate-spin mb-4 shadow-[0_0_30px_rgba(45,212,191,0.5)]"></div>
-                                 <h2 className="text-3xl font-head font-black text-white tracking-widest uppercase">Scanning...</h2>
+                                 <h2 className="text-3xl font-head font-medium tracking-tight text-white tracking-widest uppercase">Scanning...</h2>
                                  <p className="text-[#2DD4BF] font-mono text-sm shadow-[0_0_10px_rgba(45,212,191,0.5)]">Authenticating Sovereign Ledger</p>
                               </div>
                            ) : (
                               <div className="text-center w-full max-w-md space-y-8 relative z-10">
-                                 <div className="mx-auto w-20 h-20 bg-gradient-to-br from-[#162A3E] to-[#0D1B2A] rounded-[24px] flex items-center justify-center text-[#2DD4BF] border border-white/10 font-black text-3xl shadow-[0_20px_40px_rgba(45,212,191,0.1)] mb-4 transform hover:scale-105 transition-transform cursor-default">
+                                 <div className="mx-auto w-20 h-20 bg-gradient-to-br from-[#162A3E] to-[#0D1B2A] rounded-[24px] flex items-center justify-center text-[#2DD4BF] border border-white/10 font-medium tracking-tight text-3xl shadow-[0_20px_40px_rgba(45,212,191,0.1)] mb-4 transform hover:scale-105 transition-transform cursor-default">
                                     🛡️
                                  </div>
                                  <div className="space-y-4">
-                                    <h2 className="text-3xl md:text-4xl font-head font-black text-white tracking-tighter leading-tight">Verify Protocol</h2>
-                                    <p className="text-[#94A3B8] font-body text-sm px-4">6-digit access code sent to <span className="font-bold text-white">{waPhone || 'your device'}</span>.</p>
-                                    {isLocked && <p className="text-red-500 text-xs font-bold uppercase mt-2">IP LOCKED. Security Alert Sent.</p>}
-                                    {loginAttempts > 0 && !isLocked && <p className="text-[#D4AF37] text-xs font-bold uppercase mt-2">Failed Attempts: {loginAttempts}/3</p>}
+                                    <h2 className="text-3xl md:text-4xl font-head font-medium tracking-tight text-white tracking-tighter leading-tight">Verify Protocol</h2>
+                                    <p className="text-[#94A3B8] font-body text-sm px-4">6-digit access code sent to <span className="font-medium text-white">{waPhone || 'your device'}</span>.</p>
+                                    {isLocked && <p className="text-red-500 text-xs font-medium uppercase mt-2">IP LOCKED. Security Alert Sent.</p>}
+                                    {loginAttempts > 0 && !isLocked && <p className="text-[#D4AF37] text-xs font-medium uppercase mt-2">Failed Attempts: {loginAttempts}/3</p>}
                                  </div>
                                  <div className="pt-8">
                                     <div className="flex gap-2 sm:gap-3 justify-center mb-10">
@@ -1307,14 +1307,14 @@ export default function InstitutionalDashboard() {
                                                    codeRefs[i-1].current.focus();
                                                 }
                                              }}
-                                             className="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl sm:text-3xl font-head font-black bg-[#162A3E] border border-white/10 rounded-xl focus:border-[#2DD4BF] focus:ring-4 focus:ring-[#2DD4BF]/10 transition-all text-white outline-none shadow-inner disabled:opacity-50" 
+                                             className="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl sm:text-3xl font-head font-medium tracking-tight bg-[#162A3E] border border-white/10 rounded-xl focus:border-[#2DD4BF] focus:ring-4 focus:ring-[#2DD4BF]/10 transition-all text-white outline-none shadow-inner disabled:opacity-50" 
                                           />
                                        ))}
                                     </div>
-                                    <button onClick={verify2FACode} disabled={isLocked || twoFaCode.join('').length < 6} className="w-full py-5 bg-[#2DD4BF] border border-[#2DD4BF] text-[#0D1B2A] font-head font-black text-xs uppercase tracking-[0.2em] rounded-[24px] hover:bg-white active:scale-95 transition-all shadow-[0_15px_30px_rgba(45,212,191,0.2)] duration-300 disabled:opacity-50 hover:-translate-y-1">
+                                    <button onClick={verify2FACode} disabled={isLocked || twoFaCode.join('').length < 6} className="w-full py-5 bg-[#2DD4BF] border border-[#2DD4BF] text-[#0D1B2A] font-head font-medium tracking-tight text-xs uppercase tracking-[0.2em] rounded-[24px] hover:bg-white active:scale-95 transition-all shadow-[0_15px_30px_rgba(45,212,191,0.2)] duration-300 disabled:opacity-50 hover:-translate-y-1">
                                        Confirm Identity
                                     </button>
-                                    <p className="text-center text-[10px] uppercase font-bold text-[#94A3B8] mt-8 tracking-widest cursor-pointer hover:text-[#2DD4BF] transition-colors inline-block pb-1 border-b border-dashed border-white/20">Resend Code in 0:30</p>
+                                    <p className="text-center text-[10px] uppercase font-medium text-[#94A3B8] mt-8 tracking-widest cursor-pointer hover:text-[#2DD4BF] transition-colors inline-block pb-1 border-b border-dashed border-white/20">Resend Code in 0:30</p>
                                  </div>
                               </div>
                            )}
@@ -1324,7 +1324,7 @@ export default function InstitutionalDashboard() {
                      <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-12 bg-[#0D1B2A] animate-[fadeIn_0.5s_ease-out]">
                         <div className="max-w-5xl mx-auto text-center space-y-16 py-10">
                            <div className="space-y-4">
-                              <h2 className="text-4xl md:text-[52px] font-head font-black text-white tracking-tighter leading-tight uppercase">Sovereign Goal Alignment</h2>
+                              <h2 className="text-4xl md:text-[52px] font-head font-medium tracking-tight text-white tracking-tighter leading-tight uppercase">Sovereign Goal Alignment</h2>
                               <p className="text-[#94A3B8] font-body text-lg max-w-xl mx-auto">Select your primary objective to configure the exchange AI.</p>
                            </div>
                            
@@ -1344,9 +1344,9 @@ export default function InstitutionalDashboard() {
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
                                     <div className="flex justify-between w-full items-start mb-6">
                                        <span className="text-3xl bg-[#0D1B2A] w-16 h-16 rounded-[20px] flex items-center justify-center group-hover:bg-[#D4AF37]/20 transition-colors drop-shadow-md border border-white/5 group-hover:border-[#D4AF37]/30">{goal.icon}</span>
-                                       <span className="w-8 h-8 rounded-full bg-[#D4AF37] text-[#0D1B2A] font-black text-xs flex items-center justify-center shadow-md">{goal.id}</span>
+                                       <span className="w-8 h-8 rounded-full bg-[#D4AF37] text-[#0D1B2A] font-medium tracking-tight text-xs flex items-center justify-center shadow-md">{goal.id}</span>
                                     </div>
-                                    <h3 className="text-2xl font-head font-black text-white mb-2">{goal.title}</h3>
+                                    <h3 className="text-2xl font-head font-medium tracking-tight text-white mb-2">{goal.title}</h3>
                                     <p className="text-[#94A3B8] font-body text-sm leading-relaxed">{goal.desc}</p>
                                  </motion.button>
                               ))}
@@ -1367,13 +1367,13 @@ export default function InstitutionalDashboard() {
                                <div className="absolute top-0 right-0 w-full h-full md:w-96 md:h-96 bg-[#D4AF37]/10 blur-[100px] pointer-events-none rounded-full group-hover:bg-[#D4AF37]/20 transition-all duration-700"></div>
                                <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-white">
                                   <div className="text-center md:text-left">
-                                     <h3 className="text-2xl md:text-3xl font-head font-black mb-3 flex items-center justify-center md:justify-start gap-3">
+                                     <h3 className="text-2xl md:text-3xl font-head font-medium tracking-tight mb-3 flex items-center justify-center md:justify-start gap-3">
                                         <span className="w-3 h-3 bg-[#D4AF37] rounded-full animate-[pulse_1.5s_ease-in-out_infinite] shadow-[0_0_15px_#D4AF37]"></span>
                                         Your Vault is Empty.
                                      </h3>
                                      <p className="text-[#8CA0B4] text-sm md:text-base font-body max-w-xl">Secure your first residential plot or fractional packet to become a Certified Sovereign.</p>
                                   </div>
-                                  <button onClick={() => setShowPortal(false)} className="px-8 py-5 bg-[#D4AF37] border-2 border-[#D4AF37] text-[#0D1B2A] font-head font-black uppercase tracking-widest text-xs rounded-[16px] hover:bg-transparent hover:text-[#D4AF37] transition-all shadow-[0_15px_30px_rgba(212,175,55,0.2)] active:scale-95 shrink-0 w-full md:w-auto">
+                                  <button onClick={() => setShowPortal(false)} className="px-8 py-5 bg-[#D4AF37] border-2 border-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight uppercase tracking-widest text-xs rounded-[16px] hover:bg-transparent hover:text-[#D4AF37] transition-all shadow-[0_15px_30px_rgba(212,175,55,0.2)] active:scale-95 shrink-0 w-full md:w-auto">
                                      Browse Exchange
                                   </button>
                                </div>
@@ -1393,9 +1393,9 @@ export default function InstitutionalDashboard() {
                                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                                                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
                                               </span>
-                                              <span className="text-[10px] font-black text-[#10B981] uppercase tracking-widest">Live Node Sync 08</span>
+                                              <span className="text-[10px] font-medium tracking-tight text-[#10B981] uppercase tracking-widest">Live Node Sync 08</span>
                                            </div>
-                                           <h3 className="text-2xl font-head font-black text-white uppercase">{selectedProperty?.name || "Active Asset"}</h3>
+                                           <h3 className="text-2xl font-head font-medium tracking-tight text-white uppercase">{selectedProperty?.name || "Active Asset"}</h3>
                                         </div>
                                      </div>
 
@@ -1403,13 +1403,13 @@ export default function InstitutionalDashboard() {
                                      <div className="p-8 md:p-12 space-y-10 bg-gradient-to-br from-[#162A3E] to-[#0D1B2A]">
                                         <div>
                                            <div className="flex justify-between items-end mb-4">
-                                              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#94A3B8]">Vault Maturity Status</label>
-                                              <span className="text-sm font-black text-[#D4AF37] uppercase">70% Verified</span>
+                                              <label className="text-[10px] font-medium tracking-tight uppercase tracking-[0.2em] text-[#94A3B8]">Vault Maturity Status</label>
+                                              <span className="text-sm font-medium tracking-tight text-[#D4AF37] uppercase">70% Verified</span>
                                            </div>
                                            <div className="h-3 w-full bg-white/5 rounded-full overflow-hidden border border-white/10 p-[1px]">
                                               <div className="h-full bg-gradient-to-r from-[#2DD4BF] via-[#D4AF37] to-[#D4AF37] rounded-full shadow-[0_0_20px_#D4AF37]" style={{ width: '70%' }}></div>
                                            </div>
-                                           <div className="flex justify-between mt-4 text-[9px] font-black uppercase tracking-widest text-[#94A3B8]">
+                                           <div className="flex justify-between mt-4 text-[9px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8]">
                                               <span>Reservation</span>
                                               <span className="text-white">Site Plan (Pending)</span>
                                               <span>Indenture</span>
@@ -1418,12 +1418,12 @@ export default function InstitutionalDashboard() {
 
                                         <div className="grid grid-cols-2 gap-8 border-t border-white/5 pt-8">
                                            <div>
-                                              <label className="text-[9px] font-black uppercase tracking-widest text-[#94A3B8] block mb-2">Statutory ID</label>
+                                              <label className="text-[9px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8] block mb-2">Statutory ID</label>
                                               <div className="text-sm font-mono text-white tracking-tighter">SYN-VLT-08-{reservedPlots[0]}</div>
                                            </div>
                                            <div className="text-right">
-                                              <label className="text-[9px] font-black uppercase tracking-widest text-[#94A3B8] block mb-2">Next Inspection</label>
-                                              <div className="text-sm font-head font-black text-[#D4AF37] uppercase">April 12, 2026</div>
+                                              <label className="text-[9px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8] block mb-2">Next Inspection</label>
+                                              <div className="text-sm font-head font-medium tracking-tight text-[#D4AF37] uppercase">April 12, 2026</div>
                                            </div>
                                         </div>
                                      </div>
@@ -1434,10 +1434,10 @@ export default function InstitutionalDashboard() {
                                <div className="space-y-10 pt-16">
                                   <div className="flex justify-between items-end border-b border-white/10 pb-6">
                                      <div>
-                                        <h4 className="text-white font-head font-black uppercase text-xl md:text-2xl tracking-tighter">Your Sovereign Equity</h4>
-                                        <p className="text-[#8CA0B4] text-[10px] md:text-xs uppercase font-black tracking-widest mt-1">Fractional Packet Portfolio • Node 08 Authenticated</p>
+                                        <h4 className="text-white font-head font-medium tracking-tight uppercase text-xl md:text-2xl tracking-tighter">Your Sovereign Equity</h4>
+                                        <p className="text-[#8CA0B4] text-[10px] md:text-xs uppercase font-medium tracking-tight tracking-widest mt-1">Fractional Packet Portfolio • Node 08 Authenticated</p>
                                      </div>
-                                     <button className="text-[#2DD4BF] font-head font-black uppercase text-[10px] tracking-widest py-2 px-6 border-2 border-[#2DD4BF]/30 rounded-full hover:bg-[#2DD4BF] hover:text-[#0D1B2A] transition-all shadow-[0_0_15px_rgba(45,212,191,0.2)]">
+                                     <button className="text-[#2DD4BF] font-head font-medium tracking-tight uppercase text-[10px] tracking-widest py-2 px-6 border-2 border-[#2DD4BF]/30 rounded-full hover:bg-[#2DD4BF] hover:text-[#0D1B2A] transition-all shadow-[0_0_15px_rgba(45,212,191,0.2)]">
                                         Trade Secondary →
                                      </button>
                                   </div>
@@ -1467,8 +1467,8 @@ export default function InstitutionalDashboard() {
                                      
                                      {/* Wealth Accumulation Hint */}
                                      <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block text-right pointer-events-none opacity-40">
-                                        <p className="text-5xl font-head font-black text-white leading-none">₵8,800</p>
-                                        <p className="text-[10px] font-black uppercase tracking-widest text-[#2DD4BF] mt-2">Locked Portfolio Value</p>
+                                        <p className="text-5xl font-head font-medium tracking-tight text-white leading-none">₵8,800</p>
+                                        <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#2DD4BF] mt-2">Locked Portfolio Value</p>
                                      </div>
                                   </div>
                                </div>
@@ -1478,15 +1478,15 @@ export default function InstitutionalDashboard() {
                                   <div className="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-[-20deg] group-hover:translate-x-10 transition-transform"></div>
                                   <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
                                      <div className="text-center md:text-left">
-                                        <h4 className="text-[#0D1B2A] text-2xl font-head font-black tracking-tighter uppercase mb-2">Invite a Fellow Pioneer</h4>
-                                        <p className="text-[#0D1B2A]/70 text-sm font-bold uppercase tracking-widest">Share the vault access and earn GH₵2,000 on their next acquisition.</p>
+                                        <h4 className="text-[#0D1B2A] text-2xl font-head font-medium tracking-tight tracking-tighter uppercase mb-2">Invite a Fellow Pioneer</h4>
+                                        <p className="text-[#0D1B2A]/70 text-sm font-medium uppercase tracking-widest">Share the vault access and earn GH₵2,000 on their next acquisition.</p>
                                      </div>
                                      <button 
                                         onClick={() => {
                                            navigator.clipboard.writeText(`SYN-REF-08-${reservedPlots[0]}`);
                                            alert("Sovereign Referral Node Copied to Clipboard!");
                                         }}
-                                        className="px-8 py-4 bg-[#0D1B2A] text-white font-head font-black uppercase tracking-[0.2em] text-[10px] rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all"
+                                        className="px-8 py-4 bg-[#0D1B2A] text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all"
                                      >
                                         Copy Referral Node →
                                      </button>
@@ -1497,12 +1497,12 @@ export default function InstitutionalDashboard() {
                                <div className="bg-[#162A3E] border border-white/10 p-8 rounded-card flex flex-col md:flex-row gap-8 items-center shadow-xl">
                                   <div className="text-4xl bg-[#0D1B2A] w-16 h-16 rounded-full flex items-center justify-center border border-white/5">📝</div>
                                   <div className="flex-1 text-center md:text-left">
-                                     <h4 className="text-white font-head font-black uppercase text-sm tracking-widest mb-1">Successor Allocation Required</h4>
+                                     <h4 className="text-white font-head font-medium tracking-tight uppercase text-sm tracking-widest mb-1">Successor Allocation Required</h4>
                                      <p className="text-xs text-[#94A3B8]">Legalize your legacy by assigning a statutory beneficiary to this asset.</p>
                                   </div>
                                   <div className="flex gap-4 w-full md:w-auto">
                                      <input type="text" placeholder="Successor Name" className="bg-[#0D1B2A] border border-white/10 text-white text-xs px-6 py-4 rounded-full outline-none focus:border-[#D4AF37] w-full md:w-64" />
-                                     <button className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all">Save</button>
+                                     <button className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-full text-[10px] font-medium tracking-tight uppercase tracking-widest transition-all">Save</button>
                                   </div>
                                </div>
                             </div>
@@ -1511,10 +1511,10 @@ export default function InstitutionalDashboard() {
                         {/* KYC Alert */}
                         <div className={`px-6 py-4 rounded-card flex flex-col md:flex-row items-center justify-between border shadow-sm ${dashMode === 'dark' ? 'bg-bg-base border-accent-teal/20 text-text-primary' : 'bg-bg-base border-transparent text-text-primary'}`}>
                            <div className="flex items-center gap-4 mb-4 md:mb-0">
-                              <span className="bg-accent-gold text-text-primary w-8 h-8 rounded-full flex items-center justify-center font-bold">!</span>
-                              <span className="font-body text-sm font-bold tracking-wide">Verify your identity to unlock Secondary Market Trading.</span>
+                              <span className="bg-accent-gold text-text-primary w-8 h-8 rounded-full flex items-center justify-center font-medium">!</span>
+                              <span className="font-body text-sm font-medium tracking-wide">Verify your identity to unlock Secondary Market Trading.</span>
                            </div>
-                           <button className="px-5 py-3 w-full md:w-auto bg-bg-surface/10 hover:bg-bg-surface/20 rounded-btn text-xs font-bold uppercase tracking-widest transition-colors">Start KYC</button>
+                           <button className="px-5 py-3 w-full md:w-auto bg-bg-surface/10 hover:bg-bg-surface/20 rounded-btn text-xs font-medium uppercase tracking-widest transition-colors">Start KYC</button>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -1524,13 +1524,13 @@ export default function InstitutionalDashboard() {
                               <div className={`p-8 rounded-card card-glow border relative overflow-hidden ${dashMode === 'dark' ? 'bg-bg-surface border-border-subtle ' : 'bg-bg-base border-white shadow-[15px_15px_30px_rgba(13,27,42,0.05),-15px_-15px_30px_rgba(255,255,255,1)]'}`}>
                                  <div className="flex justify-between items-start mb-8">
                                     <div>
-                                       <p className="text-[10px] uppercase tracking-widest font-bold text-text-muted mb-2">Total Wealth Equity</p>
-                                       <h2 className={`text-4xl md:text-5xl font-head font-black ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>GH₵254,000</h2>
+                                       <p className="text-[10px] uppercase tracking-widest font-medium text-text-muted mb-2">Total Wealth Equity</p>
+                                       <h2 className={`text-4xl md:text-5xl font-head font-medium tracking-tight ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>GH₵254,000</h2>
                                        <p className="text-sm font-mono text-accent-teal mt-2">~$16,387 USD</p>
                                     </div>
                                     <div className="bg-accent-teal/10 px-3 py-1.5 rounded-full border border-[#10B981]/30 flex items-center gap-2">
                                        <span className="w-1.5 h-1.5 bg-accent-teal rounded-full animate-pulse shadow-[0_0_5px_#10B981]"></span>
-                                       <span className="text-accent-teal text-[10px] uppercase font-bold tracking-widest">+2.4% (24H)</span>
+                                       <span className="text-accent-teal text-[10px] uppercase font-medium tracking-widest">+2.4% (24H)</span>
                                     </div>
                                  </div>
                                  {/* 24-Hour Pulse Graph */}
@@ -1562,13 +1562,13 @@ export default function InstitutionalDashboard() {
                               {/* Installment Center */}
                               <div className={`p-8 rounded-card card-glow border flex flex-col md:flex-row justify-between items-center gap-6 ${dashMode === 'dark' ? 'bg-bg-surface border-border-subtle ' : 'bg-bg-base border-white shadow-[15px_15px_30px_rgba(13,27,42,0.05),-15px_-15px_30px_rgba(255,255,255,1)]'}`}>
                                  <div className="flex-1 w-full">
-                                    <p className="text-[10px] uppercase tracking-widest font-bold text-text-muted mb-2">Installment Progress (Otatten B3)</p>
-                                    <h3 className={`text-2xl font-black mb-4 ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>45% Paid Off</h3>
+                                    <p className="text-[10px] uppercase tracking-widest font-medium text-text-muted mb-2">Installment Progress (Otatten B3)</p>
+                                    <h3 className={`text-2xl font-medium tracking-tight mb-4 ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>45% Paid Off</h3>
                                     <div className="h-3 w-full bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden shadow-inner">
                                        <div className="h-full bg-gradient-to-r from-[#2DD4BF] to-[#D4AF37] shadow-[0_0_10px_#D4AF37]" style={{ width: '45%' }}></div>
                                     </div>
                                  </div>
-                                 <button className="w-full md:w-auto py-4 px-8 bg-gradient-to-br from-[#0D1B2A] to-[#1a365d] border border-accent-gold text-text-primary font-heavy uppercase tracking-widest rounded-[20px] transition-all active:scale-95 shadow-[0_10px_20px_rgba(212,175,55,0.25)] text-xs font-black shrink-0 hover:bg-accent-gold hover:text-text-primary">
+                                 <button className="w-full md:w-auto py-4 px-8 bg-gradient-to-br from-[#0D1B2A] to-[#1a365d] border border-accent-gold text-text-primary font-heavy uppercase tracking-widest rounded-[20px] transition-all active:scale-95 shadow-[0_10px_20px_rgba(212,175,55,0.25)] text-xs font-medium tracking-tight shrink-0 hover:bg-accent-gold hover:text-text-primary">
                                     Boost Payment
                                  </button>
                               </div>
@@ -1578,7 +1578,7 @@ export default function InstitutionalDashboard() {
                            <div className="space-y-8">
                               {/* Active Deeds Stack */}
                               <div className={`p-8 rounded-card card-glow border relative ${dashMode === 'dark' ? 'bg-bg-surface border-border-subtle ' : 'bg-bg-base border-white shadow-[15px_15px_30px_rgba(13,27,42,0.05),-15px_-15px_30px_rgba(255,255,255,1)]'}`}>
-                                 <p className="text-[10px] uppercase tracking-widest font-bold text-text-muted mb-6">Active Site Plans</p>
+                                 <p className="text-[10px] uppercase tracking-widest font-medium text-text-muted mb-6">Active Site Plans</p>
                                  
                                  <div className="relative h-48 cursor-pointer group hover:-translate-y-2 transition-transform">
                                     <div className="absolute top-4 left-4 w-full h-full bg-gray-300 dark:bg-gray-700 rounded-[20px] rotate-6 opacity-40"></div>
@@ -1586,7 +1586,7 @@ export default function InstitutionalDashboard() {
                                     <div className="absolute top-0 left-0 w-full h-full rounded-[20px] overflow-hidden shadow-xl border-4 border-white dark:border-border-subtle">
                                        <img src="https://images.unsplash.com/photo-1524813686514-a57563d77965?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Map" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                                        <div className="absolute inset-0 bg-blue-900/30 mix-blend-multiply"></div>
-                                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg-surface/80 backdrop-blur-xl border-b border-border-subtle px-3 py-1.5 rounded-full text-[10px] font-bold text-text-primary uppercase shadow-lg border border-white">Expand Map</div>
+                                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg-surface/80 backdrop-blur-xl border-b border-border-subtle px-3 py-1.5 rounded-full text-[10px] font-medium text-text-primary uppercase shadow-lg border border-white">Expand Map</div>
                                     </div>
                                  </div>
                               </div>
@@ -1596,7 +1596,7 @@ export default function InstitutionalDashboard() {
                                  <div className="w-12 h-12 rounded-full bg-accent-gold/10 flex items-center justify-center mx-auto mb-4 border border-accent-gold/30">
                                     <span className="text-xl">🤝</span>
                                  </div>
-                                 <h3 className={`text-xl font-black mb-1 ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>Scout Hub</h3>
+                                 <h3 className={`text-xl font-medium tracking-tight mb-1 ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>Scout Hub</h3>
                                  <p className="font-mono text-accent-teal text-xs border-l-2 border-accent-teal pl-3 capitalize mb-6">Silver Rank #41</p>
                                  
                                  <div className={`p-3 rounded-btn mb-6 font-mono text-[11px] truncate select-all ${dashMode === 'dark' ? 'bg-black/40 text-gray-300 border border-border-subtle' : 'bg-gray-100 text-gray-600 border border-gray-200 shadow-inner'}`}>
@@ -1604,13 +1604,13 @@ export default function InstitutionalDashboard() {
                                  </div>
                                  
                                  <div className="text-left space-y-3">
-                                    <p className="text-[8px] uppercase tracking-widest font-bold text-text-secondary border-b border-gray-200 dark:border-border-subtle pb-2">Leaderboard</p>
+                                    <p className="text-[8px] uppercase tracking-widest font-medium text-text-secondary border-b border-gray-200 dark:border-border-subtle pb-2">Leaderboard</p>
                                     <div className="flex justify-between items-center text-xs">
-                                       <span className={`font-bold ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>1. Kwame M. <span className="text-accent-gold">👑</span></span>
+                                       <span className={`font-medium ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>1. Kwame M. <span className="text-accent-gold">👑</span></span>
                                        <span className="text-text-muted font-mono">14 Sales</span>
                                     </div>
                                     <div className="flex justify-between items-center text-xs">
-                                       <span className={`font-bold ${dashMode === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>2. Sarah T.</span>
+                                       <span className={`font-medium ${dashMode === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>2. Sarah T.</span>
                                        <span className="text-text-muted font-mono">11 Sales</span>
                                     </div>
                                  </div>
@@ -1624,12 +1624,12 @@ export default function InstitutionalDashboard() {
                            
                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 relative z-10">
                               <div>
-                                 <h3 className="text-3xl font-head font-black text-white uppercase tracking-tighter">Security Command Center</h3>
+                                 <h3 className="text-3xl font-head font-medium tracking-tight text-white uppercase tracking-tighter">Security Command Center</h3>
                                  <p className="text-[#8CA0B4] text-sm font-body mt-1">Manage active sessions, biometric safeguards, and unified vault defense.</p>
                               </div>
                               <button 
                                  onClick={() => { setIsLockedDown(!isLockedDown); if(!isLockedDown) alert("Emergency Protocol Active. All outbound transactions suspended pending Video KYC."); }} 
-                                 className={`px-8 py-5 font-head font-black uppercase tracking-widest text-[10px] rounded-[16px] transition-all flex items-center gap-3 active:scale-95 shadow-[inset_0_0_20px_rgba(255,0,0,0.2)] ${isLockedDown ? 'bg-red-500/10 text-red-500 border border-red-500' : 'bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37]'}`}
+                                 className={`px-8 py-5 font-head font-medium tracking-tight uppercase tracking-widest text-[10px] rounded-[16px] transition-all flex items-center gap-3 active:scale-95 shadow-[inset_0_0_20px_rgba(255,0,0,0.2)] ${isLockedDown ? 'bg-red-500/10 text-red-500 border border-red-500' : 'bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37]'}`}
                               >
                                  <span className={`w-2.5 h-2.5 rounded-full ${isLockedDown ? 'bg-red-500 shadow-[0_0_15px_red]' : 'bg-red-500 shadow-[0_0_10px_red] animate-pulse'}`}></span>
                                  {isLockedDown ? 'Unlock Vault' : 'Emergency Vault Lock'}
@@ -1640,7 +1640,7 @@ export default function InstitutionalDashboard() {
                               {/* Left Column: Security Status */}
                               <div className="flex flex-col items-center justify-center p-8 bg-[#162A3E]/50 rounded-[32px] border border-white/5 relative shadow-inner">
                                  <div className="text-center space-y-2 mb-8 relative z-10 w-full">
-                                    <h4 className="text-white font-black text-sm uppercase tracking-widest border-b border-white/10 pb-4">Defense Protocols</h4>
+                                    <h4 className="text-white font-medium tracking-tight text-sm uppercase tracking-widest border-b border-white/10 pb-4">Defense Protocols</h4>
                                  </div>
                                  <div className="relative w-48 h-48 flex items-center justify-center mb-10">
                                     <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
@@ -1648,8 +1648,8 @@ export default function InstitutionalDashboard() {
                                        <path className={`${isLockedDown ? 'text-red-500' : 'text-[#2DD4BF]'}`} strokeWidth="3" strokeLinecap="round" strokeDasharray="100, 100" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                     </svg>
                                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                                       <span className={`text-3xl font-head font-black ${isLockedDown ? 'text-red-500' : 'text-[#2DD4BF]'}`}>{isLockedDown ? 'LOCKED' : '100%'}</span>
-                                       <span className="text-[9px] uppercase font-black text-[#94A3B8] tracking-widest mt-1">{isLockedDown ? 'Manual Ovrd.' : 'Protected'}</span>
+                                       <span className={`text-3xl font-head font-medium tracking-tight ${isLockedDown ? 'text-red-500' : 'text-[#2DD4BF]'}`}>{isLockedDown ? 'LOCKED' : '100%'}</span>
+                                       <span className="text-[9px] uppercase font-medium tracking-tight text-[#94A3B8] tracking-widest mt-1">{isLockedDown ? 'Manual Ovrd.' : 'Protected'}</span>
                                     </div>
                                  </div>
                                  
@@ -1658,21 +1658,21 @@ export default function InstitutionalDashboard() {
                                        <div className="flex items-center gap-3">
                                           <span className="text-[#D4AF37] text-lg">🛡️</span>
                                           <div className="flex flex-col">
-                                             <span className="text-white text-xs font-bold font-body">Biometric Scan Mandatory</span>
-                                             <span className="text-[#94A3B8] text-[9px] uppercase font-black tracking-widest">Transfers &gt; GH₵20,000</span>
+                                             <span className="text-white text-xs font-medium font-body">Biometric Scan Mandatory</span>
+                                             <span className="text-[#94A3B8] text-[9px] uppercase font-medium tracking-tight tracking-widest">Transfers &gt; GH₵20,000</span>
                                           </div>
                                        </div>
                                        <div className="w-12 h-6 bg-[#2DD4BF] rounded-full relative shadow-[0_0_15px_rgba(45,212,191,0.3)] cursor-not-allowed">
                                           <div className="w-5 h-5 bg-[#0D1B2A] rounded-full absolute right-0.5 top-0.5 shadow-sm border border-[#2DD4BF]/50"></div>
                                        </div>
                                     </div>
-                                    <p className="text-[#8CA0B4] text-center text-[10px] uppercase font-bold tracking-widest mt-4 opacity-70 border-t border-white/5 pt-4">Rule strictly enforced globally</p>
+                                    <p className="text-[#8CA0B4] text-center text-[10px] uppercase font-medium tracking-widest mt-4 opacity-70 border-t border-white/5 pt-4">Rule strictly enforced globally</p>
                                  </div>
                               </div>
 
                               {/* Right Column: Live Access Log */}
                               <div className="space-y-4 max-w-full">
-                                 <h4 className="text-white font-black text-sm uppercase tracking-widest border-b border-white/10 pb-4 mb-6">Live Access Log</h4>
+                                 <h4 className="text-white font-medium tracking-tight text-sm uppercase tracking-widest border-b border-white/10 pb-4 mb-6">Live Access Log</h4>
                                  {[
                                     { event: "Login Success", loc: "Accra, GH", dev: "iPhone 15 Pro", time: "2 mins ago" },
                                     { event: "Security Profile Update", loc: "Accra, GH", dev: "Mac OS", time: "4 hrs ago" },
@@ -1687,18 +1687,18 @@ export default function InstitutionalDashboard() {
                                              ) : (
                                                 <span className="w-2.5 h-2.5 shrink-0 rounded-full bg-[#2DD4BF] shadow-[0_0_8px_#2DD4BF] animate-pulse"></span>
                                              )}
-                                             <span className="text-white font-bold text-sm drop-shadow-md truncate">{log.event}</span>
+                                             <span className="text-white font-medium text-sm drop-shadow-md truncate">{log.event}</span>
                                           </div>
                                           <div className="text-[#94A3B8] text-[11px] font-mono ml-5 md:ml-6 truncate opacity-80">
                                              {log.loc} • {log.dev}
                                           </div>
                                        </div>
                                        <div className="text-right shrink-0">
-                                          <span className="text-[#8CA0B4] text-[9px] uppercase font-black tracking-widest block mb-2">{log.time}</span>
+                                          <span className="text-[#8CA0B4] text-[9px] uppercase font-medium tracking-tight tracking-widest block mb-2">{log.time}</span>
                                           {log.failed ? (
-                                             <span className="text-red-500 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 bg-red-500/10 rounded border border-red-500/20">Blocked</span>
+                                             <span className="text-red-500 text-[9px] font-medium tracking-tight uppercase tracking-widest px-2.5 py-1 bg-red-500/10 rounded border border-red-500/20">Blocked</span>
                                           ) : (
-                                             <span className="text-[#2DD4BF] text-[9px] font-black uppercase tracking-widest px-2.5 py-1 bg-[#2DD4BF]/10 rounded border border-[#2DD4BF]/20">Secure</span>
+                                             <span className="text-[#2DD4BF] text-[9px] font-medium tracking-tight uppercase tracking-widest px-2.5 py-1 bg-[#2DD4BF]/10 rounded border border-[#2DD4BF]/20">Secure</span>
                                           )}
                                        </div>
                                     </div>
@@ -1719,7 +1719,7 @@ export default function InstitutionalDashboard() {
                   className="fixed bottom-6 right-6 z-[400] flex flex-col items-end gap-3 pointer-events-none"
                >
                   <div className="bg-white px-5 py-4 rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] shadow-[0_20px_40px_rgba(13,27,42,0.15)] border-2 border-[#E2E8F0] pointer-events-auto cursor-pointer hover:shadow-[0_25px_50px_rgba(13,27,42,0.2)] transition-shadow">
-                     <p className="text-[#0D1B2A] font-body text-xs font-bold leading-snug">Hello! I'm your Syntry Advisor. 👋<br/><span className="text-gray-500 font-normal">Need help with your first verification?</span></p>
+                     <p className="text-[#0D1B2A] font-body text-xs font-medium leading-snug">Hello! I'm your Syntry Advisor. 👋<br/><span className="text-gray-500 font-normal">Need help with your first verification?</span></p>
                   </div>
                   <button className="w-14 h-14 bg-[#0D1B2A] rounded-full text-white flex items-center justify-center text-xl shadow-[0_15px_30px_rgba(13,27,42,0.3)] hover:scale-105 transition-transform pointer-events-auto border-2 border-[#D4AF37]">
                      💬
@@ -1743,7 +1743,7 @@ export default function InstitutionalDashboard() {
                   <div className="flex items-center gap-4 bg-[#0D1B2A]/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
                      <span className="text-[#D4AF37] text-xl">🛰️</span>
                      <div>
-                        <span className="text-white font-black text-xs uppercase tracking-widest block">{selectedProperty?.name} — 4K Orbit</span>
+                        <span className="text-white font-medium tracking-tight text-xs uppercase tracking-widest block">{selectedProperty?.name} — 4K Orbit</span>
                         <div className="flex items-center gap-2 mt-0.5">
                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
                            <span className="text-[#94A3B8] text-[9px] font-mono tracking-widest">LIVE GROUND TRUTH STREAM</span>
@@ -1773,7 +1773,7 @@ export default function InstitutionalDashboard() {
                      <div className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 font-mono text-[10px] text-[#D4AF37]">
                         NODE 08 SYNC <br/> GPS: ACTIVE
                      </div>
-                     <div className="bg-black/60 backdrop-blur-md flex items-center justify-center w-12 h-12 rounded-lg border border-white/10 font-head font-black text-white text-[10px]">
+                     <div className="bg-black/60 backdrop-blur-md flex items-center justify-center w-12 h-12 rounded-lg border border-white/10 font-head font-medium tracking-tight text-white text-[10px]">
                         4K
                      </div>
                   </div>
@@ -1828,7 +1828,7 @@ export default function InstitutionalDashboard() {
                      <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,1), transparent 40%)' }}></div>
                      
                      {/* Watermark Logo */}
-                     <div className="absolute -bottom-20 -left-20 text-[200px] font-black text-white/[0.03] rotate-12 select-none">SYNTRY</div>
+                     <div className="absolute -bottom-20 -left-20 text-[200px] font-medium tracking-tight text-white/[0.03] rotate-12 select-none">SYNTRY</div>
 
                      {/* 3D Gold Key Transformation */}
                      <div className="mb-12 flex justify-center">
@@ -1843,31 +1843,31 @@ export default function InstitutionalDashboard() {
                      </div>
 
                      <div className="text-center space-y-2 mb-12">
-                        <h4 className="text-[#D4AF37] font-black uppercase text-xs tracking-[0.3em]">Sovereign Asset Receipt — Official</h4>
-                        <h2 className="text-4xl md:text-5xl font-head font-black text-white tracking-tighter leading-none">Vault Allocation Captured</h2>
+                        <h4 className="text-[#D4AF37] font-medium tracking-tight uppercase text-xs tracking-[0.3em]">Sovereign Asset Receipt — Official</h4>
+                        <h2 className="text-4xl md:text-5xl font-head font-medium tracking-tight text-white tracking-tighter leading-none">Vault Allocation Captured</h2>
                      </div>
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16 text-left border-y border-white/5 py-10 relative">
                         <div className="space-y-6">
                            <div>
-                              <label className="text-[10px] font-black uppercase tracking-widest text-[#94A3B8]">Asset Name</label>
-                              <div className="text-xl font-head font-black text-white uppercase">{selectedProperty?.name || "Otatten B3"}</div>
+                              <label className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8]">Asset Name</label>
+                              <div className="text-xl font-head font-medium tracking-tight text-white uppercase">{selectedProperty?.name || "Otatten B3"}</div>
                            </div>
                            <div>
-                              <label className="text-[10px] font-black uppercase tracking-widest text-[#94A3B8]">Acquisition Status</label>
-                              <div className="text-xl font-head font-black text-white uppercase">10% Statutory Fraction</div>
+                              <label className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8]">Acquisition Status</label>
+                              <div className="text-xl font-head font-medium tracking-tight text-white uppercase">10% Statutory Fraction</div>
                            </div>
                         </div>
                         <div className="space-y-6 md:text-right">
                            <div>
-                              <label className="text-[10px] font-black uppercase tracking-widest text-[#94A3B8]">GPS Authenticated Nodes</label>
+                              <label className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8]">GPS Authenticated Nodes</label>
                               <div className="text-sm font-mono text-white opacity-80 filter brightness-110" style={{ textShadow: '0 0.5px 0.5px rgba(255,255,255,0.2)' }}>
                                  {selectedProperty?.lat.toFixed(6)}, {selectedProperty?.lng.toFixed(6)}
                               </div>
                            </div>
                            <div className="flex justify-end pt-2">
                               {/* Ministerial Node 08 Stamp */}
-                              <div className="w-20 h-20 rounded-full border-4 border-[#10B981]/50 flex items-center justify-center text-[#10B981] font-black text-[9px] text-center rotate-[-15deg] uppercase leading-tight bg-[#10B981]/5 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+                              <div className="w-20 h-20 rounded-full border-4 border-[#10B981]/50 flex items-center justify-center text-[#10B981] font-medium tracking-tight text-[9px] text-center rotate-[-15deg] uppercase leading-tight bg-[#10B981]/5 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
                                  Ministerial<br />Node 08<br />Verified
                               </div>
                            </div>
@@ -1876,10 +1876,10 @@ export default function InstitutionalDashboard() {
 
                      {/* Action Buttons */}
                      <div className="flex flex-col md:flex-row gap-4 relative z-10">
-                        <button onClick={() => { setShowSuccess(false); setAuthStep('dashboard'); setShowPortal(true); }} className="flex-1 py-5 bg-[#162A3E] text-white font-head font-black uppercase tracking-[0.2em] text-[10px] rounded-[24px] shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/10 hover:border-[#D4AF37]/50 transition-all group">
+                        <button onClick={() => { setShowSuccess(false); setAuthStep('dashboard'); setShowPortal(true); }} className="flex-1 py-5 bg-[#162A3E] text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-[24px] shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/10 hover:border-[#D4AF37]/50 transition-all group">
                            <span className="group-hover:text-[#D4AF37] transition-colors">📂 View In My Vault</span>
                         </button>
-                        <button className="flex-1 py-5 bg-[#D4AF37] text-[#0D1B2A] font-head font-black uppercase tracking-[0.2em] text-[10px] rounded-[24px] shadow-[0_25px_50px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95 transition-transform">
+                        <button className="flex-1 py-5 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-[24px] shadow-[0_25px_50px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95 transition-transform">
                            📥 Download Bond
                         </button>
                         <button className="w-14 h-14 bg-[#162A3E]/80 backdrop-blur-md rounded-[24px] border border-white/20 flex items-center justify-center text-xl hover:bg-[#D4AF37] transition-all shrink-0">
@@ -1897,23 +1897,23 @@ export default function InstitutionalDashboard() {
       <nav className="md:hidden fixed bottom-6 left-6 right-6 h-20 bg-[#0D1B2A]/80 backdrop-blur-xl border border-white/10 z-[100] rounded-full shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex items-center justify-around px-4">
          <a href="/protocol" className="flex flex-col items-center gap-1 text-[#94A3B8]">
             <span className="text-xl">🛠️</span>
-            <span className="text-[8px] font-black uppercase tracking-widest">Protocol</span>
+            <span className="text-[8px] font-medium tracking-tight uppercase tracking-widest">Protocol</span>
          </a>
          <a href="/equity" className="flex flex-col items-center gap-1 text-[#94A3B8]">
             <span className="text-xl">💎</span>
-            <span className="text-[8px] font-black uppercase tracking-widest">Fraction</span>
+            <span className="text-[8px] font-medium tracking-tight uppercase tracking-widest">Fraction</span>
          </a>
          <button onClick={() => setShowPortal(true)} className="flex flex-col items-center gap-1 text-white scale-110">
             <span className="text-2xl">🏦</span>
-            <span className="text-[8px] font-black uppercase tracking-widest">Vault</span>
+            <span className="text-[8px] font-medium tracking-tight uppercase tracking-widest">Vault</span>
          </button>
          <a href="/partner" className="flex flex-col items-center gap-1 text-[#94A3B8]">
             <span className="text-xl">🏗️</span>
-            <span className="text-[8px] font-black uppercase tracking-widest">Devs</span>
+            <span className="text-[8px] font-medium tracking-tight uppercase tracking-widest">Devs</span>
          </a>
          <a href="/vision" className="flex flex-col items-center gap-1 text-[#94A3B8]">
             <span className="text-xl">🤵</span>
-            <span className="text-[8px] font-black uppercase tracking-widest">Vision</span>
+            <span className="text-[8px] font-medium tracking-tight uppercase tracking-widest">Vision</span>
          </a>
       </nav>
 
@@ -1964,8 +1964,8 @@ export default function InstitutionalDashboard() {
             >
                <span className="text-xl">🔔</span>
                <div>
-                  <h4 className="text-white text-[10px] font-black uppercase tracking-widest mb-1">Live Activity</h4>
-                  <p className="text-[#94A3B8] text-xs font-body font-bold">{fomoMessage}</p>
+                  <h4 className="text-white text-[10px] font-medium tracking-tight uppercase tracking-widest mb-1">Live Activity</h4>
+                  <p className="text-[#94A3B8] text-xs font-body font-medium">{fomoMessage}</p>
                </div>
             </motion.div>
          )}

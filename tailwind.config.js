@@ -9,11 +9,11 @@ module.exports = {
     extend: {
       colors: {
         syntry: {
-          green: '#003300',
-          gold: '#D4AF37',
-          cream: '#F8F1E3',
-          obsidian: '#050508',
-          cyan: '#00BFFF',
+          obsidian: '#0F172A', // Primary Base
+          teal: '#0D9488',     // Action/Growth
+          slate: '#E2E8F0',    // Neutral/Border
+          amber: '#F59E0B',    // Critical Action
+          text: '#1E293B',     // Text (Primary)
         }
       },
       fontFamily: {

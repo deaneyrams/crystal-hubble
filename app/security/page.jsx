@@ -62,13 +62,13 @@ export default function SecuritySettings() {
                    <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                 </div>
                 <div>
-                   <h3 className="font-mono font-bold text-xs uppercase tracking-widest text-white mb-1">Hybrid 2FA Verification</h3>
+                   <h3 className="font-mono font-medium text-xs uppercase tracking-widest text-white mb-1">Hybrid 2FA Verification</h3>
                    <p className="text-white/40 text-[10px] leading-relaxed">Authenticator app prioritized for transactions &gt; 5,000 GHS.</p>
                 </div>
               </div>
               <button 
                 onClick={initiateSetup}
-                className="w-full bg-[#B8FF3C] text-[#0C0C14] font-mono text-[11px] font-bold tracking-[2px] py-5 rounded-xl hover:bg-white transition-all uppercase"
+                className="w-full bg-[#B8FF3C] text-[#0C0C14] font-mono text-[11px] font-medium tracking-[2px] py-5 rounded-xl hover:bg-white transition-all uppercase"
               >
                 Setup Google Authenticator
               </button>
@@ -96,7 +96,7 @@ export default function SecuritySettings() {
                 <button 
                   onClick={handleVerify}
                   disabled={isEnabling || totpToken.length < 6}
-                  className="w-full bg-white/10 text-white font-mono text-[11px] font-bold tracking-[2px] py-5 rounded-xl hover:bg-[#B8FF3C] hover:text-black transition-all disabled:opacity-30 uppercase mt-4"
+                  className="w-full bg-white/10 text-white font-mono text-[11px] font-medium tracking-[2px] py-5 rounded-xl hover:bg-[#B8FF3C] hover:text-black transition-all disabled:opacity-30 uppercase mt-4"
                 >
                   {isEnabling ? 'Verifying Node...' : 'Verify and Enable'}
                 </button>
@@ -113,7 +113,7 @@ export default function SecuritySettings() {
               <p className="text-white/40 text-[11px] font-mono leading-relaxed max-w-sm mx-auto uppercase tracking-[1px]">Your high-value transactions are now secured by your biometric device node.</p>
               <button 
                 onClick={() => setStep('overview')}
-                className="mt-12 text-[#B8FF3C] font-mono text-[10px] font-bold tracking-[4px] uppercase hover:underline"
+                className="mt-12 text-[#B8FF3C] font-mono text-[10px] font-medium tracking-[4px] uppercase hover:underline"
               >
                 Return to Dashboard
               </button>

@@ -32,7 +32,7 @@ export default function GraviticDecoupler() {
        {bypassState === 'IDLE' && (
          <button 
            onClick={handleDecoupling}
-           className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold uppercase tracking-widest px-6 py-2 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.4)] transition-all hover:scale-105 border border-indigo-400/50"
+           className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium uppercase tracking-widest px-6 py-2 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.4)] transition-all hover:scale-105 border border-indigo-400/50"
          >
            Initiate Gravitic Decoupling
          </button>

@@ -5,10 +5,10 @@ export default function PublicSidebar() {
     <div className="p-6 flex-grow overflow-y-auto space-y-6 bg-gradient-to-b from-[#0b132b] to-[#0E1629] animate-in fade-in duration-500">
       {/* High-Precision QR Code Node */}
       <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-2xl p-6 flex flex-col items-center text-center shadow-[0_0_20px_rgba(79,70,229,0.15)] animate-in fade-in duration-500">
-        <h3 className="text-xs font-black text-indigo-400 uppercase tracking-widest mb-4">Direct Checkout Node</h3>
+        <h3 className="text-xs font-medium tracking-tight text-indigo-400 uppercase tracking-widest mb-4">Direct Checkout Node</h3>
         <div className="bg-white p-3 rounded-xl shadow-[0_0_30px_rgba(79,70,229,0.3)] mb-4 w-48 h-48 relative group cursor-pointer transition-transform hover:scale-105 overflow-hidden">
             <div className="absolute inset-0 bg-black/85 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 text-center backdrop-blur-sm rounded-xl p-2 select-none">
-              <span className="text-[10px] font-black text-[#00F5D4] uppercase tracking-widest mb-1 shadow-sm">Proceed to Payment</span>
+              <span className="text-[10px] font-medium tracking-tight text-[#00F5D4] uppercase tracking-widest mb-1 shadow-sm">Proceed to Payment</span>
               <span className="text-[8px] text-white">Syntry Secure Escrow</span>
             </div>
             {/* Functional QR Representation */}
@@ -20,14 +20,14 @@ export default function PublicSidebar() {
                <circle cx="25" cy="75" r="5" fill="black" />
             </svg>
         </div>
-        <p className="text-[11px] uppercase tracking-widest font-black text-gray-300 px-2 leading-relaxed">
+        <p className="text-[11px] uppercase tracking-widest font-medium tracking-tight text-gray-300 px-2 leading-relaxed">
             Ready to purchase 1/100 Fragment for <span className="text-[#00F5D4] border-b-2 border-[#00F5D4]/50 shadow-sm">$3,318.92</span>?
         </p>
       </div>
 
       {/* Growth Projection Chart */}
       <div className="bg-black/50 border border-white/10 rounded-2xl p-5 shadow-lg relative overflow-hidden animate-in fade-in duration-700">
-        <h3 className="text-[10px] uppercase font-black text-gray-500 tracking-widest mb-4">Market Intel: West Hills Trajectory</h3>
+        <h3 className="text-[10px] uppercase font-medium tracking-tight text-gray-500 tracking-widest mb-4">Market Intel: West Hills Trajectory</h3>
         <div className="relative h-24 flex items-end mb-4">
             <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 40">
               <defs>
@@ -46,7 +46,7 @@ export default function PublicSidebar() {
             {/* Labels */}
             <div className="absolute left-0 -bottom-6 text-[8px] font-mono text-gray-500 text-center text-shadow-sm">2024<br/>$800/sqm</div>
             <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-6 text-[8px] font-mono text-gray-400 text-center text-shadow-sm">2026<br/>$1,050/sqm</div>
-            <div className="absolute right-0 -top-6 text-[9px] font-black font-mono text-[#00F5D4] bg-[#00F5D4]/10 border border-[#00F5D4]/30 px-1.5 py-0.5 rounded shadow-[0_0_8px_rgba(0,245,212,0.3)] text-center">Proj 2028<br/>$1,400/sqm</div>
+            <div className="absolute right-0 -top-6 text-[9px] font-medium tracking-tight font-mono text-[#00F5D4] bg-[#00F5D4]/10 border border-[#00F5D4]/30 px-1.5 py-0.5 rounded shadow-[0_0_8px_rgba(0,245,212,0.3)] text-center">Proj 2028<br/>$1,400/sqm</div>
         </div>
       </div>
 
@@ -54,7 +54,7 @@ export default function PublicSidebar() {
       <div className="bg-emerald-900/20 border border-emerald-500/50 p-4 rounded-xl flex items-center justify-center gap-4 animate-in fade-in duration-1000 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
         <span className="text-3xl drop-shadow-[0_0_12px_#10B981] animate-pulse">✅</span>
         <div>
-          <h3 className="text-[11px] uppercase font-black text-emerald-400 tracking-widest border-b border-emerald-500/30 pb-0.5 inline-block">Ministerial Node 08</h3>
+          <h3 className="text-[11px] uppercase font-medium tracking-tight text-emerald-400 tracking-widest border-b border-emerald-500/30 pb-0.5 inline-block">Ministerial Node 08</h3>
           <p className="text-[10px] text-emerald-300/80 font-mono mt-1">Status: SYN-DEED Verified</p>
         </div>
       </div>

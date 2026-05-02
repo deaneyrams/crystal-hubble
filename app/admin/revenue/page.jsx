@@ -45,12 +45,12 @@ export default function CEODashboard() {
       <header className="mb-10 animate-in slide-in-from-top-4 duration-500 flex justify-between items-end">
          <div>
              <h1 className="text-3xl font-light tracking-wide text-white flex items-center gap-3">
-               CEO <span className="font-bold text-[#f59e0b]">Revenue Engine</span>
+               CEO <span className="font-medium text-[#f59e0b]">Revenue Engine</span>
              </h1>
              <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-mono">Real-time Enterprise Aggregation • Syntry 3.0</p>
          </div>
          <div className="text-right">
-             <div className="text-3xl font-black text-[#14b8a6] tabular-nums">$14,250 <span className="text-sm font-light text-gray-400">MRR</span></div>
+             <div className="text-3xl font-medium tracking-tight text-[#14b8a6] tabular-nums">$14,250 <span className="text-sm font-light text-gray-400">MRR</span></div>
              <p className="text-[9px] uppercase tracking-widest text-[#14b8a6] mt-1 bg-[#14b8a6]/10 px-2 py-0.5 rounded border border-[#14b8a6]/30 inline-block">+18% MoM Growth</p>
          </div>
       </header>
@@ -59,10 +59,10 @@ export default function CEODashboard() {
          {/* Total Transaction Fees */}
          <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-[#14b8a6] group-hover:w-full transition-all duration-500 opacity-10"></div>
-            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-4">Total Transaction Fees (Daily)</h3>
+            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Total Transaction Fees (Daily)</h3>
             <div className="flex items-end gap-3 mb-2">
                <span className="text-3xl font-light text-white">$4,850</span>
-               <span className="text-[10px] text-emerald-400 font-black tracking-widest mb-1 mb-1.5 flex items-center gap-1">
+               <span className="text-[10px] text-emerald-400 font-medium tracking-tight tracking-widest mb-1 mb-1.5 flex items-center gap-1">
                  <span className="text-lg leading-none">↑</span> 12%
                </span>
             </div>
@@ -72,10 +72,10 @@ export default function CEODashboard() {
          {/* Premium Verification Conv */}
          <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b] group-hover:w-full transition-all duration-500 opacity-10"></div>
-            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-4">Premium Verification Upsell</h3>
+            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Premium Verification Upsell</h3>
             <div className="flex items-end gap-3 mb-2">
                <span className="text-3xl font-light text-[#f59e0b]">42.8%</span>
-               <span className="text-[10px] text-emerald-400 font-black tracking-widest mb-1.5 flex items-center gap-1">
+               <span className="text-[10px] text-emerald-400 font-medium tracking-tight tracking-widest mb-1.5 flex items-center gap-1">
                  <span className="text-lg leading-none">↑</span> 5.2%
                </span>
             </div>
@@ -85,10 +85,10 @@ export default function CEODashboard() {
          {/* Total Active Subscriptions */}
          <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-indigo-500 group-hover:w-full transition-all duration-500 opacity-10"></div>
-            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-4">Active Subscriptions (Pro Tier)</h3>
+            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Active Subscriptions (Pro Tier)</h3>
             <div className="flex items-end gap-3 mb-2">
-               <span className="text-3xl font-bold text-white">750</span>
-               <span className="text-[10px] text-gray-400 font-black tracking-widest mb-1.5">Accounts</span>
+               <span className="text-3xl font-medium text-white">750</span>
+               <span className="text-[10px] text-gray-400 font-medium tracking-tight tracking-widest mb-1.5">Accounts</span>
             </div>
             <p className="text-[9px] font-mono text-indigo-400 uppercase">@ $19/mo • MRR: $14,250</p>
          </div>
@@ -96,10 +96,10 @@ export default function CEODashboard() {
          {/* Vault Velocity */}
          <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-red-500 group-hover:w-full transition-all duration-500 opacity-10"></div>
-            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-4">Vault Velocity</h3>
+            <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Vault Velocity</h3>
             <div className="flex items-end gap-3 mb-2">
                <span className="text-3xl font-light text-white">4.2</span>
-               <span className="text-[10px] text-gray-400 font-black tracking-widest mb-1.5">Days</span>
+               <span className="text-[10px] text-gray-400 font-medium tracking-tight tracking-widest mb-1.5">Days</span>
             </div>
             <p className="text-[9px] font-mono text-gray-500 uppercase">Average Escrow Release Turnover</p>
          </div>
@@ -109,7 +109,7 @@ export default function CEODashboard() {
          {/* Live Revenue Ledger */}
          <div className="lg:col-span-2 bg-black/30 border border-white/10 rounded-2xl p-6 relative overflow-hidden">
             <div className="flex justify-between items-center mb-6">
-               <h3 className="text-xs uppercase tracking-widest text-white font-black">Fractional Network Ledger</h3>
+               <h3 className="text-xs uppercase tracking-widest text-white font-medium tracking-tight">Fractional Network Ledger</h3>
                <span className="text-[8px] uppercase tracking-widest text-[#14b8a6] border border-[#14b8a6]/40 px-2 py-0.5 rounded bg-[#14b8a6]/10 animate-pulse">Live</span>
             </div>
 
@@ -129,14 +129,14 @@ export default function CEODashboard() {
                      <td className="py-3 text-gray-400">Installment</td>
                      <td className="py-3 text-white">514,432</td>
                      <td className="py-3 text-gray-400">1.5% Esc + 3% Issu + 0.5% Admin</td>
-                     <td className="py-3 text-[#f59e0b] text-right font-black flex items-center justify-end gap-3">
+                     <td className="py-3 text-[#f59e0b] text-right font-medium tracking-tight flex items-center justify-end gap-3">
                         + 25,721 GHS
                         <button 
                           onClick={() => {
                             setSelectedPayout({ id: 'SYN-ASH-P1', amount: 25721 });
                             setShow2FAModal(true);
                           }}
-                          className="px-3 py-1 bg-[#14b8a6] text-black text-[9px] font-bold uppercase rounded hover:bg-[#B8FF3C] transition-all"
+                          className="px-3 py-1 bg-[#14b8a6] text-black text-[9px] font-medium uppercase rounded hover:bg-[#B8FF3C] transition-all"
                         >
                           Release
                         </button>
@@ -147,14 +147,14 @@ export default function CEODashboard() {
                      <td className="py-3 text-gray-400">Outright Cash</td>
                      <td className="py-3 text-white">504,143 <span className="text-gray-500 text-[9px]">(-2%)</span></td>
                      <td className="py-3 text-gray-400">1.5% Esc + 3% Issu</td>
-                     <td className="py-3 text-[#f59e0b] text-right font-black flex items-center justify-end gap-3">
+                     <td className="py-3 text-[#f59e0b] text-right font-medium tracking-tight flex items-center justify-end gap-3">
                         + 22,686 GHS
                         <button 
                           onClick={() => {
                             setSelectedPayout({ id: 'SYN-ASH-P2', amount: 22686 });
                             setShow2FAModal(true);
                           }}
-                          className="px-3 py-1 bg-[#14b8a6] text-black text-[9px] font-bold uppercase rounded hover:bg-[#B8FF3C] transition-all"
+                          className="px-3 py-1 bg-[#14b8a6] text-black text-[9px] font-medium uppercase rounded hover:bg-[#B8FF3C] transition-all"
                         >
                           Release
                         </button>
@@ -165,14 +165,14 @@ export default function CEODashboard() {
                      <td className="py-3 text-gray-400">Installment</td>
                      <td className="py-3 text-white">4,200,000</td>
                      <td className="py-3 text-gray-400">1.5% Esc + Legal Up ($500)</td>
-                     <td className="py-3 text-[#f59e0b] text-right font-black flex items-center justify-end gap-3">
+                     <td className="py-3 text-[#f59e0b] text-right font-medium tracking-tight flex items-center justify-end gap-3">
                         + 63,500 GHS
                         <button 
                           onClick={() => {
                             setSelectedPayout({ id: 'SYN-PK-P1', amount: 63500 });
                             setShow2FAModal(true);
                           }}
-                          className="px-3 py-1 bg-[#14b8a6] text-black text-[9px] font-bold uppercase rounded hover:bg-[#B8FF3C] transition-all"
+                          className="px-3 py-1 bg-[#14b8a6] text-black text-[9px] font-medium uppercase rounded hover:bg-[#B8FF3C] transition-all"
                         >
                           Release
                         </button>
@@ -184,7 +184,7 @@ export default function CEODashboard() {
 
          {/* Predictive Run Rate */}
          <div className="bg-gradient-to-br from-[#064e3b]/40 to-[#022c22] border border-[#14b8a6]/20 rounded-2xl p-6 relative overflow-hidden">
-            <h3 className="text-[10px] uppercase tracking-widest text-[#14b8a6] font-bold mb-6">Annualized Run Rate (ARR)</h3>
+            <h3 className="text-[10px] uppercase tracking-widest text-[#14b8a6] font-medium mb-6">Annualized Run Rate (ARR)</h3>
             <div className="relative h-48 flex items-end mb-4">
               <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 40">
                 <defs>
@@ -204,10 +204,10 @@ export default function CEODashboard() {
             <div className="mt-8 border-t border-white/10 pt-4 flex justify-between items-end">
                <div>
                   <p className="text-[8px] text-gray-400 uppercase tracking-widest mb-1">Projected EOFY Base</p>
-                  <p className="text-2xl font-black text-white">$4.2M</p>
+                  <p className="text-2xl font-medium tracking-tight text-white">$4.2M</p>
                </div>
                <div className="text-right">
-                  <p className="text-[8px] text-[#f59e0b] uppercase tracking-widest mb-1 font-bold">Volume Target Cap</p>
+                  <p className="text-[8px] text-[#f59e0b] uppercase tracking-widest mb-1 font-medium">Volume Target Cap</p>
                   <p className="text-sm font-mono text-gray-400">30% Total Relic Gross</p>
                </div>
             </div>
@@ -253,7 +253,7 @@ export default function CEODashboard() {
               <button 
                 onClick={handleVerifyPayout}
                 disabled={isVerifying || twoFaToken.length < 6}
-                className="w-full bg-[#B8FF3C] text-black font-mono text-[11px] font-bold tracking-[3px] py-5 rounded-2xl hover:bg-white transition-all uppercase disabled:opacity-30"
+                className="w-full bg-[#B8FF3C] text-black font-mono text-[11px] font-medium tracking-[3px] py-5 rounded-2xl hover:bg-white transition-all uppercase disabled:opacity-30"
               >
                 {isVerifying ? 'Validating Node...' : 'Confirm Release'}
               </button>

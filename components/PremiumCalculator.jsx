@@ -25,12 +25,12 @@ export default function PremiumCalculator() {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="p-3 bg-[#00F5D4]/10 border border-[#00F5D4]/30 rounded">
-            <p className="text-[10px] text-[#00F5D4] uppercase font-bold tracking-wider">70% Upfront Premium</p>
-            <p className="text-xl font-bold text-white">₵{upfront.toLocaleString()}</p>
+            <p className="text-[10px] text-[#00F5D4] uppercase font-medium tracking-wider">70% Upfront Premium</p>
+            <p className="text-xl font-medium text-white">₵{upfront.toLocaleString()}</p>
           </div>
           <div className="p-3 bg-indigo-900/20 border border-indigo-500/30 rounded">
-            <p className="text-[10px] text-indigo-400 uppercase font-bold tracking-wider">30% Ground Rent Total</p>
-            <p className="text-xl font-bold text-white">₵{groundRent.toLocaleString()}</p>
+            <p className="text-[10px] text-indigo-400 uppercase font-medium tracking-wider">30% Ground Rent Total</p>
+            <p className="text-xl font-medium text-white">₵{groundRent.toLocaleString()}</p>
           </div>
         </div>
 

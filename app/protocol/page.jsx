@@ -44,7 +44,7 @@ export default function ProtocolPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050508] text-white selection:bg-[#1D9E75] selection:text-[#050508] font-sans pb-32 overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#0F172A] text-white selection:bg-[#1D9E75] selection:text-[#0F172A] font-sans pb-32 overflow-x-hidden relative">
       <GlobalHeader />
       {/* Custom Cursor */}
        <div ref={cursorRef} className="fixed w-2.5 h-2.5 bg-[#1D9E75] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-150 ease-out" />

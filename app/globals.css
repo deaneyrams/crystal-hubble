@@ -1,9 +1,9 @@
 :root {
-  --color-obsidian: #050508;
-  --color-green: #003300;
-  --color-gold: #D4AF37;
-  --color-cream: #F8F1E3;
-  --color-cyan: #00BFFF;
+  --color-obsidian: #0F172A;
+  --color-teal: #0D9488;
+  --color-slate: #E2E8F0;
+  --color-amber: #F59E0B;
+  --color-text: #1E293B;
   --color-white: #FFFFFF;
 }
 
@@ -13,8 +13,7 @@
 
 @layer base {
   body {
-    @apply bg-syntry-obsidian text-white antialiased overflow-x-hidden;
-    background-color: #050508;
+    @apply bg-slate-50 text-syntry-text antialiased overflow-x-hidden;
   }
 }
 
@@ -25,19 +24,24 @@
 }
 
 h1, h2, h3, h4, h5 {
-  @apply font-bold tracking-tight;
+  @apply font-medium tracking-tight;
 }
 
 .glass-panel {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  @apply bg-white/10 backdrop-blur-md border border-white/10;
 }
 
 .gold-glow {
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
 }
 
 .gold-glow-hover:hover {
   @apply transition-all duration-300;
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
   transform: scale(1.02);
+}
+
+/* Industrial Sophistication: Component Desaturation */
+svg, .status-icon, [class*="text-[#0D9488]"], [class*="bg-[#0D9488]"] > svg {
+  filter: saturate(70%);
 }

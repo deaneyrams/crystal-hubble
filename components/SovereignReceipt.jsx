@@ -65,7 +65,7 @@ export default function SovereignReceipt({ plotId, premiumPaid, riskScore }) {
 
       <button 
         onClick={handleDownload}
-        className="w-full py-4 bg-gradient-to-r from-indigo-600 to-mint-600 rounded-xl font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-lg shadow-indigo-500/20"
+        className="w-full py-4 bg-gradient-to-r from-indigo-600 to-mint-600 rounded-xl font-medium uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-lg shadow-indigo-500/20"
       >
         Download Sovereign Receipt
       </button>

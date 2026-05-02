@@ -27,7 +27,7 @@ export default function PropertiesPage() {
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
             <div>
               <div className="text-[10px] uppercase font-mono tracking-[4px] text-[#B8FF3C] mb-4">Sovereign Asset Exchange</div>
-              <h1 className="text-5xl md:text-7xl font-head font-black tracking-tighter uppercase leading-none">Marketplace <span className="text-white/20">Offerings.</span></h1>
+              <h1 className="text-5xl md:text-7xl font-head font-medium tracking-tight tracking-tighter uppercase leading-none">Marketplace <span className="text-white/20">Offerings.</span></h1>
             </div>
             <div className="flex flex-wrap gap-3">
               {['All', 'Residential', 'Commercial', 'Installment Plans'].map((cat) => (
@@ -36,7 +36,7 @@ export default function PropertiesPage() {
                   onClick={() => setFilter(cat)}
                   className={`px-6 py-3 rounded-full text-[10px] font-mono uppercase tracking-[2px] border transition-all ${
                     filter === cat 
-                      ? 'bg-[#B8FF3C] text-black border-[#B8FF3C] font-black' 
+                      ? 'bg-[#B8FF3C] text-black border-[#B8FF3C] font-medium tracking-tight' 
                       : 'border-white/10 text-white/40 hover:border-white/30'
                   }`}
                 >
@@ -75,7 +75,7 @@ export default function PropertiesPage() {
                   <div className="p-6 flex flex-col flex-1">
                     <div className="mb-6">
                       <div className="text-[10px] uppercase font-mono tracking-[4px] text-white/30 mb-2">{plot.location}</div>
-                      <h3 className="text-xl font-head font-black text-white leading-tight uppercase tracking-tighter">{plot.name}</h3>
+                      <h3 className="text-xl font-head font-medium tracking-tight text-white leading-tight uppercase tracking-tighter">{plot.name}</h3>
                       <p className="text-[10px] font-mono text-gray-500 uppercase mt-1">{plot.size} | {plot.type}</p>
                     </div>
                     
@@ -83,14 +83,14 @@ export default function PropertiesPage() {
                        <div className="flex justify-between items-end border-t border-white/5 pt-4">
                           <div>
                              <div className="text-[8px] uppercase tracking-widest text-[#B8FF3C] mb-1 font-mono">Vault Entrance</div>
-                             <div className="text-2xl font-head font-black tracking-tighter">GH₵{plot.value.toLocaleString()}</div>
+                             <div className="text-2xl font-head font-medium tracking-tight tracking-tighter">GH₵{plot.value.toLocaleString()}</div>
                           </div>
                           <div className="text-right">
                              <div className="text-[8px] uppercase tracking-widest text-white/20 mb-1 font-mono">Status</div>
                              <div className="text-[10px] font-mono text-white/60">Verified</div>
                           </div>
                        </div>
-                       <button className="w-full py-4 bg-[#B8FF3C] text-black font-head font-black text-[10px] uppercase tracking-[4px] rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
+                       <button className="w-full py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-[10px] uppercase tracking-[4px] rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
                           View Plot Details →
                        </button>
                     </div>
