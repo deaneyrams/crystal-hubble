@@ -3,15 +3,18 @@ import React, { useState, useEffect } from 'react';
 import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
 import existingPolygons from '@/lib/existing-polygons.json';
 import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
-import { EditControl } from 'react-leaflet-draw';
+import L from 'leaflet';
 import * as turf from '@turf/turf';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
-import L from 'leaflet';
 
 if (typeof window !== 'undefined') {
   window.L = L;
 }
+
+// Dynamically import EditControl so it runs AFTER window.L is set
+import dynamic from 'next/dynamic';
+const EditControl = dynamic(() => import('react-leaflet-draw').then(m => m.EditControl), { ssr: false });
 
 // Greater Accra Bounding Box (Enhanced for Syntry Guard)
 const GREATER_ACCRA_BOUNDS = {
