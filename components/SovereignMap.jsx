@@ -3,18 +3,19 @@ import React, { useState, useEffect } from 'react';
 import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
 import existingPolygons from '@/lib/existing-polygons.json';
 import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
-import L from 'leaflet';
 import * as turf from '@turf/turf';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 
-if (typeof window !== 'undefined') {
-  window.L = L;
-}
+let EditControl = null;
+let L = null;
 
-// Dynamically import EditControl so it runs AFTER window.L is set
-import dynamic from 'next/dynamic';
-const EditControl = dynamic(() => import('react-leaflet-draw').then(m => m.EditControl), { ssr: false });
+if (typeof window !== 'undefined') {
+  L = require('leaflet');
+  window.L = L;
+  require('leaflet-draw');
+  EditControl = require('react-leaflet-draw').EditControl;
+}
 
 // Greater Accra Bounding Box (Enhanced for Syntry Guard)
 const GREATER_ACCRA_BOUNDS = {
@@ -256,18 +257,20 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
         <FeatureGroup>
-          <EditControl
-            position="topright"
-            onCreated={_onCreate}
-            onEdited={_onEdited}
-            draw={{
-              rectangle: false,
-              circle: false,
-              circlemarker: false,
-              marker: true,
-              polyline: false,
-            }}
-          />
+          {EditControl && (
+            <EditControl
+              position="topright"
+              onCreated={_onCreate}
+              onEdited={_onEdited}
+              draw={{
+                rectangle: false,
+                circle: false,
+                circlemarker: false,
+                marker: true,
+                polyline: false,
+              }}
+            />
+          )}
         </FeatureGroup>
         <MapResizer />
       </MapContainer>
