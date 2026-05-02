@@ -7,16 +7,6 @@ import * as turf from '@turf/turf';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 
-let EditControl = null;
-let L = null;
-
-if (typeof window !== 'undefined') {
-  L = require('leaflet');
-  window.L = L;
-  require('leaflet-draw');
-  EditControl = require('react-leaflet-draw').EditControl;
-}
-
 // Greater Accra Bounding Box (Enhanced for Syntry Guard)
 const GREATER_ACCRA_BOUNDS = {
   minLat: 5.45,
@@ -46,9 +36,20 @@ const MapResizer = () => {
 
 const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidated, initialPos = [5.6037, -0.1870] }) => {
   const [hasMounted, setHasMounted] = useState(false);
+  const [EditControlComponent, setEditControlComponent] = useState(null);
   
   useEffect(() => {
     setHasMounted(true);
+    // Bulletproof runtime Leaflet injection
+    (async () => {
+      if (typeof window !== 'undefined') {
+        const L = (await import('leaflet')).default;
+        window.L = L;
+        await import('leaflet-draw');
+        const { EditControl } = await import('react-leaflet-draw');
+        setEditControlComponent(() => EditControl);
+      }
+    })();
   }, []);
 
   const [areaInAcres, setAreaInAcres] = useState(0);
@@ -257,8 +258,8 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
         <FeatureGroup>
-          {EditControl && (
-            <EditControl
+          {EditControlComponent && (
+            <EditControlComponent
               position="topright"
               onCreated={_onCreate}
               onEdited={_onEdited}
