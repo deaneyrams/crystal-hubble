@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use export for Cloudflare Pages, standalone for API server (Digital Ocean)
-  output: process.env.NEXT_PRIVATE_STANDALONE ? 'standalone' : 'export',
+  // Auto-detect Cloudflare Pages (CF_PAGES) for export, otherwise default to standalone server (Digital Ocean)
+  output: process.env.CF_PAGES ? 'export' : 'standalone',
   devIndicators: {
     buildActivity: false,
   },
