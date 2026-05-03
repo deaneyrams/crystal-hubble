@@ -171,8 +171,8 @@ export default function VerifyLandNowPage() {
              <p className="text-slate-400 font-medium text-lg">Syntry orbital scan detects boundaries and litigation status in real-time.</p>
           </div>
 
-          <div className="bg-[#0F172A] rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl">
-             <div className="flex border-b border-slate-100 bg-[#0F172A]/50">
+          <div className="bg-white/5 backdrop-blur-md rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl">
+             <div className="flex border-b border-white/10 bg-black/20">
                 {[
                   { id: 'auto', label: '📍 Auto-Detect', icon: '📡' },
                   { id: 'manual', label: '🔢 Manual Entry', icon: '✍️' },
@@ -181,7 +181,7 @@ export default function VerifyLandNowPage() {
                   <button 
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex-1 py-6 px-4 flex items-center justify-center gap-3 text-xs font-medium tracking-tight uppercase tracking-widest transition-all ${activeTab === tab.id ? 'bg-[#0F172A] text-slate-50 border-b-4 border-[#0D9488]' : 'text-slate-400 hover:text-slate-600'}`}
+                    className={`flex-1 py-6 px-4 flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-widest transition-all ${activeTab === tab.id ? 'bg-white/10 text-white border-b-4 border-[#0D9488]' : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'}`}
                   >
                     <span>{tab.icon}</span> {tab.label}
                   </button>
@@ -192,8 +192,8 @@ export default function VerifyLandNowPage() {
                 <div className="space-y-8">
                    {activeTab === 'auto' && (
                       <div className="space-y-6 animate-in slide-in-from-left-4">
-                         <div className="p-8 bg-[#0F172A] rounded-3xl border border-slate-100 text-center space-y-4">
-                            <div className="w-16 h-16 bg-[#0F172A] rounded-2xl shadow-sm mx-auto flex items-center justify-center text-3xl">📡</div>
+                         <div className="p-8 bg-white/5 rounded-3xl border border-white/10 text-center space-y-4">
+                            <div className="w-16 h-16 bg-white/10 rounded-2xl shadow-sm mx-auto flex items-center justify-center text-3xl">📡</div>
                             <h3 className="text-xl font-medium">Orbital GPS Detection</h3>
                             <p className="text-sm text-slate-400 leading-relaxed font-medium">Use your browser's high-precision location to lock onto your plot boundaries instantly.</p>
                          </div>
@@ -211,36 +211,36 @@ export default function VerifyLandNowPage() {
                       <div className="space-y-6 animate-in slide-in-from-left-4">
                          <div className="grid grid-cols-1 gap-4">
                             <div>
-                               <p className="text-[10px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1 ml-2">GhanaPost Digital Address</p>
+                               <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-1 ml-2">GhanaPost Digital Address</p>
                                <input 
                                  type="text" value={ghanaPost} onChange={(e) => setGhanaPost(e.target.value)} 
                                  placeholder="e.g. GA-183-8164"
-                                 className="w-full bg-[#0F172A] border-2 border-slate-100 rounded-2xl px-6 py-4 font-medium text-slate-50 focus:border-[#0D9488] outline-none"
+                                 className="w-full bg-white/5 border-2 border-white/10 rounded-2xl px-6 py-4 font-medium text-white focus:border-[#0D9488] outline-none placeholder:text-slate-600"
                                />
                             </div>
                             <div>
-                               <p className="text-[10px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1 ml-2">Title Number</p>
+                               <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-1 ml-2">Title Number</p>
                                <input 
                                  type="text" value={titleNumber} onChange={(e) => setTitleNumber(e.target.value)} 
                                  placeholder="e.g. AB-2024-405"
-                                 className="w-full bg-[#0F172A] border-2 border-slate-100 rounded-2xl px-6 py-4 font-medium text-slate-50 focus:border-[#0D9488] outline-none"
+                                 className="w-full bg-white/5 border-2 border-white/10 rounded-2xl px-6 py-4 font-medium text-white focus:border-[#0D9488] outline-none placeholder:text-slate-600"
                                />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                <div>
-                                  <p className="text-[10px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1 ml-2">Latitude</p>
+                                  <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-1 ml-2">Latitude</p>
                                   <input 
                                     type="text" value={manualLat} onChange={(e) => setManualLat(e.target.value)} 
                                     placeholder="5.6037"
-                                    className="w-full bg-[#0F172A] border-2 border-slate-100 rounded-2xl px-6 py-4 font-medium text-slate-50 focus:border-[#0D9488] outline-none"
+                                    className="w-full bg-white/5 border-2 border-white/10 rounded-2xl px-6 py-4 font-medium text-white focus:border-[#0D9488] outline-none placeholder:text-slate-600"
                                   />
                                </div>
                                <div>
-                                  <p className="text-[10px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1 ml-2">Longitude</p>
+                                  <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-1 ml-2">Longitude</p>
                                   <input 
                                     type="text" value={manualLng} onChange={(e) => setManualLng(e.target.value)} 
                                     placeholder="-0.1870"
-                                    className="w-full bg-[#0F172A] border-2 border-slate-100 rounded-2xl px-6 py-4 font-medium text-slate-50 focus:border-[#0D9488] outline-none"
+                                    className="w-full bg-white/5 border-2 border-white/10 rounded-2xl px-6 py-4 font-medium text-white focus:border-[#0D9488] outline-none placeholder:text-slate-600"
                                   />
                                </div>
                             </div>
@@ -256,7 +256,7 @@ export default function VerifyLandNowPage() {
 
                    {activeTab === 'upload' && (
                       <div className="space-y-6 animate-in slide-in-from-left-4">
-                         <div className="border-4 border-dashed border-slate-100 rounded-3xl p-12 bg-[#0F172A] flex flex-col items-center text-center cursor-pointer hover:bg-[#0F172A] hover:border-[#0D9488]/40 transition-all group relative">
+                         <div className="border-4 border-dashed border-white/20 rounded-3xl p-12 bg-white/5 flex flex-col items-center text-center cursor-pointer hover:bg-white/10 hover:border-[#0D9488]/40 transition-all group relative">
                             <span className="text-4xl mb-4 grayscale group-hover:grayscale-0 transition-all">📄</span>
                             <p className="text-lg font-medium tracking-tight text-slate-50">{file ? file.name : 'Upload Site Plan'}</p>
                             <p className="text-[10px] font-medium tracking-tight text-[#D4AF37] uppercase tracking-[0.2em] mt-2">{ocrStatus}</p>
@@ -300,8 +300,8 @@ export default function VerifyLandNowPage() {
         {showResults && (
            <div id="results-dashboard" className="py-24 animate-in fade-in slide-in-from-bottom-12 duration-1000">
               <div className="max-w-6xl mx-auto px-4">
-                 <div className="bg-[#0F172A] border-t-[12px] border-[#0D9488] border-x border-b border-white/10 rounded-[4rem] overflow-hidden shadow-2xl">
-                    <div className="p-8 md:p-16 border-b border-slate-100 flex flex-col lg:flex-row justify-between gap-12 bg-[#0F172A]/30 font-sans">
+                 <div className="bg-white/5 backdrop-blur-xl border-t-[12px] border-[#0D9488] border-x border-b border-white/10 rounded-[4rem] overflow-hidden shadow-2xl">
+                    <div className="p-8 md:p-16 border-b border-white/10 flex flex-col lg:flex-row justify-between gap-12 bg-black/20 font-sans">
                        <div className="space-y-6">
                           <div className="flex items-center gap-4">
                              <div className="bg-[#0D9488] text-white w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shadow-lg">✓</div>
@@ -337,10 +337,10 @@ export default function VerifyLandNowPage() {
                     <div className="p-8 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-16">
                        <div className="lg:col-span-4 space-y-10">
                           <h3 className="text-xs font-medium tracking-tight text-slate-400 uppercase tracking-[3px] border-b pb-4">Chain of Trust</h3>
-                          <div className="relative pl-10 border-l-2 border-slate-100 space-y-12">
+                          <div className="relative pl-10 border-l-2 border-white/10 space-y-12">
                              {CHAIN_OF_TRUST.map((item, i) => (
                                 <div key={i} className="relative">
-                                   <div className="absolute -left-[51px] top-1 w-5 h-5 rounded-full bg-[#0F172A] border-4 border-[#0D9488] shadow-lg"></div>
+                                   <div className="absolute -left-[51px] top-1 w-5 h-5 rounded-full bg-white/5 border-4 border-[#0D9488] shadow-lg"></div>
                                    <p className="text-[10px] font-medium tracking-tight text-[#0D9488] mb-1">{item.year}</p>
                                    <p className="text-lg font-medium tracking-tight text-slate-50 mb-1">{item.event}</p>
                                    <p className="text-xs font-medium text-slate-400 leading-relaxed">{item.detail}</p>
@@ -356,11 +356,11 @@ export default function VerifyLandNowPage() {
                                 <button 
                                   key={layer.id} 
                                   onClick={() => setActiveLayer(layer)}
-                                  className="text-left bg-[#0F172A] border border-slate-100 p-6 rounded-[2.5rem] hover:bg-[#0F172A] hover:shadow-xl transition-all group relative overflow-hidden"
+                                  className="text-left bg-white/5 border border-white/10 p-6 rounded-[2.5rem] hover:bg-white/10 hover:shadow-xl transition-all group relative overflow-hidden"
                                 >
                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">👁️</div>
                                    <div className="flex items-center gap-4 mb-4">
-                                      <div className="w-10 h-10 bg-[#0F172A] rounded-xl flex items-center justify-center border border-slate-100 shadow-sm text-[#0D9488] font-medium tracking-tight">✓</div>
+                                      <div className="w-10 h-10 bg-black/30 rounded-xl flex items-center justify-center border border-white/10 shadow-sm text-[#0D9488] font-medium tracking-tight">✓</div>
                                       <div>
                                          <p className="text-[9px] font-medium tracking-tight text-slate-400 uppercase tracking-widest">{layer.source}</p>
                                          <p className="text-sm font-medium tracking-tight text-slate-50">{layer.name}</p>
@@ -386,7 +386,7 @@ export default function VerifyLandNowPage() {
                        </div>
                        <div className="flex flex-wrap justify-center gap-4">
                           <a href="/upgrade" className="bg-[#0D9488] text-white px-8 py-5 rounded-2xl font-medium tracking-tight text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all text-center">Sovereign Report <span className="opacity-60 ml-2">GH₵950</span></a>
-                          <a href="https://wa.me/233531102292?text=I%20need%20to%20fix%20my%20property%20status" className="bg-[#0F172A] text-slate-50 px-8 py-5 rounded-2xl font-medium tracking-tight text-xs uppercase tracking-widest hover:-translate-y-1 transition-all text-center">Fix My Status</a>
+                          <a href="https://wa.me/233531102292?text=I%20need%20to%20fix%20my%20property%20status" className="bg-white/10 text-white px-8 py-5 rounded-2xl font-medium text-xs uppercase tracking-widest hover:-translate-y-1 transition-all text-center">Fix My Status</a>
                           <a href="/marketplace" className="bg-[#D4AF37] text-white px-8 py-5 rounded-2xl font-medium tracking-tight text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all text-center">List as Syntry Gold</a>
                        </div>
                     </div>
@@ -398,19 +398,19 @@ export default function VerifyLandNowPage() {
 
       {activeLayer && (
          <div className="fixed inset-0 z-[3000] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm animate-in fade-in font-sans">
-            <div className="bg-[#0F172A] w-full max-w-lg rounded-[3rem] p-12 shadow-3xl relative animate-in zoom-in-95">
-               <button onClick={() => setActiveLayer(null)} className="absolute top-8 right-8 text-slate-400 hover:text-slate-50 text-2xl font-medium tracking-tight transition-all">✕</button>
+            <div className="bg-[#0F172A] border border-white/10 w-full max-w-lg rounded-[3rem] p-12 shadow-3xl relative animate-in zoom-in-95">
+               <button onClick={() => setActiveLayer(null)} className="absolute top-8 right-8 text-slate-400 hover:text-white text-2xl font-medium transition-all">✕</button>
                <div className="space-y-8">
                   <div className="flex items-center gap-6">
-                     <div className="w-20 h-20 bg-[#0F172A] rounded-[2rem] border border-slate-100 flex items-center justify-center text-4xl shadow-inner">🛡️</div>
+                     <div className="w-20 h-20 bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center text-4xl shadow-inner">🛡️</div>
                      <div>
-                        <p className="text-[10px] font-medium tracking-tight text-[#0D9488] uppercase tracking-widest">Syntry Layer Diagnostic</p>
-                        <h2 className="text-3xl font-medium tracking-tight tracking-tight">{activeLayer.name}</h2>
+                        <p className="text-[10px] font-medium text-[#0D9488] uppercase tracking-widest">Syntry Layer Diagnostic</p>
+                        <h2 className="text-3xl font-medium tracking-tight">{activeLayer.name}</h2>
                      </div>
                   </div>
                   <div>
-                     <p className="text-xs font-medium tracking-tight uppercase text-slate-400 mb-2">Internal Explanation</p>
-                     <p className="text-lg font-medium text-slate-700 leading-relaxed italic">"{activeLayer.desc}"</p>
+                     <p className="text-xs font-medium uppercase text-slate-400 mb-2">Internal Explanation</p>
+                     <p className="text-lg font-medium text-slate-300 leading-relaxed italic">"{activeLayer.desc}"</p>
                   </div>
                   <button onClick={() => setActiveLayer(null)} className="w-full bg-[#0D9488] text-white py-5 rounded-2xl font-medium tracking-tight text-xs uppercase tracking-widest">Understood</button>
                </div>

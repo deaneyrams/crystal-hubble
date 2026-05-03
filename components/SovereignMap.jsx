@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
 import existingPolygons from '@/lib/existing-polygons.json';
 import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
+import L from 'leaflet';
 import * as turf from '@turf/turf';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
@@ -41,15 +42,14 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   useEffect(() => {
     setHasMounted(true);
     // Bulletproof runtime Leaflet injection
-    (async () => {
-      if (typeof window !== 'undefined') {
-        const L = (await import('leaflet')).default;
-        window.L = L;
-        await import('leaflet-draw');
-        const { EditControl } = await import('react-leaflet-draw');
-        setEditControlComponent(() => EditControl);
-      }
-    })();
+    if (typeof window !== 'undefined') {
+      window.L = L;
+      import('leaflet-draw').then(() => {
+        import('react-leaflet-draw').then(({ EditControl }) => {
+          setEditControlComponent(() => EditControl);
+        });
+      }).catch(err => console.error("Leaflet Draw Error:", err));
+    }
   }, []);
 
   const [areaInAcres, setAreaInAcres] = useState(0);
