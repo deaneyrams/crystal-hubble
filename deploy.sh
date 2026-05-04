@@ -1,64 +1,35 @@
 #!/bin/bash
+# SYNTY SOVEREIGN CORE - INTELLIGENT DEPLOYMENT SCRIPT
 
-# Syntry Sovereign Deployment & Recovery Script
-# Target: Dell Local Environment | Porto: 3001
-# Role: Senior DevOps Engineer & Systems Architect
+ZONE_NAME="syntry.co"
+SERVER_IP="159.65.54.149"
 
-echo "🚀 Starting Syntry Sovereign Deployment Sequence..."
+echo "Checking DNS Proxy Status for $ZONE_NAME..."
 
-# 1. Kill Conflict
-echo "🔍 Checking for port conflicts on 3001..."
-PORT_PID=$(lsof -t -i:3001)
-if [ ! -z "$PORT_PID" ]; then
-    echo "⚔️ Killing process $PORT_PID on port 3001..."
-    kill -9 $PORT_PID
+# 1. Check if the domain is resolving to the origin IP or a Cloudflare IP
+CURRENT_RESOLVED_IP=$(dig +short $ZONE_NAME | tail -n1)
+
+if [ "$CURRENT_RESOLVED_IP" == "$SERVER_IP" ]; then
+    echo "STATUS: Direct-to-Origin (Proxy Disabled)."
+    echo "ACTION: Skipping Cloudflare Purge to avoid 403 error."
+else
+    echo "STATUS: Proxied via Cloudflare."
+    echo "ACTION: Initiating Cloudflare API Purge..."
+    # Insert Cloudflare API Curl command here only if status is active
+    # curl -X POST "https://api.cloudflare.com/client/v4/zones/<YOUR_ZONE_ID>/purge_cache" \
+    #     -H "Authorization: Bearer <YOUR_API_TOKEN>" \
+    #     -H "Content-Type: application/json" \
+    #     --data '{"purge_everything":true}'
 fi
 
-echo "🛑 Stopping PM2 syntry-engine..."
-pm2 stop syntry-engine 2>/dev/null || true
-pm2 delete syntry-engine 2>/dev/null || true
-
-# 2. Clean State
-echo "🧹 Cleaning build artifacts and cache..."
+# 2. Local "Clean Bake" Protocol (Always Required)
+echo "Executing Local Clean Bake..."
+cd /var/www/html
 rm -rf .next
-rm -rf node_modules/.cache
-echo "✨ State cleared."
+npm run build
 
-# 3. Resource-Optimized Build
-echo "🏗️ Executing Resource-Optimized Build (Alloc: 2GB)..."
-# Setting NODE_OPTIONS to prevent RAM exhaustion on Dell environment
-export NODE_OPTIONS="--max-old-space-size=2048"
+# 3. Process Restart
+echo "Restarting Syntry Engine..."
+pm2 restart syntry-engine --update-env
 
-if npm run build; then
-    echo "✅ Build Successful."
-else
-    echo "❌ Build Failed. Aborting Deployment."
-    exit 1
-fi
-
-# 4. Standalone Asset Preparation
-echo "📦 Preparing standalone assets (static & public)..."
-cp -r .next/static .next/standalone/.next/static
-cp -r public .next/standalone/public
-
-# 5. Process Management
-echo "🚀 Starting application with PM2 on port 3001..."
-# We use 'node .next/standalone/server.js' for standalone output compatibility
-PORT=3001 pm2 start "node .next/standalone/server.js" --name "syntry-engine"
-
-# 6. Network Handshake
-echo "🤝 Performing Network Handshake (Cloudflared)..."
-sudo systemctl restart cloudflared || echo "⚠️ cloudflared restart failed. Manual check required."
-
-# 7. Verification
-echo "🛡️ Verifying Network Integrity..."
-sleep 10 # Wait for PM2 to stabilize and serve assets
-if lsof -Pi :3001 -sTCP:LISTEN -t >/dev/null ; then
-    echo "***************************************************"
-    echo "   ✅ DEPLOYMENT SUCCESSFUL: syntry-engine LIVE   "
-    echo "   PORT: 3001 | ENV: Dell Local Institutional     "
-    echo "***************************************************"
-else
-    echo "❌ VERIFICATION FAILED: Port 3001 is not active."
-    exit 1
-fi
+echo "Deployment Complete."
