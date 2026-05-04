@@ -7,7 +7,7 @@ const app = express();
 app.use(cors({ origin: ['https://www.syntry.co', 'https://syntry.co'] }));
 app.use(express.json());
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
 
 app.get('/api/status', (req, res) => {
   res.json({ status: 'Sovereign Node Active', version: '1.0.5-SENTINEL' });
