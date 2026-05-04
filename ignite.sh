@@ -8,9 +8,9 @@ git pull origin main
 npm install
 npm run build
 
-# Clear port 3001 and restart via PM2
-sudo fuser -k 3001/tcp 2>/dev/null || true
+# Clear port 3000 and restart via PM2
+sudo fuser -k 3000/tcp 2>/dev/null || true
 pm2 delete syntry-engine 2>/dev/null || true
-pm2 start npm --name "syntry-engine" -- start -- -p 3001
+pm2 start npm --name "syntry-engine" -- start
 
-echo "✅ Deployment Successful. Syntry is live on Port 3001."
+echo "✅ Deployment Successful. Syntry is live on Port 3000."
