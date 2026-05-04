@@ -1,14 +1,24 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
 import existingPolygons from '@/lib/existing-polygons.json';
 import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import * as turf from '@turf/turf';
+import { 
+  intersect, 
+  area, 
+  centroid, 
+  booleanPointInPolygon, 
+  featureCollection, 
+  lineString, 
+  point, 
+  nearestPointOnLine 
+} from '@turf/turf';
+
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 
-// Greater Accra Bounding Box (Enhanced for Syntry Guard)
+// Greater Accra Bounding Box
 const GREATER_ACCRA_BOUNDS = {
   minLat: 5.45,
   maxLat: 6.10,
@@ -16,39 +26,55 @@ const GREATER_ACCRA_BOUNDS = {
   maxLng: 0.70
 };
 
-// Mock Simulated Physical Edge Network (Walls, Fences, Roads extracted from Satellite)
-const MOCK_PHYSICAL_BOUNDARIES = turf.featureCollection([
-   turf.lineString([[ -0.35, 5.65 ], [ -0.25, 5.65 ]]),
-   turf.lineString([[ -0.25, 5.65 ], [ -0.25, 5.75 ]]),
-   turf.lineString([[ -0.15, 5.60 ], [ -0.10, 5.60 ]]),
-   turf.lineString([[ -0.1870, 5.6037 ], [ -0.1860, 5.6040 ]]), // Example boundary near default coordinate
-   turf.lineString([[ -0.1860, 5.6040 ], [ -0.1860, 5.6030 ]])
+// Mock Physical Boundaries
+const MOCK_PHYSICAL_BOUNDARIES = featureCollection([
+   lineString([[ -0.35, 5.65 ], [ -0.25, 5.65 ]]),
+   lineString([[ -0.25, 5.65 ], [ -0.25, 5.75 ]]),
+   lineString([[ -0.15, 5.60 ], [ -0.10, 5.60 ]]),
+   lineString([[ -0.1870, 5.6037 ], [ -0.1860, 5.6040 ]]),
+   lineString([[ -0.1860, 5.6040 ], [ -0.1860, 5.6030 ]])
 ]);
 
 const MapResizer = () => {
   const map = useMap();
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       map.invalidateSize();
     }, 500);
+    return () => clearTimeout(timer);
   }, [map]);
   return null;
 };
 
 const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidated, initialPos = [5.6037, -0.1870] }) => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [EditControlComponent, setEditControlComponent] = useState(null);
+  const [EditControl, setEditControl] = useState(null);
+  const [leafletLoaded, setLeafletLoaded] = useState(false);
   
+  // Safe Coordinate Parsing
+  const safeLat = parseFloat(initialPos[0]) || 5.6037;
+  const safeLng = parseFloat(initialPos[1]) || -0.1870;
+
   useEffect(() => {
-    setHasMounted(true);
-    // Bulletproof runtime Leaflet injection
     if (typeof window !== 'undefined') {
+      setHasMounted(true);
       window.L = L;
-      import('leaflet-draw').then(() => {
-        import('react-leaflet-draw').then(({ EditControl }) => {
-          setEditControlComponent(() => EditControl);
-        });
-      }).catch(err => console.error("Leaflet Draw Error:", err));
+      
+      const loadDraw = async () => {
+        try {
+          // 1. Load the Draw plugin (modifies global L)
+          await import('leaflet-draw');
+          // 2. Load the React wrapper
+          const ReactLeafletDraw = await import('react-leaflet-draw');
+          setEditControl(() => ReactLeafletDraw.EditControl);
+          setLeafletLoaded(true);
+          console.log("Syntry Map: Sovereign Draw Protocol Initialized.");
+        } catch (err) {
+          console.error("Syntry Map: Draw Module Handshake Failed:", err);
+        }
+      };
+
+      loadDraw();
     }
   }, []);
 
@@ -90,13 +116,14 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
 
     existingPolygons.features.forEach(neighbor => {
       try {
-        const intersection = turf.intersect(turf.featureCollection([geojsonToTest, neighbor]));
-        if (intersection) {
-          const overlapArea = turf.area(intersection);
+        // Turf v7: intersect takes a FeatureCollection of 2 features
+        const collision = intersect(featureCollection([geojsonToTest, neighbor]));
+        if (collision) {
+          const overlapArea = area(collision);
           const percentOverlap = (overlapArea / calcArea) * 100;
           if (percentOverlap > 0.5) {
              conflicts.push({
-               id: neighbor.properties.id,
+               id: neighbor.properties.id || 'Neighboring Plot',
                areaSqM: overlapArea.toFixed(2),
                percent: percentOverlap.toFixed(2)
              });
@@ -104,7 +131,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
           }
         }
       } catch (err) {
-         console.warn('Intersection check error:', err);
+         console.warn('Syntry Forensic: Intersection check skipped for layer:', err);
       }
     });
 
@@ -119,12 +146,12 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   };
 
   const checkGeofence = (lat, lng) => {
-    const isInside = 
+    return (
       lat >= GREATER_ACCRA_BOUNDS.minLat && 
       lat <= GREATER_ACCRA_BOUNDS.maxLat && 
       lng >= GREATER_ACCRA_BOUNDS.minLng && 
-      lng <= GREATER_ACCRA_BOUNDS.maxLng;
-    return isInside;
+      lng <= GREATER_ACCRA_BOUNDS.maxLng
+    );
   };
 
   const _onCreate = (e) => {
@@ -134,22 +161,19 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       setIsSnapped(false);
       const geojson = layer.toGeoJSON();
       
-      // Calculate Area via Turf
-      const calculatedArea = turf.area(geojson); // SQ Meters
+      const calculatedArea = area(geojson); 
       const aSqM = calculatedArea.toFixed(2);
       const aAcres = (calculatedArea * 0.000247105).toFixed(2);
       
-      // Verify Centroid Node against Neighborhoods
-      const centroid = turf.centroid(geojson);
+      const polyCentroid = centroid(geojson);
       let validNeighborhood = null;
       neighborhoodBounds.features.forEach(feature => {
-        if (turf.booleanPointInPolygon(centroid, feature)) {
+        if (booleanPointInPolygon(polyCentroid, feature)) {
           validNeighborhood = feature.properties.name;
         }
       });
       setCentroidNode(validNeighborhood);
       
-      // Verify Geofence (Accra Guard)
       const coords = geojson.geometry.coordinates[0];
       let outOfBounds = false;
       coords.forEach(coord => {
@@ -173,17 +197,16 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   };
 
   const _onEdited = (e) => {
-    // Similar logic for edits
     e.layers.eachLayer(layer => {
       const geojson = layer.toGeoJSON();
-      const calculatedArea = turf.area(geojson);
+      const calculatedArea = area(geojson);
       const aSqM = calculatedArea.toFixed(2);
       const aAcres = (calculatedArea * 0.000247105).toFixed(2);
 
-      const centroid = turf.centroid(geojson);
+      const polyCentroid = centroid(geojson);
       let validNeighborhood = null;
       neighborhoodBounds.features.forEach(feature => {
-        if (turf.booleanPointInPolygon(centroid, feature)) {
+        if (booleanPointInPolygon(polyCentroid, feature)) {
           validNeighborhood = feature.properties.name;
         }
       });
@@ -203,15 +226,13 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
      const geojson = activeLayer.toGeoJSON();
      const oldCoords = geojson.geometry.coordinates[0];
      
-     // Pull vertices to geometric edges
      const snappedCoords = oldCoords.map(coord => {
-        const pt = turf.point(coord);
+        const pt = point(coord);
         let nearestPt = null;
         let minDist = Infinity;
         
         MOCK_PHYSICAL_BOUNDARIES.features.forEach(line => {
-           const snapped = turf.nearestPointOnLine(line, pt);
-           // We are doing a 2km distance threshold for snapping validation testing
+           const snapped = nearestPointOnLine(line, pt);
            if (snapped.properties.dist < minDist && snapped.properties.dist < 2) {
               minDist = snapped.properties.dist;
               nearestPt = snapped;
@@ -221,23 +242,18 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
         return nearestPt ? nearestPt.geometry.coordinates : coord;
      });
      
-     // Push modifications via leafet standard
      geojson.geometry.coordinates = [snappedCoords];
      const latlngs = snappedCoords.map(c => [c[1], c[0]]);
      activeLayer.setLatLngs(latlngs);
-     activeLayer.setStyle({ color: '#D4AF37', fillColor: '#D4AF37', weight: 3 }); // Relic Gold snap styling
+     activeLayer.setStyle({ color: '#D4AF37', fillColor: '#D4AF37', weight: 3 }); 
      setIsSnapped(true);
 
-     // Refresh calculations for Truth Guard
-     const calculatedArea = turf.area(geojson);
+     const calculatedArea = area(geojson);
      const aSqM = calculatedArea.toFixed(2);
      const aAcres = (calculatedArea * 0.000247105).toFixed(2);
      
      const hasEncroachment = handleCollisions(geojson, calculatedArea, activeLayer);
-     if (hasEncroachment) {
-        // Red style already applied by handleCollisions overriding gold
-        setIsSnapped(false); // Consider snap invalid if it hits an encroachment
-     }
+     if (hasEncroachment) setIsSnapped(false);
 
      setAreaInAcres(aAcres);
      setAreaInSqMeters(aSqM);
@@ -248,7 +264,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   return (
     <div className="relative w-full h-full">
       <MapContainer 
-        center={[parseFloat(initialPos[0]) || 5.6037, parseFloat(initialPos[1]) || -0.1870]} 
+        center={[safeLat, safeLng]} 
         zoom={13} 
         className="w-full h-full rounded-2xl z-10"
         scrollWheelZoom={true}
@@ -258,8 +274,8 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
         <FeatureGroup>
-          {EditControlComponent && (
-            <EditControlComponent
+          {leafletLoaded && EditControl && (
+            <EditControl
               position="topright"
               onCreated={_onCreate}
               onEdited={_onEdited}
@@ -323,9 +339,6 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
                      <div className="mt-3 bg-slate-900 border border-slate-700 p-2 rounded-lg text-[9px]">
                         <p className="text-[#0D9488] font-medium">✓ Report Filed Securely</p>
                         <p className="text-slate-400 mt-1">Hash: <span className="text-white">{whistleblowerSuccess.disputeHash.substring(0, 16)}...</span></p>
-                        {whistleblowerSuccess.emailPreviewUrl && (
-                           <a href={whistleblowerSuccess.emailPreviewUrl} target="_blank" className="text-[#D4AF37] underline mt-1 block">View Official Compliance Email</a>
-                        )}
                      </div>
                    )}
                </div>
