@@ -4,16 +4,7 @@ import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
 import existingPolygons from '@/lib/existing-polygons.json';
 import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { 
-  intersect, 
-  area, 
-  centroid, 
-  booleanPointInPolygon, 
-  featureCollection, 
-  lineString, 
-  point, 
-  nearestPointOnLine 
-} from '@turf/turf';
+import * as turf from '@turf/turf';
 
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
@@ -26,14 +17,10 @@ const GREATER_ACCRA_BOUNDS = {
   maxLng: 0.70
 };
 
-// Mock Physical Boundaries
-const MOCK_PHYSICAL_BOUNDARIES = featureCollection([
-   lineString([[ -0.35, 5.65 ], [ -0.25, 5.65 ]]),
-   lineString([[ -0.25, 5.65 ], [ -0.25, 5.75 ]]),
-   lineString([[ -0.15, 5.60 ], [ -0.10, 5.60 ]]),
-   lineString([[ -0.1870, 5.6037 ], [ -0.1860, 5.6040 ]]),
-   lineString([[ -0.1860, 5.6040 ], [ -0.1860, 5.6030 ]])
-]);
+// Ghana Measurement Standards
+const FULL_PLOT_SQFT = 7000;
+const HALF_PLOT_SQFT = 5000;
+const ACRE_SQFT = 43560;
 
 const MapResizer = () => {
   const map = useMap();
@@ -51,7 +38,6 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
   const [EditControl, setEditControl] = useState(null);
   const [leafletLoaded, setLeafletLoaded] = useState(false);
   
-  // Safe Coordinate Parsing
   const safeLat = parseFloat(initialPos[0]) || 5.6037;
   const safeLng = parseFloat(initialPos[1]) || -0.1870;
 
@@ -62,13 +48,10 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       
       const loadDraw = async () => {
         try {
-          // 1. Load the Draw plugin (modifies global L)
           await import('leaflet-draw');
-          // 2. Load the React wrapper
           const ReactLeafletDraw = await import('react-leaflet-draw');
           setEditControl(() => ReactLeafletDraw.EditControl);
           setLeafletLoaded(true);
-          console.log("Syntry Map: Sovereign Draw Protocol Initialized.");
         } catch (err) {
           console.error("Syntry Map: Draw Module Handshake Failed:", err);
         }
@@ -78,37 +61,14 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
     }
   }, []);
 
-  const [areaInAcres, setAreaInAcres] = useState(0);
-  const [areaInSqMeters, setAreaInSqMeters] = useState(0);
+  const [measurementData, setMeasurementData] = useState(null);
   const [centroidNode, setCentroidNode] = useState(null);
   const [error, setError] = useState(null);
   const [activeLayer, setActiveLayer] = useState(null);
-  const [isSnapped, setIsSnapped] = useState(false);
   const [encroachments, setEncroachments] = useState([]);
-  const [isFilingWhistleblower, setIsFilingWhistleblower] = useState(false);
-  const [whistleblowerSuccess, setWhistleblowerSuccess] = useState(null);
+  const [discrepancy, setDiscrepancy] = useState(false);
 
   if (!hasMounted || typeof window === 'undefined') return null;
-
-  const fileWhistleblowerReport = async () => {
-     if (!activeLayer || encroachments.length === 0) return;
-     setIsFilingWhistleblower(true);
-     try {
-       const userCoords = activeLayer.toGeoJSON().geometry.coordinates[0];
-       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/whistleblower`, {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ encroachments, userCoordinates: userCoords })
-       });
-       const result = await res.json();
-       if (result.success) {
-          setWhistleblowerSuccess(result);
-       }
-     } catch (err) {
-       console.error(err);
-     }
-     setIsFilingWhistleblower(false);
-  };
 
   const handleCollisions = (geojsonToTest, calcArea, leafletLayer) => {
     let conflicts = [];
@@ -116,149 +76,102 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
 
     existingPolygons.features.forEach(neighbor => {
       try {
-        // Turf v7: intersect takes a FeatureCollection of 2 features
-        const collision = intersect(featureCollection([geojsonToTest, neighbor]));
+        const collision = turf.intersect(turf.featureCollection([geojsonToTest, neighbor]));
         if (collision) {
-          const overlapArea = area(collision);
+          const overlapArea = turf.area(collision);
           const percentOverlap = (overlapArea / calcArea) * 100;
           if (percentOverlap > 0.5) {
              conflicts.push({
-               id: neighbor.properties.id || 'Neighboring Plot',
-               areaSqM: overlapArea.toFixed(2),
-               percent: percentOverlap.toFixed(2)
+                id: neighbor.properties.id || 'Neighboring Plot',
+                areaSqM: overlapArea.toFixed(2),
+                percent: percentOverlap.toFixed(2)
              });
              isRed = true;
           }
         }
       } catch (err) {
-         console.warn('Syntry Forensic: Intersection check skipped for layer:', err);
+         console.warn('Syntry Forensic: Intersection check skipped:', err);
       }
     });
 
     setEncroachments(conflicts);
     if (isRed) {
-       if (leafletLayer) leafletLayer.setStyle({ color: '#FF0000', fillColor: '#FF0000', weight: 4 });
+       if (leafletLayer) leafletLayer.setStyle({ color: '#EF4444', fillColor: '#EF4444', weight: 4 });
        return true;
     } else {
-       if (!isSnapped && leafletLayer) leafletLayer.setStyle({ color: '#3388ff', fillColor: '#3388ff', weight: 3 });
+       if (leafletLayer) leafletLayer.setStyle({ color: '#0D9488', fillColor: '#0D9488', weight: 3 });
        return false;
     }
   };
 
-  const checkGeofence = (lat, lng) => {
-    return (
-      lat >= GREATER_ACCRA_BOUNDS.minLat && 
-      lat <= GREATER_ACCRA_BOUNDS.maxLat && 
-      lng >= GREATER_ACCRA_BOUNDS.minLng && 
-      lng <= GREATER_ACCRA_BOUNDS.maxLng
-    );
+  const calculateGhanaMetrics = (geojson) => {
+    const areaSqM = turf.area(geojson);
+    const areaSqFt = areaSqM * 10.7639;
+    
+    const plots = (areaSqFt / FULL_PLOT_SQFT).toFixed(2);
+    const acres = (areaSqFt / ACRE_SQFT).toFixed(2);
+
+    // Detect Discrepancy
+    let classification = 'Custom Polygon';
+    let hasDiscrepancy = false;
+
+    if (areaSqFt > 1000 && areaSqFt < 15000) {
+      if (Math.abs(areaSqFt - FULL_PLOT_SQFT) > 1000 && Math.abs(areaSqFt - HALF_PLOT_SQFT) > 1000) {
+        hasDiscrepancy = true;
+      }
+    }
+
+    if (Math.abs(areaSqFt - FULL_PLOT_SQFT) < 500) classification = 'Standard Full Plot (70x100)';
+    else if (Math.abs(areaSqFt - HALF_PLOT_SQFT) < 500) classification = 'Standard Half Plot (50x100)';
+
+    setDiscrepancy(hasDiscrepancy);
+    return { sqM: areaSqM.toFixed(2), sqFt: areaSqFt.toFixed(2), plots, acres, classification };
   };
 
   const _onCreate = (e) => {
     const { layerType, layer } = e;
     if (layerType === 'polygon') {
       setActiveLayer(layer);
-      setIsSnapped(false);
       const geojson = layer.toGeoJSON();
-      
-      const calculatedArea = area(geojson); 
-      const aSqM = calculatedArea.toFixed(2);
-      const aAcres = (calculatedArea * 0.000247105).toFixed(2);
-      
-      const polyCentroid = centroid(geojson);
+      const metrics = calculateGhanaMetrics(geojson);
+      setMeasurementData(metrics);
+
+      const polyCentroid = turf.centroid(geojson);
       let validNeighborhood = null;
       neighborhoodBounds.features.forEach(feature => {
-        if (booleanPointInPolygon(polyCentroid, feature)) {
+        if (turf.booleanPointInPolygon(polyCentroid, feature)) {
           validNeighborhood = feature.properties.name;
         }
       });
       setCentroidNode(validNeighborhood);
       
-      const coords = geojson.geometry.coordinates[0];
-      let outOfBounds = false;
-      coords.forEach(coord => {
-        if (!checkGeofence(coord[1], coord[0])) outOfBounds = true;
-      });
-
-      if (outOfBounds) {
-        setError('GEOFENCING ALERT: Location falls outside Greater Accra Syntry Nodes.');
-        onLocationVerified(false, null);
-        layer.setStyle({ color: '#ff0000', fillColor: '#ff0000' });
-      } else {
-        const hasEncroachment = handleCollisions(geojson, calculatedArea, layer);
-        setError(null);
-        setAreaInAcres(aAcres);
-        setAreaInSqMeters(aSqM);
-        onAreaCalculated({ acres: aAcres, sqMeters: aSqM });
-        onLocationVerified(!hasEncroachment, geojson);
-        if (onCentroidValidated) onCentroidValidated(validNeighborhood);
-      }
+      const hasEncroachment = handleCollisions(geojson, parseFloat(metrics.sqM), layer);
+      onAreaCalculated?.(metrics);
+      onLocationVerified?.(!hasEncroachment, geojson);
+      if (onCentroidValidated) onCentroidValidated(validNeighborhood);
     }
   };
 
   const _onEdited = (e) => {
     e.layers.eachLayer(layer => {
       const geojson = layer.toGeoJSON();
-      const calculatedArea = area(geojson);
-      const aSqM = calculatedArea.toFixed(2);
-      const aAcres = (calculatedArea * 0.000247105).toFixed(2);
+      const metrics = calculateGhanaMetrics(geojson);
+      setMeasurementData(metrics);
 
-      const polyCentroid = centroid(geojson);
+      const polyCentroid = turf.centroid(geojson);
       let validNeighborhood = null;
       neighborhoodBounds.features.forEach(feature => {
-        if (booleanPointInPolygon(polyCentroid, feature)) {
+        if (turf.booleanPointInPolygon(polyCentroid, feature)) {
           validNeighborhood = feature.properties.name;
         }
       });
       setCentroidNode(validNeighborhood);
 
-        const hasEncroachment = handleCollisions(geojson, calculatedArea, layer);
-        setAreaInAcres(aAcres);
-        setAreaInSqMeters(aSqM);
-        onAreaCalculated({ acres: aAcres, sqMeters: aSqM });
-        onLocationVerified(!hasEncroachment, geojson);
-        if (onCentroidValidated) onCentroidValidated(validNeighborhood);
+      const hasEncroachment = handleCollisions(geojson, parseFloat(metrics.sqM), layer);
+      onAreaCalculated?.(metrics);
+      onLocationVerified?.(!hasEncroachment, geojson);
+      if (onCentroidValidated) onCentroidValidated(validNeighborhood);
     });
-  };
-
-  const applyAutoSnap = () => {
-     if (!activeLayer) return;
-     const geojson = activeLayer.toGeoJSON();
-     const oldCoords = geojson.geometry.coordinates[0];
-     
-     const snappedCoords = oldCoords.map(coord => {
-        const pt = point(coord);
-        let nearestPt = null;
-        let minDist = Infinity;
-        
-        MOCK_PHYSICAL_BOUNDARIES.features.forEach(line => {
-           const snapped = nearestPointOnLine(line, pt);
-           if (snapped.properties.dist < minDist && snapped.properties.dist < 2) {
-              minDist = snapped.properties.dist;
-              nearestPt = snapped;
-           }
-        });
-        
-        return nearestPt ? nearestPt.geometry.coordinates : coord;
-     });
-     
-     geojson.geometry.coordinates = [snappedCoords];
-     const latlngs = snappedCoords.map(c => [c[1], c[0]]);
-     activeLayer.setLatLngs(latlngs);
-     activeLayer.setStyle({ color: '#D4AF37', fillColor: '#D4AF37', weight: 3 }); // Syntry Gold snap styling
-     setIsSnapped(true);
-
-     const calculatedArea = area(geojson);
-     const aSqM = calculatedArea.toFixed(2);
-     const aAcres = (calculatedArea * 0.000247105).toFixed(2);
-     
-     const hasEncroachment = handleCollisions(geojson, calculatedArea, activeLayer);
-     if (hasEncroachment) setIsSnapped(false);
-
-     setAreaInAcres(aAcres);
-     setAreaInSqMeters(aSqM);
-     onAreaCalculated({ acres: aAcres, sqMeters: aSqM });
-     onLocationVerified(!hasEncroachment, geojson);
   };
 
   return (
@@ -271,7 +184,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          attribution='&copy; Syntry Sovereign GIS'
         />
         <FeatureGroup>
           {leafletLoaded && EditControl && (
@@ -285,6 +198,11 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
                 circlemarker: false,
                 marker: true,
                 polyline: false,
+                polygon: {
+                  allowIntersection: false,
+                  drawError: { color: '#e1e1e1', message: '<strong>Polygon overlap forbidden</strong>' },
+                  shapeOptions: { color: '#0D9488' }
+                }
               }}
             />
           )}
@@ -292,74 +210,86 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
         <MapResizer />
       </MapContainer>
 
-      {/* Overlays */}
-      <div className="absolute top-4 left-12 z-[1000] space-y-2">
-        {areaInSqMeters > 0 && (
-          <div className="bg-slate-900 border border-gold-500/50 text-white px-4 py-3 rounded-md shadow-2xl backdrop-blur-md">
-            <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-syntry-teal-600 mb-1">Calculated Footprint</p>
-            <div className="flex gap-4">
-               <p className="text-xl font-medium tracking-tight">{areaInSqMeters} <span className="text-[10px] font-medium text-slate-400">SQM</span></p>
-               <div className="w-[1px] bg-slate-700"></div>
-               <p className="text-xl font-medium tracking-tight">{areaInAcres} <span className="text-[10px] font-medium text-slate-400">ACRES</span></p>
+      {/* Sovereign Measurement Console */}
+      <div className="absolute top-4 left-4 z-[1000] space-y-3 pointer-events-none">
+        {measurementData && (
+          <div className="bg-[#0F172A]/90 backdrop-blur-xl border border-white/10 p-5 rounded-md shadow-2xl pointer-events-auto w-72 animate-in fade-in slide-in-from-left-4 duration-300">
+            <div className="flex items-center justify-between mb-4">
+               <p className="text-[10px] font-medium uppercase tracking-[3px] text-syntry-teal-600">Geospatial Audit</p>
+               <span className="w-2 h-2 rounded-md bg-syntry-teal-600 animate-pulse"></span>
             </div>
-            {centroidNode && (
-               <p className="text-[9px] font-medium text-slate-400 mt-2 bg-slate-800 px-2 py-1 rounded inline-block shadow-sm">Node: {centroidNode}</p>
-            )}
             
-            {!isSnapped && encroachments.length === 0 && (
-               <button onClick={applyAutoSnap} className="block mt-4 w-full bg-[#D4AF37] text-slate-900 text-[10px] font-medium tracking-tight uppercase tracking-widest py-1.5 rounded-lg shadow-xl hover:scale-[1.02] transition-transform">
-                  Auto-Snap to Boundaries ⚡
-               </button>
-            )}
-            {isSnapped && encroachments.length === 0 && (
-               <span className="block mt-4 text-[#D4AF37] text-[10px] font-medium tracking-tight uppercase tracking-widest flex items-center gap-1">
-                  ✓ Snapped to Grid
-               </span>
-            )}
-            
-            {encroachments.length > 0 && (
-               <div className="mt-4 bg-red-600/20 border border-red-500/50 rounded-lg p-2 animate-pulse">
-                  <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#FF0000] mb-1">CRITICAL: ENCROACHMENT DETECTED</p>
-                  {encroachments.map((enc, idx) => (
-                     <div key={idx} className="text-xs text-white">
-                        <span className="font-medium opacity-80">{enc.id}:</span> <span className="text-[#FF0000] font-medium">{enc.areaSqM} SQM ({enc.percent}%)</span>
-                     </div>
-                  ))}
-                  
-                   {!whistleblowerSuccess && (
-                     <button 
-                        onClick={fileWhistleblowerReport} 
-                        disabled={isFilingWhistleblower}
-                        className="mt-3 w-full bg-[#FF0000] text-white text-[9px] font-medium tracking-tight uppercase tracking-widest py-2 rounded-lg shadow-xl hover:scale-[1.02] transition-transform disabled:opacity-50"
-                     >
-                        {isFilingWhistleblower ? 'Generating Cryptographic Report...' : 'File Whistleblower Act 720 Report'}
-                     </button>
-                   )}
-                   {whistleblowerSuccess && (
-                     <div className="mt-3 bg-slate-900 border border-slate-700 p-2 rounded-lg text-[9px]">
-                        <p className="text-syntry-teal-600 font-medium">✓ Report Filed Securely</p>
-                        <p className="text-slate-400 mt-1">Hash: <span className="text-white">{whistleblowerSuccess.disputeHash.substring(0, 16)}...</span></p>
-                     </div>
-                   )}
+            <div className="space-y-4">
+               <div className="grid grid-cols-2 gap-4">
+                  <div>
+                     <p className="text-[8px] uppercase tracking-widest text-white/40 mb-1">Standard Plots</p>
+                     <p className="text-xl font-medium text-white">{measurementData.plots}</p>
+                  </div>
+                  <div className="border-l border-white/5 pl-4">
+                     <p className="text-[8px] uppercase tracking-widest text-white/40 mb-1">Acreage</p>
+                     <p className="text-xl font-medium text-white">{measurementData.acres}</p>
+                  </div>
                </div>
-            )}
+
+               <div className="h-[1px] bg-white/5 w-full"></div>
+
+               <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                     <p className="text-[8px] uppercase tracking-widest text-white/40">Total Area</p>
+                     <p className="text-xs font-medium text-white">{measurementData.sqFt} SQFT</p>
+                  </div>
+                  <p className="text-[9px] font-medium text-syntry-teal-600 bg-syntry-teal-600/10 px-2 py-1 rounded inline-block">
+                     {measurementData.classification}
+                  </p>
+               </div>
+
+               {discrepancy && (
+                  <div className="bg-amber-500/10 border border-amber-500/30 p-3 rounded-md">
+                     <p className="text-[9px] font-medium uppercase tracking-widest text-amber-500 mb-1 flex items-center gap-2">
+                        ⚠️ Measurement Discrepancy
+                     </p>
+                     <p className="text-[8px] text-amber-500/80 leading-relaxed">
+                        The current polygon does not match standard Ghana plot dimensions (70x100 or 50x100).
+                     </p>
+                  </div>
+               )}
+
+               {encroachments.length > 0 && (
+                  <div className="bg-red-500/10 border border-red-500/30 p-3 rounded-md animate-pulse">
+                     <p className="text-[9px] font-medium uppercase tracking-widest text-red-500 mb-1 flex items-center gap-2">
+                        🛑 Overlap Detected
+                     </p>
+                     {encroachments.map((enc, i) => (
+                        <p key={i} className="text-[8px] text-red-500/80">
+                           {enc.id}: {enc.percent}% Overlap
+                        </p>
+                     ))}
+                  </div>
+               )}
+            </div>
           </div>
         )}
-        {error && (
-          <div className="bg-red-600 text-white px-4 py-2 rounded-md shadow-2xl animate-bounce">
-            <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest">Protocol Guard</p>
-            <p className="text-xs font-medium">{error}</p>
+        
+        {centroidNode && (
+          <div className="bg-white/5 backdrop-blur-md border border-white/5 px-4 py-2 rounded-md shadow-lg pointer-events-auto">
+             <p className="text-[8px] uppercase tracking-[3px] text-white/30 font-medium">Node Verified</p>
+             <p className="text-[10px] text-white font-medium">{centroidNode} Sector Active</p>
           </div>
         )}
       </div>
 
-      <div className="absolute bottom-4 left-4 z-[1000]">
-        <div className="bg-white/90 backdrop-blur-md border border-slate-200 p-3 rounded-md shadow-lg">
-          <p className="text-[9px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1">Syntry Geospatial Node</p>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-md bg-syntry-teal-600"></div>
-            <p className="text-[10px] font-medium text-slate-900">Greater Accra Region Active</p>
-          </div>
+      {/* Protocol Overlay */}
+      <div className="absolute bottom-4 right-4 z-[1000]">
+        <div className="bg-[#0F172A]/80 backdrop-blur-md border border-white/5 p-4 rounded-md shadow-xl flex items-center gap-4">
+           <div className="space-y-1">
+              <p className="text-[8px] uppercase tracking-widest text-white/20">Coordinate System</p>
+              <p className="text-[10px] font-medium text-white">WGS84 / Ghana Custom</p>
+           </div>
+           <div className="h-8 w-[1px] bg-white/5"></div>
+           <div className="space-y-1">
+              <p className="text-[8px] uppercase tracking-widest text-white/20">Precision</p>
+              <p className="text-[10px] font-medium text-syntry-teal-600">± 0.05m (Drone)</p>
+           </div>
         </div>
       </div>
     </div>

@@ -1,29 +1,60 @@
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import * as turf from '@turf/turf';
 
 /**
- * Task 2: /api/land/identify Endpoint
- * Logic: Reverse identification based on GPS coordinates.
- * Simulates Point-in-Polygon logic with a 0.0005 degree proximity (approx ~50m) 
- * for Syntry Parcel identification on localhost.
+ * SYNTRY Geospatial Engine: Land Identification & Validation
+ * Logic: Reverse identification + Ghana Standard Measurement Audit
  */
 export async function POST(request) {
   try {
-    const { lat, lng } = await request.json();
+    const { lat, lng, polygon } = await request.json();
+
+    let measurementAudit = null;
+
+    // 1. Ghana Standard Measurement Audit (Turf.js)
+    if (polygon) {
+      const geojson = { type: 'Feature', geometry: polygon, properties: {} };
+      const areaSqM = turf.area(geojson);
+      const areaSqFt = areaSqM * 10.7639;
+      
+      // Standard Constants
+      const FULL_PLOT_SQFT = 7000; // 70x100
+      const HALF_PLOT_SQFT = 5000; // 50x100
+      const ACRE_SQFT = 43560;
+
+      const plots = (areaSqFt / FULL_PLOT_SQFT).toFixed(2);
+      const acres = (areaSqFt / ACRE_SQFT).toFixed(2);
+
+      let classification = 'Custom Polygon';
+      let discrepancy = false;
+
+      if (Math.abs(areaSqFt - FULL_PLOT_SQFT) < 500) {
+        classification = 'Standard Full Plot (70x100)';
+      } else if (Math.abs(areaSqFt - HALF_PLOT_SQFT) < 500) {
+        classification = 'Standard Half Plot (50x100)';
+      } else if (Math.abs(areaSqFt - 10000) < 500) {
+        classification = 'Custom Plot (100x100)';
+      }
+
+      measurementAudit = {
+        sqM: areaSqM.toFixed(2),
+        sqFt: areaSqFt.toFixed(2),
+        plots,
+        acres,
+        classification,
+        discrepancy
+      };
+    }
 
     if (!lat || !lng) {
       return NextResponse.json({ error: 'GPS Node context missing' }, { status: 400 });
     }
 
-    // 1. Point-in-Polygon Query Simulator
-    // In production: SELECT * FROM plots WHERE ST_Contains(polygon, ST_SetSRID(ST_Point(lng, lat), 4326))
-    const { data: plots, error } = await supabaseAdmin
-      .from('plots')
-      .select('*');
-
+    // 2. Point-in-Polygon Query Simulator
+    const { data: plots, error } = await supabaseAdmin.from('plots').select('*');
     if (error) throw error;
 
-    // 2. Find closest plot within Syntry Corridors
     const radius = 0.0005; 
     const identifiedPlot = plots.find(p => 
       Math.abs(p.lat - lat) < radius && Math.abs(p.lng - lng) < radius
@@ -32,6 +63,7 @@ export async function POST(request) {
     if (!identifiedPlot) {
       return NextResponse.json({ 
         identified: false, 
+        measurementAudit,
         message: 'No Syntry Sovereign Plots detected at your location.' 
       });
     }
@@ -51,10 +83,12 @@ export async function POST(request) {
       is_disputed: mortgage?.litigation_status === 'dispute',
       interest_due: mortgage?.interest_due || 0,
       remaining_balance: mortgage?.remaining_balance || 0,
-      coordinates: { lat: identifiedPlot.lat, lng: identifiedPlot.lng }
+      coordinates: { lat: identifiedPlot.lat, lng: identifiedPlot.lng },
+      measurementAudit
     });
 
   } catch (error) {
+    console.error('Land Identification Error:', error);
     return NextResponse.json({ error: 'Sync failed with Land Node 08' }, { status: 500 });
   }
 }
