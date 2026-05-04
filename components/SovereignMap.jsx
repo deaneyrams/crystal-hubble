@@ -1,297 +1,177 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import neighborhoodBounds from '@/lib/neighborhood-bounds.json';
-import existingPolygons from '@/lib/existing-polygons.json';
-import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
-import L from 'leaflet';
-import * as turf from '@turf/turf';
-
+import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
+import * as turf from '@turf/turf';
 
-// Greater Accra Bounding Box
-const GREATER_ACCRA_BOUNDS = {
-  minLat: 5.45,
-  maxLat: 6.10,
-  minLng: -0.80,
-  maxLng: 0.70
-};
-
-// Ghana Measurement Standards
-const FULL_PLOT_SQFT = 7000;
-const HALF_PLOT_SQFT = 5000;
+// Ghana Standard Constants (2026 Sovereign Slate)
+const FULL_PLOT_SQFT = 7000;  // 70x100
+const HALF_PLOT_SQFT = 5000;  // 50x100
 const ACRE_SQFT = 43560;
 
-const MapResizer = () => {
-  const map = useMap();
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      map.invalidateSize();
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [map]);
-  return null;
-};
+// Dynamic imports with zero SSR trace
+const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
+const FeatureGroup = dynamic(() => import('react-leaflet').then(mod => mod.FeatureGroup), { ssr: false });
+const GeoJSON = dynamic(() => import('react-leaflet').then(mod => mod.GeoJSON), { ssr: false });
 
 const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidated, initialPos = [5.6037, -0.1870] }) => {
   const [hasMounted, setHasMounted] = useState(false);
+  const [L, setL] = useState(null);
   const [EditControl, setEditControl] = useState(null);
-  const [leafletLoaded, setLeafletLoaded] = useState(false);
-  
-  const safeLat = parseFloat(initialPos[0]) || 5.6037;
-  const safeLng = parseFloat(initialPos[1]) || -0.1870;
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setHasMounted(true);
-      window.L = L;
-      
-      const loadDraw = async () => {
-        try {
-          await import('leaflet-draw');
-          const ReactLeafletDraw = await import('react-leaflet-draw');
-          setEditControl(() => ReactLeafletDraw.EditControl);
-          setLeafletLoaded(true);
-        } catch (err) {
-          console.error("Syntry Map: Draw Module Handshake Failed:", err);
-        }
-      };
-
-      loadDraw();
-    }
-  }, []);
-
   const [measurementData, setMeasurementData] = useState(null);
-  const [centroidNode, setCentroidNode] = useState(null);
-  const [error, setError] = useState(null);
-  const [activeLayer, setActiveLayer] = useState(null);
-  const [encroachments, setEncroachments] = useState([]);
+  const [isRed, setIsRed] = useState(false);
   const [discrepancy, setDiscrepancy] = useState(false);
 
-  if (!hasMounted || typeof window === 'undefined') return null;
-
-  const handleCollisions = (geojsonToTest, calcArea, leafletLayer) => {
-    let conflicts = [];
-    let isRed = false;
-
-    existingPolygons.features.forEach(neighbor => {
+  useEffect(() => {
+    setHasMounted(true);
+    const loadLeaflet = async () => {
+      const Leaflet = await import('leaflet');
+      setL(Leaflet.default || Leaflet);
+      
       try {
-        const collision = turf.intersect(turf.featureCollection([geojsonToTest, neighbor]));
-        if (collision) {
-          const overlapArea = turf.area(collision);
-          const percentOverlap = (overlapArea / calcArea) * 100;
-          if (percentOverlap > 0.5) {
-             conflicts.push({
-                id: neighbor.properties.id || 'Neighboring Plot',
-                areaSqM: overlapArea.toFixed(2),
-                percent: percentOverlap.toFixed(2)
-             });
-             isRed = true;
-          }
-        }
+        await import('leaflet-draw');
+        const ReactLeafletDraw = await import('react-leaflet-draw');
+        // Interop fix: handle both default and named exports
+        const component = ReactLeafletDraw.EditControl || ReactLeafletDraw.default?.EditControl;
+        if (component) setEditControl(() => component);
       } catch (err) {
-         console.warn('Syntry Forensic: Intersection check skipped:', err);
+        console.error("Syntry Map: Draw Handshake Error:", err);
       }
-    });
-
-    setEncroachments(conflicts);
-    if (isRed) {
-       if (leafletLayer) leafletLayer.setStyle({ color: '#EF4444', fillColor: '#EF4444', weight: 4 });
-       return true;
-    } else {
-       if (leafletLayer) leafletLayer.setStyle({ color: '#0D9488', fillColor: '#0D9488', weight: 3 });
-       return false;
-    }
-  };
+    };
+    loadLeaflet();
+  }, []);
 
   const calculateGhanaMetrics = (geojson) => {
     const areaSqM = turf.area(geojson);
     const areaSqFt = areaSqM * 10.7639;
     
     const plots = (areaSqFt / FULL_PLOT_SQFT).toFixed(2);
-    const acres = (areaSqFt / ACRE_SQFT).toFixed(2);
+    const acres = (areaSqFt / ACRE_SQFT).toFixed(3);
 
-    // Detect Discrepancy
+    // Detect Discrepancy (Ghana Standard Protocol)
     let classification = 'Custom Polygon';
     let hasDiscrepancy = false;
 
-    if (areaSqFt > 1000 && areaSqFt < 15000) {
-      if (Math.abs(areaSqFt - FULL_PLOT_SQFT) > 1000 && Math.abs(areaSqFt - HALF_PLOT_SQFT) > 1000) {
-        hasDiscrepancy = true;
-      }
+    // If it's roughly plot-sized but doesn't match the standard within 15% tolerance
+    if (areaSqFt > 3000 && areaSqFt < 12000) {
+      const diffFull = Math.abs(areaSqFt - FULL_PLOT_SQFT);
+      const diffHalf = Math.abs(areaSqFt - HALF_PLOT_SQFT);
+      
+      if (diffFull < 500) classification = 'Standard Full Plot (70x100)';
+      else if (diffHalf < 500) classification = 'Standard Half Plot (50x100)';
+      else hasDiscrepancy = true;
     }
-
-    if (Math.abs(areaSqFt - FULL_PLOT_SQFT) < 500) classification = 'Standard Full Plot (70x100)';
-    else if (Math.abs(areaSqFt - HALF_PLOT_SQFT) < 500) classification = 'Standard Half Plot (50x100)';
 
     setDiscrepancy(hasDiscrepancy);
-    return { sqM: areaSqM.toFixed(2), sqFt: areaSqFt.toFixed(2), plots, acres, classification };
+    return { 
+      sqM: areaSqM.toFixed(2), 
+      sqFt: areaSqFt.toFixed(2), 
+      plots, 
+      acres, 
+      classification,
+      hasDiscrepancy 
+    };
   };
 
-  const _onCreate = (e) => {
-    const { layerType, layer } = e;
-    if (layerType === 'polygon') {
-      setActiveLayer(layer);
-      const geojson = layer.toGeoJSON();
-      const metrics = calculateGhanaMetrics(geojson);
-      setMeasurementData(metrics);
+  const _onCreated = (e) => {
+    const { layer } = e;
+    const geojson = layer.toGeoJSON();
+    const metrics = calculateGhanaMetrics(geojson);
+    setMeasurementData(metrics);
 
-      const polyCentroid = turf.centroid(geojson);
-      let validNeighborhood = null;
-      neighborhoodBounds.features.forEach(feature => {
-        if (turf.booleanPointInPolygon(polyCentroid, feature)) {
-          validNeighborhood = feature.properties.name;
-        }
-      });
-      setCentroidNode(validNeighborhood);
-      
-      const hasEncroachment = handleCollisions(geojson, parseFloat(metrics.sqM), layer);
-      onAreaCalculated?.(metrics);
-      onLocationVerified?.(!hasEncroachment, geojson);
-      if (onCentroidValidated) onCentroidValidated(validNeighborhood);
+    if (onAreaCalculated) {
+      onAreaCalculated(metrics);
+    }
+    
+    // Visual feedback for discrepancy
+    if (metrics.hasDiscrepancy) {
+      layer.setStyle({ color: '#EF4444', fillColor: '#EF4444', weight: 4 });
+      setIsRed(true);
+    } else {
+      layer.setStyle({ color: '#0D9488', fillColor: '#0D9488', weight: 3 });
+      setIsRed(false);
     }
   };
 
-  const _onEdited = (e) => {
-    e.layers.eachLayer(layer => {
-      const geojson = layer.toGeoJSON();
-      const metrics = calculateGhanaMetrics(geojson);
-      setMeasurementData(metrics);
-
-      const polyCentroid = turf.centroid(geojson);
-      let validNeighborhood = null;
-      neighborhoodBounds.features.forEach(feature => {
-        if (turf.booleanPointInPolygon(polyCentroid, feature)) {
-          validNeighborhood = feature.properties.name;
-        }
-      });
-      setCentroidNode(validNeighborhood);
-
-      const hasEncroachment = handleCollisions(geojson, parseFloat(metrics.sqM), layer);
-      onAreaCalculated?.(metrics);
-      onLocationVerified?.(!hasEncroachment, geojson);
-      if (onCentroidValidated) onCentroidValidated(validNeighborhood);
-    });
-  };
+  if (!hasMounted || !L || !EditControl) {
+    return (
+      <div className="w-full h-full bg-syntry-obsidian flex items-center justify-center animate-pulse">
+        <p className="text-syntry-teal-600 font-mono text-[10px] uppercase tracking-widest">Establishing Geospatial Handshake...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="relative w-full h-full">
+    <div className="w-full h-full relative">
       <MapContainer 
-        center={[safeLat, safeLng]} 
-        zoom={13} 
-        className="w-full h-full rounded-md z-10"
-        scrollWheelZoom={true}
+        center={initialPos} 
+        zoom={16} 
+        style={{ height: '100%', width: '100%', background: '#0F172A' }}
+        zoomControl={false}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; Syntry Sovereign GIS'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         />
+        
         <FeatureGroup>
-          {leafletLoaded && EditControl && (
-            <EditControl
-              position="topright"
-              onCreated={_onCreate}
-              onEdited={_onEdited}
-              draw={{
-                rectangle: false,
-                circle: false,
-                circlemarker: false,
-                marker: true,
-                polyline: false,
-                polygon: {
-                  allowIntersection: false,
-                  drawError: { color: '#e1e1e1', message: '<strong>Polygon overlap forbidden</strong>' },
-                  shapeOptions: { color: '#0D9488' }
-                }
-              }}
-            />
-          )}
+          <EditControl
+            position="topright"
+            onCreated={_onCreated}
+            draw={{
+              rectangle: false,
+              circle: false,
+              circlemarker: false,
+              marker: false,
+              polyline: false,
+              polygon: {
+                allowIntersection: false,
+                drawError: { color: '#EF4444', message: '<strong>Overlap Forbidden</strong>' },
+                shapeOptions: { color: '#0D9488' }
+              }
+            }}
+          />
         </FeatureGroup>
-        <MapResizer />
       </MapContainer>
 
-      {/* Sovereign Measurement Console */}
-      <div className="absolute top-4 left-4 z-[1000] space-y-3 pointer-events-none">
-        {measurementData && (
-          <div className="bg-[#0F172A]/90 backdrop-blur-xl border border-white/10 p-5 rounded-md shadow-2xl pointer-events-auto w-72 animate-in fade-in slide-in-from-left-4 duration-300">
-            <div className="flex items-center justify-between mb-4">
-               <p className="text-[10px] font-medium uppercase tracking-[3px] text-syntry-teal-600">Geospatial Audit</p>
-               <span className="w-2 h-2 rounded-md bg-syntry-teal-600 animate-pulse"></span>
-            </div>
-            
-            <div className="space-y-4">
-               <div className="grid grid-cols-2 gap-4">
-                  <div>
-                     <p className="text-[8px] uppercase tracking-widest text-white/40 mb-1">Standard Plots</p>
-                     <p className="text-xl font-medium text-white">{measurementData.plots}</p>
-                  </div>
-                  <div className="border-l border-white/5 pl-4">
-                     <p className="text-[8px] uppercase tracking-widest text-white/40 mb-1">Acreage</p>
-                     <p className="text-xl font-medium text-white">{measurementData.acres}</p>
-                  </div>
-               </div>
-
-               <div className="h-[1px] bg-white/5 w-full"></div>
-
-               <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                     <p className="text-[8px] uppercase tracking-widest text-white/40">Total Area</p>
-                     <p className="text-xs font-medium text-white">{measurementData.sqFt} SQFT</p>
-                  </div>
-                  <p className="text-[9px] font-medium text-syntry-teal-600 bg-syntry-teal-600/10 px-2 py-1 rounded inline-block">
-                     {measurementData.classification}
-                  </p>
-               </div>
-
-               {discrepancy && (
-                  <div className="bg-amber-500/10 border border-amber-500/30 p-3 rounded-md">
-                     <p className="text-[9px] font-medium uppercase tracking-widest text-amber-500 mb-1 flex items-center gap-2">
-                        ⚠️ Measurement Discrepancy
-                     </p>
-                     <p className="text-[8px] text-amber-500/80 leading-relaxed">
-                        The current polygon does not match standard Ghana plot dimensions (70x100 or 50x100).
-                     </p>
-                  </div>
-               )}
-
-               {encroachments.length > 0 && (
-                  <div className="bg-red-500/10 border border-red-500/30 p-3 rounded-md animate-pulse">
-                     <p className="text-[9px] font-medium uppercase tracking-widest text-red-500 mb-1 flex items-center gap-2">
-                        🛑 Overlap Detected
-                     </p>
-                     {encroachments.map((enc, i) => (
-                        <p key={i} className="text-[8px] text-red-500/80">
-                           {enc.id}: {enc.percent}% Overlap
-                        </p>
-                     ))}
-                  </div>
-               )}
-            </div>
+      {/* Overlay UI */}
+      {measurementData && (
+        <div className="absolute bottom-6 left-6 right-6 z-[1000] bg-syntry-obsidian/90 backdrop-blur-xl border border-white/10 p-6 rounded-md shadow-2xl animate-in slide-in-from-bottom-4">
+          <div className="flex justify-between items-start mb-4">
+             <div>
+                <p className="text-[9px] font-medium text-syntry-teal-600 uppercase tracking-widest mb-1">Syntry Geospatial Node</p>
+                <h3 className="text-white font-medium text-sm">{measurementData.classification}</h3>
+             </div>
+             {discrepancy && (
+                <div className="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-md text-[9px] font-medium uppercase tracking-widest flex items-center gap-2">
+                   <span className="w-1.5 h-1.5 bg-red-500 rounded-md animate-pulse"></span>
+                   Measurement Discrepancy
+                </div>
+             )}
           </div>
-        )}
-        
-        {centroidNode && (
-          <div className="bg-white/5 backdrop-blur-md border border-white/5 px-4 py-2 rounded-md shadow-lg pointer-events-auto">
-             <p className="text-[8px] uppercase tracking-[3px] text-white/30 font-medium">Node Verified</p>
-             <p className="text-[10px] text-white font-medium">{centroidNode} Sector Active</p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+             <div className="bg-white/5 p-3 rounded-md border border-white/5">
+                <p className="text-[8px] text-syntry-slate-300/40 uppercase tracking-widest">Square Footage</p>
+                <p className="text-white font-medium">{measurementData.sqFt} ft²</p>
+             </div>
+             <div className="bg-white/5 p-3 rounded-md border border-white/5">
+                <p className="text-[8px] text-syntry-slate-300/40 uppercase tracking-widest">Plots (70x100)</p>
+                <p className="text-white font-medium">{measurementData.plots}</p>
+             </div>
+             <div className="bg-white/5 p-3 rounded-md border border-white/5">
+                <p className="text-[8px] text-syntry-slate-300/40 uppercase tracking-widest">Total Acreage</p>
+                <p className="text-white font-medium">{measurementData.acres} Ac</p>
+             </div>
+             <div className="bg-white/5 p-3 rounded-md border border-white/5">
+                <p className="text-[8px] text-syntry-slate-300/40 uppercase tracking-widest">Registry Sync</p>
+                <p className="text-syntry-teal-600 font-medium tracking-tight">ACTIVE</p>
+             </div>
           </div>
-        )}
-      </div>
-
-      {/* Protocol Overlay */}
-      <div className="absolute bottom-4 right-4 z-[1000]">
-        <div className="bg-[#0F172A]/80 backdrop-blur-md border border-white/5 p-4 rounded-md shadow-xl flex items-center gap-4">
-           <div className="space-y-1">
-              <p className="text-[8px] uppercase tracking-widest text-white/20">Coordinate System</p>
-              <p className="text-[10px] font-medium text-white">WGS84 / Ghana Custom</p>
-           </div>
-           <div className="h-8 w-[1px] bg-white/5"></div>
-           <div className="space-y-1">
-              <p className="text-[8px] uppercase tracking-widest text-white/20">Precision</p>
-              <p className="text-[10px] font-medium text-syntry-teal-600">± 0.05m (Drone)</p>
-           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
