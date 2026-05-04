@@ -12,7 +12,7 @@ export default function DevelopersPage() {
            style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`, backgroundSize: '120px 120px' }} />
 
       <header className="relative pt-32 pb-24 px-6 md:px-12 border-b border-white/5 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#B8FF3C]/5 blur-[150px] rounded-full pointer-events-none opacity-50" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#B8FF3C]/5 blur-[150px] rounded-md pointer-events-none opacity-50" />
         <div className="max-w-7xl mx-auto relative z-10 text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -49,7 +49,7 @@ export default function DevelopersPage() {
             <p className="text-white/30 text-sm leading-relaxed max-w-md">Institutional benefits of synchronizing your inventory with the SYNTRY Unified Exchange.</p>
           </div>
           
-          <div className="border border-white/5 bg-[#0F1420] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="border border-white/5 bg-[#0F1420] rounded-md overflow-hidden shadow-2xl">
             <table className="w-full text-left font-mono text-[0.65rem] uppercase tracking-widest">
               <thead>
                 <tr className="bg-white/5 border-b border-white/5 text-[#B8FF3C]">

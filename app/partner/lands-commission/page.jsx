@@ -18,8 +18,8 @@ const LandsCommissionPage = () => {
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
         {/* Hero */}
         <section className="mb-20 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 border border-[#D4AF37]/20">
-            <span className="w-2 h-2 bg-[#D4AF37] rounded-full"></span>
+          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-md mb-6 border border-[#D4AF37]/20">
+            <span className="w-2 h-2 bg-[#D4AF37] rounded-md"></span>
             <span className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Official Statutory Gateway</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-medium mb-6 tracking-tight">Official Lands Commission Integration</h1>
@@ -31,7 +31,7 @@ const LandsCommissionPage = () => {
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {benefits.map((b, i) => (
-             <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-3xl shadow-sm hover:border-[#D4AF37]/30 transition-all group">
+             <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-md shadow-sm hover:border-[#D4AF37]/30 transition-all group">
                 <div className="text-3xl mb-4 group-hover:scale-110 transition-transform">{b.icon}</div>
                 <h3 className="font-medium text-lg mb-2">{b.title}</h3>
                 <p className="text-xs opacity-60 leading-relaxed font-medium">{b.desc}</p>
@@ -40,8 +40,8 @@ const LandsCommissionPage = () => {
         </div>
 
         {/* How It Works Flow */}
-        <section className="mb-20 bg-[#0F172A] text-[#F8F1E3] p-12 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        <section className="mb-20 bg-syntry-obsidian text-[#F8F1E3] p-12 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-48 -mt-48"></div>
            <h2 className="text-3xl font-medium mb-12 text-center relative z-10 italic">How It Works</h2>
            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
               {[
@@ -61,11 +61,11 @@ const LandsCommissionPage = () => {
 
         {/* Status Dashboard */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-           <div className="md:col-span-2 bg-white border border-[#D4AF37]/20 p-10 rounded-3xl shadow-sm">
+           <div className="md:col-span-2 bg-white border border-[#D4AF37]/20 p-10 rounded-md shadow-sm">
               <div className="flex justify-between items-center mb-10">
                 <h2 className="text-2xl font-medium">Integration Status</h2>
                 <div className="flex items-center gap-2">
-                   <span className="w-2 h-2 bg-[#1D9E75] rounded-full animate-pulse"></span>
+                   <span className="w-2 h-2 bg-[#1D9E75] rounded-md animate-pulse"></span>
                    <span className="text-[10px] font-medium uppercase tracking-widest text-[#1D9E75]">Connected • Live</span>
                 </div>
               </div>
@@ -81,10 +81,10 @@ const LandsCommissionPage = () => {
               </div>
            </div>
 
-           <div className="bg-[#D4AF37] text-[#0F172A] p-10 rounded-3xl flex flex-col justify-center text-center shadow-lg">
+           <div className="bg-[#D4AF37] text-[#0F172A] p-10 rounded-md flex flex-col justify-center text-center shadow-lg">
               <p className="text-[10px] font-medium uppercase tracking-widest opacity-60 mb-2">Efficiency Gain</p>
               <h3 className="text-2xl font-medium mb-4 italic">Saving 90% in Verification Time</h3>
-              <p className="text-sm font-medium bg-[#0F172A] text-white py-2 rounded-lg">45 Days → 48 Hours</p>
+              <p className="text-sm font-medium bg-syntry-obsidian text-white py-2 rounded-lg">45 Days → 48 Hours</p>
            </div>
         </section>
 
@@ -97,10 +97,10 @@ const LandsCommissionPage = () => {
              </p>
            </div>
            <div className="flex flex-col gap-4 w-full md:w-auto">
-             <button className="bg-[#0F172A] text-[#F8F1E3] px-10 py-4 rounded-2xl font-medium text-sm hover:bg-[#004d00] transition-all whitespace-nowrap">
+             <button className="bg-syntry-obsidian text-[#F8F1E3] px-10 py-4 rounded-md font-medium text-sm hover:bg-[#004d00] transition-all whitespace-nowrap">
                Developer Setup ↗
              </button>
-             <a href="https://wa.me/233531102292" className="bg-[#25D366] text-white px-10 py-4 rounded-2xl font-medium text-sm hover:scale-105 transition-all text-center">
+             <a href="https://wa.me/233531102292" className="bg-[#25D366] text-white px-10 py-4 rounded-md font-medium text-sm hover:scale-105 transition-all text-center">
                Connect Liaison
              </a>
            </div>

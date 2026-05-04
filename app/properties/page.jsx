@@ -34,7 +34,7 @@ export default function PropertiesPage() {
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-6 py-3 rounded-full text-[10px] font-mono uppercase tracking-[2px] border transition-all ${
+                  className={`px-6 py-3 rounded-md text-[10px] font-mono uppercase tracking-[2px] border transition-all ${
                     filter === cat 
                       ? 'bg-[#B8FF3C] text-black border-[#B8FF3C] font-medium tracking-tight' 
                       : 'border-white/10 text-white/40 hover:border-white/30'
@@ -68,7 +68,7 @@ export default function PropertiesPage() {
                       alt={plot.name} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0" 
                     />
-                    <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                    <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/10">
                        <span className="text-[8px] font-mono tracking-[2px] text-[#B8FF3C] uppercase">Active Node</span>
                     </div>
                   </div>
@@ -90,7 +90,7 @@ export default function PropertiesPage() {
                              <div className="text-[10px] font-mono text-white/60">Verified</div>
                           </div>
                        </div>
-                       <button className="w-full py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-[10px] uppercase tracking-[4px] rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
+                       <button className="w-full py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-[10px] uppercase tracking-[4px] rounded-md hover:scale-105 active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
                           View Plot Details →
                        </button>
                     </div>

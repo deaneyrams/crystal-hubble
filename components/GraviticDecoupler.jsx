@@ -32,7 +32,7 @@ export default function GraviticDecoupler() {
        {bypassState === 'IDLE' && (
          <button 
            onClick={handleDecoupling}
-           className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium uppercase tracking-widest px-6 py-2 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.4)] transition-all hover:scale-105 border border-indigo-400/50"
+           className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium uppercase tracking-widest px-6 py-2 rounded-md shadow-[0_0_15px_rgba(79,70,229,0.4)] transition-all hover:scale-105 border border-indigo-400/50"
          >
            Initiate Gravitic Decoupling
          </button>
@@ -40,21 +40,21 @@ export default function GraviticDecoupler() {
 
        {bypassState === 'LOADING' && (
           <div className="text-center">
-            <div className="w-5 h-5 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+            <div className="w-5 h-5 border-2 border-indigo-400 border-t-transparent rounded-md animate-spin mx-auto mb-2"></div>
             <p className="text-[10px] uppercase font-mono tracking-widest text-indigo-400 animate-pulse">{statusMessage}</p>
           </div>
        )}
 
        {bypassState === 'SUCCESS' && (
           <div className="bg-[#00F5D4]/10 border border-[#00F5D4]/30 px-4 py-2 rounded-lg flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#00F5D4] shadow-[0_0_10px_#00F5D4] animate-pulse"></div>
+            <div className="w-2 h-2 rounded-md bg-[#00F5D4] shadow-[0_0_10px_#00F5D4] animate-pulse"></div>
             <p className="text-[9px] uppercase font-mono tracking-widest text-[#00F5D4]">{statusMessage}</p>
           </div>
        )}
 
        {bypassState === 'ERROR' && (
           <div className="bg-red-500/10 border border-red-500/30 px-4 py-2 rounded-lg flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_10px_#ef4444] animate-ping"></div>
+            <div className="w-2 h-2 rounded-md bg-red-500 shadow-[0_0_10px_#ef4444] animate-ping"></div>
             <p className="text-[9px] uppercase font-mono tracking-widest text-red-500">{statusMessage}</p>
             <button onClick={() => setBypassState('IDLE')} className="ml-2 text-white bg-red-600 hover:bg-red-500 px-2 py-0.5 rounded text-[8px] uppercase">Retry</button>
           </div>

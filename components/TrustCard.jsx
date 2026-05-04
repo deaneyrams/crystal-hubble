@@ -58,7 +58,7 @@ export default function TrustCard({ transaction, isCleared, isReserved }) {
   const currentGlowColor = isCleared ? '#B8FF3C' : isReserved ? '#D4AF37' : '#FFFFFF30';
 
   return (
-    <div className={`relative w-full max-w-[420px] bg-[#0C0C14] border border-white/5 rounded-2xl p-8 transition-all duration-700 mx-auto group
+    <div className={`relative w-full max-w-[420px] bg-[#0C0C14] border border-white/5 rounded-md p-8 transition-all duration-700 mx-auto group
       ${isCleared ? 'border-[#B8FF3C]/30 shadow-[0_20px_40px_rgba(184,255,60,0.05)]' 
         : isReserved ? 'border-[#D4AF37]/30 shadow-[0_20px_40px_rgba(212,175,55,0.05)]' 
         : ''}`}>
@@ -68,13 +68,13 @@ export default function TrustCard({ transaction, isCleared, isReserved }) {
         <div className="space-y-1">
           <h2 className="text-white font-head text-2xl tracking-[1px] uppercase">Sovereign Asset</h2>
           <div className="flex items-center gap-2">
-            <span className={`w-1.5 h-1.5 rounded-full ${isCleared ? 'bg-[#B8FF3C] animate-pulse shadow-[0_0_8px_#B8FF3C]' : 'bg-white/20'}`} />
+            <span className={`w-1.5 h-1.5 rounded-md ${isCleared ? 'bg-[#B8FF3C] animate-pulse shadow-[0_0_8px_#B8FF3C]' : 'bg-white/20'}`} />
             <p className="font-mono text-[8px] tracking-[3px] text-white/40 uppercase">
               Node 08 {isCleared ? 'Synchronized' : 'Monitoring'}
             </p>
           </div>
         </div>
-        <div className={`px-4 py-1.5 rounded-full border font-mono text-[8px] font-medium uppercase tracking-[3px] transition-all 
+        <div className={`px-4 py-1.5 rounded-md border font-mono text-[8px] font-medium uppercase tracking-[3px] transition-all 
             ${isCleared ? 'bg-[#B8FF3C]/10 text-[#B8FF3C] border-[#B8FF3C]/20' 
             : isReserved ? 'bg-[#D4AF37]/10 text-[#D4AF37] border-[#D4AF37]/20' 
             : 'bg-white/5 text-white/20 border-white/5'}`}>

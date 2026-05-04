@@ -24,7 +24,7 @@ const SupportTicketsPage = () => {
             <h1 className="text-4xl font-medium tracking-tight mb-2">Support Tickets</h1>
             <p className="opacity-60 text-sm font-medium">Manage your statutory and technical inquiries.</p>
           </div>
-          <button className="bg-[#00BFFF] text-[#0F172A] px-10 py-4 rounded-2xl font-medium text-xs uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl">
+          <button className="bg-[#00BFFF] text-[#0F172A] px-10 py-4 rounded-md font-medium text-xs uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl">
              New Ticket
           </button>
         </header>
@@ -35,7 +35,7 @@ const SupportTicketsPage = () => {
              <button 
                key={tab}
                onClick={() => setActiveTab(tab)}
-               className={`px-6 py-2 rounded-full text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-[#0F172A] text-white' : 'opacity-40 hover:opacity-100 italic'}`}
+               className={`px-6 py-2 rounded-md text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-syntry-obsidian text-white' : 'opacity-40 hover:opacity-100 italic'}`}
              >
                {tab}
              </button>
@@ -46,18 +46,18 @@ const SupportTicketsPage = () => {
         <div className="space-y-4 mb-16">
           {filteredTickets.length > 0 ? (
             filteredTickets.map((ticket) => (
-               <div key={ticket.id} className="bg-white border border-[#0F172A]/5 p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm group hover:border-[#D4AF37]/20 transition-all">
+               <div key={ticket.id} className="bg-white border border-[#0F172A]/5 p-8 rounded-md flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm group hover:border-[#D4AF37]/20 transition-all">
                   <div className="flex gap-6 items-center w-full md:w-2/3">
-                     <div className="w-12 h-12 bg-[#0F172A]/5 rounded-full flex items-center justify-center text-xs font-medium text-[#D4AF37]">#</div>
+                     <div className="w-12 h-12 bg-syntry-obsidian/5 rounded-md flex items-center justify-center text-xs font-medium text-[#D4AF37]">#</div>
                      <div>
                         <h4 className="font-medium text-base mb-1 group-hover:text-[#D4AF37] transition-all">{ticket.subject}</h4>
                         <p className="text-[10px] font-medium opacity-40 uppercase tracking-[2px]">{ticket.id} • {ticket.category}</p>
                      </div>
                   </div>
                   <div className="text-center md:text-right w-full md:w-auto">
-                     <span className={`text-[9px] font-medium uppercase px-4 py-1.5 rounded-full mb-2 inline-block ${
+                     <span className={`text-[9px] font-medium uppercase px-4 py-1.5 rounded-md mb-2 inline-block ${
                        ticket.status === 'Resolved' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 
-                       ticket.status === 'In Progress' ? 'bg-orange-50 text-orange-500' : 'bg-blue-50 text-blue-500'
+                       ticket.status === 'In Progress' ? 'bg-orange-50 text-orange-500' : 'bg-blue-50 text-syntry-teal-600'
                      }`}>
                        {ticket.status}
                      </span>
@@ -85,12 +85,12 @@ const SupportTicketsPage = () => {
            </div>
            
            <div className="bg-[#25D366] text-white p-10 rounded-[2.5rem] shadow-xl flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-md blur-2xl"></div>
               <div>
                  <h4 className="text-sm font-medium uppercase tracking-widest opacity-60 mb-4">Live Liaison</h4>
                  <p className="text-lg font-medium mb-6 italic">Direct chat with a mortgage or property advisor.</p>
               </div>
-              <a href="https://wa.me/233531102292" className="bg-white text-[#25D366] py-3 rounded-xl font-medium text-[10px] uppercase tracking-widest text-center hover:scale-[1.02] transition-all">
+              <a href="https://wa.me/233531102292" className="bg-white text-[#25D366] py-3 rounded-md font-medium text-[10px] uppercase tracking-widest text-center hover:scale-[1.02] transition-all">
                  WhatsApp 0531102292
               </a>
            </div>

@@ -33,10 +33,10 @@ export default function MapDrillDown() {
   };
 
   return (
-    <div className="p-6 bg-[#050810]/80 border border-indigo-500/20 rounded-2xl backdrop-blur-md">
+    <div className="p-6 bg-[#050810]/80 border border-indigo-500/20 rounded-md backdrop-blur-md">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-indigo-400 font-mono text-xs tracking-tighter uppercase flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+          <span className="w-2 h-2 rounded-md bg-indigo-500 animate-pulse"></span>
           📍 Geospatial Precision Engine
         </h2>
         <span className="text-[9px] bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded border border-indigo-500/20">
@@ -73,7 +73,7 @@ export default function MapDrillDown() {
       </div>
 
       {/* The Map "Viewport" */}
-      <div className="w-full h-64 bg-slate-900 rounded-xl relative overflow-hidden border border-white/5 shadow-inner">
+      <div className="w-full h-64 bg-slate-900 rounded-md relative overflow-hidden border border-white/5 shadow-inner">
         {/* Pinpoint 5m x 5m Grid Overlay */}
         <div className="absolute inset-0 opacity-[0.15] z-0"
              style={{ 
@@ -96,7 +96,7 @@ export default function MapDrillDown() {
         {view.coord && (
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
             <div className="w-20 h-20 border-2 border-dashed border-[#00F5D4]/30 rounded-lg animate-pulse"></div>
-            <div className="w-4 h-4 bg-[#00F5D4] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_#00F5D4]"></div>
+            <div className="w-4 h-4 bg-[#00F5D4] rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_#00F5D4]"></div>
             <div className="absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/80 border border-white/10 px-2 py-1 rounded text-[8px] text-[#00F5D4] font-mono shadow-xl backdrop-blur-sm">
               TARGET LOCKED: {view.coord}
             </div>
@@ -105,13 +105,13 @@ export default function MapDrillDown() {
       </div>
 
       {verificationResult && (
-        <div className="mt-4 p-5 bg-[#00F5D4]/5 border border-[#00F5D4]/20 rounded-xl animate-in fade-in slide-in-from-top-2 duration-500 shadow-lg">
+        <div className="mt-4 p-5 bg-[#00F5D4]/5 border border-[#00F5D4]/20 rounded-md animate-in fade-in slide-in-from-top-2 duration-500 shadow-lg">
           <div className="flex justify-between items-start mb-4">
             <div>
               <p className="text-[#00F5D4] text-[10px] font-medium tracking-tight uppercase tracking-widest mb-1">GELIS Real-Time Sync Result</p>
               <p className="text-white text-xs font-semibold">Coordinate Security Verification Successful</p>
             </div>
-            <div className="bg-[#00F5D4]/20 p-1.5 rounded-full">
+            <div className="bg-[#00F5D4]/20 p-1.5 rounded-md">
               <svg className="w-4 h-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
@@ -154,14 +154,14 @@ export default function MapDrillDown() {
       <button 
         onClick={handleVerify}
         disabled={!view.coord || isVerifying}
-        className={`w-full mt-4 py-4 rounded-xl font-medium uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3
+        className={`w-full mt-4 py-4 rounded-md font-medium uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3
           ${!view.coord || isVerifying 
             ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700' 
             : 'bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/20 border border-indigo-400/30 active:scale-95'}`}
       >
         {isVerifying ? (
           <>
-            <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+            <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-md" />
             Agentic AI Verifying with GELIS...
           </>
         ) : "Perform Agentic Verification"}

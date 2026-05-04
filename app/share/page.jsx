@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 const SovereignMap = dynamic(() => import('@/components/SovereignMap'), { 
   ssr: false, 
-  loading: () => <div className="h-full w-full bg-[#0a0f1d] animate-pulse rounded-xl" /> 
+  loading: () => <div className="h-full w-full bg-[#0a0f1d] animate-pulse rounded-md" /> 
 });
 import GraviticDecoupler from '@/components/GraviticDecoupler';
 
@@ -50,7 +50,7 @@ function ShareContent() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#050810] flex flex-col items-center justify-center space-y-4">
-        <div className="w-12 h-12 border-4 border-[#00F5D4]/20 border-t-[#00F5D4] rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#00F5D4]/20 border-t-[#00F5D4] rounded-md animate-spin"></div>
         <p className="text-[#00F5D4] font-mono text-xs uppercase tracking-widest animate-pulse">Establishing Secure Handshake...</p>
       </div>
     );
@@ -86,7 +86,7 @@ function ShareContent() {
 
   return (
     <div className="min-h-screen bg-[#050810] text-white font-sans flex items-center justify-center p-4">
-      <div className="max-w-3xl w-full bg-[#0E1629] border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+      <div className="max-w-3xl w-full bg-[#0E1629] border border-white/10 rounded-md shadow-2xl overflow-hidden">
         
         {/* Header - Light Version */}
         <div className="p-6 border-b border-white/5 bg-black/20 flex justify-between items-center">
@@ -98,8 +98,8 @@ function ShareContent() {
            </div>
            
            <div className="flex flex-col items-end">
-             <div className="flex items-center gap-2 bg-[#00F5D4]/10 border border-[#00F5D4]/30 px-3 py-1.5 rounded-full">
-               <div className="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse shadow-[0_0_10px_#00F5D4]"></div>
+             <div className="flex items-center gap-2 bg-[#00F5D4]/10 border border-[#00F5D4]/30 px-3 py-1.5 rounded-md">
+               <div className="w-2 h-2 rounded-md bg-[#00F5D4] animate-pulse shadow-[0_0_10px_#00F5D4]"></div>
                <span className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#00F5D4]">Syntry Verified</span>
              </div>
              <p className="text-[8px] text-gray-500 mt-1 uppercase font-mono tracking-tighter text-red-400 font-medium">⚠️ ONE-TIME ACCESS LINK</p>
@@ -118,7 +118,7 @@ function ShareContent() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-[#00F5D4]/5 border border-[#00F5D4]/20 p-4 rounded-xl">
+                <div className="bg-[#00F5D4]/5 border border-[#00F5D4]/20 p-4 rounded-md">
                   <p className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium tracking-tight mb-1">70% Reform Status</p>
                   <p className="text-sm font-medium text-white">{zkpData.compliance}</p>
                   <p className="text-[9px] text-gray-400 mt-2 italic border-t border-[#00F5D4]/10 pt-2">
@@ -127,11 +127,11 @@ function ShareContent() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/5">
                     <p className="text-[9px] text-gray-500 uppercase font-medium tracking-tighter mb-1">GPS Anchor</p>
                     <p className="text-[11px] font-mono text-white">{zkpData.coordinates}</p>
                   </div>
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/5">
                     <p className="text-[9px] text-gray-500 uppercase font-medium tracking-tighter mb-1">GELIS Registry</p>
                     <p className="text-[11px] font-mono text-white">{zkpData.registryId}</p>
                   </div>
@@ -140,7 +140,7 @@ function ShareContent() {
            </div>
 
            {/* Right Col: Mini-Map */}
-           <div className="h-64 md:h-full bg-black rounded-xl border border-white/10 overflow-hidden relative group">
+           <div className="h-64 md:h-full bg-black rounded-md border border-white/10 overflow-hidden relative group">
               <SovereignMap />
            </div>
         </div>

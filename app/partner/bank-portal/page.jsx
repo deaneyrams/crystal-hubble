@@ -21,8 +21,8 @@ const BankPartnerPortal = () => {
 
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
         {/* Institutional Header */}
-        <section className="mb-12 flex justify-between items-end bg-[#0F172A] text-[#F8F1E3] p-10 rounded-3xl border border-[#D4AF37]/20 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <section className="mb-12 flex justify-between items-end bg-syntry-obsidian text-[#F8F1E3] p-10 rounded-md border border-[#D4AF37]/20 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-32 -mt-32"></div>
           <div>
             <p className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37] mb-2">Institutional Partner</p>
             <h1 className="text-3xl md:text-4xl font-medium mb-2">Bank Partner Portal</h1>
@@ -36,7 +36,7 @@ const BankPartnerPortal = () => {
         {/* Institutional KPI Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {kpis.map((kpi, i) => (
-            <div key={i} className="bg-white border border-[#0F172A]/10 p-8 rounded-2xl shadow-sm">
+            <div key={i} className="bg-white border border-[#0F172A]/10 p-8 rounded-md shadow-sm">
               <p className="text-[10px] font-medium uppercase tracking-widest opacity-40 mb-2">{kpi.label}</p>
               <h3 className="text-3xl font-medium mb-1">{kpi.value}</h3>
               <p className="text-[10px] font-medium text-[#1D9E75] uppercase">{kpi.trend}</p>
@@ -51,9 +51,9 @@ const BankPartnerPortal = () => {
             <button className="text-[#00BFFF] text-xs font-medium uppercase tracking-widest hover:underline">View Queue</button>
           </div>
           
-          <div className="bg-white border border-[#0F172A]/10 rounded-3xl overflow-hidden shadow-sm">
+          <div className="bg-white border border-[#0F172A]/10 rounded-md overflow-hidden shadow-sm">
             <table className="w-full text-left">
-              <thead className="bg-[#0F172A]/5 text-[10px] font-medium uppercase tracking-widest opacity-60">
+              <thead className="bg-syntry-obsidian/5 text-[10px] font-medium uppercase tracking-widest opacity-60">
                 <tr>
                   <th className="px-8 py-5">Buyer Name</th>
                   <th className="px-8 py-5">Pre-Approval</th>
@@ -64,7 +64,7 @@ const BankPartnerPortal = () => {
               </thead>
               <tbody className="text-sm divide-y divide-[#0F172A]/5">
                 {buyers.map((buyer) => (
-                  <tr key={buyer.id} className="hover:bg-[#0F172A]/[0.02] transition-all">
+                  <tr key={buyer.id} className="hover:bg-syntry-obsidian/[0.02] transition-all">
                     <td className="px-8 py-6">
                       <p className="font-medium">{buyer.name}</p>
                       <p className="text-[10px] opacity-40">Received {buyer.date}</p>
@@ -77,7 +77,7 @@ const BankPartnerPortal = () => {
                       </span>
                     </td>
                     <td className="px-8 py-6 text-right">
-                      <button className="bg-[#0F172A] text-white px-4 py-2 rounded-lg font-medium text-xs hover:bg-[#004d00] transition-all">
+                      <button className="bg-syntry-obsidian text-white px-4 py-2 rounded-lg font-medium text-xs hover:bg-[#004d00] transition-all">
                         Review Profile
                       </button>
                     </td>
@@ -90,28 +90,28 @@ const BankPartnerPortal = () => {
 
         {/* Quick Institutional Actions */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          <button className="p-8 bg-white border border-[#00BFFF]/20 rounded-3xl font-medium text-left hover:border-[#00BFFF]/50 transition-all group">
+          <button className="p-8 bg-white border border-[#00BFFF]/20 rounded-md font-medium text-left hover:border-[#00BFFF]/50 transition-all group">
             <p className="text-[10px] uppercase text-[#00BFFF] mb-2 tracking-[2px]">Admin</p>
             <h4 className="text-lg mb-4">Bulk Download Reports</h4>
-            <div className="w-8 h-8 rounded-full bg-[#00BFFF]/10 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-all text-[#00BFFF]">↓</div>
+            <div className="w-8 h-8 rounded-md bg-[#00BFFF]/10 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-all text-[#00BFFF]">↓</div>
           </button>
           
-          <button className="p-8 bg-white border border-[#D4AF37]/20 rounded-3xl font-medium text-left hover:border-[#D4AF37]/50 transition-all group">
+          <button className="p-8 bg-white border border-[#D4AF37]/20 rounded-md font-medium text-left hover:border-[#D4AF37]/50 transition-all group">
             <p className="text-[10px] uppercase text-[#D4AF37] mb-2 tracking-[2px]">Dev Center</p>
             <h4 className="text-lg mb-4">Request API Integration</h4>
-            <div className="w-8 h-8 rounded-full bg-[#D4AF37]/10 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-all text-[#D4AF37]">⚙️</div>
+            <div className="w-8 h-8 rounded-md bg-[#D4AF37]/10 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-all text-[#D4AF37]">⚙️</div>
           </button>
 
-          <button className="p-8 bg-white border border-[#0F172A]/10 rounded-3xl font-medium text-left hover:border-[#0F172A]/50 transition-all group">
+          <button className="p-8 bg-white border border-[#0F172A]/10 rounded-md font-medium text-left hover:border-[#0F172A]/50 transition-all group">
             <p className="text-[10px] uppercase text-[#0F172A] opacity-40 mb-2 tracking-[2px]">Liaison</p>
             <h4 className="text-lg mb-4">Contact Syntry Support</h4>
-            <div className="w-8 h-8 rounded-full bg-[#0F172A]/10 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-all text-[#0F172A]">👤</div>
+            <div className="w-8 h-8 rounded-md bg-syntry-obsidian/10 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-all text-[#0F172A]">👤</div>
           </button>
         </section>
 
         {/* Institutional Badge */}
         <section className="text-center py-12 border-t border-[#0F172A]/10">
-           <div className="inline-flex items-center gap-4 bg-[#1D9E75]/5 px-8 py-4 rounded-full border border-[#1D9E75]/20">
+           <div className="inline-flex items-center gap-4 bg-[#1D9E75]/5 px-8 py-4 rounded-md border border-[#1D9E75]/20">
               <span className="text-[#1D9E75] text-xl">⚡</span>
               <p className="text-sm font-medium text-[#1D9E75]">Syntry has reduced statutory verification time by 70% for your team.</p>
            </div>

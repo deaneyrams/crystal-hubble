@@ -9,17 +9,21 @@ module.exports = {
     extend: {
       colors: {
         syntry: {
-          obsidian: '#0F172A', // Primary Base
-          teal: '#0D9488',     // Action/Growth
-          slate: '#E2E8F0',    // Neutral/Border
-          amber: '#F59E0B',    // Critical Action
-          text: '#1E293B',     // Text (Primary)
+          obsidian: '#0F172A', // Slate 900/950 Blend
+          teal: {
+            600: '#0D9488',
+            700: '#0F766E',
+          },
+          slate: {
+            200: '#E2E8F0',
+            300: '#CBD5E1',
+            950: '#0F172A', // As per Directive
+          }
         }
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
-        heading: ['var(--font-inter)', 'sans-serif'],
       },
     },
   },

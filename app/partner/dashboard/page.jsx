@@ -31,7 +31,7 @@ export default function PartnerDashboard() {
             <h1 className="text-4xl md:text-6xl font-head font-medium tracking-tight tracking-tighter uppercase leading-none">Partner <span className="text-white/20">Dashboard.</span></h1>
           </div>
           <div className="flex gap-4">
-             <a href="/partner/onboarding" className="px-8 py-3 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-widest text-[10px] rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-all">
+             <a href="/partner/onboarding" className="px-8 py-3 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-widest text-[10px] rounded-md shadow-xl hover:scale-105 active:scale-95 transition-all">
                 + New Listing
              </a>
           </div>
@@ -42,7 +42,7 @@ export default function PartnerDashboard() {
         {/* Performance Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {stats.map((s, i) => (
-            <div key={i} className="bg-[#162A3E]/50 border border-white/5 p-8 rounded-3xl">
+            <div key={i} className="bg-[#162A3E]/50 border border-white/5 p-8 rounded-md">
               <p className="text-[10px] uppercase font-mono tracking-[2px] text-white/30 mb-2">{s.label}</p>
               <h2 className={`text-4xl font-head font-medium tracking-tight tracking-tighter ${s.color || 'text-white'}`}>{s.value}</h2>
               <p className="text-[9px] font-mono text-white/20 uppercase mt-1 tracking-widest">{s.change}</p>
@@ -69,9 +69,9 @@ export default function PartnerDashboard() {
           <div className="p-8">
             <div className="space-y-4">
               {myListings.map((listing) => (
-                <div key={listing.id} className="bg-black/20 border border-white/5 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-center gap-6 hover:border-white/20 transition-all group">
+                <div key={listing.id} className="bg-black/20 border border-white/5 rounded-md p-6 flex flex-col md:flex-row justify-between items-center gap-6 hover:border-white/20 transition-all group">
                   <div className="flex items-center gap-6 w-full md:w-auto">
-                    <div className="w-16 h-16 bg-[#162A3E] rounded-xl border border-white/10 flex items-center justify-center text-2xl group-hover:bg-[#B8FF3C]/10 group-hover:border-[#B8FF3C]/30 transition-all">🏗️</div>
+                    <div className="w-16 h-16 bg-[#162A3E] rounded-md border border-white/10 flex items-center justify-center text-2xl group-hover:bg-[#B8FF3C]/10 group-hover:border-[#B8FF3C]/30 transition-all">🏗️</div>
                     <div>
                        <h4 className="text-xl font-head font-medium tracking-tight uppercase tracking-tight">{listing.name}</h4>
                        <p className="text-[10px] font-mono text-gray-500 uppercase">{listing.location} | ID: {listing.id}</p>
@@ -84,15 +84,15 @@ export default function PartnerDashboard() {
                      </div>
                      <div className="text-center">
                         <p className="text-[8px] font-mono uppercase text-gray-500 mb-1">Status</p>
-                        <div className={`px-4 py-1.5 rounded-full text-[9px] font-mono uppercase font-medium tracking-tight border ${
+                        <div className={`px-4 py-1.5 rounded-md text-[9px] font-mono uppercase font-medium tracking-tight border ${
                           listing.status === 'live' 
-                            ? 'bg-green-500/10 border-green-500/30 text-green-500' 
+                            ? 'bg-syntry-teal-600/10 border-green-500/30 text-syntry-teal-600' 
                             : 'bg-amber-500/10 border-amber-500/30 text-amber-500 animate-pulse'
                         }`}>
                           {listing.status === 'live' ? 'Live on Exchange' : 'Oracle Audit'}
                         </div>
                      </div>
-                     <button className="p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all">
+                     <button className="p-3 bg-white/5 border border-white/10 rounded-md hover:bg-white/10 transition-all">
                         <span className="text-xs">⚙️</span>
                      </button>
                   </div>

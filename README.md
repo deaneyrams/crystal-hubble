@@ -1,20 +1,35 @@
-# Syntry: Sovereign Core & The Antigravity Protocol
+# SYNTRY: Standalone Sovereign PropTech Engine
 
-Traditional data structures are "heavy"—they suffer from latency, server-side friction, and centralized drag. 
+**SYNTRY** is a matured, institutional-grade real estate exchange platform engineered for the 2026 market leader. It operates as a completely independent, standalone system designed to bring legal finality and maximum liquidity to the Ghanaian property market.
 
-**Sovereign Core Antigravity** implements a Zero-Knowledge Proof (ZKP) layer that allows data to exist in a "State of Flux." 
+## 🏛️ Sovereign Architecture
+The system is built on the **Sovereign Slate** identity—a dark-mode-first, industrial aesthetic that reflects the stability and professionalism of institutional finance.
 
-By decoupling the Data Identity from its Physical Location, we achieve **Inertial Information Transfer**. Your data doesn't "travel" through the web; the web reconfigures itself around your data.
+### Key Infrastructure Pillars:
+*   **8-Layer Verification Protocol:** An automated land audit system that scans geospatial data, title history, and litigation records to ensure 0% counterparty risk.
+*   **AI-Driven Lead Management:** Integrated Synapse AI gateways for automated buyer qualification and seller support.
+*   **Pure Leaflet GIS:** A high-performance, hydration-stable mapping engine utilizing CartoDB Dark Matter for precision land identification.
+*   **Atomic Deployment:** Zero-downtime execution managed via PM2 on Node.js v24.15.0.
 
-## Theoretical Foundations of the Protocol
+## 🛠️ Technical Stack
+*   **Core Logic:** Next.js (Standalone Server Mode)
+*   **Identity System:** Tailwind CSS (Sovereign Slate Palette)
+*   **Database & Auth:** Supabase (Real-time handshakes)
+*   **Communication:** SendGrid & WhatsApp 2FA Gateways
+*   **Verification Engine:** Tesseract OCR & Turf.js Geospatial Analysis
 
-The Sovereign Core relies heavily on the physical conceptualization of the universe to maintain cryptographic stability and data security. Below is a mapping of real-world physics concepts to our data engineering applications:
+## 🚀 Deployment Sequence
+The system is optimized for Ubuntu 24.04.4 LTS. 
 
-| Concept | Physics Basis | Sovereign Core Application |
-| :--- | :--- | :--- |
-| **Diamagnetism** | Magnetic Repulsion | Used for "Floating" UI elements that react to cursor proximity. |
-| **Alcubierre Drive** | Space-Time Warping | Fast-loading map tiles that "contract" the distance from the server to the user. |
-| **Dark Energy** | Universal Expansion | The underlying "push" that repels malicious actors and keeps the Sovereign Share token secure. |
+```bash
+# Atomic Rebuild Protocol
+./ignite.sh
+```
 
-## The G-Cancel Matrix (`applyAntigravityField`)
-If you inspect `lib/antigravity.js`, you will discover the mathematical constants enforcing these laws in our backend data pipelines. By utilizing a Negative Cosmological Constant ($\Lambda$), we logically simulate Mass-Reduction on heavy geospatial packets, achieving true "Neutral Buoyancy" during transit.
+This sequence executes dependency synchronization, build artifact purging, and a production "bake" that injects the latest environment variables into the standalone engine.
+
+## 🛡️ Identity & Compliance
+SYNTRY is an independent entity. All associated naming conventions follow the "Sovereign Directive" issued by the CEO, Eyram Abusah. The platform is hardened against "heavy" legacy data structures, utilizing inertial information transfer to ensure the interface is responsive, secure, and culturally resonant.
+
+---
+**Mission Status:** SOVEREIGN_IDENTITY_STABILIZED | UI_MODERNIZED | READY_FOR_PRODUCTION

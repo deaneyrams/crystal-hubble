@@ -27,19 +27,19 @@ const AnalyticsDashboardPage = () => {
         {/* Header Section */}
         <header className="mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b border-white/5 pb-12">
           <div>
-            <div className="inline-flex items-center gap-2 mb-4 bg-[#D4AF37]/10 px-3 py-1 rounded-full border border-[#D4AF37]/20">
-              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 mb-4 bg-[#D4AF37]/10 px-3 py-1 rounded-md border border-[#D4AF37]/20">
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-md animate-pulse"></span>
               <span className="text-[9px] font-medium uppercase tracking-[2px] text-[#D4AF37]">Premium Asset Audit</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-2">My Portfolio Performance</h1>
             <p className="text-sm opacity-50 font-medium italic">High-trust financial oversight of your sovereign wealth.</p>
           </div>
-          <div className="flex gap-2 bg-white/5 p-1.5 rounded-2xl border border-white/10 self-stretch md:self-auto">
+          <div className="flex gap-2 bg-white/5 p-1.5 rounded-md border border-white/10 self-stretch md:self-auto">
              {['30 Days', '90 Days', '1 Year', 'All Time'].map(range => (
                <button 
                  key={range}
                  onClick={() => setTimeRange(range)}
-                 className={`flex-1 md:flex-none px-4 py-2 rounded-xl text-[10px] font-medium uppercase tracking-widest transition-all ${timeRange === range ? 'bg-[#D4AF37] text-[#0F172A]' : 'hover:bg-white/5'}`}
+                 className={`flex-1 md:flex-none px-4 py-2 rounded-md text-[10px] font-medium uppercase tracking-widest transition-all ${timeRange === range ? 'bg-[#D4AF37] text-[#0F172A]' : 'hover:bg-white/5'}`}
                >
                  {range}
                </button>
@@ -50,7 +50,7 @@ const AnalyticsDashboardPage = () => {
         {/* KPI Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {kpis.map((kpi, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-sm hover:border-[#D4AF37]/30 transition-all">
+            <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-md shadow-sm hover:border-[#D4AF37]/30 transition-all">
                <p className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 mb-4">{kpi.label}</p>
                <h3 className="text-2xl font-medium text-white mb-1 tracking-tight">{kpi.value}</h3>
                <div className="flex items-center gap-2">
@@ -74,10 +74,10 @@ const AnalyticsDashboardPage = () => {
               <p className="mt-8 text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Aggregated Asset Appreciation Trend</p>
            </div>
            
-           <div className="bg-[#0F172A] border border-[#D4AF37]/20 p-10 rounded-[3rem] flex flex-col justify-between">
+           <div className="bg-syntry-obsidian border border-[#D4AF37]/20 p-10 rounded-[3rem] flex flex-col justify-between">
               <h4 className="text-sm font-medium uppercase tracking-widest opacity-40 mb-10 text-[#F8F1E3]">Income Distribution</h4>
               <div className="flex-1 flex items-center justify-center relative">
-                 <div className="w-32 h-32 rounded-full border-[12px] border-[#D4AF37] border-r-transparent animate-spin-slow"></div>
+                 <div className="w-32 h-32 rounded-md border-[12px] border-[#D4AF37] border-r-transparent animate-spin-slow"></div>
                  <div className="absolute flex flex-col items-center">
                     <p className="text-xl font-medium text-[#D4AF37]">72%</p>
                     <p className="text-[8px] font-medium uppercase opacity-60">Rent Yield</p>
@@ -118,7 +118,7 @@ const AnalyticsDashboardPage = () => {
                            <p className="text-[9px] font-medium opacity-40 uppercase">Benchmark: +12.1%</p>
                         </td>
                         <td className="px-10 py-8">
-                           <span className="text-[9px] font-medium bg-[#1D9E75]/10 text-[#1D9E75] px-3 py-1.5 rounded-full uppercase tracking-tighter border border-[#1D9E75]/20">
+                           <span className="text-[9px] font-medium bg-[#1D9E75]/10 text-[#1D9E75] px-3 py-1.5 rounded-md uppercase tracking-tighter border border-[#1D9E75]/20">
                              {p.status}
                            </span>
                         </td>
@@ -138,10 +138,10 @@ const AnalyticsDashboardPage = () => {
              <p className="opacity-70 text-sm font-medium leading-relaxed">Top performing asset: Aburi Hills Plot 4 (+18.2%). Area for improvement: One property has pending statutory verification.</p>
            </div>
            <div className="flex flex-col gap-4 w-full md:w-auto">
-             <button className="bg-[#0F172A] text-[#F8F1E3] px-12 py-5 rounded-2xl font-medium text-sm hover:scale-[1.02] transition-all shadow-xl">
+             <button className="bg-syntry-obsidian text-[#F8F1E3] px-12 py-5 rounded-md font-medium text-sm hover:scale-[1.02] transition-all shadow-xl">
                Download Full Audit Report (PDF)
              </button>
-             <a href="https://wa.me/233531102292" className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-2xl font-medium text-sm text-center hover:bg-white/30 transition-all">
+             <a href="https://wa.me/233531102292" className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-md font-medium text-sm text-center hover:bg-white/30 transition-all">
                Priority Advisor Support
              </a>
            </div>

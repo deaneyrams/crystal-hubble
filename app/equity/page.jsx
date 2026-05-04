@@ -7,7 +7,7 @@ import GlobalFooter from '@/components/GlobalFooter';
 
 const MortgagePage = () => {
   return (
-    <div className="bg-[#0F172A] text-white min-h-screen font-sans selection:bg-[#B8FF3C] selection:text-black">
+    <div className="bg-syntry-obsidian text-white min-h-screen font-sans selection:bg-[#B8FF3C] selection:text-black">
       <GlobalHeader />
       
       {/* 1. Hero Section: Strategic Promise */}
@@ -18,7 +18,7 @@ const MortgagePage = () => {
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-block px-6 py-2 bg-black/40 backdrop-blur-2xl border border-[#B8FF3C]/20 rounded-full text-[10px] font-mono tracking-[4px] text-[#B8FF3C] uppercase mb-8"
+            className="inline-block px-6 py-2 bg-black/40 backdrop-blur-2xl border border-[#B8FF3C]/20 rounded-md text-[10px] font-mono tracking-[4px] text-[#B8FF3C] uppercase mb-8"
           >
             Syntry Open-Lending Protocol
           </motion.span>
@@ -48,10 +48,10 @@ const MortgagePage = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row justify-center gap-6"
           >
-            <button className="px-12 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-[4px] text-xs rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
+            <button className="px-12 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight uppercase tracking-[4px] text-xs rounded-md hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
               Check My Eligibility
             </button>
-            <button className="px-12 py-6 border border-white/10 text-white font-head font-medium tracking-tight uppercase tracking-[4px] text-xs rounded-xl hover:bg-white/5 transition-all">
+            <button className="px-12 py-6 border border-white/10 text-white font-head font-medium tracking-tight uppercase tracking-[4px] text-xs rounded-md hover:bg-white/5 transition-all">
               Partner with Us (For Banks)
             </button>
           </motion.div>
@@ -99,7 +99,7 @@ const MortgagePage = () => {
       {/* 3. Investor Focus: Scarcity Intelligence */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto bg-[#111118] border border-white/5 rounded-[60px] p-12 lg:p-24 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#B8FF3C]/5 blur-[200px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#B8FF3C]/5 blur-[200px] rounded-md pointer-events-none" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
             <div>
@@ -141,7 +141,7 @@ const MortgagePage = () => {
                            <div className="text-[10px] font-mono uppercase text-white/20 tracking-[4px]">Location Node</div>
                            <div className="text-2xl font-head font-medium tracking-tight uppercase tracking-widest">Pokuase Hills</div>
                         </div>
-                        <div className="h-1 bg-white/5 w-full rounded-full overflow-hidden">
+                        <div className="h-1 bg-white/5 w-full rounded-md overflow-hidden">
                            <motion.div 
                              initial={{ width: 0 }}
                              whileInView={{ width: '100%' }}
@@ -171,7 +171,7 @@ const MortgagePage = () => {
       {/* 4. Strategic CTA */}
       <section className="py-40 px-6 text-center border-t border-white/5 bg-black relative">
         <h2 className="text-4xl md:text-6xl font-head font-medium tracking-tight uppercase mb-12 tracking-tight">Ready to build your <br/> <span className="text-[#B8FF3C]">Sovereign Legacy?</span></h2>
-        <button className="px-16 py-7 bg-white text-black font-head font-medium tracking-tight tracking-[4px] uppercase text-sm rounded-xl shadow-2xl shadow-white/5 hover:bg-[#B8FF3C] transition-all hover:scale-105 active:scale-95">
+        <button className="px-16 py-7 bg-white text-black font-head font-medium tracking-tight tracking-[4px] uppercase text-sm rounded-md shadow-2xl shadow-white/5 hover:bg-[#B8FF3C] transition-all hover:scale-105 active:scale-95">
           Join the Protocol node
         </button>
       </section>

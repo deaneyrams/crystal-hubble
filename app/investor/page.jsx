@@ -30,7 +30,7 @@ export default function InvestorDashboard() {
              </div>
              <div className="text-right">
                 <div className="flex items-center justify-end gap-2 mb-1">
-                   <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_#10B981]"></span>
+                   <span className="w-2 h-2 bg-emerald-500 rounded-md animate-pulse shadow-[0_0_8px_#10B981]"></span>
                    <span className="text-[10px] text-emerald-400 uppercase font-medium tracking-tight tracking-widest">Global Escrow Active</span>
                 </div>
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest font-mono">March 2026 Distribution Node</p>
@@ -39,7 +39,7 @@ export default function InvestorDashboard() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {/* Global Stats */}
-             <div className="bg-[#0b132b] p-6 rounded-2xl border border-indigo-500/20 shadow-[0_0_20px_rgba(79,70,229,0.05)] col-span-2">
+             <div className="bg-[#0b132b] p-6 rounded-md border border-indigo-500/20 shadow-[0_0_20px_rgba(79,70,229,0.05)] col-span-2">
                 <h2 className="text-[10px] uppercase font-medium tracking-tight text-indigo-400 tracking-widest mb-6">Yield Projection Matrix (12% CAGR)</h2>
                 
                 <div className="flex items-end justify-between px-4 pb-4">
@@ -77,7 +77,7 @@ export default function InvestorDashboard() {
                 </p>
              </div>
 
-             <div className="bg-[#0b132b] p-6 rounded-2xl border border-white/5 flex flex-col justify-between">
+             <div className="bg-[#0b132b] p-6 rounded-md border border-white/5 flex flex-col justify-between">
                 <div>
                    <h3 className="text-[10px] uppercase font-medium tracking-tight text-gray-400 tracking-widest mb-4">Total Packets Sold</h3>
                    <div className="text-5xl font-light text-white tabular-nums tracking-tight">
@@ -98,7 +98,7 @@ export default function InvestorDashboard() {
           </div>
 
           {/* Holdings Ledger */}
-          <div className="bg-[#0b132b] rounded-2xl border border-white/5 overflow-hidden">
+          <div className="bg-[#0b132b] rounded-md border border-white/5 overflow-hidden">
              <div className="p-6 border-b border-white/5 flex justify-between items-center bg-black/20">
                 <h2 className="text-[10px] uppercase font-medium tracking-tight text-gray-400 tracking-widest">Public Dividend Ledger (Partial Sync)</h2>
                 <span className="text-[9px] uppercase font-medium text-indigo-400 border border-indigo-500/30 bg-indigo-900/20 px-2 py-1 rounded">50 Node Accounts Online</span>

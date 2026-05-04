@@ -22,12 +22,12 @@ const PropertyUploadPage = () => {
              ].map((s) => (
                <React.Fragment key={s.n}>
                  <div className="flex flex-col items-center gap-2">
-                   <div className={`w-10 h-10 rounded-full flex items-center justify-center font-medium text-xs border-2 transition-all ${step >= s.n ? 'bg-[#0F172A] text-[#D4AF37] border-[#0F172A]' : 'bg-white border-[#0F172A]/10 opacity-40'}`}>
+                   <div className={`w-10 h-10 rounded-md flex items-center justify-center font-medium text-xs border-2 transition-all ${step >= s.n ? 'bg-syntry-obsidian text-[#D4AF37] border-[#0F172A]' : 'bg-white border-[#0F172A]/10 opacity-40'}`}>
                      {s.n}
                    </div>
                    <p className={`text-[9px] font-medium uppercase tracking-widest ${step >= s.n ? 'opacity-100' : 'opacity-30'}`}>{s.l}</p>
                  </div>
-                 {s.n < 3 && <div className={`h-[2px] w-12 mb-6 ${step > s.n ? 'bg-[#0F172A]' : 'bg-[#0F172A]/10'}`}></div>}
+                 {s.n < 3 && <div className={`h-[2px] w-12 mb-6 ${step > s.n ? 'bg-syntry-obsidian' : 'bg-syntry-obsidian/10'}`}></div>}
                </React.Fragment>
              ))}
           </div>
@@ -39,13 +39,13 @@ const PropertyUploadPage = () => {
              <div className="space-y-8">
                 <div>
                    <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Property Title</label>
-                   <input type="text" placeholder="e.g. Aburi Hills Luxury Plot" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm placeholder:opacity-20" />
+                   <input type="text" placeholder="e.g. Aburi Hills Luxury Plot" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm placeholder:opacity-20" />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Location</label>
-                      <select className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm">
+                      <select className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm">
                          <option>Select Area...</option>
                          <option>Aburi</option>
                          <option>Pokuase</option>
@@ -57,18 +57,18 @@ const PropertyUploadPage = () => {
                    </div>
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Size (Acres / Plots)</label>
-                      <input type="text" placeholder="e.g. 0.5 Acres" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" />
+                      <input type="text" placeholder="e.g. 0.5 Acres" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" />
                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Asking Price (GHS)</label>
-                      <input type="number" placeholder="450,000" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" />
+                      <input type="number" placeholder="450,000" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" />
                    </div>
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Property Type</label>
-                      <select className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm">
+                      <select className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm">
                          <option>Residential</option>
                          <option>Mixed-Use</option>
                          <option>Commercial</option>
@@ -79,7 +79,7 @@ const PropertyUploadPage = () => {
 
                 <div>
                    <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Description</label>
-                   <textarea placeholder="Describe the statutory and investment highlights of the property..." rows={4} className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm placeholder:opacity-20 resize-none"></textarea>
+                   <textarea placeholder="Describe the statutory and investment highlights of the property..." rows={4} className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm placeholder:opacity-20 resize-none"></textarea>
                 </div>
 
                 <div>
@@ -105,7 +105,7 @@ const PropertyUploadPage = () => {
                   { label: "Ghana Card of Owner", icon: "🆔" },
                   { label: "Tax Clearance", icon: "🧾" }
                 ].map((doc, idx) => (
-                  <div key={idx} className="bg-[#0F172A]/5 p-6 rounded-2xl border border-dashed border-[#0F172A]/10 flex items-center justify-between group hover:border-[#D4AF37]/40 transition-all cursor-pointer">
+                  <div key={idx} className="bg-syntry-obsidian/5 p-6 rounded-md border border-dashed border-[#0F172A]/10 flex items-center justify-between group hover:border-[#D4AF37]/40 transition-all cursor-pointer">
                     <div className="flex items-center gap-4">
                       <span className="text-2xl">{doc.icon}</span>
                       <span className="text-[10px] font-medium uppercase tracking-widest opacity-60">{doc.label}</span>
@@ -124,7 +124,7 @@ const PropertyUploadPage = () => {
              <div className="space-y-6 mb-10 pb-10 border-b border-[#0F172A]/5">
                 <div className="flex justify-between border-b border-[#0F172A]/5 pb-4"><span className="text-[10px] font-medium opacity-40 uppercase">Property Title</span> <span className="text-sm font-medium italic underline">Aburi Hills Luxury Plot</span></div>
                 <div className="flex justify-between border-b border-[#0F172A]/5 pb-4"><span className="text-[10px] font-medium opacity-40 uppercase">Price (GHS)</span> <span className="text-sm font-medium italic">450,000</span></div>
-                <div className="flex justify-between border-b border-[#0F172A]/5 pb-4"><span className="text-[10px] font-medium opacity-40 uppercase">Status</span> <span className="text-[10px] font-medium bg-[#A8E6CF]/20 text-[#0F172A] px-4 py-1 rounded-full uppercase tracking-widest">Ready for 8-Layer Audit</span></div>
+                <div className="flex justify-between border-b border-[#0F172A]/5 pb-4"><span className="text-[10px] font-medium opacity-40 uppercase">Status</span> <span className="text-[10px] font-medium bg-[#A8E6CF]/20 text-[#0F172A] px-4 py-1 rounded-md uppercase tracking-widest">Ready for 8-Layer Audit</span></div>
              </div>
              
              <label className="flex items-start gap-4 cursor-pointer group">
@@ -145,7 +145,7 @@ const PropertyUploadPage = () => {
               {step > 1 && (
                 <button 
                   onClick={() => setStep(step - 1)}
-                  className="flex-1 md:px-10 py-4 rounded-2xl border border-[#0F172A]/10 font-medium text-xs uppercase tracking-widest hover:bg-[#0F172A]/5 transition-all"
+                  className="flex-1 md:px-10 py-4 rounded-md border border-[#0F172A]/10 font-medium text-xs uppercase tracking-widest hover:bg-syntry-obsidian/5 transition-all"
                 >
                   Back
                 </button>
@@ -155,7 +155,7 @@ const PropertyUploadPage = () => {
                   if (step < 3) setStep(step + 1);
                   else alert("Property Submitted for 8 Layer Verification. You will be notified via WhatsApp within 48 hours.");
                 }}
-                className={`flex-1 md:px-10 py-4 rounded-2xl font-medium text-xs uppercase tracking-widest transition-all shadow-xl ${step === 3 ? 'bg-[#D4AF37] text-[#0F172A] hover:scale-[1.02]' : 'bg-[#0F172A] text-white hover:bg-[#004d00]'}`}
+                className={`flex-1 md:px-10 py-4 rounded-md font-medium text-xs uppercase tracking-widest transition-all shadow-xl ${step === 3 ? 'bg-[#D4AF37] text-[#0F172A] hover:scale-[1.02]' : 'bg-syntry-obsidian text-white hover:bg-[#004d00]'}`}
               >
                 {step === 1 ? 'Next: Documents' : step === 2 ? 'Next: Review' : 'Submit for Verification'}
               </button>
@@ -165,13 +165,13 @@ const PropertyUploadPage = () => {
         {/* WhatsApp Support Mini-Box */}
         <section className="mt-20 bg-[#D4AF37]/5 border border-[#D4AF37]/10 p-8 rounded-[2.5rem] flex items-center justify-between gap-8">
            <div className="flex gap-4 items-center">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-xl shadow-sm">🤝</div>
+              <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center text-xl shadow-sm">🤝</div>
               <div>
                  <p className="text-xs font-medium text-[#0F172A]">Need help with verification?</p>
                  <p className="text-[10px] opacity-60 font-medium">Chat with our onboarding team for 8 Layers support.</p>
               </div>
            </div>
-           <a href="https://wa.me/233531102292" className="bg-[#25D366] text-white px-6 py-3 rounded-xl font-medium text-[10px] uppercase tracking-widest hover:scale-105 transition-all">
+           <a href="https://wa.me/233531102292" className="bg-[#25D366] text-white px-6 py-3 rounded-md font-medium text-[10px] uppercase tracking-widest hover:scale-105 transition-all">
               WhatsApp Support
            </a>
         </section>

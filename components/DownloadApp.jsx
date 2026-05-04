@@ -16,7 +16,7 @@ export default function DownloadApp() {
         
         {/* Visual Content */}
         <div className="flex-1 space-y-6 text-center md:text-left">
-          <div className="inline-flex items-center gap-3 bg-[#B8FF3C]/10 border border-[#B8FF3C]/20 px-4 py-1.5 rounded-full text-[10px] font-mono text-[#B8FF3C] uppercase tracking-widest">
+          <div className="inline-flex items-center gap-3 bg-[#B8FF3C]/10 border border-[#B8FF3C]/20 px-4 py-1.5 rounded-md text-[10px] font-mono text-[#B8FF3C] uppercase tracking-widest">
             Syntry Mobile Node v1.0
           </div>
           <h3 className="text-4xl md:text-5xl font-head text-white uppercase tracking-tighter">
@@ -29,13 +29,13 @@ export default function DownloadApp() {
           {isMobile ? (
             <a 
               href={downloadUrl}
-              className="inline-block w-full md:w-auto px-12 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-sm uppercase tracking-[4px] rounded-2xl shadow-[0_20px_40px_#B8FF3C33] hover:scale-105 active:scale-95 transition-all text-center"
+              className="inline-block w-full md:w-auto px-12 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-sm uppercase tracking-[4px] rounded-md shadow-[0_20px_40px_#B8FF3C33] hover:scale-105 active:scale-95 transition-all text-center"
             >
               INSTALL SYNTRY APP (Direct APK)
             </a>
           ) : (
-            <div className="flex items-center gap-6 text-white/20 font-mono text-[10px] tracking-widest bg-white/5 py-4 px-6 rounded-xl border border-white/5">
-               <span className="w-2 h-2 bg-white/20 rounded-full animate-pulse" />
+            <div className="flex items-center gap-6 text-white/20 font-mono text-[10px] tracking-widest bg-white/5 py-4 px-6 rounded-md border border-white/5">
+               <span className="w-2 h-2 bg-white/20 rounded-md animate-pulse" />
                SCAN QR NODE TO INSTALL ON MOBILE
             </div>
           )}

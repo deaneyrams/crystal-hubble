@@ -73,10 +73,10 @@ export default function DownloadPage() {
         
         {/* Left: Terminal Console */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="bg-black/60 backdrop-blur-xl border border-[#00FF41]/20 rounded-2xl p-6 h-[500px] flex flex-col shadow-[0_0_50px_rgba(0,255,65,0.05)]">
+          <div className="bg-black/60 backdrop-blur-xl border border-[#00FF41]/20 rounded-md p-6 h-[500px] flex flex-col shadow-[0_0_50px_rgba(0,255,65,0.05)]">
             <div className="flex items-center justify-between mb-6 border-b border-[#00FF41]/10 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#00FF41] rounded-full animate-pulse shadow-[0_0_8px_#00FF41]" />
+                <div className="w-2 h-2 bg-[#00FF41] rounded-md animate-pulse shadow-[0_0_8px_#00FF41]" />
                 <span className="text-[10px] tracking-[4px] uppercase">Sovereign Terminal v2.4</span>
               </div>
               <div className="text-[10px] opacity-40">UTC: {new Date().toISOString().split('T')[1].split('.')[0]}</div>
@@ -110,7 +110,7 @@ export default function DownloadPage() {
           </div>
 
           {/* App Download UI */}
-          <div className="bg-black/60 backdrop-blur-xl border border-white/5 rounded-2xl p-8 space-y-8">
+          <div className="bg-black/60 backdrop-blur-xl border border-white/5 rounded-md p-8 space-y-8">
             <h3 className="text-white font-head uppercase tracking-[4px] text-sm">Deployment Channels</h3>
             
             <div className="space-y-4">
@@ -118,7 +118,7 @@ export default function DownloadPage() {
               <a 
                 href="/downloads/syntry-latest.apk" 
                 download
-                className="flex items-center justify-between p-4 bg-[#B8FF3C] text-black rounded-xl hover:scale-[1.02] active:scale-95 transition-all group"
+                className="flex items-center justify-between p-4 bg-[#B8FF3C] text-black rounded-md hover:scale-[1.02] active:scale-95 transition-all group"
               >
                 <div className="flex items-center gap-4">
                   <span className="text-xl">🤖</span>
@@ -133,7 +133,7 @@ export default function DownloadPage() {
               {/* iOS */}
               <button 
                 onClick={() => setIsiOSBetaOpen(true)}
-                className="w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-white/10 transition-all"
+                className="w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 text-white rounded-md hover:bg-white/10 transition-all"
               >
                 <div className="flex items-center gap-4">
                   <span className="text-xl">🍎</span>
@@ -153,9 +153,9 @@ export default function DownloadPage() {
           <SovereignMap initialLat={5.6814} initialLng={-0.1149} />
           
           <div className="absolute top-6 right-6 z-20 pointer-events-none">
-            <div className="bg-black/80 backdrop-blur-xl border border-[#00FF41]/20 p-4 rounded-xl space-y-3">
+            <div className="bg-black/80 backdrop-blur-xl border border-[#00FF41]/20 p-4 rounded-md space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-[#B8FF3C] rounded-full" />
+                <div className="w-1.5 h-1.5 bg-[#B8FF3C] rounded-md" />
                 <span className="text-[8px] text-[#B8FF3C] uppercase tracking-[4px]">Precision Map Overlay Active</span>
               </div>
               <div className="text-[10px] text-white/40 uppercase leading-relaxed">
@@ -173,7 +173,7 @@ export default function DownloadPage() {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: 20, opacity: 0 }}
-                  className="bg-[#B8FF3C] p-[1px] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                  className="bg-[#B8FF3C] p-[1px] rounded-md shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                 >
                   <div className="bg-[#0C0C14] rounded-[11px] p-6 flex items-center justify-between">
                     <div>
@@ -221,9 +221,9 @@ export default function DownloadPage() {
               <div className="space-y-6">
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase tracking-[4px] text-white/20">Authorized Email</label>
-                  <input type="email" placeholder="investor@example.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white outline-none focus:border-[#B8FF3C] transition-all" />
+                  <input type="email" placeholder="investor@example.com" className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-4 text-white outline-none focus:border-[#B8FF3C] transition-all" />
                 </div>
-                <button className="w-full py-5 bg-[#B8FF3C] text-black font-head font-medium tracking-tight tracking-widest uppercase text-xs rounded-xl shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
+                <button className="w-full py-5 bg-[#B8FF3C] text-black font-head font-medium tracking-tight tracking-widest uppercase text-xs rounded-md shadow-[0_20px_40px_rgba(184,255,60,0.2)]">
                   Submit Request
                 </button>
               </div>

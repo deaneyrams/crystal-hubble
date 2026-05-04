@@ -266,7 +266,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       <MapContainer 
         center={[safeLat, safeLng]} 
         zoom={13} 
-        className="w-full h-full rounded-2xl z-10"
+        className="w-full h-full rounded-md z-10"
         scrollWheelZoom={true}
       >
         <TileLayer
@@ -295,8 +295,8 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       {/* Overlays */}
       <div className="absolute top-4 left-12 z-[1000] space-y-2">
         {areaInSqMeters > 0 && (
-          <div className="bg-slate-900 border border-gold-500/50 text-white px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md">
-            <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#0D9488] mb-1">Calculated Footprint</p>
+          <div className="bg-slate-900 border border-gold-500/50 text-white px-4 py-3 rounded-md shadow-2xl backdrop-blur-md">
+            <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-syntry-teal-600 mb-1">Calculated Footprint</p>
             <div className="flex gap-4">
                <p className="text-xl font-medium tracking-tight">{areaInSqMeters} <span className="text-[10px] font-medium text-slate-400">SQM</span></p>
                <div className="w-[1px] bg-slate-700"></div>
@@ -337,7 +337,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
                    )}
                    {whistleblowerSuccess && (
                      <div className="mt-3 bg-slate-900 border border-slate-700 p-2 rounded-lg text-[9px]">
-                        <p className="text-[#0D9488] font-medium">✓ Report Filed Securely</p>
+                        <p className="text-syntry-teal-600 font-medium">✓ Report Filed Securely</p>
                         <p className="text-slate-400 mt-1">Hash: <span className="text-white">{whistleblowerSuccess.disputeHash.substring(0, 16)}...</span></p>
                      </div>
                    )}
@@ -346,7 +346,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
           </div>
         )}
         {error && (
-          <div className="bg-red-600 text-white px-4 py-2 rounded-xl shadow-2xl animate-bounce">
+          <div className="bg-red-600 text-white px-4 py-2 rounded-md shadow-2xl animate-bounce">
             <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest">Protocol Guard</p>
             <p className="text-xs font-medium">{error}</p>
           </div>
@@ -354,10 +354,10 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
       </div>
 
       <div className="absolute bottom-4 left-4 z-[1000]">
-        <div className="bg-white/90 backdrop-blur-md border border-slate-200 p-3 rounded-xl shadow-lg">
+        <div className="bg-white/90 backdrop-blur-md border border-slate-200 p-3 rounded-md shadow-lg">
           <p className="text-[9px] font-medium tracking-tight text-slate-400 uppercase tracking-widest mb-1">Syntry Geospatial Node</p>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#0D9488]"></div>
+            <div className="w-2 h-2 rounded-md bg-syntry-teal-600"></div>
             <p className="text-[10px] font-medium text-slate-900">Greater Accra Region Active</p>
           </div>
         </div>

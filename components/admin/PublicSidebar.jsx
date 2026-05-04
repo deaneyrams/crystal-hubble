@@ -4,10 +4,10 @@ export default function PublicSidebar() {
   return (
     <div className="p-6 flex-grow overflow-y-auto space-y-6 bg-gradient-to-b from-[#0b132b] to-[#0E1629] animate-in fade-in duration-500">
       {/* High-Precision QR Code Node */}
-      <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-2xl p-6 flex flex-col items-center text-center shadow-[0_0_20px_rgba(79,70,229,0.15)] animate-in fade-in duration-500">
+      <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-md p-6 flex flex-col items-center text-center shadow-[0_0_20px_rgba(79,70,229,0.15)] animate-in fade-in duration-500">
         <h3 className="text-xs font-medium tracking-tight text-indigo-400 uppercase tracking-widest mb-4">Direct Checkout Node</h3>
-        <div className="bg-white p-3 rounded-xl shadow-[0_0_30px_rgba(79,70,229,0.3)] mb-4 w-48 h-48 relative group cursor-pointer transition-transform hover:scale-105 overflow-hidden">
-            <div className="absolute inset-0 bg-black/85 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 text-center backdrop-blur-sm rounded-xl p-2 select-none">
+        <div className="bg-white p-3 rounded-md shadow-[0_0_30px_rgba(79,70,229,0.3)] mb-4 w-48 h-48 relative group cursor-pointer transition-transform hover:scale-105 overflow-hidden">
+            <div className="absolute inset-0 bg-black/85 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 text-center backdrop-blur-sm rounded-md p-2 select-none">
               <span className="text-[10px] font-medium tracking-tight text-[#00F5D4] uppercase tracking-widest mb-1 shadow-sm">Proceed to Payment</span>
               <span className="text-[8px] text-white">Syntry Secure Escrow</span>
             </div>
@@ -26,7 +26,7 @@ export default function PublicSidebar() {
       </div>
 
       {/* Growth Projection Chart */}
-      <div className="bg-black/50 border border-white/10 rounded-2xl p-5 shadow-lg relative overflow-hidden animate-in fade-in duration-700">
+      <div className="bg-black/50 border border-white/10 rounded-md p-5 shadow-lg relative overflow-hidden animate-in fade-in duration-700">
         <h3 className="text-[10px] uppercase font-medium tracking-tight text-gray-500 tracking-widest mb-4">Market Intel: West Hills Trajectory</h3>
         <div className="relative h-24 flex items-end mb-4">
             <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 40">
@@ -51,7 +51,7 @@ export default function PublicSidebar() {
       </div>
 
       {/* Ministerial Node Verification */}
-      <div className="bg-emerald-900/20 border border-emerald-500/50 p-4 rounded-xl flex items-center justify-center gap-4 animate-in fade-in duration-1000 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+      <div className="bg-emerald-900/20 border border-emerald-500/50 p-4 rounded-md flex items-center justify-center gap-4 animate-in fade-in duration-1000 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
         <span className="text-3xl drop-shadow-[0_0_12px_#10B981] animate-pulse">✅</span>
         <div>
           <h3 className="text-[11px] uppercase font-medium tracking-tight text-emerald-400 tracking-widest border-b border-emerald-500/30 pb-0.5 inline-block">Ministerial Node 08</h3>

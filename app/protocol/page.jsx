@@ -44,17 +44,17 @@ export default function ProtocolPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white selection:bg-[#1D9E75] selection:text-[#0F172A] font-sans pb-32 overflow-x-hidden relative">
+    <div className="min-h-screen bg-syntry-obsidian text-white selection:bg-[#1D9E75] selection:text-[#0F172A] font-sans pb-32 overflow-x-hidden relative">
       <GlobalHeader />
       {/* Custom Cursor */}
-       <div ref={cursorRef} className="fixed w-2.5 h-2.5 bg-[#1D9E75] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-150 ease-out" />
-      <div ref={ringRef} className="fixed w-9 h-9 border border-[#1D9E75]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-75 linear" />
+       <div ref={cursorRef} className="fixed w-2.5 h-2.5 bg-[#1D9E75] rounded-md pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-150 ease-out" />
+      <div ref={ringRef} className="fixed w-9 h-9 border border-[#1D9E75]/40 rounded-md pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-75 linear" />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full relative z-10 text-center">
           <div 
-            className="inline-flex items-center gap-4 bg-[#1D9E75]/5 border border-[#1D9E75]/20 px-6 py-2 rounded-full text-[10px] font-mono text-[#1D9E75] uppercase tracking-[4px] mb-8"
+            className="inline-flex items-center gap-4 bg-[#1D9E75]/5 border border-[#1D9E75]/20 px-6 py-2 rounded-md text-[10px] font-mono text-[#1D9E75] uppercase tracking-[4px] mb-8"
           >
             Institutional Protocol v3.1
           </div>
@@ -77,8 +77,8 @@ export default function ProtocolPage() {
               className={`relative flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 group`}
             >
               {/* Timeline Center Point */}
-              <div className="absolute left-[30px] md:left-1/2 -translate-x-1/2 w-4 h-4 bg-black border-2 border-[#1D9E75] rounded-full z-10 group-hover:scale-150 transition-transform">
-                 <div className="absolute inset-0 bg-[#1D9E75] rounded-full animate-ping opacity-20" />
+              <div className="absolute left-[30px] md:left-1/2 -translate-x-1/2 w-4 h-4 bg-black border-2 border-[#1D9E75] rounded-md z-10 group-hover:scale-150 transition-transform">
+                 <div className="absolute inset-0 bg-[#1D9E75] rounded-md animate-ping opacity-20" />
               </div>
 
               {/* Content Card */}

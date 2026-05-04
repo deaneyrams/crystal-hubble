@@ -41,7 +41,7 @@ export default function StampingPacket({ plot, onPacketMinted }) {
   };
 
   return (
-    <div className="mt-6 border border-indigo-500/30 rounded-2xl bg-gradient-to-br from-[#0b132b] to-[#1E3A8A]/20 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-500">
+    <div className="mt-6 border border-indigo-500/30 rounded-md bg-gradient-to-br from-[#0b132b] to-[#1E3A8A]/20 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-500">
       <div className="bg-indigo-900/40 p-4 border-b border-indigo-500/30 flex items-center justify-between">
         <h3 className="text-white font-medium tracking-widest uppercase text-sm flex items-center gap-2">
           <span className="text-xl">📜</span> Digital Stamping Packet
@@ -52,7 +52,7 @@ export default function StampingPacket({ plot, onPacketMinted }) {
       <div className="p-5 space-y-5">
         
         {/* Packet Overview */}
-        <div className="bg-black/30 p-4 rounded-xl border border-white/5 space-y-3">
+        <div className="bg-black/30 p-4 rounded-md border border-white/5 space-y-3">
            <div className="flex justify-between items-center">
              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-medium">Valuation (USD)</span>
              <span className="text-sm font-mono text-white">${plot.value.toLocaleString()}</span>
@@ -67,7 +67,7 @@ export default function StampingPacket({ plot, onPacketMinted }) {
         </div>
 
         {/* Digital Jurat */}
-        <div className="bg-indigo-500/5 p-4 rounded-xl border border-indigo-500/20">
+        <div className="bg-indigo-500/5 p-4 rounded-md border border-indigo-500/20">
            <p className="text-[10px] uppercase tracking-widest text-indigo-400 font-medium tracking-tight mb-2 flex justify-between items-center">
              <span>Digital Jurat</span>
              <span className="opacity-50 text-[8px] bg-indigo-500/20 px-1 py-0.5 rounded">Act 1036 Compliant</span>
@@ -81,7 +81,7 @@ export default function StampingPacket({ plot, onPacketMinted }) {
         <button
           onClick={handleMintPacket}
           disabled={isMinting || isLocked}
-          className={`w-full py-4 text-sm font-medium tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
+          className={`w-full py-4 text-sm font-medium tracking-widest uppercase rounded-md transition-all duration-300 flex items-center justify-center gap-2
             ${isLocked 
               ? 'bg-red-900/20 border border-red-500/30 text-red-500 cursor-not-allowed shadow-none' 
               : isMinting
@@ -95,7 +95,7 @@ export default function StampingPacket({ plot, onPacketMinted }) {
              </>
           ) : isMinting ? (
              <>
-               <span className="animate-spin w-4 h-4 border-2 border-white/20 border-t-white rounded-full"></span>
+               <span className="animate-spin w-4 h-4 border-2 border-white/20 border-t-white rounded-md"></span>
                Compiling Packet...
              </>
           ) : (

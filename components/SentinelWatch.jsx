@@ -85,33 +85,33 @@ export default function SentinelWatch() {
             </h3>
             <p className="text-slate-400 font-medium mt-1 max-w-xl text-sm">Community-Driven Verification Network. Real-time telemetry for boundaries within 50 meters of your Sovereign Plot.</p>
          </div>
-         <div className="bg-white/10 px-4 py-2 rounded-xl border border-white/20">
-            <span className="block text-[10px] font-medium tracking-tight uppercase tracking-widest text-[#0D9488]">Live Monitors</span>
+         <div className="bg-white/10 px-4 py-2 rounded-md border border-white/20">
+            <span className="block text-[10px] font-medium tracking-tight uppercase tracking-widest text-syntry-teal-600">Live Monitors</span>
             <span className="text-white font-medium">2 Active Threads</span>
          </div>
       </div>
 
       <div className="p-8 space-y-6">
         {feed.map((event) => (
-           <div key={event.eventId} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 flex flex-col md:flex-row justify-between gap-6 hover:shadow-lg transition-all group">
+           <div key={event.eventId} className="bg-slate-50 border border-slate-200 rounded-md p-6 flex flex-col md:flex-row justify-between gap-6 hover:shadow-lg transition-all group">
               <div className="flex gap-4">
-                 <div className="w-16 h-16 bg-slate-200 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-[#FF0000]/10 transition-colors">
+                 <div className="w-16 h-16 bg-slate-200 rounded-md flex items-center justify-center text-2xl group-hover:bg-[#FF0000]/10 transition-colors">
                     📍
                  </div>
                  <div>
-                    <span className="text-[10px] bg-slate-900 text-white px-3 py-1 rounded-full font-medium tracking-tight uppercase tracking-widest">{event.distanceMeters}m Away</span>
+                    <span className="text-[10px] bg-slate-900 text-white px-3 py-1 rounded-md font-medium tracking-tight uppercase tracking-widest">{event.distanceMeters}m Away</span>
                     <h4 className="text-lg font-medium tracking-tight text-slate-900 mt-3">Shape Verification Event</h4>
                     <p className="text-slate-500 font-medium text-xs mt-1">An anonymous user submitted a plot mapping bordering <span className="text-slate-800">{event.zone}</span>.</p>
                     <p className="text-[#D4AF37] font-medium tracking-tight text-xs uppercase tracking-widest mt-2">{new Date(event.timestamp).toLocaleString()}</p>
                  </div>
               </div>
               <div className="flex flex-col items-end justify-between min-w-[200px]">
-                 <span className="text-xs font-medium text-slate-500 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm mb-4">
+                 <span className="text-xs font-medium text-slate-500 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-sm mb-4">
                     Flags: <span className={event.flagCount >= 1 ? "text-[#FF0000]" : "text-slate-900"}>{event.flagCount} / 2</span>
                  </span>
                  <button 
                     onClick={() => openDispute(event)}
-                    className="w-full md:w-auto bg-white border-2 border-slate-900 text-slate-900 px-6 py-3 rounded-xl font-medium tracking-tight text-xs uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-colors"
+                    className="w-full md:w-auto bg-white border-2 border-slate-900 text-slate-900 px-6 py-3 rounded-md font-medium tracking-tight text-xs uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-colors"
                  >
                     Inspect Boundary
                  </button>
@@ -125,23 +125,23 @@ export default function SentinelWatch() {
            <div className="bg-white rounded-[3rem] w-full max-w-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300">
               <div className="p-8 border-b border-slate-100 flex justify-between items-center bg-slate-50">
                  <h2 className="text-xl font-medium tracking-tight text-slate-900">Anonymous Dispute Portal</h2>
-                 <button onClick={() => setDisputeModal(null)} className="w-10 h-10 bg-slate-200 rounded-full font-medium tracking-tight text-slate-600 hover:bg-slate-300">✕</button>
+                 <button onClick={() => setDisputeModal(null)} className="w-10 h-10 bg-slate-200 rounded-md font-medium tracking-tight text-slate-600 hover:bg-slate-300">✕</button>
               </div>
               <div className="p-8 space-y-6">
                  {escalationResult ? (
-                    <div className="bg-[#0D9488]/10 border border-[#0D9488]/30 p-8 rounded-3xl text-center space-y-4">
+                    <div className="bg-syntry-teal-600/10 border border-[#0D9488]/30 p-8 rounded-md text-center space-y-4">
                        <span className="text-6xl block">⚖️</span>
-                       <h3 className="text-2xl font-medium tracking-tight text-[#0D9488]">Consensus Reached. Whistleblower Escalated.</h3>
+                       <h3 className="text-2xl font-medium tracking-tight text-syntry-teal-600">Consensus Reached. Whistleblower Escalated.</h3>
                        <p className="text-slate-600 font-medium text-sm">2+ Neighbors have flagged this boundary. A forensic PDF report has been generated and hashed to Solana Devnet.</p>
-                       <div className="bg-white p-4 rounded-xl border border-slate-200 inline-block text-left shadow-inner">
+                       <div className="bg-white p-4 rounded-md border border-slate-200 inline-block text-left shadow-inner">
                           <p className="text-[10px] font-medium tracking-tight uppercase tracking-widest text-slate-400">Secure Hash</p>
                           <p className="font-mono text-xs text-slate-900">{escalationResult.disputeHash}</p>
                        </div>
-                       <button onClick={() => setDisputeModal(null)} className="w-full mt-4 bg-slate-900 text-white font-medium tracking-tight py-4 rounded-2xl shadow-xl">Close Terminal</button>
+                       <button onClick={() => setDisputeModal(null)} className="w-full mt-4 bg-slate-900 text-white font-medium tracking-tight py-4 rounded-md shadow-xl">Close Terminal</button>
                     </div>
                  ) : (
                     <>
-                       <div className="bg-red-50 border-2 border-red-200 p-6 rounded-2xl flex gap-4">
+                       <div className="bg-red-50 border-2 border-red-200 p-6 rounded-md flex gap-4">
                           <span className="text-3xl">⚠️</span>
                           <div>
                              <p className="font-medium tracking-tight text-[#FF0000] uppercase text-xs tracking-widest">Notice to Monitor</p>
@@ -151,14 +151,14 @@ export default function SentinelWatch() {
                        
                        <div className="space-y-4">
                           <label className="text-xs font-medium tracking-tight uppercase tracking-widest text-slate-500">Attach Community Evidence</label>
-                          <div className="border-4 border-dashed border-slate-200 rounded-2xl p-8 text-center cursor-pointer hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/5 transition-all">
+                          <div className="border-4 border-dashed border-slate-200 rounded-md p-8 text-center cursor-pointer hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/5 transition-all">
                              <span className="text-3xl">📸</span>
                              <p className="text-sm font-medium text-slate-900 mt-2">Upload Geotagged Photo</p>
                           </div>
                           
                           <textarea 
                              placeholder="Provide optional anonymous context for the compliance officer..."
-                             className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl p-4 font-medium text-slate-900 text-sm focus:border-slate-900 outline-none"
+                             className="w-full bg-slate-50 border-2 border-slate-200 rounded-md p-4 font-medium text-slate-900 text-sm focus:border-slate-900 outline-none"
                              rows="3"
                              value={comment}
                              onChange={(e) => setComment(e.target.value)}
@@ -166,11 +166,11 @@ export default function SentinelWatch() {
                        </div>
 
                        <div className="flex gap-4 pt-4">
-                          <button onClick={() => setDisputeModal(null)} className="flex-1 font-medium tracking-tight text-slate-500 hover:bg-slate-100 rounded-2xl transition-colors">Cancel</button>
+                          <button onClick={() => setDisputeModal(null)} className="flex-1 font-medium tracking-tight text-slate-500 hover:bg-slate-100 rounded-md transition-colors">Cancel</button>
                           <button 
                              onClick={submitFlag}
                              disabled={loading}
-                             className="flex-[2] bg-[#FF0000] text-white py-4 rounded-2xl font-medium tracking-tight shadow-xl hover:bg-red-700 transition-colors disabled:opacity-50"
+                             className="flex-[2] bg-[#FF0000] text-white py-4 rounded-md font-medium tracking-tight shadow-xl hover:bg-red-700 transition-colors disabled:opacity-50"
                           >
                              {loading ? 'Committing Flag...' : `Assert Flag (${disputeModal.flagCount} / 2)`}
                           </button>

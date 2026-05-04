@@ -7,7 +7,7 @@ import GlobalFooter from '@/components/GlobalFooter';
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#0F172A] text-white min-h-screen selection:bg-[#B8FF3C] selection:text-black">
+    <div className="bg-syntry-obsidian text-white min-h-screen selection:bg-[#B8FF3C] selection:text-black">
       <GlobalHeader />
       
       {/* 1. Hero Section: The Radical Transparency */}
@@ -51,7 +51,7 @@ export default function AboutPage() {
 
       {/* 3. FOUNDER SECTION: THE PULSE */}
       <section className="py-32 border-y border-white/5 bg-white/[0.01] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#B8FF3C]/5 blur-[200px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#B8FF3C]/5 blur-[200px] rounded-md pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
            <motion.div 

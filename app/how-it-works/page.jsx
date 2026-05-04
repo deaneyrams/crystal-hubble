@@ -84,14 +84,14 @@ export default function ProtocolPage() {
     <div className="min-h-screen bg-[#F8F1E3] text-[#0F172A] selection:bg-[#D4AF37] selection:text-[#0F172A] font-sans pb-32 overflow-x-hidden relative">
       <GlobalHeader />
       {/* Custom Cursor */}
-       <div ref={cursorRef} className="hidden md:block fixed w-2.5 h-2.5 bg-[#D4AF37] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-150 ease-out" />
-      <div ref={ringRef} className="hidden md:block fixed w-9 h-9 border border-[#D4AF37]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-75 linear" />
+       <div ref={cursorRef} className="hidden md:block fixed w-2.5 h-2.5 bg-[#D4AF37] rounded-md pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-150 ease-out" />
+      <div ref={ringRef} className="hidden md:block fixed w-9 h-9 border border-[#D4AF37]/40 rounded-md pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-75 linear" />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full relative z-10 text-center">
           <div 
-            className="inline-flex items-center gap-4 bg-[#D4AF37]/10 border border-[#D4AF37]/20 px-6 py-2 rounded-full text-[10px] font-medium text-[#D4AF37] uppercase tracking-[4px] mb-8 shadow-sm"
+            className="inline-flex items-center gap-4 bg-[#D4AF37]/10 border border-[#D4AF37]/20 px-6 py-2 rounded-md text-[10px] font-medium text-[#D4AF37] uppercase tracking-[4px] mb-8 shadow-sm"
           >
             Institutional Protocol v3.1
           </div>
@@ -115,11 +115,11 @@ export default function ProtocolPage() {
             >
               <div className="absolute -right-6 -top-6 text-9xl opacity-5 font-medium tracking-tight italic">{i + 1}</div>
               
-              <div className="w-16 h-16 bg-[#0F172A]/5 text-4xl flex items-center justify-center rounded-2xl mb-8 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-syntry-obsidian/5 text-4xl flex items-center justify-center rounded-md mb-8 group-hover:scale-110 transition-transform">
                 {step.icon}
               </div>
               
-              <div className="self-start inline-block bg-[#0F172A] text-[#D4AF37] px-3 py-1 rounded-md text-[10px] font-medium uppercase tracking-widest mb-4 shadow-sm">
+              <div className="self-start inline-block bg-syntry-obsidian text-[#D4AF37] px-3 py-1 rounded-md text-[10px] font-medium uppercase tracking-widest mb-4 shadow-sm">
                 Layer 0{i + 1}
               </div>
               
@@ -147,14 +147,14 @@ export default function ProtocolPage() {
             {/* Case Study 1 */}
             <div className="bg-white rounded-[2.5rem] p-10 shadow-xl border border-[#0F172A]/10 flex flex-col group hover:-translate-y-2 transition-transform duration-300">
                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-[#0F172A]/5 rounded-full overflow-hidden flex items-center justify-center text-3xl shrink-0 group-hover:bg-[#1D9E75]/10 transition-colors">👩🏾‍💼</div>
+                  <div className="w-16 h-16 bg-syntry-obsidian/5 rounded-md overflow-hidden flex items-center justify-center text-3xl shrink-0 group-hover:bg-[#1D9E75]/10 transition-colors">👩🏾‍💼</div>
                   <div>
                      <h4 className="font-medium text-xl text-[#0F172A]">Akosua Mensah</h4>
                      <p className="text-xs font-medium uppercase tracking-widest text-[#D4AF37]">Accra, Ghana</p>
                   </div>
                </div>
                <div className="inline-flex max-w-max items-center gap-2 bg-[#A8E6CF]/30 text-[#0F172A] px-3 py-1.5 rounded-md text-[9px] font-medium tracking-tight uppercase tracking-widest mb-6">
-                  <span className="w-2 h-2 bg-[#1D9E75] rounded-full"></span> 8 Layers Verified
+                  <span className="w-2 h-2 bg-[#1D9E75] rounded-md"></span> 8 Layers Verified
                </div>
                <p className="text-[#0F172A]/80 leading-relaxed mb-6 flex-grow font-medium">Used the 8 Layers to turn a disputed East Legon plot into bank-approved collateral. Received mortgage approval instantly.</p>
                <blockquote className="text-xl font-medium italic text-[#0F172A] mb-8 border-l-4 border-[#1D9E75] pl-4">“Zero litigation risk — bank approved same day.”</blockquote>
@@ -176,17 +176,17 @@ export default function ProtocolPage() {
             </div>
 
             {/* Case Study 2 */}
-            <div className="bg-[#0F172A] rounded-[2.5rem] p-10 shadow-2xl border border-[#D4AF37]/20 flex flex-col group hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-40 h-40 bg-[#D4AF37]/5 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="bg-syntry-obsidian rounded-[2.5rem] p-10 shadow-2xl border border-[#D4AF37]/20 flex flex-col group hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-40 h-40 bg-[#D4AF37]/5 rounded-md blur-2xl pointer-events-none"></div>
                <div className="flex items-center gap-4 mb-8 relative z-10">
-                  <div className="w-16 h-16 bg-white/10 rounded-full overflow-hidden flex items-center justify-center text-3xl shrink-0 group-hover:bg-[#1D9E75]/20 transition-colors">👨🏾‍💻</div>
+                  <div className="w-16 h-16 bg-white/10 rounded-md overflow-hidden flex items-center justify-center text-3xl shrink-0 group-hover:bg-[#1D9E75]/20 transition-colors">👨🏾‍💻</div>
                   <div>
                      <h4 className="font-medium text-xl text-white">Kofi Osei</h4>
                      <p className="text-xs font-medium uppercase tracking-widest text-[#D4AF37]">London, UK</p>
                   </div>
                </div>
                <div className="inline-flex max-w-max items-center gap-2 bg-[#D4AF37]/20 text-[#D4AF37] px-3 py-1.5 rounded-md text-[9px] font-medium tracking-tight uppercase tracking-widest mb-6 relative z-10">
-                  <span className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse"></span> Fractional Owner
+                  <span className="w-2 h-2 bg-[#D4AF37] rounded-md animate-pulse"></span> Fractional Owner
                </div>
                <p className="text-white/80 leading-relaxed mb-6 flex-grow font-medium relative z-10">Bought a fractional share in a Spintex rental property remotely. First automated rent payment hit his account weeks later.</p>
                <blockquote className="text-xl font-medium italic text-white mb-8 border-l-4 border-[#D4AF37] pl-4 relative z-10">“I finally own Ghana property with total confidence from the UK.”</blockquote>
@@ -210,14 +210,14 @@ export default function ProtocolPage() {
             {/* Case Study 3 */}
             <div className="bg-white rounded-[2.5rem] p-10 shadow-xl border border-[#0F172A]/10 flex flex-col group hover:-translate-y-2 transition-transform duration-300">
                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-[#0F172A]/5 rounded-full overflow-hidden flex items-center justify-center text-3xl shrink-0 group-hover:bg-[#1D9E75]/10 transition-colors">👷🏾‍♂️</div>
+                  <div className="w-16 h-16 bg-syntry-obsidian/5 rounded-md overflow-hidden flex items-center justify-center text-3xl shrink-0 group-hover:bg-[#1D9E75]/10 transition-colors">👷🏾‍♂️</div>
                   <div>
                      <h4 className="font-medium text-xl text-[#0F172A]">Daniel Quartey</h4>
                      <p className="text-xs font-medium uppercase tracking-widest text-[#D4AF37]">Kumasi Developer</p>
                   </div>
                </div>
                <div className="inline-flex max-w-max items-center gap-2 bg-[#A8E6CF]/30 text-[#0F172A] px-3 py-1.5 rounded-md text-[9px] font-medium tracking-tight uppercase tracking-widest mb-6">
-                  <span className="w-2 h-2 bg-[#1D9E75] rounded-full"></span> Exchange Node
+                  <span className="w-2 h-2 bg-[#1D9E75] rounded-md"></span> Exchange Node
                </div>
                <p className="text-[#0F172A]/80 leading-relaxed mb-6 flex-grow font-medium">Listed a 2-acre commercial plot on the Sovereign Registry. Sold 40% fractional shares directly to global investors.</p>
                <blockquote className="text-xl font-medium italic text-[#0F172A] mb-8 border-l-4 border-[#1D9E75] pl-4">“Sold faster than any traditional broker — all buyers trusted the 8 Layers.”</blockquote>
@@ -240,10 +240,10 @@ export default function ProtocolPage() {
          </div>
 
          <div className="text-center mt-20 flex flex-col sm:flex-row justify-center gap-6">
-            <a href="https://wa.me/233531102292?text=I%20have%20a%20success%20story%20to%20share" className="bg-[#D4AF37] text-[#0F172A] px-10 py-5 rounded-2xl font-medium text-sm uppercase tracking-widest hover:scale-105 transition-all text-center w-full sm:w-auto shadow-xl">
+            <a href="https://wa.me/233531102292?text=I%20have%20a%20success%20story%20to%20share" className="bg-[#D4AF37] text-[#0F172A] px-10 py-5 rounded-md font-medium text-sm uppercase tracking-widest hover:scale-105 transition-all text-center w-full sm:w-auto shadow-xl">
                Share Your Own Syntry Story
             </a>
-            <a href="/marketplace" className="bg-white border border-[#0F172A]/10 text-[#0F172A] px-10 py-5 rounded-2xl font-medium text-sm uppercase tracking-widest hover:bg-[#0F172A] hover:text-[#F8F1E3] transition-all text-center w-full sm:w-auto shadow-sm">
+            <a href="/marketplace" className="bg-white border border-[#0F172A]/10 text-[#0F172A] px-10 py-5 rounded-md font-medium text-sm uppercase tracking-widest hover:bg-syntry-obsidian hover:text-[#F8F1E3] transition-all text-center w-full sm:w-auto shadow-sm">
                Browse All Verified Properties
             </a>
          </div>
@@ -255,13 +255,13 @@ export default function ProtocolPage() {
         <p className="text-lg text-[#0F172A]/70 mb-12 max-w-2xl mx-auto">Verify your property's statutory status against the 8 Layers of Grounded Truth and unlock institutional capital.</p>
 
         <div className="bg-white rounded-[3rem] p-10 md:p-16 shadow-2xl border border-[#0F172A]/10 text-left relative overflow-hidden mb-16 max-w-2xl mx-auto">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
            
            <h3 className="text-2xl font-medium mb-8 text-[#0F172A] italic">Get Your Free 8-Layer Property Verification</h3>
            
            {formSubmitted ? (
-             <div className="bg-[#1D9E75]/10 border border-[#1D9E75]/30 text-[#0F172A] p-8 rounded-3xl text-center">
-                <div className="w-16 h-16 bg-[#1D9E75] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-3xl">✓</div>
+             <div className="bg-[#1D9E75]/10 border border-[#1D9E75]/30 text-[#0F172A] p-8 rounded-md text-center">
+                <div className="w-16 h-16 bg-[#1D9E75] text-white rounded-md flex items-center justify-center mx-auto mb-6 shadow-lg text-3xl">✓</div>
                 <h4 className="text-xl font-medium mb-2">Request Received</h4>
                 <p className="text-sm opacity-80">Our protocol team will review your asset details and contact you within 24 hours.</p>
              </div>
@@ -269,20 +269,20 @@ export default function ProtocolPage() {
              <form onSubmit={handleFormSubmit} className="space-y-6 relative z-10 text-[#0F172A]">
                 <div className="space-y-2">
                    <label className="text-xs font-medium uppercase tracking-widest text-[#0F172A]/60 pl-4">Full Name</label>
-                   <input type="text" required className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-4 font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder:text-[#0F172A]/30" placeholder="e.g. Kwame Mensah" />
+                   <input type="text" required className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-4 font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder:text-[#0F172A]/30" placeholder="e.g. Kwame Mensah" />
                 </div>
                 
                 <div className="space-y-2">
                    <label className="text-xs font-medium uppercase tracking-widest text-[#0F172A]/60 pl-4">WhatsApp / Phone Number</label>
-                   <input type="tel" required className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-4 font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder:text-[#0F172A]/30" placeholder="e.g. +233 53 110 2292" />
+                   <input type="tel" required className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-4 font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder:text-[#0F172A]/30" placeholder="e.g. +233 53 110 2292" />
                 </div>
                 
                 <div className="space-y-2">
                    <label className="text-xs font-medium uppercase tracking-widest text-[#0F172A]/60 pl-4">Property Location or Title Number</label>
-                   <input type="text" required className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-4 font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder:text-[#0F172A]/30" placeholder="e.g. East Legon Ext. Plot 42" />
+                   <input type="text" required className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-4 font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder:text-[#0F172A]/30" placeholder="e.g. East Legon Ext. Plot 42" />
                 </div>
                 
-                <button type="submit" className="w-full bg-[#1D9E75] text-white px-8 py-5 rounded-2xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl hover:shadow-[#1D9E75]/20 transition-all mt-4 flex items-center justify-center gap-3">
+                <button type="submit" className="w-full bg-[#1D9E75] text-white px-8 py-5 rounded-md font-medium text-lg hover:scale-[1.02] hover:shadow-xl hover:shadow-[#1D9E75]/20 transition-all mt-4 flex items-center justify-center gap-3">
                    <span>Submit for Free Verification Report</span>
                 </button>
                 
@@ -294,10 +294,10 @@ export default function ProtocolPage() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="/check-my-property" className="bg-[#0F172A] text-[#F8F1E3] px-10 py-5 rounded-2xl font-medium text-sm uppercase tracking-widest hover:scale-105 transition-all text-center w-full sm:w-auto shadow-xl hover:shadow-[#0F172A]/30">
+            <a href="/check-my-property" className="bg-syntry-obsidian text-[#F8F1E3] px-10 py-5 rounded-md font-medium text-sm uppercase tracking-widest hover:scale-105 transition-all text-center w-full sm:w-auto shadow-xl hover:shadow-[#0F172A]/30">
               Start Verification Now
             </a>
-            <a href="https://wa.me/233531102292" className="bg-white border border-[#0F172A]/10 text-[#0F172A] px-10 py-5 rounded-2xl font-medium text-sm uppercase tracking-widest hover:bg-[#D4AF37] hover:text-[#0F172A] transition-all text-center w-full sm:w-auto shadow-sm flex items-center justify-center gap-3">
+            <a href="https://wa.me/233531102292" className="bg-white border border-[#0F172A]/10 text-[#0F172A] px-10 py-5 rounded-md font-medium text-sm uppercase tracking-widest hover:bg-[#D4AF37] hover:text-[#0F172A] transition-all text-center w-full sm:w-auto shadow-sm flex items-center justify-center gap-3">
               <span className="text-lg">💬</span>
               Talk to Mortgage Team
             </a>
@@ -307,7 +307,7 @@ export default function ProtocolPage() {
       {/* Floating WhatsApp Button */}
       <a 
         href="https://wa.me/233531102292" 
-        className="fixed bottom-10 right-10 z-[3000] bg-[#25D366] text-white p-5 rounded-full shadow-[0_20px_50px_rgba(37,211,102,0.4)] hover:scale-110 transition-all animate-bounce"
+        className="fixed bottom-10 right-10 z-[3000] bg-[#25D366] text-white p-5 rounded-md shadow-[0_20px_50px_rgba(37,211,102,0.4)] hover:scale-110 transition-all animate-bounce"
         title="Chat with Protocol Team"
       >
         <div className="flex items-center gap-3">

@@ -70,8 +70,8 @@ const NotificationsPage = () => {
         <div className="space-y-4">
           {filtered.length > 0 ? (
             filtered.map((note) => (
-              <div key={note.id} className={`bg-white border p-6 rounded-2xl shadow-sm flex gap-6 items-start transition-all ${note.isNew ? 'border-[#1D9E75]/30 bg-[#1D9E75]/5' : 'border-[#D4AF37]/10'}`}>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${note.isNew ? 'bg-[#1D9E75] text-white' : 'bg-[#0F172A]/5 text-[#0F172A]'}`}>
+              <div key={note.id} className={`bg-white border p-6 rounded-md shadow-sm flex gap-6 items-start transition-all ${note.isNew ? 'border-[#1D9E75]/30 bg-[#1D9E75]/5' : 'border-[#D4AF37]/10'}`}>
+                <div className={`w-10 h-10 rounded-md flex items-center justify-center shrink-0 ${note.isNew ? 'bg-[#1D9E75] text-white' : 'bg-syntry-obsidian/5 text-[#0F172A]'}`}>
                   {note.type === 'Mortgage' && '💳'}
                   {note.type === 'Property' && '🏠'}
                   {note.type === 'System' && '⚙️'}

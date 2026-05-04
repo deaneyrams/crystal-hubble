@@ -36,7 +36,7 @@ const SyntryEstatesDashboard = () => {
         {/* Warm Header */}
         <section className="mb-12">
           <div className="flex items-center gap-2 mb-4">
-            <span className="bg-syntry-teal/20 text-syntry-teal px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-widest">
+            <span className="bg-syntry-teal/20 text-syntry-teal px-3 py-1 rounded-md text-[10px] font-medium uppercase tracking-widest">
               Syntry Estates Authorized
             </span>
           </div>
@@ -49,8 +49,8 @@ const SyntryEstatesDashboard = () => {
           <h2 className="text-2xl font-medium mb-8">My Syntry Estates Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activeProjects.map((proj) => (
-              <div key={proj.id} className="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all">
-                <div className="h-40 bg-white/5 rounded-2xl mb-6 flex items-center justify-center text-[10px] opacity-30 italic">
+              <div key={proj.id} className="bg-white/5 border border-white/10 p-8 rounded-md shadow-sm hover:shadow-xl transition-all">
+                <div className="h-40 bg-white/5 rounded-md mb-6 flex items-center justify-center text-[10px] opacity-30 italic">
                   {proj.img}
                 </div>
                 <h3 className="text-xl font-medium mb-2">{proj.name}</h3>
@@ -61,12 +61,12 @@ const SyntryEstatesDashboard = () => {
                     <span>{proj.status} Phase</span>
                     <span>{proj.progress}%</span>
                   </div>
-                  <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-white/5 rounded-md overflow-hidden">
                     <div className="h-full bg-syntry-teal transition-all" style={{ width: `${proj.progress}%` }}></div>
                   </div>
                 </div>
                 
-                <button className="w-full bg-syntry-teal text-white py-3 rounded-xl font-medium text-xs hover:bg-syntry-teal/80 transition-all">
+                <button className="w-full bg-syntry-teal text-white py-3 rounded-md font-medium text-xs hover:bg-syntry-teal/80 transition-all">
                   View Development Reports
                 </button>
               </div>
@@ -80,7 +80,7 @@ const SyntryEstatesDashboard = () => {
             <h2 className="text-3xl font-medium mb-2">Budget Matcher Tool</h2>
             <p className="text-syntry-slate/70 font-medium">Based on your GH₵1,250,000 approval, here are homes you can afford right now.</p>
           </div>
-          <button className="bg-syntry-teal text-white px-10 py-4 rounded-2xl font-medium hover:scale-105 transition-all text-sm whitespace-nowrap">
+          <button className="bg-syntry-teal text-white px-10 py-4 rounded-md font-medium hover:scale-105 transition-all text-sm whitespace-nowrap">
             Explore My Matches
           </button>
         </section>
@@ -93,12 +93,12 @@ const SyntryEstatesDashboard = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {availableHomes.map((home) => (
-              <div key={home.id} className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all relative">
+              <div key={home.id} className="bg-white/5 border border-white/10 rounded-md overflow-hidden group hover:shadow-2xl transition-all relative">
                 <div className="h-64 bg-white/5 flex items-center justify-center text-xs opacity-30">
                   {home.img}
                 </div>
                 {home.fitsBudget && (
-                  <span className="absolute top-4 left-4 bg-syntry-teal text-white text-[10px] font-medium px-3 py-1 rounded-full uppercase shadow-lg">
+                  <span className="absolute top-4 left-4 bg-syntry-teal text-white text-[10px] font-medium px-3 py-1 rounded-md uppercase shadow-lg">
                     Fits Your Budget
                   </span>
                 )}
@@ -109,7 +109,7 @@ const SyntryEstatesDashboard = () => {
                     <span className="text-[10px] font-medium text-syntry-amber uppercase tracking-widest">Build: {home.buildTime}</span>
                   </div>
                   <p className="text-2xl font-medium text-white mb-8">GH₵{home.price}</p>
-                  <a href="https://wa.me/233531102292" target="_blank" rel="noreferrer" className="bg-[#25D366] text-white w-full py-4 rounded-xl font-medium flex items-center justify-center gap-3 text-sm hover:scale-105 transition-all">
+                  <a href="https://wa.me/233531102292" target="_blank" rel="noreferrer" className="bg-[#25D366] text-white w-full py-4 rounded-md font-medium flex items-center justify-center gap-3 text-sm hover:scale-105 transition-all">
                     Talk to Advisor
                   </a>
                 </div>

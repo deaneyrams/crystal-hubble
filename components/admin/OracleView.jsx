@@ -9,7 +9,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
   const [recommendation, setRecommendation] = useState("");
   const [isComputing, setIsComputing] = useState(true);
 
-  if (!plotData) return <div className="p-6 text-center text-indigo-400 text-sm tracking-widest font-medium uppercase border border-indigo-500/30 rounded-2xl bg-[#0a0514] animate-pulse shadow-xl">Initialising Asset Oracle...</div>;
+  if (!plotData) return <div className="p-6 text-center text-indigo-400 text-sm tracking-widest font-medium uppercase border border-indigo-500/30 rounded-md bg-[#0a0514] animate-pulse shadow-xl">Initialising Asset Oracle...</div>;
 
   useEffect(() => {
     setIsComputing(true);
@@ -33,7 +33,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
   }, [plotData, coordinates]);
 
   return (
-    <div className="w-full bg-[#0a0514] border border-indigo-500/30 rounded-2xl shadow-2xl p-6 text-gray-200 animate-in fade-in zoom-in-95 duration-700 font-sans relative overflow-hidden">
+    <div className="w-full bg-[#0a0514] border border-indigo-500/30 rounded-md shadow-2xl p-6 text-gray-200 animate-in fade-in zoom-in-95 duration-700 font-sans relative overflow-hidden">
       
       {/* Background Oracle Grid */}
       <div className="absolute inset-0 opacity-10 pointer-events-none text-indigo-500 text-[8px] leading-tight select-none">
@@ -55,8 +55,8 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
            </div>
            <div className="flex items-center gap-2">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-md h-3 w-3 bg-indigo-500"></span>
               </span>
               <span className="text-[10px] uppercase font-medium text-indigo-400 tracking-widest">Model Online</span>
            </div>
@@ -64,7 +64,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
 
         {isComputing ? (
            <div className="py-12 flex flex-col items-center justify-center space-y-4">
-              <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin"></div>
+              <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-md animate-spin"></div>
               <p className="text-xs uppercase tracking-widest text-indigo-400 font-medium animate-pulse">Running Monte Carlo Simulations...</p>
            </div>
         ) : (
@@ -74,7 +74,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
               <div className="space-y-6">
                  
                  {/* 36-Month Projection Box */}
-                 <div className="bg-[#110922] p-5 rounded-xl border border-indigo-500/30 shadow-inner">
+                 <div className="bg-[#110922] p-5 rounded-md border border-indigo-500/30 shadow-inner">
                     <h3 className="text-[10px] uppercase tracking-widest text-indigo-400 font-medium mb-4">36-Month Value Projection</h3>
                     
                     <div className="flex justify-between items-end mb-2">
@@ -114,18 +114,18 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
                  </div>
 
                  {/* Risk Meter */}
-                 <div className="bg-[#110922] p-5 rounded-xl border border-indigo-500/30">
+                 <div className="bg-[#110922] p-5 rounded-md border border-indigo-500/30">
                     <h3 className="text-[10px] uppercase tracking-widest text-indigo-400 font-medium mb-2">Automated Risk Score</h3>
                     <div className="flex justify-between items-center mb-3">
                        <span className={`text-xs font-medium tracking-tight tracking-widest px-2 py-1 rounded border ${
-                          risk.level === 'LOW-RISK' ? 'bg-green-900/40 text-green-400 border-green-500/50' : 
+                          risk.level === 'LOW-RISK' ? 'bg-syntry-teal-600/40 text-syntry-teal-600 border-green-500/50' : 
                           risk.level === 'MODERATE-RISK' ? 'bg-yellow-900/40 text-yellow-400 border-yellow-500/50' : 
                           'bg-red-900/40 text-red-400 border-red-500/50'
                        }`}>
                           {risk.level}
                        </span>
                     </div>
-                    <p className={`text-xs ${risk.level === 'LOW-RISK' ? 'text-green-300' : 'text-gray-300'}`}>
+                    <p className={`text-xs ${risk.level === 'LOW-RISK' ? 'text-syntry-teal-600' : 'text-gray-300'}`}>
                        {risk.message}
                     </p>
                  </div>
@@ -136,7 +136,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
               <div className="space-y-6 flex flex-col justify-between">
                  
                  {/* AI Commentary Box */}
-                 <div className="flex-grow bg-[#0c051a] p-5 rounded-xl border border-indigo-400/40 shadow-[0_0_15px_rgba(79,70,229,0.15)] relative">
+                 <div className="flex-grow bg-[#0c051a] p-5 rounded-md border border-indigo-400/40 shadow-[0_0_15px_rgba(79,70,229,0.15)] relative">
                     <div className="absolute -top-3 -right-3 text-3xl opacity-20">🧠</div>
                     <h3 className="text-[10px] uppercase tracking-widest text-indigo-300 font-medium mb-4">AI Commentary</h3>
                     <div className="space-y-4">
@@ -153,7 +153,7 @@ export default function OracleView({ plotData, coordinates = "1090000 N / 381000
                  </div>
 
                  {/* Next Best Move Recommender */}
-                 <div className="bg-gradient-to-r from-indigo-900/50 to-[#0e071c] p-5 rounded-xl border border-[#00F5D4]/30 animate-pulse-slow">
+                 <div className="bg-gradient-to-r from-indigo-900/50 to-[#0e071c] p-5 rounded-md border border-[#00F5D4]/30 animate-pulse-slow">
                     <h3 className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium mb-2 flex items-center gap-2">
                        <span>🎯</span> Next Best Move
                     </h3>

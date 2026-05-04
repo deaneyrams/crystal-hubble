@@ -26,7 +26,7 @@ export default function InstitutionalDashboard() {
    const [mapLoaded, setMapLoaded] = useState(false);
    const [showDroneView, setShowDroneView] = useState(false); // New Drone State
 
-   // Lazy load Mapbox logic
+   // Real-time synchronization state
    useEffect(() => {
      const timer = setTimeout(() => {
        setMapLoaded(true);
@@ -454,7 +454,7 @@ export default function InstitutionalDashboard() {
          <div className="max-w-[1200px] mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             {/* Left Typography Block */}
             <div className="space-y-10 lg:pr-10 hero-text max-w-4xl">
-               <div className="inline-flex items-center gap-4 border border-white/5 bg-white/5 px-6 py-2 rounded-full text-[10px] font-mono uppercase tracking-[4px] text-[#B8FF3C]">
+               <div className="inline-flex items-center gap-4 border border-white/5 bg-white/5 px-6 py-2 rounded-md text-[10px] font-mono uppercase tracking-[4px] text-[#B8FF3C]">
                   Starting in Ghana. Scaling across Africa.
                </div>
                <h1 className="text-6xl md:text-7xl lg:text-[120px] 2xl:text-[140px] font-head leading-[0.85] lg:leading-[0.8] tracking-tight lg:tracking-tighter text-white mb-6 hero-h1">
@@ -465,10 +465,10 @@ export default function InstitutionalDashboard() {
                   SYNTRY is the synchronised entry into every property market. Unified Data, Ministerial Node 08 Verification, and Flexible Repayments with Absa.
                </p>
                <div className="flex flex-col sm:flex-row gap-6 relative z-50">
-                 <button onClick={() => window.location.href = '/invest/'} className="w-full sm:w-auto px-10 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight tracking-widest text-xs rounded-2xl shadow-[0_20px_40px_rgba(184,255,60,0.3)] hover:scale-105 active:scale-95 transition-all">
+                 <button onClick={() => window.location.href = '/invest/'} className="w-full sm:w-auto px-10 py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight tracking-widest text-xs rounded-md shadow-[0_20px_40px_rgba(184,255,60,0.3)] hover:scale-105 active:scale-95 transition-all">
                     ACCESS WEB TERMINAL →
                  </button>
-                 <button onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})} className="w-full sm:w-auto px-10 py-6 border border-white/20 text-white font-head font-medium tracking-tight tracking-widest text-xs rounded-2xl hover:bg-white/5 transition-all">
+                 <button onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})} className="w-full sm:w-auto px-10 py-6 border border-white/20 text-white font-head font-medium tracking-tight tracking-widest text-xs rounded-md hover:bg-white/5 transition-all">
                     GET EARLY ACCESS
                  </button>
                </div>
@@ -519,7 +519,7 @@ export default function InstitutionalDashboard() {
          <div className="lg:hidden fixed bottom-0 left-0 right-0 p-6 z-[200] pointer-events-none">
             <button 
                onClick={() => window.location.href = '/invest/'}
-               className="pointer-events-auto w-full py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-sm uppercase tracking-[4px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] active:scale-95 transition-all"
+               className="pointer-events-auto w-full py-6 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-sm uppercase tracking-[4px] rounded-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] active:scale-95 transition-all"
             >
                VERIFY LAND NOW →
             </button>
@@ -527,7 +527,7 @@ export default function InstitutionalDashboard() {
 
          {/* The "3D Action Box" (Redesign - Dark Pill) */}
          <div className="relative z-30 w-[94%] md:w-[940px] mt-16 md:mt-24 mb-[40px] md:mb-[80px] self-center">
-            <div className="bg-[#0B141E] rounded-[32px] md:rounded-full shadow-[0_40px_80px_rgba(0,0,0,0.6)] px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 border border-white/10 dark-pill">
+            <div className="bg-[#0B141E] rounded-[32px] md:rounded-md shadow-[0_40px_80px_rgba(0,0,0,0.6)] px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 border border-white/10 dark-pill">
                <div className="relative w-full flex-1">
                   <span className="absolute left-6 top-1/2 -translate-y-1/2 text-lg">📍</span>
                   <select className="w-full bg-transparent border-none py-4 pl-14 pr-4 text-white font-medium outline-none appearance-none cursor-pointer text-sm">
@@ -609,7 +609,7 @@ export default function InstitutionalDashboard() {
                      className="flex-1 w-full flex flex-col items-center md:items-start text-center md:text-left group relative z-10"
                   >
                      <div className="w-20 h-20 bg-[#162A3E] rounded-[24px] border border-white/10 flex items-center justify-center text-3xl mb-8 group-hover:border-[#B8FF3C]/40 group-hover:bg-[#0D1B2A] transition-all relative">
-                        <span className="absolute -top-4 -left-4 bg-[#B8FF3C] text-black text-[10px] font-medium tracking-tight px-3 py-1 rounded-full uppercase tracking-widest shadow-xl">
+                        <span className="absolute -top-4 -left-4 bg-[#B8FF3C] text-black text-[10px] font-medium tracking-tight px-3 py-1 rounded-md uppercase tracking-widest shadow-xl">
                           Step {item.step}
                         </span>
                         {item.icon}
@@ -637,7 +637,7 @@ export default function InstitutionalDashboard() {
                   <div className="grid grid-cols-[1.2fr_1fr_1.2fr] text-white py-8 px-10 text-[11px] font-medium tracking-tight uppercase tracking-[0.25em] border-b border-white/5 bg-[#081018]">
                      <span>Framework Node</span>
                      <span className="text-center">Traditional</span>
-                     <span className="text-center text-[#0D1B2A] text-[12px] bg-[#D4AF37] px-6 py-2 rounded-full font-medium tracking-tight ml-4">Syntry Advantage</span>
+                     <span className="text-center text-[#0D1B2A] text-[12px] bg-[#D4AF37] px-6 py-2 rounded-md font-medium tracking-tight ml-4">Syntry Advantage</span>
                   </div>
                   
                   {[
@@ -662,7 +662,7 @@ export default function InstitutionalDashboard() {
                      { f: "Title Security", t: "Paper Indenture", s: "Immutable Digital Deed" },
                      { f: "Risk Profile", t: "High Litigation Risk", s: "0% Counterparty Risk" }
                   ].map((row, i) => (
-                     <div key={i} className="bg-[#0D1B2A] rounded-2xl border border-white/5 p-6 space-y-4">
+                     <div key={i} className="bg-[#0D1B2A] rounded-md border border-white/5 p-6 space-y-4">
                         <div className="text-[10px] uppercase font-medium tracking-tight tracking-[0.2em] text-white/20 border-b border-white/5 pb-2">
                            Framework Node {i+1}
                         </div>
@@ -673,7 +673,7 @@ export default function InstitutionalDashboard() {
                               <div className="text-[8px] uppercase tracking-widest text-white/10 mb-1">Traditional</div>
                               <div className="text-white/40 text-[10px] font-body italic leading-tight">{row.t}</div>
                            </div>
-                           <div className="bg-[#D4AF37]/5 border border-[#D4AF37]/10 p-3 rounded-xl">
+                           <div className="bg-[#D4AF37]/5 border border-[#D4AF37]/10 p-3 rounded-md">
                               <div className="text-[8px] uppercase tracking-widest text-[#D4AF37] mb-1 font-medium tracking-tight">Syntry Advantage</div>
                               <div className="text-[#B8FF3C] text-[10px] font-head uppercase tracking-tight flex items-center gap-1.5">
                                  <span className="text-[#D4AF37]">✓</span> {row.s}
@@ -696,8 +696,8 @@ export default function InstitutionalDashboard() {
                   <h3 className="text-4xl md:text-5xl font-head font-medium tracking-tight text-white uppercase tracking-tighter">Sovereign Asset Exchange</h3>
                   <div className="flex items-center gap-3">
                      <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#10B981] opacity-75"></span>
+                        <span className="relative inline-flex rounded-md h-3 w-3 bg-[#10B981]"></span>
                      </span>
                       <span className="text-[11px] font-medium tracking-tight uppercase tracking-[0.2em] text-[#10B981]">Ministerial Node 08: Real-time 3D Ground-Truth Active</span>
                   </div>
@@ -722,17 +722,17 @@ export default function InstitutionalDashboard() {
                         <img src={plot.image} alt={plot.name} loading="lazy" className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-80`} />
                         
                         {/* Gold Node Seal */}
-                        <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B68C1C] rounded-full border-2 border-white/20 shadow-2xl flex items-center justify-center pointer-events-none transform rotate-12 group-hover:rotate-0 transition-transform z-20">
+                        <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B68C1C] rounded-md border-2 border-white/20 shadow-2xl flex items-center justify-center pointer-events-none transform rotate-12 group-hover:rotate-0 transition-transform z-20">
                            <div className="text-[10px] font-medium tracking-tight text-[#0D1B2A] text-center leading-[0.8] uppercase">
                               Node<br />08
                            </div>
                         </div>
 
                         {/* Pulsing Green Dot (Live Node Connection) */}
-                        <div className="absolute top-4 left-4 flex items-center gap-2 bg-[#0D1B2A]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-xl">
+                        <div className="absolute top-4 left-4 flex items-center gap-2 bg-[#0D1B2A]/80 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/20 shadow-xl">
                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#10B981] opacity-75"></span>
+                              <span className="relative inline-flex rounded-md h-2 w-2 bg-[#10B981]"></span>
                            </span>
                            <span className="text-[9px] font-medium tracking-tight text-white uppercase tracking-widest">LIVE</span>
                         </div>
@@ -780,7 +780,7 @@ export default function InstitutionalDashboard() {
                                  <div className="text-[10px] text-white/60 font-mono">24M Installments</div>
                               </div>
                            </div>
-                           <button onClick={() => openDrawer(plot)} className="w-full py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-[10px] uppercase tracking-[0.2em] rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
+                           <button onClick={() => openDrawer(plot)} className="w-full py-4 bg-[#B8FF3C] text-black font-head font-medium tracking-tight text-[10px] uppercase tracking-[0.2em] rounded-md hover:scale-[1.02] active:scale-95 transition-all shadow-[0_15px_30px_rgba(184,255,60,0.2)]">
                               View Plot Details →
                            </button>
                         </div>
@@ -801,10 +801,10 @@ export default function InstitutionalDashboard() {
                   <h2 className="text-4xl md:text-5xl font-head font-medium tracking-tight text-white mb-4 tracking-tighter">The Sovereign Guarantee</h2>
                   <p className="text-[#94A3B8] text-lg max-w-xl">Institutional-grade safety protocols protecting every statutory transaction.</p>
                </div>
-               <div className="flex items-center gap-4 bg-[#0D1B2A] px-6 py-3 rounded-full border border-[#D4AF37]/30 shadow-2xl">
+               <div className="flex items-center gap-4 bg-[#0D1B2A] px-6 py-3 rounded-md border border-[#D4AF37]/30 shadow-2xl">
                   <span className="relative flex h-3 w-3">
-                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                     <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
+                     <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#10B981] opacity-75"></span>
+                     <span className="relative inline-flex rounded-md h-3 w-3 bg-[#10B981]"></span>
                   </span>
                   <span className="text-[11px] font-medium tracking-tight uppercase tracking-widest text-white">Ministerial Node: <span className="text-[#10B981]">Verified Status [Active]</span></span>
                </div>
@@ -833,10 +833,10 @@ export default function InstitutionalDashboard() {
             <h2 className="text-5xl md:text-7xl font-head font-medium tracking-tight text-white mb-8 tracking-tighter uppercase">Join the Sovereign Exchange.</h2>
             <p className="text-[#94A3B8] text-xl mb-12 max-w-2xl mx-auto font-body">The secure framework for African real estate wealth. Skip the paper trail; enter the vault.</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-full sm:w-auto px-12 py-6 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight uppercase tracking-[0.2em] text-xs rounded-full shadow-[0_20px_40px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95 transition-all">
+               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-full sm:w-auto px-12 py-6 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight uppercase tracking-[0.2em] text-xs rounded-md shadow-[0_20px_40px_rgba(212,175,55,0.2)] hover:scale-105 active:scale-95 transition-all">
                   Browse Active Nodes →
                </button>
-               <button className="w-full sm:w-auto px-12 py-6 border-2 border-white/20 text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-xs rounded-full hover:bg-white hover:text-[#0D1B2A] transition-all">
+               <button className="w-full sm:w-auto px-12 py-6 border-2 border-white/20 text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-xs rounded-md hover:bg-white hover:text-[#0D1B2A] transition-all">
                   Institutional Login
                </button>
             </div>
@@ -864,9 +864,9 @@ export default function InstitutionalDashboard() {
                   
                   {/* Mobile Drag Handle */}
                   <div className="w-full flex justify-center pt-4 pb-2 lg:hidden" onClick={closeDrawer}>
-                     <div className="w-16 h-1.5 bg-gray-700 rounded-full"></div>
+                     <div className="w-16 h-1.5 bg-gray-700 rounded-md"></div>
                   </div>
-                  <button onClick={closeDrawer} className="absolute top-6 right-6 w-10 h-10 bg-[#162A3E] border border-white/10 rounded-full flex items-center justify-center text-white hover:text-[#2DD4BF] z-50 shadow-sm hidden lg:flex">&times;</button>
+                  <button onClick={closeDrawer} className="absolute top-6 right-6 w-10 h-10 bg-[#162A3E] border border-white/10 rounded-md flex items-center justify-center text-white hover:text-[#2DD4BF] z-50 shadow-sm hidden lg:flex">&times;</button>
                   
                   {/* Premium Flight Simulator Map Pane (Top half ride map) */}
                   <div className="w-full h-[35vh] lg:h-[45vh] relative bg-[#0D1B2A] overflow-hidden shrink-0 border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
@@ -876,7 +876,7 @@ export default function InstitutionalDashboard() {
                      )}
                      {!mapLoaded && (
                         <div className="absolute inset-0 flex items-center justify-center bg-[#0D1B2A]">
-                           <span className="w-10 h-10 border-2 border-[#D4AF37]/20 border-t-[#D4AF37] rounded-full animate-spin"></span>
+                           <span className="w-10 h-10 border-2 border-[#D4AF37]/20 border-t-[#D4AF37] rounded-md animate-spin"></span>
                         </div>
                      )}
 
@@ -886,13 +886,13 @@ export default function InstitutionalDashboard() {
                         <div>
                            <div className="flex items-center gap-2 mb-1">
                               <span className="relative flex h-2 w-2">
-                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#10B981] opacity-75"></span>
+                                 <span className="relative inline-flex rounded-md h-2 w-2 bg-[#10B981]"></span>
                               </span>
                               <span className="text-[10px] font-medium tracking-tight text-[#10B981] uppercase tracking-[0.2em] shadow-sm">Ministerial Node 08 Linked</span>
                            </div>
                            <h2 className="text-3xl font-head font-medium tracking-tight text-white drop-shadow-md leading-none uppercase">{selectedProperty.name}</h2>
-                           <span className="block text-white font-medium bg-[#162A3E]/80 backdrop-blur px-3 py-1.5 rounded-full text-[9px] mt-2 w-max shadow-sm border border-white/5 uppercase tracking-widest">GPS Authenticated ✓</span>
+                           <span className="block text-white font-medium bg-[#162A3E]/80 backdrop-blur px-3 py-1.5 rounded-md text-[9px] mt-2 w-max shadow-sm border border-white/5 uppercase tracking-widest">GPS Authenticated ✓</span>
                         </div>
                         
                         {/* 1. The Drone Interface Launch Button */}
@@ -904,15 +904,15 @@ export default function InstitutionalDashboard() {
                                  window.gtag('event', 'launch_drone_view', { 'event_category': 'Engagement', 'event_label': selectedProperty.name });
                               }
                            }}
-                           className="flex items-center gap-3 px-6 py-3 bg-[#0D1B2A]/90 backdrop-blur-md border border-[#D4AF37] rounded-full shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all group"
+                           className="flex items-center gap-3 px-6 py-3 bg-[#0D1B2A]/90 backdrop-blur-md border border-[#D4AF37] rounded-md shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all group"
                         >
                            <span className="text-[#D4AF37] text-lg group-hover:rotate-12 transition-transform">🛰️</span>
                            <span className="text-white font-medium tracking-tight text-[10px] uppercase tracking-widest leading-none mt-0.5">Launch Drone View</span>
                            {/* Pulsing "Rec" Dot */}
-                           <div className="flex items-center gap-1.5 bg-black/40 px-2.5 py-1 rounded-full border border-white/10 ml-2">
+                           <div className="flex items-center gap-1.5 bg-black/40 px-2.5 py-1 rounded-md border border-white/10 ml-2">
                               <span className="relative flex h-1.5 w-1.5">
-                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
+                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-red-500 opacity-75"></span>
+                                 <span className="relative inline-flex rounded-md h-1.5 w-1.5 bg-red-500"></span>
                               </span>
                               <span className="text-red-500 text-[8px] font-medium tracking-tight tracking-widest uppercase mb-[1px]">REC</span>
                            </div>
@@ -936,7 +936,7 @@ export default function InstitutionalDashboard() {
                            </div>
                            <label className="relative inline-flex items-center cursor-pointer">
                               <input type="checkbox" className="sr-only peer" />
-                              <div className="w-11 h-6 bg-white/10 rounded-full peer peer-checked:bg-[#2DD4BF] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+                              <div className="w-11 h-6 bg-white/10 rounded-md peer peer-checked:bg-[#2DD4BF] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-md after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
                            </label>
                         </div>
                         <label className="text-[10px] font-medium uppercase tracking-widest text-[#94A3B8] mb-4 block">Installment Timeline</label>
@@ -947,7 +947,7 @@ export default function InstitutionalDashboard() {
                               step="1" 
                               value={calcMonths}
                               onChange={(e) => setCalcMonths(parseInt(e.target.value))}
-                              className="w-full accent-[#D4AF37] h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer"
+                              className="w-full accent-[#D4AF37] h-1.5 bg-white/10 rounded-md appearance-none cursor-pointer"
                            />
                         <div className="flex justify-between text-[10px] font-mono text-[#94A3B8] mt-3 font-medium">
                            <span>CASH (2% Off)</span>
@@ -994,14 +994,14 @@ export default function InstitutionalDashboard() {
                                  </div>
                               </div>
                               
-                              <button onClick={() => setShowToS(true)} className="w-full py-5 bg-[#0D1B2A] text-white font-head uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-[0_15px_30px_rgba(13,27,42,0.2)] active:scale-95 text-xs font-medium tracking-tight">
+                              <button onClick={() => setShowToS(true)} className="w-full py-5 bg-[#0D1B2A] text-white font-head uppercase tracking-widest rounded-md hover:bg-black transition-all shadow-[0_15px_30px_rgba(13,27,42,0.2)] active:scale-95 text-xs font-medium tracking-tight">
                                  Secure with Escrow 
                               </button>
                            </div>
                         );
                      })()}
                      <p className="text-center text-[10px] text-text-secondary mt-4 font-medium uppercase tracking-widest flex items-center justify-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#10B981]"></span>
+                        <span className="w-2 h-2 rounded-md bg-[#10B981]"></span>
                         Powered by Syntry Vault Escrow
                      </p>
                      </div>
@@ -1040,7 +1040,7 @@ export default function InstitutionalDashboard() {
                         { step: "3. Digital Custody", desc: "Your title deeds and site plans are securely vaulted and bound exclusively to your verified Identity (KYC Node)." }
                      ].map((item, idx) => (
                         <div key={idx} className="flex gap-4 items-start bg-[#162A3E] p-5 rounded-[24px] border border-white/5 hover:border-[#D4AF37]/20 transition-all group">
-                           <span className="w-6 h-6 rounded-full bg-[#D4AF37] text-[#0D1B2A] flex items-center justify-center text-[10px] font-medium tracking-tight shrink-0 mt-0.5">✓</span>
+                           <span className="w-6 h-6 rounded-md bg-[#D4AF37] text-[#0D1B2A] flex items-center justify-center text-[10px] font-medium tracking-tight shrink-0 mt-0.5">✓</span>
                            <div>
                               <h4 className="text-white font-medium tracking-tight text-xs uppercase tracking-widest mb-1">{item.step}</h4>
                               <p className="text-[11px] text-[#94A3B8] font-body leading-relaxed">{item.desc}</p>
@@ -1051,8 +1051,8 @@ export default function InstitutionalDashboard() {
 
                      <div className="bg-[#162A3E]/60 p-6 rounded-[24px] border border-white/10 mb-10">
                         <label className="flex items-center gap-4 cursor-pointer group">
-                           <div onClick={() => setTosAccepted(!tosAccepted)} className={`w-14 h-8 rounded-full transition-all relative shrink-0 ${tosAccepted ? 'bg-[#10B981] shadow-[0_0_15px_#10B981]' : 'bg-[#0D1B2A] border border-white/20'}`}>
-                              <div className={`absolute top-1 w-6 h-6 rounded-full transition-all bg-white ${tosAccepted ? 'left-7' : 'left-1'}`}></div>
+                           <div onClick={() => setTosAccepted(!tosAccepted)} className={`w-14 h-8 rounded-md transition-all relative shrink-0 ${tosAccepted ? 'bg-[#10B981] shadow-[0_0_15px_#10B981]' : 'bg-[#0D1B2A] border border-white/20'}`}>
+                              <div className={`absolute top-1 w-6 h-6 rounded-md transition-all bg-white ${tosAccepted ? 'left-7' : 'left-1'}`}></div>
                            </div>
                            <span className="text-white text-xs font-medium font-body leading-relaxed group-hover:text-[#D4AF37] transition-colors">
                               I have reviewed the <a href="/legal/accord" target="_blank" className="text-[#D4AF37] underline">Sovereign Accord</a> and agree to the Vault Security Protocols (Handshake Protocol).
@@ -1086,7 +1086,7 @@ export default function InstitutionalDashboard() {
                   
                   {biometricStatus === 'scan' ? (
                      <div className="text-center max-w-sm relative z-10 w-full animate-[pulse_3s_ease-in-out_infinite]">
-                        <div className="w-full aspect-square border-4 border-[#D4AF37] rounded-full flex flex-col items-center justify-center relative mb-8 overflow-hidden shadow-[0_0_100px_rgba(212,175,55,0.2)] mx-auto">
+                        <div className="w-full aspect-square border-4 border-[#D4AF37] rounded-md flex flex-col items-center justify-center relative mb-8 overflow-hidden shadow-[0_0_100px_rgba(212,175,55,0.2)] mx-auto">
                            <div className="absolute inset-0 bg-[#D4AF37]/5"></div>
                            <div className="w-1/2 h-[2px] bg-[#D4AF37] shadow-[0_0_15px_#D4AF37] absolute animate-[scan_2s_linear_infinite]"></div>
                            <span className="text-6xl filter drop-shadow-[0_0_20px_rgba(212,175,55,0.8)] opacity-50">👤</span>
@@ -1096,7 +1096,7 @@ export default function InstitutionalDashboard() {
                         
                         <div className="space-y-4">
                            <p className="text-[#94A3B8] text-xs font-body max-w-xs mx-auto mb-8">Please align your face within the frame to authorize this transfer. Connecting to local FaceID API.</p>
-                           <button onClick={handleBiometricSuccess} className="w-full py-5 bg-[#D4AF37] text-[#0D1B2A] border-none font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-full hover:bg-white transition-colors shadow-[0_15px_30px_rgba(212,175,55,0.3)]">
+                           <button onClick={handleBiometricSuccess} className="w-full py-5 bg-[#D4AF37] text-[#0D1B2A] border-none font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-md hover:bg-white transition-colors shadow-[0_15px_30px_rgba(212,175,55,0.3)]">
                               Initiate Hardware Handshake
                            </button>
                            <button onClick={() => setShowBiometricScan(false)} className="text-white/50 hover:text-white text-xs uppercase font-medium tracking-widest mt-4 inline-block">Cancel Transaction</button>
@@ -1108,12 +1108,12 @@ export default function InstitutionalDashboard() {
                         animate={{ scale: 1, opacity: 1 }} 
                         className="text-center max-w-sm relative z-10 w-full"
                      >
-                        <div className="w-48 h-48 border-4 border-[#2DD4BF] bg-[#162A3E]/80 rounded-full flex flex-col items-center justify-center relative mb-8 shadow-[0_0_150px_rgba(45,212,191,0.4)] mx-auto">
+                        <div className="w-48 h-48 border-4 border-[#2DD4BF] bg-[#162A3E]/80 rounded-md flex flex-col items-center justify-center relative mb-8 shadow-[0_0_150px_rgba(45,212,191,0.4)] mx-auto">
                            <motion.div 
                               initial={{ scale: 0 }} 
                               animate={{ scale: [0, 1.2, 1] }} 
                               transition={{ duration: 0.5, type: 'spring' }} 
-                              className="absolute inset-0 bg-[#2DD4BF]/20 rounded-full"
+                              className="absolute inset-0 bg-[#2DD4BF]/20 rounded-md"
                            ></motion.div>
                            <span className="text-7xl filter drop-shadow-[0_0_20px_rgba(45,212,191,1)] relative z-10">🛡️</span>
                         </div>
@@ -1147,12 +1147,12 @@ export default function InstitutionalDashboard() {
                {/* Top Bar inside Portal */}
                <div className={`sticky top-0 w-full px-6 py-4 flex justify-between items-center z-50 border-b bg-[#0D1B2A]/90 backdrop-blur-xl border-white/5`}>
                   <div className="flex items-center gap-3">
-                     <div className="w-8 h-8 flex items-center justify-center bg-[#162A3E] text-white rounded-xl border border-white/10 font-medium tracking-tight shadow-md">S</div>
+                     <div className="w-8 h-8 flex items-center justify-center bg-[#162A3E] text-white rounded-md border border-white/10 font-medium tracking-tight shadow-md">S</div>
                      <span className={`font-head font-medium tracking-tight tracking-widest uppercase text-xs text-white`}>Sovereign Account</span>
                   </div>
                   
                   {isLoggedIn && (
-                     <div className="hidden md:flex items-center gap-2 bg-[#162A3E]/80 border border-[#D4AF37]/20 px-4 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-medium tracking-tight text-white shadow-sm">
+                     <div className="hidden md:flex items-center gap-2 bg-[#162A3E]/80 border border-[#D4AF37]/20 px-4 py-1.5 rounded-md text-[9px] uppercase tracking-widest font-medium tracking-tight text-white shadow-sm">
                         🛡️ Security Level: <span className="text-[#2DD4BF]">Sovereign High-Trust</span>
                      </div>
                   )}
@@ -1163,7 +1163,7 @@ export default function InstitutionalDashboard() {
                         <div className="relative">
                            <button onClick={() => setShowNotifications(!showNotifications)} className="text-xl text-white/50 hover:text-white transition-colors relative">
                               🔔
-                              <span className="absolute top-0 right-0 w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_10px_#D4AF37] z-10"></span>
+                              <span className="absolute top-0 right-0 w-2 h-2 bg-[#D4AF37] rounded-md shadow-[0_0_10px_#D4AF37] z-10"></span>
                            </button>
                            
                            {/* Wealth Signal Dropdown */}
@@ -1173,7 +1173,7 @@ export default function InstitutionalDashboard() {
                                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                    className="absolute top-12 right-0 w-80 bg-[#162A3E]/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden z-[500]"
+                                    className="absolute top-12 right-0 w-80 bg-[#162A3E]/95 backdrop-blur-3xl border border-white/10 rounded-md shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden z-[500]"
                                  >
                                     <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0D1B2A]/50">
                                        <h4 className="text-white font-head font-medium tracking-tight uppercase text-xs tracking-widest">Notification Center</h4>
@@ -1182,9 +1182,9 @@ export default function InstitutionalDashboard() {
                                     <div className="max-h-96 overflow-y-auto">
                                        {/* Wealth Alert: Market Appreciation */}
                                        <button onClick={() => setActiveWealthSignal(true)} className="w-full text-left p-4 hover:bg-[#2DD4BF]/5 transition-colors border-b border-white/5 flex gap-4 group">
-                                          <span className="w-10 h-10 rounded-full bg-[#2DD4BF]/10 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">📈</span>
+                                          <span className="w-10 h-10 rounded-md bg-[#2DD4BF]/10 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">📈</span>
                                           <div>
-                                             <h5 className="text-white font-medium text-sm leading-tight flex items-center gap-2">Appreciation Alert <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] animate-pulse"></span></h5>
+                                             <h5 className="text-white font-medium text-sm leading-tight flex items-center gap-2">Appreciation Alert <span className="w-1.5 h-1.5 rounded-md bg-[#2DD4BF] animate-pulse"></span></h5>
                                              <p className="text-[#94A3B8] text-xs font-body mt-1 border-l-2 border-[#2DD4BF] pl-2">Market value in Ashifla Node 08 increased by 4.2% based on new sovereign sales.</p>
                                              <span className="text-[#D4AF37] text-[9px] font-medium tracking-tight uppercase tracking-widest mt-2 block">Trigger Wealth Growth Insight →</span>
                                           </div>
@@ -1192,17 +1192,17 @@ export default function InstitutionalDashboard() {
 
                                        {/* Legal Milestone Alert */}
                                        <div className="w-full text-left p-4 hover:bg-white/5 transition-colors border-b border-white/5 flex gap-4">
-                                          <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-lg shrink-0">⚖️</span>
+                                          <span className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center text-lg shrink-0">⚖️</span>
                                           <div>
                                              <h5 className="text-white font-medium text-sm leading-tight">Milestone Reached</h5>
                                              <p className="text-[#94A3B8] text-xs font-body mt-1">Indenture status updated to 70% Mature securely by Node Authorities.</p>
-                                             <button className="mt-3 px-4 py-1.5 bg-white/10 hover:bg-white text-white hover:text-black font-medium tracking-tight uppercase tracking-widest text-[9px] rounded-full transition-colors border border-white/20">View Certificate</button>
+                                             <button className="mt-3 px-4 py-1.5 bg-white/10 hover:bg-white text-white hover:text-black font-medium tracking-tight uppercase tracking-widest text-[9px] rounded-md transition-colors border border-white/20">View Certificate</button>
                                           </div>
                                        </div>
 
                                        {/* Security Log Alert */}
                                        <div className="w-full text-left p-4 hover:bg-white/5 transition-colors flex gap-4 opacity-70">
-                                          <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-lg shrink-0">🛡️</span>
+                                          <span className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center text-lg shrink-0">🛡️</span>
                                           <div>
                                              <h5 className="text-white font-medium text-sm leading-tight">Security Audit Complete</h5>
                                              <p className="text-[#94A3B8] text-xs font-body mt-1">Biometric handshake log synced securely to Command Center.</p>
@@ -1216,7 +1216,7 @@ export default function InstitutionalDashboard() {
                      )}
 
                      {isLoggedIn && authStep === 'dashboard' && (
-                        <button onClick={() => setDashMode(prev => prev === 'light' ? 'dark' : 'light')} className={`px-4 py-2 rounded-full text-[10px] font-medium uppercase tracking-widest bg-[#162A3E] text-white hover:bg-white/10 transition-all shadow-md border border-white/10 hidden`}>
+                        <button onClick={() => setDashMode(prev => prev === 'light' ? 'dark' : 'light')} className={`px-4 py-2 rounded-md text-[10px] font-medium uppercase tracking-widest bg-[#162A3E] text-white hover:bg-white/10 transition-all shadow-md border border-white/10 hidden`}>
                            {dashMode === 'light' ? 'Pro Mode' : 'Light Mode'}
                         </button>
                      )}
@@ -1256,7 +1256,7 @@ export default function InstitutionalDashboard() {
                                  </div>
                                  <button onClick={handleSend2FA} disabled={isSending2FA || !waPhone} className="w-full py-4 mt-2 bg-[#D4AF37] text-[#0D1B2A] font-head font-medium tracking-tight text-xs uppercase tracking-[0.2em] rounded-[24px] hover:bg-white active:scale-95 transition-all shadow-md shadow-[0_4px_10px_rgba(212,175,55,0.2)] disabled:opacity-50 flex justify-center items-center duration-300">
                                     {isSending2FA ? (
-                                       <span className="w-5 h-5 border-2 border-[#0D1B2A]/20 border-t-[#0D1B2A] rounded-full animate-spin"></span>
+                                       <span className="w-5 h-5 border-2 border-[#0D1B2A]/20 border-t-[#0D1B2A] rounded-md animate-spin"></span>
                                     ) : (
                                        'Send Secure OTP'
                                     )}
@@ -1271,7 +1271,7 @@ export default function InstitutionalDashboard() {
                            
                            {isScanning ? (
                               <div className="text-center w-full max-w-md space-y-8 relative z-10 flex flex-col items-center">
-                                 <div className="w-24 h-24 rounded-full border-4 border-[#2DD4BF]/20 border-t-[#2DD4BF] animate-spin mb-4 shadow-[0_0_30px_rgba(45,212,191,0.5)]"></div>
+                                 <div className="w-24 h-24 rounded-md border-4 border-[#2DD4BF]/20 border-t-[#2DD4BF] animate-spin mb-4 shadow-[0_0_30px_rgba(45,212,191,0.5)]"></div>
                                  <h2 className="text-3xl font-head font-medium tracking-tight text-white tracking-widest uppercase">Scanning...</h2>
                                  <p className="text-[#2DD4BF] font-mono text-sm shadow-[0_0_10px_rgba(45,212,191,0.5)]">Authenticating Sovereign Ledger</p>
                               </div>
@@ -1307,7 +1307,7 @@ export default function InstitutionalDashboard() {
                                                    codeRefs[i-1].current.focus();
                                                 }
                                              }}
-                                             className="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl sm:text-3xl font-head font-medium tracking-tight bg-[#162A3E] border border-white/10 rounded-xl focus:border-[#2DD4BF] focus:ring-4 focus:ring-[#2DD4BF]/10 transition-all text-white outline-none shadow-inner disabled:opacity-50" 
+                                             className="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl sm:text-3xl font-head font-medium tracking-tight bg-[#162A3E] border border-white/10 rounded-md focus:border-[#2DD4BF] focus:ring-4 focus:ring-[#2DD4BF]/10 transition-all text-white outline-none shadow-inner disabled:opacity-50" 
                                           />
                                        ))}
                                     </div>
@@ -1344,7 +1344,7 @@ export default function InstitutionalDashboard() {
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
                                     <div className="flex justify-between w-full items-start mb-6">
                                        <span className="text-3xl bg-[#0D1B2A] w-16 h-16 rounded-[20px] flex items-center justify-center group-hover:bg-[#D4AF37]/20 transition-colors drop-shadow-md border border-white/5 group-hover:border-[#D4AF37]/30">{goal.icon}</span>
-                                       <span className="w-8 h-8 rounded-full bg-[#D4AF37] text-[#0D1B2A] font-medium tracking-tight text-xs flex items-center justify-center shadow-md">{goal.id}</span>
+                                       <span className="w-8 h-8 rounded-md bg-[#D4AF37] text-[#0D1B2A] font-medium tracking-tight text-xs flex items-center justify-center shadow-md">{goal.id}</span>
                                     </div>
                                     <h3 className="text-2xl font-head font-medium tracking-tight text-white mb-2">{goal.title}</h3>
                                     <p className="text-[#94A3B8] font-body text-sm leading-relaxed">{goal.desc}</p>
@@ -1364,11 +1364,11 @@ export default function InstitutionalDashboard() {
                          {/* Dashboard Main View: Empty Vault vs Live Asset Monitor */}
                          {reservedPlots.length === 0 ? (
                             <div className="bg-[#0D1B2A] rounded-[24px] p-8 md:p-12 relative overflow-hidden shadow-[0_30px_60px_rgba(13,27,42,0.2)] md:border-2 border-[#D4AF37]/50 mt-4 md:mt-0 animate-[pulse_4s_ease-in-out_infinite] group">
-                               <div className="absolute top-0 right-0 w-full h-full md:w-96 md:h-96 bg-[#D4AF37]/10 blur-[100px] pointer-events-none rounded-full group-hover:bg-[#D4AF37]/20 transition-all duration-700"></div>
+                               <div className="absolute top-0 right-0 w-full h-full md:w-96 md:h-96 bg-[#D4AF37]/10 blur-[100px] pointer-events-none rounded-md group-hover:bg-[#D4AF37]/20 transition-all duration-700"></div>
                                <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-white">
                                   <div className="text-center md:text-left">
                                      <h3 className="text-2xl md:text-3xl font-head font-medium tracking-tight mb-3 flex items-center justify-center md:justify-start gap-3">
-                                        <span className="w-3 h-3 bg-[#D4AF37] rounded-full animate-[pulse_1.5s_ease-in-out_infinite] shadow-[0_0_15px_#D4AF37]"></span>
+                                        <span className="w-3 h-3 bg-[#D4AF37] rounded-md animate-[pulse_1.5s_ease-in-out_infinite] shadow-[0_0_15px_#D4AF37]"></span>
                                         Your Vault is Empty.
                                      </h3>
                                      <p className="text-[#8CA0B4] text-sm md:text-base font-body max-w-xl">Secure your first residential plot or fractional packet to become a Certified Sovereign.</p>
@@ -1390,8 +1390,8 @@ export default function InstitutionalDashboard() {
                                         <div className="absolute bottom-6 left-6 z-20">
                                            <div className="flex items-center gap-2 mb-1">
                                               <span className="relative flex h-2 w-2">
-                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#10B981] opacity-75"></span>
+                                                 <span className="relative inline-flex rounded-md h-2 w-2 bg-[#10B981]"></span>
                                               </span>
                                               <span className="text-[10px] font-medium tracking-tight text-[#10B981] uppercase tracking-widest">Live Node Sync 08</span>
                                            </div>
@@ -1406,8 +1406,8 @@ export default function InstitutionalDashboard() {
                                               <label className="text-[10px] font-medium tracking-tight uppercase tracking-[0.2em] text-[#94A3B8]">Vault Maturity Status</label>
                                               <span className="text-sm font-medium tracking-tight text-[#D4AF37] uppercase">70% Verified</span>
                                            </div>
-                                           <div className="h-3 w-full bg-white/5 rounded-full overflow-hidden border border-white/10 p-[1px]">
-                                              <div className="h-full bg-gradient-to-r from-[#2DD4BF] via-[#D4AF37] to-[#D4AF37] rounded-full shadow-[0_0_20px_#D4AF37]" style={{ width: '70%' }}></div>
+                                           <div className="h-3 w-full bg-white/5 rounded-md overflow-hidden border border-white/10 p-[1px]">
+                                              <div className="h-full bg-gradient-to-r from-[#2DD4BF] via-[#D4AF37] to-[#D4AF37] rounded-md shadow-[0_0_20px_#D4AF37]" style={{ width: '70%' }}></div>
                                            </div>
                                            <div className="flex justify-between mt-4 text-[9px] font-medium tracking-tight uppercase tracking-widest text-[#94A3B8]">
                                               <span>Reservation</span>
@@ -1437,7 +1437,7 @@ export default function InstitutionalDashboard() {
                                         <h4 className="text-white font-head font-medium tracking-tight uppercase text-xl md:text-2xl tracking-tighter">Your Sovereign Equity</h4>
                                         <p className="text-[#8CA0B4] text-[10px] md:text-xs uppercase font-medium tracking-tight tracking-widest mt-1">Fractional Packet Portfolio • Node 08 Authenticated</p>
                                      </div>
-                                     <button className="text-[#2DD4BF] font-head font-medium tracking-tight uppercase text-[10px] tracking-widest py-2 px-6 border-2 border-[#2DD4BF]/30 rounded-full hover:bg-[#2DD4BF] hover:text-[#0D1B2A] transition-all shadow-[0_0_15px_rgba(45,212,191,0.2)]">
+                                     <button className="text-[#2DD4BF] font-head font-medium tracking-tight uppercase text-[10px] tracking-widest py-2 px-6 border-2 border-[#2DD4BF]/30 rounded-md hover:bg-[#2DD4BF] hover:text-[#0D1B2A] transition-all shadow-[0_0_15px_rgba(45,212,191,0.2)]">
                                         Trade Secondary →
                                      </button>
                                   </div>
@@ -1486,7 +1486,7 @@ export default function InstitutionalDashboard() {
                                            navigator.clipboard.writeText(`SYN-REF-08-${reservedPlots[0]}`);
                                            alert("Sovereign Referral Node Copied to Clipboard!");
                                         }}
-                                        className="px-8 py-4 bg-[#0D1B2A] text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all"
+                                        className="px-8 py-4 bg-[#0D1B2A] text-white font-head font-medium tracking-tight uppercase tracking-[0.2em] text-[10px] rounded-md shadow-2xl hover:scale-105 active:scale-95 transition-all"
                                      >
                                         Copy Referral Node →
                                      </button>
@@ -1495,14 +1495,14 @@ export default function InstitutionalDashboard() {
 
                                {/* Asset Successor Status (Dark Variant) */}
                                <div className="bg-[#162A3E] border border-white/10 p-8 rounded-card flex flex-col md:flex-row gap-8 items-center shadow-xl">
-                                  <div className="text-4xl bg-[#0D1B2A] w-16 h-16 rounded-full flex items-center justify-center border border-white/5">📝</div>
+                                  <div className="text-4xl bg-[#0D1B2A] w-16 h-16 rounded-md flex items-center justify-center border border-white/5">📝</div>
                                   <div className="flex-1 text-center md:text-left">
                                      <h4 className="text-white font-head font-medium tracking-tight uppercase text-sm tracking-widest mb-1">Successor Allocation Required</h4>
                                      <p className="text-xs text-[#94A3B8]">Legalize your legacy by assigning a statutory beneficiary to this asset.</p>
                                   </div>
                                   <div className="flex gap-4 w-full md:w-auto">
-                                     <input type="text" placeholder="Successor Name" className="bg-[#0D1B2A] border border-white/10 text-white text-xs px-6 py-4 rounded-full outline-none focus:border-[#D4AF37] w-full md:w-64" />
-                                     <button className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-full text-[10px] font-medium tracking-tight uppercase tracking-widest transition-all">Save</button>
+                                     <input type="text" placeholder="Successor Name" className="bg-[#0D1B2A] border border-white/10 text-white text-xs px-6 py-4 rounded-md outline-none focus:border-[#D4AF37] w-full md:w-64" />
+                                     <button className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-md text-[10px] font-medium tracking-tight uppercase tracking-widest transition-all">Save</button>
                                   </div>
                                </div>
                             </div>
@@ -1511,7 +1511,7 @@ export default function InstitutionalDashboard() {
                         {/* KYC Alert */}
                         <div className={`px-6 py-4 rounded-card flex flex-col md:flex-row items-center justify-between border shadow-sm ${dashMode === 'dark' ? 'bg-bg-base border-accent-teal/20 text-text-primary' : 'bg-bg-base border-transparent text-text-primary'}`}>
                            <div className="flex items-center gap-4 mb-4 md:mb-0">
-                              <span className="bg-accent-gold text-text-primary w-8 h-8 rounded-full flex items-center justify-center font-medium">!</span>
+                              <span className="bg-accent-gold text-text-primary w-8 h-8 rounded-md flex items-center justify-center font-medium">!</span>
                               <span className="font-body text-sm font-medium tracking-wide">Verify your identity to unlock Secondary Market Trading.</span>
                            </div>
                            <button className="px-5 py-3 w-full md:w-auto bg-bg-surface/10 hover:bg-bg-surface/20 rounded-btn text-xs font-medium uppercase tracking-widest transition-colors">Start KYC</button>
@@ -1528,8 +1528,8 @@ export default function InstitutionalDashboard() {
                                        <h2 className={`text-4xl md:text-5xl font-head font-medium tracking-tight ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>GH₵254,000</h2>
                                        <p className="text-sm font-mono text-accent-teal mt-2">~$16,387 USD</p>
                                     </div>
-                                    <div className="bg-accent-teal/10 px-3 py-1.5 rounded-full border border-[#10B981]/30 flex items-center gap-2">
-                                       <span className="w-1.5 h-1.5 bg-accent-teal rounded-full animate-pulse shadow-[0_0_5px_#10B981]"></span>
+                                    <div className="bg-accent-teal/10 px-3 py-1.5 rounded-md border border-[#10B981]/30 flex items-center gap-2">
+                                       <span className="w-1.5 h-1.5 bg-accent-teal rounded-md animate-pulse shadow-[0_0_5px_#10B981]"></span>
                                        <span className="text-accent-teal text-[10px] uppercase font-medium tracking-widest">+2.4% (24H)</span>
                                     </div>
                                  </div>
@@ -1564,7 +1564,7 @@ export default function InstitutionalDashboard() {
                                  <div className="flex-1 w-full">
                                     <p className="text-[10px] uppercase tracking-widest font-medium text-text-muted mb-2">Installment Progress (Otatten B3)</p>
                                     <h3 className={`text-2xl font-medium tracking-tight mb-4 ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>45% Paid Off</h3>
-                                    <div className="h-3 w-full bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden shadow-inner">
+                                    <div className="h-3 w-full bg-gray-200 dark:bg-gray-800 rounded-md overflow-hidden shadow-inner">
                                        <div className="h-full bg-gradient-to-r from-[#2DD4BF] to-[#D4AF37] shadow-[0_0_10px_#D4AF37]" style={{ width: '45%' }}></div>
                                     </div>
                                  </div>
@@ -1585,15 +1585,15 @@ export default function InstitutionalDashboard() {
                                     <div className="absolute top-2 left-2 w-full h-full bg-gray-200 dark:bg-gray-600 rounded-[20px] rotate-3 opacity-70"></div>
                                     <div className="absolute top-0 left-0 w-full h-full rounded-[20px] overflow-hidden shadow-xl border-4 border-white dark:border-border-subtle">
                                        <img src="https://images.unsplash.com/photo-1524813686514-a57563d77965?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Map" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                                       <div className="absolute inset-0 bg-blue-900/30 mix-blend-multiply"></div>
-                                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg-surface/80 backdrop-blur-xl border-b border-border-subtle px-3 py-1.5 rounded-full text-[10px] font-medium text-text-primary uppercase shadow-lg border border-white">Expand Map</div>
+                                       <div className="absolute inset-0 bg-syntry-teal-600/30 mix-blend-multiply"></div>
+                                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg-surface/80 backdrop-blur-xl border-b border-border-subtle px-3 py-1.5 rounded-md text-[10px] font-medium text-text-primary uppercase shadow-lg border border-white">Expand Map</div>
                                     </div>
                                  </div>
                               </div>
 
                               {/* Referral Hub Container */}
                               <div className={`p-8 rounded-card card-glow border text-center ${dashMode === 'dark' ? 'bg-gradient-to-br from-[#152336] to-[#0A1119] border-border-subtle shadow-[10px_10px_30px_rgba(0,0,0,0.4)]' : 'bg-gradient-to-br from-[#FDFDFD] to-[#F8F9FA] border-white shadow-[15px_15px_30px_rgba(13,27,42,0.05),-15px_-15px_30px_rgba(255,255,255,1)]'}`}>
-                                 <div className="w-12 h-12 rounded-full bg-accent-gold/10 flex items-center justify-center mx-auto mb-4 border border-accent-gold/30">
+                                 <div className="w-12 h-12 rounded-md bg-accent-gold/10 flex items-center justify-center mx-auto mb-4 border border-accent-gold/30">
                                     <span className="text-xl">🤝</span>
                                  </div>
                                  <h3 className={`text-xl font-medium tracking-tight mb-1 ${dashMode === 'dark' ? 'text-text-primary' : 'text-text-primary'}`}>Scout Hub</h3>
@@ -1631,7 +1631,7 @@ export default function InstitutionalDashboard() {
                                  onClick={() => { setIsLockedDown(!isLockedDown); if(!isLockedDown) alert("Emergency Protocol Active. All outbound transactions suspended pending Video KYC."); }} 
                                  className={`px-8 py-5 font-head font-medium tracking-tight uppercase tracking-widest text-[10px] rounded-[16px] transition-all flex items-center gap-3 active:scale-95 shadow-[inset_0_0_20px_rgba(255,0,0,0.2)] ${isLockedDown ? 'bg-red-500/10 text-red-500 border border-red-500' : 'bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37]'}`}
                               >
-                                 <span className={`w-2.5 h-2.5 rounded-full ${isLockedDown ? 'bg-red-500 shadow-[0_0_15px_red]' : 'bg-red-500 shadow-[0_0_10px_red] animate-pulse'}`}></span>
+                                 <span className={`w-2.5 h-2.5 rounded-md ${isLockedDown ? 'bg-red-500 shadow-[0_0_15px_red]' : 'bg-red-500 shadow-[0_0_10px_red] animate-pulse'}`}></span>
                                  {isLockedDown ? 'Unlock Vault' : 'Emergency Vault Lock'}
                               </button>
                            </div>
@@ -1654,7 +1654,7 @@ export default function InstitutionalDashboard() {
                                  </div>
                                  
                                  <div className="w-full space-y-4">
-                                    <div className="flex items-center justify-between bg-[#0D1B2A] px-6 py-4 rounded-2xl border border-white/10 shadow-md">
+                                    <div className="flex items-center justify-between bg-[#0D1B2A] px-6 py-4 rounded-md border border-white/10 shadow-md">
                                        <div className="flex items-center gap-3">
                                           <span className="text-[#D4AF37] text-lg">🛡️</span>
                                           <div className="flex flex-col">
@@ -1662,8 +1662,8 @@ export default function InstitutionalDashboard() {
                                              <span className="text-[#94A3B8] text-[9px] uppercase font-medium tracking-tight tracking-widest">Transfers &gt; GH₵20,000</span>
                                           </div>
                                        </div>
-                                       <div className="w-12 h-6 bg-[#2DD4BF] rounded-full relative shadow-[0_0_15px_rgba(45,212,191,0.3)] cursor-not-allowed">
-                                          <div className="w-5 h-5 bg-[#0D1B2A] rounded-full absolute right-0.5 top-0.5 shadow-sm border border-[#2DD4BF]/50"></div>
+                                       <div className="w-12 h-6 bg-[#2DD4BF] rounded-md relative shadow-[0_0_15px_rgba(45,212,191,0.3)] cursor-not-allowed">
+                                          <div className="w-5 h-5 bg-[#0D1B2A] rounded-md absolute right-0.5 top-0.5 shadow-sm border border-[#2DD4BF]/50"></div>
                                        </div>
                                     </div>
                                     <p className="text-[#8CA0B4] text-center text-[10px] uppercase font-medium tracking-widest mt-4 opacity-70 border-t border-white/5 pt-4">Rule strictly enforced globally</p>
@@ -1679,13 +1679,13 @@ export default function InstitutionalDashboard() {
                                     { event: "Vault Ledger Sync", loc: "System Node 08", dev: "Automated", time: "12 hrs ago" },
                                     { event: "Withdrawal Override", loc: "London, UK", dev: "API Proxy", time: "24 hrs ago", failed: true }
                                  ].map((log, i) => (
-                                    <div key={i} className={`flex justify-between items-center bg-[#162A3E]/40 p-5 lg:p-6 rounded-2xl border ${log.failed ? 'border-red-500/30' : 'border-white/5'} hover:bg-[#162A3E]/80 transition-colors gap-4`}>
+                                    <div key={i} className={`flex justify-between items-center bg-[#162A3E]/40 p-5 lg:p-6 rounded-md border ${log.failed ? 'border-red-500/30' : 'border-white/5'} hover:bg-[#162A3E]/80 transition-colors gap-4`}>
                                        <div className="space-y-1.5 flex-1 w-0">
                                           <div className="flex items-center gap-3 truncate">
                                              {log.failed ? (
-                                                <span className="w-2.5 h-2.5 shrink-0 rounded-full bg-red-500 shadow-[0_0_8px_#EF4444]"></span>
+                                                <span className="w-2.5 h-2.5 shrink-0 rounded-md bg-red-500 shadow-[0_0_8px_#EF4444]"></span>
                                              ) : (
-                                                <span className="w-2.5 h-2.5 shrink-0 rounded-full bg-[#2DD4BF] shadow-[0_0_8px_#2DD4BF] animate-pulse"></span>
+                                                <span className="w-2.5 h-2.5 shrink-0 rounded-md bg-[#2DD4BF] shadow-[0_0_8px_#2DD4BF] animate-pulse"></span>
                                              )}
                                              <span className="text-white font-medium text-sm drop-shadow-md truncate">{log.event}</span>
                                           </div>
@@ -1721,7 +1721,7 @@ export default function InstitutionalDashboard() {
                   <div className="bg-white px-5 py-4 rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] shadow-[0_20px_40px_rgba(13,27,42,0.15)] border-2 border-[#E2E8F0] pointer-events-auto cursor-pointer hover:shadow-[0_25px_50px_rgba(13,27,42,0.2)] transition-shadow">
                      <p className="text-[#0D1B2A] font-body text-xs font-medium leading-snug">Hello! I'm your Syntry Advisor. 👋<br/><span className="text-gray-500 font-normal">Need help with your first verification?</span></p>
                   </div>
-                  <button className="w-14 h-14 bg-[#0D1B2A] rounded-full text-white flex items-center justify-center text-xl shadow-[0_15px_30px_rgba(13,27,42,0.3)] hover:scale-105 transition-transform pointer-events-auto border-2 border-[#D4AF37]">
+                  <button className="w-14 h-14 bg-[#0D1B2A] rounded-md text-white flex items-center justify-center text-xl shadow-[0_15px_30px_rgba(13,27,42,0.3)] hover:scale-105 transition-transform pointer-events-auto border-2 border-[#D4AF37]">
                      💬
                   </button>
                </motion.div>
@@ -1740,17 +1740,17 @@ export default function InstitutionalDashboard() {
             >
                {/* Drone Modal Header */}
                <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-50">
-                  <div className="flex items-center gap-4 bg-[#0D1B2A]/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+                  <div className="flex items-center gap-4 bg-[#0D1B2A]/80 backdrop-blur-md px-6 py-3 rounded-md border border-white/10">
                      <span className="text-[#D4AF37] text-xl">🛰️</span>
                      <div>
                         <span className="text-white font-medium tracking-tight text-xs uppercase tracking-widest block">{selectedProperty?.name} — 4K Orbit</span>
                         <div className="flex items-center gap-2 mt-0.5">
-                           <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
+                           <span className="w-1.5 h-1.5 bg-red-500 rounded-md animate-pulse"></span>
                            <span className="text-[#94A3B8] text-[9px] font-mono tracking-widest">LIVE GROUND TRUTH STREAM</span>
                         </div>
                      </div>
                   </div>
-                  <button onClick={() => setShowDroneView(false)} className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors text-2xl font-light">×</button>
+                  <button onClick={() => setShowDroneView(false)} className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors text-2xl font-light">×</button>
                </div>
                
                {/* 4K Video Player Container */}
@@ -1836,7 +1836,7 @@ export default function InstitutionalDashboard() {
                            initial={{ rotateY: 0 }}
                            animate={{ rotateY: [0, 360, 720, 1080] }}
                            transition={{ duration: 2, ease: "easeInOut" }}
-                           className="w-24 h-24 bg-gradient-to-br from-[#D4AF37] to-[#B68C1C] rounded-full flex items-center justify-center text-5xl shadow-[0_0_50px_rgba(212,175,55,0.6)] border-4 border-white/20"
+                           className="w-24 h-24 bg-gradient-to-br from-[#D4AF37] to-[#B68C1C] rounded-md flex items-center justify-center text-5xl shadow-[0_0_50px_rgba(212,175,55,0.6)] border-4 border-white/20"
                         >
                            🗝️
                         </motion.div>
@@ -1867,7 +1867,7 @@ export default function InstitutionalDashboard() {
                            </div>
                            <div className="flex justify-end pt-2">
                               {/* Ministerial Node 08 Stamp */}
-                              <div className="w-20 h-20 rounded-full border-4 border-[#10B981]/50 flex items-center justify-center text-[#10B981] font-medium tracking-tight text-[9px] text-center rotate-[-15deg] uppercase leading-tight bg-[#10B981]/5 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+                              <div className="w-20 h-20 rounded-md border-4 border-[#10B981]/50 flex items-center justify-center text-[#10B981] font-medium tracking-tight text-[9px] text-center rotate-[-15deg] uppercase leading-tight bg-[#10B981]/5 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
                                  Ministerial<br />Node 08<br />Verified
                               </div>
                            </div>
@@ -1894,7 +1894,7 @@ export default function InstitutionalDashboard() {
       </AnimatePresence>
 
       {/* Translucent Mobile Fixed Bar */}
-      <nav className="md:hidden fixed bottom-6 left-6 right-6 h-20 bg-[#0D1B2A]/80 backdrop-blur-xl border border-white/10 z-[100] rounded-full shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex items-center justify-around px-4">
+      <nav className="md:hidden fixed bottom-6 left-6 right-6 h-20 bg-[#0D1B2A]/80 backdrop-blur-xl border border-white/10 z-[100] rounded-md shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex items-center justify-around px-4">
          <a href="/protocol" className="flex flex-col items-center gap-1 text-[#94A3B8]">
             <span className="text-xl">🛠️</span>
             <span className="text-[8px] font-medium tracking-tight uppercase tracking-widest">Protocol</span>
@@ -1960,7 +1960,7 @@ export default function InstitutionalDashboard() {
                initial={{ x: 300, opacity: 0 }} 
                animate={{ x: 0, opacity: 1 }} 
                exit={{ x: 300, opacity: 0 }}
-               className="fixed bottom-32 right-6 z-[1000] bg-[#162A3E]/90 backdrop-blur-xl border-l-4 border-[#D4AF37] px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 transition-all hover:scale-105 cursor-pointer max-w-sm"
+               className="fixed bottom-32 right-6 z-[1000] bg-[#162A3E]/90 backdrop-blur-xl border-l-4 border-[#D4AF37] px-6 py-4 rounded-md shadow-2xl flex items-center gap-4 transition-all hover:scale-105 cursor-pointer max-w-sm"
             >
                <span className="text-xl">🔔</span>
                <div>
@@ -1973,7 +1973,7 @@ export default function InstitutionalDashboard() {
 
       {/* Demo Mode Cursor Glow Overlay */}
       {isDemoMode && (
-         <div id="demo-cursor-glow" className="fixed w-32 h-32 rounded-full bg-[#2DD4BF]/20 blur-[60px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] mix-blend-screen transition-opacity duration-300"></div>
+         <div id="demo-cursor-glow" className="fixed w-32 h-32 rounded-md bg-[#2DD4BF]/20 blur-[60px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] mix-blend-screen transition-opacity duration-300"></div>
       )}
 
       {/* Hidden Demo Mode Trigger (Ctrl + Shift + D) */}
