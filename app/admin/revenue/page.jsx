@@ -208,7 +208,7 @@ export default function CEODashboard() {
                </div>
                <div className="text-right">
                   <p className="text-[8px] text-[#f59e0b] uppercase tracking-widest mb-1 font-medium">Volume Target Cap</p>
-                  <p className="text-sm font-mono text-gray-400">30% Total Relic Gross</p>
+                  <p className="text-sm font-mono text-gray-400">30% Total Syntry Gross</p>
                </div>
             </div>
          </div>

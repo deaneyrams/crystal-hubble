@@ -80,13 +80,13 @@ export default function AboutPage() {
               </motion.h3>
               
               <div className="text-white/40 text-lg leading-relaxed space-y-6 font-body">
-                <p>I founded the Relic Group because I saw a broken system. Families were being cheated, and banks were afraid to lend. We decided to use LiDAR drones, blockchain logic, and statutory law to create a <strong>Sovereign Exchange</strong>.</p>
+                <p>I founded the Syntry Sovereign because I saw a broken system. Families were being cheated, and banks were afraid to lend. We decided to use LiDAR drones, blockchain logic, and statutory law to create a <strong>Sovereign Exchange</strong>.</p>
                 <p>Property is the foundation of wealth. If the foundation is in doubt, the wealth is a shadow. We are turning shadows into Sovereign Assets.</p>
               </div>
               
               <div>
                 <p className="font-head text-3xl font-medium tracking-tight text-white uppercase tracking-widest">Eyram Abusah</p>
-                <p className="text-[#b8ff3c] font-mono text-[10px] uppercase tracking-[5px] font-medium tracking-tight">Founder & CEO, Syntry / Relic Group</p>
+                <p className="text-[#b8ff3c] font-mono text-[10px] uppercase tracking-[5px] font-medium tracking-tight">Founder & CEO, Syntry / Syntry Sovereign</p>
               </div>
            </div>
         </div>
@@ -102,17 +102,17 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { 
-              node: "Relic Casa (The Builders)", 
+              node: "Syntry Estates (The Builders)", 
               icon: "🏗️", 
               desc: "The architecture node. Turning verified land into modern living spaces with sustainable, high-fidelity design." 
             },
             { 
-              node: "Relic Edge (The Intelligence)", 
+              node: "Syntry Edge (The Intelligence)", 
               icon: "🛰️", 
               desc: "Building the software, 3D maps, and LiDAR drone protocols that make every asset visible from anywhere in the world." 
             },
             { 
-              node: "Relic Smart (The Security)", 
+              node: "Syntry Smart (The Security)", 
               icon: "🛡️", 
               desc: "Connecting the land to the internet. 24/7 autonomous monitoring and biometric coordinate locking." 
             }

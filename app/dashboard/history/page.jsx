@@ -29,7 +29,7 @@ const TransactionHistoryPage = () => {
       id: 3,
       date: "Oct 15, 2023 | 16:45",
       type: "Escrow Deposit Locked",
-      property: "Lot 82 - Relic Casa",
+      property: "Lot 82 - Syntry Estates",
       amount: "GH₵12,000",
       status: "Pending",
       category: "Escrow"

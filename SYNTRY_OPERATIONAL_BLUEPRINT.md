@@ -1,8 +1,8 @@
 # Directive: Syntry Sovereign Core Infrastructure & Deployment
 
-**Status:** ACTIVE | **Authorized by:** Eyram Abusah, CEO of Relic Casa Ltd. and Syntry Ltd.
+**Status:** ACTIVE | **Authorized by:** Eyram Abusah, CEO of Syntry Estates Ltd. and Syntry Ltd.
 
-This directive serves as the Operational Master Blueprint for maintaining and deploying the Syntry Sovereign Core and associated Relic Group infrastructure. All future automated updates and system maintenance must adhere to these environmental constraints and deployment sequences to ensure the integrity of the 8 Layers of Truth and the Agentic Transaction Layer.
+This directive serves as the Operational Master Blueprint for maintaining and deploying the Syntry Sovereign Core and associated Syntry Sovereign infrastructure. All future automated updates and system maintenance must adhere to these environmental constraints and deployment sequences to ensure the integrity of the 8 Layers of Truth and the Agentic Transaction Layer.
 
 ## 1. Environmental Constraints
 * **Runtime Environment:** The system requires **Node.js v24.15.0**. Under no circumstances should the version be downgraded, as critical libraries for Supabase and Solana require v20+.

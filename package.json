@@ -3,9 +3,8 @@
   "version": "1.0.5-SENTINEL-COMMUNITY-LIVE",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NEXT_PRIVATE_STANDALONE=1 next build",
     "build:cloudflare": "rm -rf app/api && next build",
-    "build:droplet": "NEXT_PRIVATE_STANDALONE=1 next build",
     "start": "PORT=3000 node .next/standalone/server.js"
   },
   "dependencies": {

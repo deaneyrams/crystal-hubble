@@ -1,16 +1,34 @@
 #!/bin/bash
-echo "🚀 Igniting Syntry Engine..."
+# SYNTRY SOVEREIGN CORE - ATOMIC DEPLOYMENT SEQUENCE
+# Authorized by Eyram Abusah, CEO of SYNTRY.
 
-# Pull latest code
-git pull origin main
+echo "🛡️ Initiating SYNTRY Sovereign Atomic Deployment..."
 
-# Install dependencies and build
+# 1. Clean State Initialization
+echo "🧹 Executing Clean State Initialization..."
+pm2 delete all 2>/dev/null || true
+rm -rf .next
+rm -rf node_modules/.cache
+
+# 2. Dependency Synchronization
+echo "🔄 Synchronizing Core Libraries..."
 npm install
+
+# 3. Production Build
+echo "🏗️ Baking 8 Layers of Truth into Build Chunks..."
 npm run build
 
-# Clear port 3000 and restart via PM2
-sudo fuser -k 3000/tcp 2>/dev/null || true
-pm2 delete syntry-engine 2>/dev/null || true
+# 4. Engine Activation
+echo "🚀 Activating SYNTRY Sovereign Engine..."
+# Standardized to Port 3000 as per Sovereign Directive
 pm2 start npm --name "syntry-engine" -- start
+pm2 save
 
-echo "✅ Deployment Successful. Syntry is live on Port 3000."
+# 5. Network Verification
+echo "📡 Refreshing Nginx Gateway..."
+sudo systemctl restart nginx
+
+echo "***************************************************"
+echo "   ✅ DEPLOYMENT SUCCESSFUL: SYNTRY CORE LIVE      "
+echo "   PORT: 3000 | IDENTITY: SOVEREIGN INDEPENDENT    "
+echo "***************************************************"

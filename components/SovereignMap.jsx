@@ -245,7 +245,7 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
      geojson.geometry.coordinates = [snappedCoords];
      const latlngs = snappedCoords.map(c => [c[1], c[0]]);
      activeLayer.setLatLngs(latlngs);
-     activeLayer.setStyle({ color: '#D4AF37', fillColor: '#D4AF37', weight: 3 }); 
+     activeLayer.setStyle({ color: '#D4AF37', fillColor: '#D4AF37', weight: 3 }); // Syntry Gold snap styling
      setIsSnapped(true);
 
      const calculatedArea = area(geojson);
@@ -270,8 +270,8 @@ const SovereignMap = ({ onAreaCalculated, onLocationVerified, onCentroidValidate
         scrollWheelZoom={true}
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
         />
         <FeatureGroup>
           {leafletLoaded && EditControl && (

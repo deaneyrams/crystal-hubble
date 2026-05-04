@@ -38,7 +38,7 @@ const MyTransactionsPage = () => {
       id: 4,
       date: "Oct 01, 2023 | 10:00",
       type: "Escrow Deposit",
-      property: "Lot 82 - Relic Casa",
+      property: "Lot 82 - Syntry Estates",
       amount: "GH₵12,000",
       status: "Completed",
       category: "Escrow"

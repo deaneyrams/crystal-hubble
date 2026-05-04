@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Auto-detect Cloudflare Pages (CF_PAGES) for export, otherwise default to standalone server (Digital Ocean)
-  output: process.env.CF_PAGES ? 'export' : 'standalone',
+  output: 'standalone',
   devIndicators: {
     buildActivity: false,
   },
