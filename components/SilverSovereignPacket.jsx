@@ -101,7 +101,7 @@ export default function UnifiedPacket({ assetName, stake, txHash, price }) {
 
               <div className="mt-8 flex justify-between items-center">
                  {/* Node 08 Compliance Stamp */}
-                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-black/20 flex flex-col items-center justify-center text-[#0C0C14] font-mono text-[5px] md:text-[6px] text-center rotate-[-15deg] uppercase leading-tight font-medium group-hover:rotate-0 transition-transform">
+                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-md border border-black/20 flex flex-col items-center justify-center text-[#0C0C14] font-mono text-[5px] md:text-[6px] text-center rotate-[-15deg] uppercase leading-tight font-medium group-hover:rotate-0 transition-transform">
                     NODE 08<br/>SYNC
                  </div>
                  <div className="text-right space-y-1">

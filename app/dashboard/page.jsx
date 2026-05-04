@@ -45,7 +45,7 @@ const DashboardPage = () => {
         {/* KPI Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {kpis.map((kpi, i) => (
-            <div key={i} className="bg-[#0F172A] border border-[#D4AF37]/20 p-6 rounded-xl shadow-lg hover:shadow-[#D4AF37]/10 transition-all">
+            <div key={i} className="bg-syntry-obsidian border border-[#D4AF37]/20 p-6 rounded-md shadow-lg hover:shadow-[#D4AF37]/10 transition-all">
               <p className="text-xs opacity-60 uppercase mb-2">{kpi.label}</p>
               <h3 className="text-2xl font-medium text-[#D4AF37] mb-1">{kpi.value}</h3>
               <p className="text-xs text-[#00BFFF]">{kpi.trend}</p>
@@ -54,15 +54,15 @@ const DashboardPage = () => {
         </div>
 
         {/* 6-Step Tracker Teaser */}
-        <section className="mb-16 bg-[#F8F1E3]/5 p-8 rounded-2xl border border-[#D4AF37]/10">
+        <section className="mb-16 bg-[#F8F1E3]/5 p-8 rounded-md border border-[#D4AF37]/10">
           <h2 className="text-xl font-medium mb-6 flex items-center gap-2">
-            <span className="w-2 h-2 bg-[#00BFFF] rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-[#00BFFF] rounded-md animate-pulse"></span>
             Mortgage Application Progress
           </h2>
           <div className="flex flex-wrap md:flex-nowrap gap-4 justify-between items-start">
             {[1, 2, 3, 4, 5, 6].map((step) => (
               <div key={step} className={`flex-1 min-w-[120px] text-center ${step <= 3 ? 'opacity-100' : 'opacity-40'}`}>
-                <div className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center mb-3 border ${step <= 3 ? 'bg-[#D4AF37] border-[#D4AF37] text-[#0F172A]' : 'border-[#F8F1E3]/20'}`}>
+                <div className={`w-10 h-10 mx-auto rounded-md flex items-center justify-center mb-3 border ${step <= 3 ? 'bg-[#D4AF37] border-[#D4AF37] text-[#0F172A]' : 'border-[#F8F1E3]/20'}`}>
                   {step <= 3 ? '✓' : step}
                 </div>
                 <p className="text-[10px] uppercase tracking-tighter">Step {step}</p>
@@ -79,8 +79,8 @@ const DashboardPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {properties.map((prop) => (
-              <div key={prop.id} className="bg-[#002200] rounded-xl overflow-hidden border border-[#D4AF37]/10 group hover:border-[#D4AF37]/30 transition-all">
-                <div className="h-48 bg-[#0F172A] flex items-center justify-center text-xs opacity-40">
+              <div key={prop.id} className="bg-[#002200] rounded-md overflow-hidden border border-[#D4AF37]/10 group hover:border-[#D4AF37]/30 transition-all">
+                <div className="h-48 bg-syntry-obsidian flex items-center justify-center text-xs opacity-40">
                   {prop.img}
                 </div>
                 <div className="p-6">
@@ -98,7 +98,7 @@ const DashboardPage = () => {
                       <span>Mortgage Progress</span>
                       <span>{prop.progress}%</span>
                     </div>
-                    <div className="h-1 bg-[#F8F1E3]/10 rounded-full overflow-hidden">
+                    <div className="h-1 bg-[#F8F1E3]/10 rounded-md overflow-hidden">
                       <div className="h-full bg-[#00BFFF] transition-all" style={{ width: `${prop.progress}%` }}></div>
                     </div>
                   </div>
@@ -124,15 +124,15 @@ const DashboardPage = () => {
 
         {/* Quick Actions */}
         <section className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <button className="p-6 bg-[#D4AF37] text-[#0F172A] rounded-xl font-medium hover:scale-[1.02] transition-all text-left">
+          <button className="p-6 bg-[#D4AF37] text-[#0F172A] rounded-md font-medium hover:scale-[1.02] transition-all text-left">
             <p className="text-xs uppercase mb-1">Action Required</p>
             <h4 className="text-lg">Upload Bank Statements</h4>
           </button>
-          <button className="p-6 bg-[#0F172A] border border-[#00BFFF]/20 rounded-xl font-medium hover:scale-[1.02] transition-all text-left">
+          <button className="p-6 bg-syntry-obsidian border border-[#00BFFF]/20 rounded-md font-medium hover:scale-[1.02] transition-all text-left">
             <p className="text-xs uppercase mb-1 text-[#00BFFF]">Next Step</p>
             <h4 className="text-lg">View Pre-Approval Letter</h4>
           </button>
-          <a href="https://wa.me/233531102292" target="_blank" rel="noreferrer" className="p-6 bg-[#25D366] text-white rounded-xl font-medium hover:scale-[1.02] transition-all text-left flex items-center justify-between">
+          <a href="https://wa.me/233531102292" target="_blank" rel="noreferrer" className="p-6 bg-[#25D366] text-white rounded-md font-medium hover:scale-[1.02] transition-all text-left flex items-center justify-between">
             <div>
               <p className="text-xs uppercase mb-1 opacity-80">Support</p>
               <h4 className="text-lg">Chat with Advisor</h4>

@@ -11,7 +11,7 @@ const PartnerSignupPage = () => {
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-6xl mx-auto">
         {/* Partner Hero */}
         <section className="mb-20 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 border border-[#D4AF37]/20">
+          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-md mb-6 border border-[#D4AF37]/20">
             <span className="text-lg">🏢</span>
             <span className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Institutional Onboarding</span>
           </div>
@@ -29,16 +29,16 @@ const PartnerSignupPage = () => {
               <div className="space-y-6">
                  <div>
                     <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Full Name / Company Name</label>
-                    <input type="text" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" placeholder="Enter name" />
+                    <input type="text" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" placeholder="Enter name" />
                  </div>
                  <div className="grid grid-cols-2 gap-6">
                     <div>
                        <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Phone Number</label>
-                       <input type="text" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" placeholder="+233" />
+                       <input type="text" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" placeholder="+233" />
                     </div>
                     <div>
                        <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Business Type</label>
-                       <select className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm">
+                       <select className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm">
                           <option>Developer</option>
                           <option>Agent</option>
                        </select>
@@ -46,9 +46,9 @@ const PartnerSignupPage = () => {
                  </div>
                  <div>
                     <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3">Email Address</label>
-                    <input type="email" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" placeholder="email@company.com" />
+                    <input type="email" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" placeholder="email@company.com" />
                  </div>
-                 <button className="w-full bg-[#00BFFF] text-[#0F172A] py-5 rounded-2xl font-medium text-sm uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl mt-8">
+                 <button className="w-full bg-[#00BFFF] text-[#0F172A] py-5 rounded-md font-medium text-sm uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl mt-8">
                     Create Partner Account
                  </button>
                  <p className="text-center text-[9px] font-medium opacity-30 mt-6 uppercase tracking-widest">
@@ -77,11 +77,11 @@ const PartnerSignupPage = () => {
         </div>
 
         {/* WhatsApp Liaisons Mini-Section */}
-        <section className="bg-[#0F172A] text-[#F8F1E3] p-12 rounded-[3rem] text-center shadow-2xl relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <section className="bg-syntry-obsidian text-[#F8F1E3] p-12 rounded-[3rem] text-center shadow-2xl relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-32 -mt-32"></div>
            <h2 className="text-2xl font-medium mb-4 italic">Need Bulk Onboarding?</h2>
            <p className="text-sm opacity-60 mb-8 max-w-md mx-auto">Our statutory liaisons can help you onboard your entire property portfolio in under 48 hours.</p>
-           <a href="https://wa.me/233531102292" className="bg-[#25D366] text-white px-10 py-4 rounded-xl font-medium text-xs uppercase tracking-widest hover:scale-105 transition-all inline-block">
+           <a href="https://wa.me/233531102292" className="bg-[#25D366] text-white px-10 py-4 rounded-md font-medium text-xs uppercase tracking-widest hover:scale-105 transition-all inline-block">
               Connect Liaison 0531102292
            </a>
         </section>

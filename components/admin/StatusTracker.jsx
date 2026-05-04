@@ -33,10 +33,10 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
   }, [currentStage, onStageComplete, onCertificated, stages]);
 
   return (
-    <div className="bg-[#0b132b] border border-blue-500/20 rounded-2xl p-6 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in-95 duration-700">
+    <div className="bg-[#0b132b] border border-blue-500/20 rounded-md p-6 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in-95 duration-700">
       
       {/* Background Matrix Effect */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none text-blue-500 text-[8px] leading-tight select-none">
+      <div className="absolute inset-0 opacity-10 pointer-events-none text-syntry-teal-600 text-[8px] leading-tight select-none">
         {Array.from({length: 20}).map((_, i) => (
            <div key={i}>0x{Math.random().toString(16).substr(2, 8)} ... {(currentStage + 1) * 100}ms</div>
         ))}
@@ -56,7 +56,7 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
             return (
               <div key={stage.id} className="relative pl-6">
                 {/* Status Dot */}
-                <div className={`absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 transition-all duration-500
+                <div className={`absolute -left-[9px] top-1 h-4 w-4 rounded-md border-2 transition-all duration-500
                   ${isCompleted ? 'bg-[#00F5D4] border-[#00F5D4] shadow-[0_0_10px_#00F5D4]' 
                     : isCurrent ? 'bg-indigo-500 border-indigo-400 animate-pulse shadow-[0_0_10px_rgba(79,70,229,0.8)]' 
                     : 'bg-[#050810] border-gray-600'}
@@ -69,7 +69,7 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
                   </h4>
                   {isCurrent && (
                      <p className="text-[9px] text-gray-400 font-mono mt-1 flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span> 
+                        <span className="w-2 h-2 rounded-md bg-indigo-500 animate-ping"></span> 
                         Polling registry protocol...
                      </p>
                   )}
@@ -86,7 +86,7 @@ export default function StatusTracker({ initialStage = 0, onStageComplete, onCer
 
         {/* Final State Banner */}
         {currentStage === stages.length - 1 && (
-           <div className="p-3 bg-gradient-to-r from-[#00F5D4]/20 to-indigo-900/20 border border-[#00F5D4]/40 rounded-xl mt-4 animate-in slide-in-from-bottom flex justify-between items-center">
+           <div className="p-3 bg-gradient-to-r from-[#00F5D4]/20 to-indigo-900/20 border border-[#00F5D4]/40 rounded-md mt-4 animate-in slide-in-from-bottom flex justify-between items-center">
               <div>
                 <p className="text-[10px] text-[#00F5D4] uppercase font-medium tracking-tight tracking-widest">Digital Title Issued</p>
                 <p className="text-[9px] text-gray-300 mt-0.5">Asset successfully transitioned to Custody Protocol.</p>

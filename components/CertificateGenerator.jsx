@@ -57,7 +57,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
       <button
         onClick={handleDownload}
         disabled={isGenerating}
-        className={`w-full py-4 rounded-xl font-medium uppercase tracking-widest text-xs flex items-center justify-center gap-3 transition-all duration-300
+        className={`w-full py-4 rounded-md font-medium uppercase tracking-widest text-xs flex items-center justify-center gap-3 transition-all duration-300
           ${isGenerating 
             ? 'bg-[#00F5D4]/10 text-[#00F5D4]/40 cursor-wait' 
             : 'bg-gradient-to-r from-[#00F5D4]/20 via-[#00F5D4]/10 to-[#00F5D4]/20 hover:from-[#00F5D4]/30 hover:to-[#00F5D4]/30 text-[#00F5D4] border border-[#00F5D4]/40 shadow-[0_0_20px_rgba(0,245,212,0.15)] hover:shadow-[0_0_30px_rgba(0,245,212,0.3)] hover:scale-[1.02]'
@@ -65,7 +65,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
       >
         {isGenerating ? (
           <>
-            <span className="animate-spin h-4 w-4 border-2 border-[#00F5D4] border-t-transparent rounded-full" />
+            <span className="animate-spin h-4 w-4 border-2 border-[#00F5D4] border-t-transparent rounded-md" />
             Minting Sovereign Deed...
           </>
         ) : (
@@ -108,7 +108,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
           <div className="relative z-10 flex justify-between items-start mb-16">
             <div className="text-left">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00F5D4] to-[#1E3A8A] rounded-full flex items-center justify-center p-3 shadow-[0_0_20px_rgba(0,245,212,0.4)]">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#00F5D4] to-[#1E3A8A] rounded-md flex items-center justify-center p-3 shadow-[0_0_20px_rgba(0,245,212,0.4)]">
                    <svg viewBox="0 0 24 24" className="w-full h-full text-white fill-current">
                      <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
                    </svg>
@@ -137,9 +137,9 @@ export default function CertificateGenerator({ plot, auditResult }) {
           {/* Core Content Grid */}
           <div className="relative z-10 grid grid-cols-2 gap-12 mb-20">
             <div className="space-y-8">
-              <div className="p-8 border border-white/10 bg-black/40 rounded-2xl backdrop-blur-md">
+              <div className="p-8 border border-white/10 bg-black/40 rounded-md backdrop-blur-md">
                 <h4 className="text-xs uppercase tracking-widest text-[#00F5D4] mb-6 font-medium flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00F5D4]"></span> Asset Coordinates
+                  <span className="w-2 h-2 rounded-md bg-[#00F5D4]"></span> Asset Coordinates
                 </h4>
                 <div className="space-y-4 font-mono">
                   <div className="flex justify-between items-center text-sm">
@@ -161,9 +161,9 @@ export default function CertificateGenerator({ plot, auditResult }) {
                 </div>
               </div>
 
-              <div className="p-8 border border-white/10 bg-black/40 rounded-2xl backdrop-blur-md">
+              <div className="p-8 border border-white/10 bg-black/40 rounded-md backdrop-blur-md">
                 <h4 className="text-xs uppercase tracking-widest text-[#00F5D4] mb-6 font-medium flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00F5D4]"></span> Financial Ledger
+                  <span className="w-2 h-2 rounded-md bg-[#00F5D4]"></span> Financial Ledger
                 </h4>
                 <div className="space-y-4 font-mono text-xs">
                   <div className="flex justify-between items-center">
@@ -187,7 +187,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
             </div>
 
             {/* Trust Block with Stamps */}
-            <div className="relative p-10 border-2 border-[#1E3A8A] bg-[#1E3A8A]/5 rounded-3xl overflow-hidden flex flex-col justify-center">
+            <div className="relative p-10 border-2 border-[#1E3A8A] bg-[#1E3A8A]/5 rounded-md overflow-hidden flex flex-col justify-center">
               <h4 className="text-sm uppercase tracking-[0.3em] font-medium tracking-tight text-white mb-10 text-center border-b border-[#1E3A8A] pb-4">Oracle Trust Verification</h4>
               
               <div className="space-y-10">
@@ -213,7 +213,7 @@ export default function CertificateGenerator({ plot, auditResult }) {
               </div>
 
               {/* Verified Hologram Seal */}
-              <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-gradient-to-br from-[#00F5D4]/20 to-transparent rounded-full flex items-center justify-center border border-[#00F5D4]/20 rotate-12">
+              <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-gradient-to-br from-[#00F5D4]/20 to-transparent rounded-md flex items-center justify-center border border-[#00F5D4]/20 rotate-12">
                  <div className="text-[8px] font-medium tracking-tight text-[#00F5D4]/40 text-center uppercase leading-tight">
                    Syntry<br/>Sovereign<br/>Verified
                  </div>

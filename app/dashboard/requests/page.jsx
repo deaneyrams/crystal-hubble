@@ -60,8 +60,8 @@ const MyRequestsPage = () => {
           <div className="lg:col-span-2 space-y-6">
             {activeTab === 'active' ? (
               requests.map((req) => (
-                <div key={req.id} className="bg-white border border-[#D4AF37]/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
-                  <div className="w-full md:w-32 h-24 bg-[#0F172A]/5 rounded-xl flex items-center justify-center text-[8px] opacity-40 italic">
+                <div key={req.id} className="bg-white border border-[#D4AF37]/20 p-6 rounded-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
+                  <div className="w-full md:w-32 h-24 bg-syntry-obsidian/5 rounded-md flex items-center justify-center text-[8px] opacity-40 italic">
                     {req.img}
                   </div>
                   <div className="flex-1">
@@ -70,20 +70,20 @@ const MyRequestsPage = () => {
                         <p className="text-[10px] font-medium text-[#D4AF37] uppercase tracking-widest">{req.type}</p>
                         <h3 className="text-xl font-medium">{req.title}</h3>
                       </div>
-                      <span className="bg-[#1D9E75]/10 text-[#1D9E75] text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-tighter">
+                      <span className="bg-[#1D9E75]/10 text-[#1D9E75] text-[10px] font-medium px-3 py-1 rounded-md uppercase tracking-tighter">
                         {req.status}
                       </span>
                     </div>
                     <p className="text-xs opacity-40 mb-4">Submitted on {req.date}</p>
                     
                     <div className="flex items-center gap-4">
-                      <div className="flex-1 h-1 bg-[#0F172A]/5 rounded-full overflow-hidden">
+                      <div className="flex-1 h-1 bg-syntry-obsidian/5 rounded-md overflow-hidden">
                         <div className="h-full bg-[#00BFFF]" style={{ width: `${req.progress}%` }}></div>
                       </div>
                       <span className="text-[10px] font-medium opacity-60">{req.progress}%</span>
                     </div>
                   </div>
-                  <button className="w-full md:w-auto bg-[#0F172A] text-[#F8F1E3] px-6 py-3 rounded-xl font-medium text-xs hover:bg-[#004d00] transition-all">
+                  <button className="w-full md:w-auto bg-syntry-obsidian text-[#F8F1E3] px-6 py-3 rounded-md font-medium text-xs hover:bg-[#004d00] transition-all">
                     View Tracker
                   </button>
                 </div>
@@ -95,25 +95,25 @@ const MyRequestsPage = () => {
 
           {/* Status Legend & Support */}
           <aside className="space-y-8">
-            <div className="bg-[#0F172A] text-[#F8F1E3] p-8 rounded-3xl shadow-xl border border-[#D4AF37]/20">
+            <div className="bg-syntry-obsidian text-[#F8F1E3] p-8 rounded-md shadow-xl border border-[#D4AF37]/20">
               <h4 className="font-medium text-lg mb-6 text-[#D4AF37]">Status Legend</h4>
               <ul className="space-y-4">
                 <li className="flex gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#1D9E75] rounded-full mt-1.5"></span>
+                  <span className="w-1.5 h-1.5 bg-[#1D9E75] rounded-md mt-1.5"></span>
                   <div>
                     <p className="text-xs font-medium uppercase tracking-tight">Interest Sent</p>
                     <p className="text-[10px] opacity-60">Seller is being notified of your verified offer.</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#00BFFF] rounded-full mt-1.5"></span>
+                  <span className="w-1.5 h-1.5 bg-[#00BFFF] rounded-md mt-1.5"></span>
                   <div>
                     <p className="text-xs font-medium uppercase tracking-tight">Advisor Review</p>
                     <p className="text-[10px] opacity-60">Syntry facilitator is curating the statutory reports.</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full mt-1.5"></span>
+                  <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-md mt-1.5"></span>
                   <div>
                     <p className="text-xs font-medium uppercase tracking-tight">Sent to Bank</p>
                     <p className="text-[10px] opacity-60">Mortgage documents are under institutional underwriting.</p>
@@ -122,12 +122,12 @@ const MyRequestsPage = () => {
               </ul>
             </div>
 
-            <div className="bg-white border border-[#D4AF37]/20 p-8 rounded-3xl shadow-sm">
+            <div className="bg-white border border-[#D4AF37]/20 p-8 rounded-md shadow-sm">
               <h4 className="font-medium text-lg mb-4">Need Assistance?</h4>
               <p className="text-xs opacity-60 mb-6 font-medium">Your dedicated advisor Kwame is monitoring your requests.</p>
               <a 
                 href="https://wa.me/233531102292" 
-                className="bg-[#25D366] text-white w-full py-4 rounded-xl font-medium hover:scale-105 transition-all flex items-center justify-center gap-3 text-sm mb-4"
+                className="bg-[#25D366] text-white w-full py-4 rounded-md font-medium hover:scale-105 transition-all flex items-center justify-center gap-3 text-sm mb-4"
               >
                 Chat via WhatsApp
               </a>

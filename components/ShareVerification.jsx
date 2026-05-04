@@ -25,7 +25,7 @@ export default function ShareVerification({ plotId, area = "East Legon Hills" })
   };
 
   return (
-    <div className="mt-4 p-4 bg-indigo-900/10 border border-indigo-500/20 rounded-xl">
+    <div className="mt-4 p-4 bg-indigo-900/10 border border-indigo-500/20 rounded-md">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-[10px] text-indigo-400 uppercase font-mono tracking-widest">External Trust Handshake</p>

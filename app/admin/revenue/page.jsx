@@ -57,7 +57,7 @@ export default function CEODashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
          {/* Total Transaction Fees */}
-         <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+         <div className="bg-black/40 border border-white/5 rounded-md p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-[#14b8a6] group-hover:w-full transition-all duration-500 opacity-10"></div>
             <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Total Transaction Fees (Daily)</h3>
             <div className="flex items-end gap-3 mb-2">
@@ -70,7 +70,7 @@ export default function CEODashboard() {
          </div>
 
          {/* Premium Verification Conv */}
-         <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+         <div className="bg-black/40 border border-white/5 rounded-md p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b] group-hover:w-full transition-all duration-500 opacity-10"></div>
             <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Premium Verification Upsell</h3>
             <div className="flex items-end gap-3 mb-2">
@@ -83,7 +83,7 @@ export default function CEODashboard() {
          </div>
 
          {/* Total Active Subscriptions */}
-         <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+         <div className="bg-black/40 border border-white/5 rounded-md p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-indigo-500 group-hover:w-full transition-all duration-500 opacity-10"></div>
             <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Active Subscriptions (Pro Tier)</h3>
             <div className="flex items-end gap-3 mb-2">
@@ -94,7 +94,7 @@ export default function CEODashboard() {
          </div>
 
          {/* Vault Velocity */}
-         <div className="bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+         <div className="bg-black/40 border border-white/5 rounded-md p-6 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-red-500 group-hover:w-full transition-all duration-500 opacity-10"></div>
             <h3 className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-4">Vault Velocity</h3>
             <div className="flex items-end gap-3 mb-2">
@@ -107,7 +107,7 @@ export default function CEODashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
          {/* Live Revenue Ledger */}
-         <div className="lg:col-span-2 bg-black/30 border border-white/10 rounded-2xl p-6 relative overflow-hidden">
+         <div className="lg:col-span-2 bg-black/30 border border-white/10 rounded-md p-6 relative overflow-hidden">
             <div className="flex justify-between items-center mb-6">
                <h3 className="text-xs uppercase tracking-widest text-white font-medium tracking-tight">Fractional Network Ledger</h3>
                <span className="text-[8px] uppercase tracking-widest text-[#14b8a6] border border-[#14b8a6]/40 px-2 py-0.5 rounded bg-[#14b8a6]/10 animate-pulse">Live</span>
@@ -183,7 +183,7 @@ export default function CEODashboard() {
          </div>
 
          {/* Predictive Run Rate */}
-         <div className="bg-gradient-to-br from-[#064e3b]/40 to-[#022c22] border border-[#14b8a6]/20 rounded-2xl p-6 relative overflow-hidden">
+         <div className="bg-gradient-to-br from-[#064e3b]/40 to-[#022c22] border border-[#14b8a6]/20 rounded-md p-6 relative overflow-hidden">
             <h3 className="text-[10px] uppercase tracking-widest text-[#14b8a6] font-medium mb-6">Annualized Run Rate (ARR)</h3>
             <div className="relative h-48 flex items-end mb-4">
               <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 40">
@@ -220,10 +220,10 @@ export default function CEODashboard() {
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="w-full max-w-md bg-[#0F1420] border border-white/10 p-10 rounded-3xl shadow-[0_0_100px_rgba(0,0,0,0.5)]"
+            className="w-full max-w-md bg-[#0F1420] border border-white/10 p-10 rounded-md shadow-[0_0_100px_rgba(0,0,0,0.5)]"
           >
             <div className="text-center mb-8">
-              <div className="inline-block p-4 bg-[#B8FF3C]/10 rounded-full mb-6">
+              <div className="inline-block p-4 bg-[#B8FF3C]/10 rounded-md mb-6">
                 <svg className="w-8 h-8 text-[#B8FF3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -241,11 +241,11 @@ export default function CEODashboard() {
                 value={twoFaToken}
                 onChange={(e) => setTwoFaToken(e.target.value)}
                 placeholder="0 0 0 0 0 0"
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-6 text-center text-3xl font-mono tracking-[12px] focus:outline-none focus:border-[#B8FF3C]/50 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-md py-6 text-center text-3xl font-mono tracking-[12px] focus:outline-none focus:border-[#B8FF3C]/50 transition-all"
               />
               
               {verificationError && (
-                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-[9px] font-mono text-center uppercase">
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-md text-red-500 text-[9px] font-mono text-center uppercase">
                   {verificationError}
                 </div>
               )}
@@ -253,7 +253,7 @@ export default function CEODashboard() {
               <button 
                 onClick={handleVerifyPayout}
                 disabled={isVerifying || twoFaToken.length < 6}
-                className="w-full bg-[#B8FF3C] text-black font-mono text-[11px] font-medium tracking-[3px] py-5 rounded-2xl hover:bg-white transition-all uppercase disabled:opacity-30"
+                className="w-full bg-[#B8FF3C] text-black font-mono text-[11px] font-medium tracking-[3px] py-5 rounded-md hover:bg-white transition-all uppercase disabled:opacity-30"
               >
                 {isVerifying ? 'Validating Node...' : 'Confirm Release'}
               </button>

@@ -50,9 +50,9 @@ const SettingsPage = () => {
         </header>
 
         {/* Profile Card */}
-        <div className="bg-white border border-[#D4AF37]/20 p-8 rounded-3xl shadow-sm mb-12 flex items-center justify-between gap-6">
+        <div className="bg-white border border-[#D4AF37]/20 p-8 rounded-md shadow-sm mb-12 flex items-center justify-between gap-6">
           <div className="flex items-center gap-6">
-            <div className="w-16 h-16 bg-[#0F172A] text-[#D4AF37] rounded-full flex items-center justify-center text-xl font-medium">
+            <div className="w-16 h-16 bg-syntry-obsidian text-[#D4AF37] rounded-md flex items-center justify-center text-xl font-medium">
               KA
             </div>
             <div>
@@ -68,7 +68,7 @@ const SettingsPage = () => {
         {/* Settings Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {settingsSections.map((section) => (
-            <div key={section.id} className="bg-white border border-[#D4AF37]/10 p-8 rounded-2xl shadow-sm">
+            <div key={section.id} className="bg-white border border-[#D4AF37]/10 p-8 rounded-md shadow-sm">
               <h4 className="font-medium text-sm uppercase tracking-widest text-[#D4AF37] mb-6">{section.title}</h4>
               <div className="space-y-4">
                 {section.items.map((item, i) => (
@@ -83,9 +83,9 @@ const SettingsPage = () => {
         </div>
 
         {/* Linked Accounts */}
-        <div className="bg-white border border-[#D4AF37]/10 p-8 rounded-2xl shadow-sm mb-12">
+        <div className="bg-white border border-[#D4AF37]/10 p-8 rounded-md shadow-sm mb-12">
           <h4 className="font-medium text-sm uppercase tracking-widest text-[#D4AF37] mb-6">Linked Financial Accounts</h4>
-          <div className="flex items-center justify-between p-4 bg-[#F8F1E3]/50 rounded-xl border border-[#0F172A]/5">
+          <div className="flex items-center justify-between p-4 bg-[#F8F1E3]/50 rounded-md border border-[#0F172A]/5">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">🏦</div>
               <div>
@@ -99,11 +99,11 @@ const SettingsPage = () => {
 
         {/* Support & Support */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-          <a href="https://wa.me/233531102292" className="bg-[#0F172A] text-[#F8F1E3] p-6 rounded-2xl font-medium flex items-center justify-between hover:scale-[1.02] transition-all">
+          <a href="https://wa.me/233531102292" className="bg-syntry-obsidian text-[#F8F1E3] p-6 rounded-md font-medium flex items-center justify-between hover:scale-[1.02] transition-all">
             <span>Contact Support</span>
             <span className="text-[#D4AF37]">↗</span>
           </a>
-          <button className="border border-[#0F172A]/10 p-6 rounded-2xl font-medium text-[#0F172A] hover:bg-[#F8F1E3] transition-all text-left">
+          <button className="border border-[#0F172A]/10 p-6 rounded-md font-medium text-[#0F172A] hover:bg-[#F8F1E3] transition-all text-left">
             Frequently Asked Questions
           </button>
         </div>

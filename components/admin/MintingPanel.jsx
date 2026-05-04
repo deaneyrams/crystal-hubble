@@ -54,7 +54,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
   };
 
   return (
-    <div className="mt-6 border border-[#D4AF37]/40 rounded-2xl bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] shadow-2xl overflow-hidden text-[#e0e0e0] animate-in slide-in-from-bottom-5">
+    <div className="mt-6 border border-[#D4AF37]/40 rounded-md bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] shadow-2xl overflow-hidden text-[#e0e0e0] animate-in slide-in-from-bottom-5">
       {/* Header */}
       <div className="bg-[#111] p-4 border-b border-[#D4AF37]/30 flex items-center justify-between">
         <h3 className="text-[#D4AF37] font-medium tracking-widest uppercase text-sm flex items-center gap-2">
@@ -65,7 +65,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
             Ready-to-Stamp
           </span>
         ) : (
-          <span className="bg-green-900/40 text-green-400 border border-green-500/50 px-2 py-1 rounded text-[10px] uppercase font-medium tracking-tight">
+          <span className="bg-syntry-teal-600/40 text-syntry-teal-600 border border-green-500/50 px-2 py-1 rounded text-[10px] uppercase font-medium tracking-tight">
             Immutable Seal
           </span>
         )}
@@ -74,7 +74,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
       <div className="p-5 space-y-5">
         
         {/* Locked Data */}
-        <div className="bg-black/50 p-4 rounded-xl border border-white/5 space-y-3">
+        <div className="bg-black/50 p-4 rounded-md border border-white/5 space-y-3">
            <h4 className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">Locked Asset Data</h4>
            <div className="grid grid-cols-2 gap-4">
               <div>
@@ -89,7 +89,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
         </div>
 
         {/* Taxes and Duties */}
-        <div className="bg-black/30 p-4 rounded-xl border border-white/5 space-y-2 text-sm">
+        <div className="bg-black/30 p-4 rounded-md border border-white/5 space-y-2 text-sm">
            <div className="flex justify-between items-center text-gray-300">
              <span className="text-[10px] uppercase tracking-wider font-medium text-gray-500">Valuation</span>
              <span className="font-mono">${plot.value.toLocaleString()}</span>
@@ -128,7 +128,7 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
             <button
               onClick={handleMint}
               disabled={isMinting || !signature}
-              className={`w-full py-4 text-sm font-medium tracking-tight tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
+              className={`w-full py-4 text-sm font-medium tracking-tight tracking-widest uppercase rounded-md transition-all duration-300 flex items-center justify-center gap-2
                 ${isMinting 
                   ? 'bg-[#333] text-gray-500 cursor-wait shadow-inner'
                   : !signature 
@@ -141,14 +141,14 @@ export default function MintingPanel({ plot, onMintSuccess, sovereignLink }) {
           </>
         ) : (
           <div className="space-y-4 animate-in fade-in zoom-in duration-500">
-            <div className="bg-green-900/10 border border-green-500/30 p-4 rounded-xl text-center space-y-2">
-               <p className="text-[10px] uppercase text-green-400 font-medium tracking-widest">Immutable Deed Hash</p>
+            <div className="bg-syntry-teal-600/10 border border-green-500/30 p-4 rounded-md text-center space-y-2">
+               <p className="text-[10px] uppercase text-syntry-teal-600 font-medium tracking-widest">Immutable Deed Hash</p>
                <p className="font-mono text-lg text-white font-medium">{mintedHash}</p>
             </div>
             
             <button
               onClick={handleDownloadPacket}
-              className="w-full py-4 bg-transparent border border-[#D4AF37] hover:bg-[#D4AF37]/10 text-[#D4AF37] rounded-xl text-xs font-medium tracking-widest uppercase transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 bg-transparent border border-[#D4AF37] hover:bg-[#D4AF37]/10 text-[#D4AF37] rounded-md text-xs font-medium tracking-widest uppercase transition-all flex items-center justify-center gap-2"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
               Download Legal Packet

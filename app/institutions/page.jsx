@@ -76,16 +76,16 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
            {/* 4 Big Metric Cards */}
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { label: "Total Verified Value", val: "GH₵248.7M", trend: "↑", color: "text-[#0D9488]" },
+                { label: "Total Verified Value", val: "GH₵248.7M", trend: "↑", color: "text-syntry-teal-600" },
                 { label: "Green-Lit Properties", val: "1,847", trend: "", color: "text-slate-900" },
                 { label: "Active Institutions", val: "24", trend: "↑", color: "text-slate-900" },
                 { label: "Overall Trust Score", val: "99.4%", trend: "A+", color: "text-white", dark: true }
               ].map((m, i) => (
-                <div key={i} className={`${m.dark ? 'bg-slate-900 border-slate-800 shadow-[0_10px_30px_-10px_rgba(0,200,83,0.3)]' : 'bg-white border-slate-200 shadow-sm'} border p-8 rounded-3xl group relative overflow-hidden transition-all hover:-translate-y-1`}>
-                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#0D9488]/5 rounded-bl-full blur-xl group-hover:scale-150 transition-transform"></div>
+                <div key={i} className={`${m.dark ? 'bg-slate-900 border-slate-800 shadow-[0_10px_30px_-10px_rgba(0,200,83,0.3)]' : 'bg-white border-slate-200 shadow-sm'} border p-8 rounded-md group relative overflow-hidden transition-all hover:-translate-y-1`}>
+                   <div className="absolute top-0 right-0 w-24 h-24 bg-syntry-teal-600/5 rounded-bl-full blur-xl group-hover:scale-150 transition-transform"></div>
                    <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 relative z-10 ${m.dark ? 'text-slate-400' : 'text-slate-400'}`}>{m.label}</p>
                    <p className={`text-3xl font-medium tracking-tight tracking-tighter relative z-10 flex items-center gap-2 ${m.color}`}>
-                    {m.val} {m.trend && <span className={`text-sm ${m.dark ? 'bg-[#0D9488]/20 border border-[#0D9488]/30 px-2 py-0.5 rounded-md font-medium text-[#0D9488]' : 'bg-[#0D9488]/10 px-2 py-0.5 rounded-md font-medium'}`}>{m.trend}</span>}
+                    {m.val} {m.trend && <span className={`text-sm ${m.dark ? 'bg-syntry-teal-600/20 border border-[#0D9488]/30 px-2 py-0.5 rounded-md font-medium text-syntry-teal-600' : 'bg-syntry-teal-600/10 px-2 py-0.5 rounded-md font-medium'}`}>{m.trend}</span>}
                    </p>
                 </div>
               ))}
@@ -97,10 +97,10 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6 border-b border-slate-200 pb-6">
               <div>
                  <h2 className="text-3xl font-medium tracking-tight text-slate-900 tracking-tight flex items-center gap-3">
-                    Verification Heatmap <span className="text-[#0D9488]">Greater Accra</span>
+                    Verification Heatmap <span className="text-syntry-teal-600">Greater Accra</span>
                  </h2>
                  <p className="text-sm font-medium text-slate-500 mt-2 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#0D9488] rounded-full animate-pulse shadow-[0_0_5px_#0D9488]"></span> Real-time updates from Sovereign Exchange
+                    <span className="w-2 h-2 bg-syntry-teal-600 rounded-md animate-pulse shadow-[0_0_5px_#0D9488]"></span> Real-time updates from Sovereign Exchange
                  </p>
               </div>
               <div className="flex flex-wrap gap-2 text-[11px] font-medium">
@@ -108,7 +108,7 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
                    <button 
                     key={f}
                     onClick={() => setActiveFilter(f)}
-                    className={`px-4 py-2 rounded-full transition-all shadow-sm ${activeFilter === f ? 'bg-slate-900 border-2 border-slate-900 text-white' : 'bg-white border-2 border-slate-200 text-slate-600 hover:border-[#0D9488] hover:text-[#0D9488]'}`}
+                    className={`px-4 py-2 rounded-md transition-all shadow-sm ${activeFilter === f ? 'bg-slate-900 border-2 border-slate-900 text-white' : 'bg-white border-2 border-slate-200 text-slate-600 hover:border-[#0D9488] hover:text-syntry-teal-600'}`}
                    >
                     {f}
                    </button>
@@ -118,32 +118,32 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
 
            <div className="w-full bg-slate-100 rounded-[3rem] border border-slate-200 h-[600px] relative overflow-hidden isolate shadow-inner group">
               <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-              <div className="absolute inset-0 bg-blue-500/5 backdrop-blur-[2px]"></div>
+              <div className="absolute inset-0 bg-syntry-teal-600/5 backdrop-blur-[2px]"></div>
 
               <svg className="absolute inset-0 w-full h-full stroke-slate-300 opacity-50" fill="none" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
                  <path d="M-100 600 Q 300 400 600 500 T 1300 100" />
                  <path d="M 400 800 Q 500 500 800 200 T 1500 50" strokeWidth="3" />
               </svg>
 
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md border border-slate-200 p-4 rounded-2xl shadow-lg z-20">
+              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md border border-slate-200 p-4 rounded-md shadow-lg z-20">
                  <p className="text-[10px] font-medium tracking-tight uppercase text-slate-500 mb-3 tracking-widest">Confidence Index</p>
                  <div className="space-y-3">
-                    <div className="flex items-center gap-3"><span className="w-4 h-4 bg-[#0D9488] border-2 border-white rounded-full shadow-sm"></span> <span className="text-xs font-medium text-slate-700">Fully Verified (100%)</span></div>
-                    <div className="flex items-center gap-3"><span className="w-4 h-4 bg-[#86efac] border-2 border-white rounded-full shadow-sm"></span> <span className="text-xs font-medium text-slate-700">High Confidence (80-99%)</span></div>
-                    <div className="flex items-center gap-3"><span className="w-4 h-4 bg-[#fde047] border-2 border-white rounded-full shadow-sm"></span> <span className="text-xs font-medium text-slate-700">Pending Scan</span></div>
+                    <div className="flex items-center gap-3"><span className="w-4 h-4 bg-syntry-teal-600 border-2 border-white rounded-md shadow-sm"></span> <span className="text-xs font-medium text-slate-700">Fully Verified (100%)</span></div>
+                    <div className="flex items-center gap-3"><span className="w-4 h-4 bg-[#86efac] border-2 border-white rounded-md shadow-sm"></span> <span className="text-xs font-medium text-slate-700">High Confidence (80-99%)</span></div>
+                    <div className="flex items-center gap-3"><span className="w-4 h-4 bg-[#fde047] border-2 border-white rounded-md shadow-sm"></span> <span className="text-xs font-medium text-slate-700">Pending Scan</span></div>
                  </div>
               </div>
 
               {/* Pins */}
               <div className="absolute top-[30%] left-[60%] group/pin cursor-pointer">
-                 <div className="w-24 h-24 bg-[#0D9488]/20 rounded-full animate-ping absolute -inset-8"></div>
-                 <div className="relative z-10 w-8 h-8 bg-[#0D9488] border-4 border-white rounded-full shadow-[0_5px_15px_rgba(0,200,83,0.5)]"></div>
+                 <div className="w-24 h-24 bg-syntry-teal-600/20 rounded-md animate-ping absolute -inset-8"></div>
+                 <div className="relative z-10 w-8 h-8 bg-syntry-teal-600 border-4 border-white rounded-md shadow-[0_5px_15px_rgba(0,200,83,0.5)]"></div>
               </div>
               <div className="absolute top-[60%] left-[25%] group/pin cursor-pointer">
-                 <div className="relative z-10 w-6 h-6 bg-[#86efac] border-2 border-white rounded-full shadow-[0_5px_15px_rgba(134,239,172,0.8)]"></div>
+                 <div className="relative z-10 w-6 h-6 bg-[#86efac] border-2 border-white rounded-md shadow-[0_5px_15px_rgba(134,239,172,0.8)]"></div>
               </div>
               <div className="absolute top-[15%] left-[80%] group/pin cursor-pointer">
-                 <div className="relative z-10 w-7 h-7 bg-[#0D9488] border-2 border-white rounded-full shadow-[0_5px_15px_rgba(0,200,83,0.5)]"></div>
+                 <div className="relative z-10 w-7 h-7 bg-syntry-teal-600 border-2 border-white rounded-md shadow-[0_5px_15px_rgba(0,200,83,0.5)]"></div>
               </div>
            </div>
         </section>
@@ -151,20 +151,20 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
         {/* AI Hub */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
            <h2 className="text-3xl font-medium tracking-tight text-slate-900 tracking-tight flex items-center gap-3 mb-8 border-b border-slate-200 pb-6">
-              Document Lifecycle <span className="text-slate-300">|</span> <span className="text-[#0D9488]">AI Institutional Hub</span>
+              Document Lifecycle <span className="text-slate-300">|</span> <span className="text-syntry-teal-600">AI Institutional Hub</span>
            </h2>
            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <div className="lg:col-span-5 h-[750px] bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+              <div className="lg:col-span-5 h-[750px] bg-white rounded-md border border-slate-200 shadow-sm overflow-hidden flex flex-col">
                  <div className="bg-slate-50 border-b border-slate-200 px-6 py-5 flex justify-between items-center z-10">
                     <h3 className="font-medium tracking-tight text-slate-900 flex items-center gap-2">📥 Submissions</h3>
                     <span className="text-[10px] font-medium text-slate-400 uppercase tracking-widest">Live Feed</span>
                  </div>
                  <div className="overflow-y-auto flex-grow p-4 space-y-3">
                     {pendingDocs.map((doc, idx) => (
-                       <div key={idx} onClick={() => setSelectedDoc(idx)} className={`p-4 rounded-2xl cursor-pointer transition-all border ${selectedDoc === idx ? 'bg-[#0D9488]/5 border-[#0D9488] shadow-md' : 'bg-white border-slate-200 hover:border-[#0D9488]'}`}>
+                       <div key={idx} onClick={() => setSelectedDoc(idx)} className={`p-4 rounded-md cursor-pointer transition-all border ${selectedDoc === idx ? 'bg-syntry-teal-600/5 border-[#0D9488] shadow-md' : 'bg-white border-slate-200 hover:border-[#0D9488]'}`}>
                           <div className="flex justify-between items-center mb-2">
                              <span className="text-[10px] font-medium tracking-tight text-slate-400 bg-slate-100 px-2 py-1 rounded">{doc.id}</span>
-                             <span className="text-[10px] font-medium uppercase text-[#0D9488] bg-[#0D9488]/10 px-2 py-1 rounded">{doc.status}</span>
+                             <span className="text-[10px] font-medium uppercase text-syntry-teal-600 bg-syntry-teal-600/10 px-2 py-1 rounded">{doc.status}</span>
                           </div>
                           <h4 className="font-medium tracking-tight text-slate-900">{doc.loc}</h4>
                           <p className="text-[10px] text-slate-400 mt-2">{doc.time}</p>
@@ -177,21 +177,21 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
                  <div className="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 px-8 py-6 flex justify-between items-center rounded-t-[2.5rem]">
                     <h3 className="font-medium tracking-tight text-white flex items-center gap-2">🤖 AI Verification Console</h3>
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-[#0D9488] rounded-full animate-pulse shadow-[0_0_8px_#0D9488]"></span>
-                      <span className="text-[10px] font-medium uppercase tracking-widest text-[#0D9488]">Grounded truth</span>
+                      <span className="w-2 h-2 bg-syntry-teal-600 rounded-md animate-pulse shadow-[0_0_8px_#0D9488]"></span>
+                      <span className="text-[10px] font-medium uppercase tracking-widest text-syntry-teal-600">Grounded truth</span>
                     </div>
                  </div>
                  <div className="flex-grow p-6 flex flex-col gap-6 overflow-y-auto">
                     <div className="grid grid-cols-2 gap-4 h-[300px] shrink-0">
-                       <div className="bg-slate-800 rounded-2xl border border-slate-700 p-4 flex flex-col items-center justify-center text-slate-500 font-medium">
+                       <div className="bg-slate-800 rounded-md border border-slate-700 p-4 flex flex-col items-center justify-center text-slate-500 font-medium">
                           USER UPLOAD
                        </div>
-                       <div className="bg-[#0D9488]/5 rounded-2xl border border-[#0D9488]/20 p-4 flex flex-col items-center justify-center text-[#0D9488] font-medium relative overflow-hidden">
-                          <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0D9488] animate-pulse"></div>
+                       <div className="bg-syntry-teal-600/5 rounded-md border border-[#0D9488]/20 p-4 flex flex-col items-center justify-center text-syntry-teal-600 font-medium relative overflow-hidden">
+                          <div className="absolute bottom-0 left-0 w-full h-1 bg-syntry-teal-600 animate-pulse"></div>
                           GROUNDED TRUTH
                        </div>
                     </div>
-                    <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6">
+                    <div className="bg-slate-800 border border-slate-700 rounded-md p-6">
                        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                           <div>
                              <p className="text-[10px] text-slate-500 uppercase font-medium mb-1">Optical Match</p>
@@ -199,15 +199,15 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
                           </div>
                           <div>
                              <p className="text-[10px] text-slate-500 uppercase font-medium mb-1">AI Recommendation</p>
-                             <p className="text-sm font-medium text-[#0D9488]">{pendingDocs[selectedDoc].rec}</p>
+                             <p className="text-sm font-medium text-syntry-teal-600">{pendingDocs[selectedDoc].rec}</p>
                           </div>
                        </div>
                     </div>
                     <div className="mt-auto flex flex-col gap-3">
-                       <button onClick={() => alert("Verification Approved via Syntry Oracle.")} className="w-full bg-[#0D9488] text-white py-4 rounded-xl font-medium hover:bg-[#0F766E] transition-all shadow-lg"> Counter-Sign & Approve Verification </button>
+                       <button onClick={() => alert("Verification Approved via Syntry Oracle.")} className="w-full bg-syntry-teal-600 text-white py-4 rounded-md font-medium hover:bg-[#0F766E] transition-all shadow-lg"> Counter-Sign & Approve Verification </button>
                        <div className="grid grid-cols-2 gap-3">
-                         <button onClick={() => alert("Porting to Lands Commission API...")} className="bg-slate-800 text-white border border-slate-700 py-3 rounded-xl font-medium text-xs hover:bg-slate-700 transition-colors">Cross-Check Statutory</button>
-                         <button onClick={() => alert("Security Audit sequence initiated.")} className="bg-slate-800 text-white border border-slate-700 py-3 rounded-xl font-medium text-xs hover:bg-slate-700 transition-colors">Security Audit</button>
+                         <button onClick={() => alert("Porting to Lands Commission API...")} className="bg-slate-800 text-white border border-slate-700 py-3 rounded-md font-medium text-xs hover:bg-slate-700 transition-colors">Cross-Check Statutory</button>
+                         <button onClick={() => alert("Security Audit sequence initiated.")} className="bg-slate-800 text-white border border-slate-700 py-3 rounded-md font-medium text-xs hover:bg-slate-700 transition-colors">Security Audit</button>
                        </div>
                     </div>
                  </div>
@@ -226,14 +226,14 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="E.g. List all mortgage-ready plots in Cantonments over GH₵5M"
-                    className="w-full bg-white border-2 border-slate-200 rounded-3xl py-6 px-8 text-lg font-medium focus:outline-none focus:border-[#0D9488] shadow-xl"
+                    className="w-full bg-white border-2 border-slate-200 rounded-md py-6 px-8 text-lg font-medium focus:outline-none focus:border-[#0D9488] shadow-xl"
                  />
-                 <button type="submit" disabled={isSearching} className="absolute right-3 top-3 bottom-3 bg-slate-900 text-white px-8 rounded-2xl font-medium hover:bg-slate-800 transition-colors disabled:opacity-50">
+                 <button type="submit" disabled={isSearching} className="absolute right-3 top-3 bottom-3 bg-slate-900 text-white px-8 rounded-md font-medium hover:bg-slate-800 transition-colors disabled:opacity-50">
                     {isSearching ? "ANALYSING..." : "QUERY"}
                  </button>
               </form>
               {showResults && (
-                <div className="bg-white border-2 border-[#0D9488]/30 p-8 rounded-3xl text-left shadow-2xl animate-in zoom-in-95 duration-300">
+                <div className="bg-white border-2 border-[#0D9488]/30 p-8 rounded-md text-left shadow-2xl animate-in zoom-in-95 duration-300">
                   <div className="whitespace-pre-wrap font-medium leading-relaxed text-slate-700">{aiResponseText}</div>
                 </div>
               )}
@@ -244,8 +244,8 @@ STATUS: ELIGIBLE FOR MORTGAGE UNDERWRITING.`);
         <section className="max-w-4xl mx-auto px-4 text-center pb-32">
           <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-slate-900 mb-8 italic">Ready to eliminate litigation risk?</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="/login?type=institution" className="bg-[#0D9488] text-white px-10 py-5 rounded-2xl font-medium tracking-tight text-lg hover:-translate-y-1 transition-all shadow-2xl shadow-[#0D9488]/20">Request Enterprise Access</a>
-            <a href="https://wa.me/233531102292" className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-medium tracking-tight text-lg hover:-translate-y-1 transition-all shadow-2xl">Speak to Advisor</a>
+            <a href="/login?type=institution" className="bg-syntry-teal-600 text-white px-10 py-5 rounded-md font-medium tracking-tight text-lg hover:-translate-y-1 transition-all shadow-2xl shadow-[#0D9488]/20">Request Enterprise Access</a>
+            <a href="https://wa.me/233531102292" className="bg-slate-900 text-white px-10 py-5 rounded-md font-medium tracking-tight text-lg hover:-translate-y-1 transition-all shadow-2xl">Speak to Advisor</a>
           </div>
         </section>
       </main>

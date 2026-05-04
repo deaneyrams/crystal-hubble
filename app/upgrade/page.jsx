@@ -16,7 +16,7 @@ export default function UpgradePage() {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 border border-[#D4AF37]/20"
+            className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-md mb-6 border border-[#D4AF37]/20"
           >
             <span className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Secure Institutional Node Upgrade</span>
           </motion.div>
@@ -30,7 +30,7 @@ export default function UpgradePage() {
             <h3 className="text-xl font-medium mb-8 uppercase tracking-widest opacity-40">Order Summary</h3>
             
             <div className="space-y-6 mb-10">
-              <div className="flex justify-between items-center bg-[#F8F1E3]/50 p-6 rounded-2xl border border-[#0F172A]/5">
+              <div className="flex justify-between items-center bg-[#F8F1E3]/50 p-6 rounded-md border border-[#0F172A]/5">
                 <div>
                   <h4 className="font-medium text-lg">Syntry Premium Plan</h4>
                   <p className="text-[10px] font-medium uppercase text-[#D4AF37] tracking-widest">Annual Subscription</p>
@@ -75,7 +75,7 @@ export default function UpgradePage() {
                 onClick={() => setMethod('paystack')}
                 className={`flex items-center gap-6 p-6 rounded-[2rem] border-2 transition-all ${method === 'paystack' ? 'border-[#D4AF37] bg-white shadow-xl' : 'border-white bg-white/50 hover:border-[#D4AF37]/30'}`}
               >
-                <div className="w-12 h-12 bg-[#00BBCC] rounded-xl flex items-center justify-center text-white text-2xl">P</div>
+                <div className="w-12 h-12 bg-[#00BBCC] rounded-md flex items-center justify-center text-white text-2xl">P</div>
                 <div className="text-left">
                   <h4 className="font-medium text-lg leading-tight text-[#0F172A]">Paystack Checkout</h4>
                   <p className="text-[10px] font-medium opacity-50 uppercase tracking-widest uppercase">Cards, MoMo, Bank</p>
@@ -86,7 +86,7 @@ export default function UpgradePage() {
                 onClick={() => setMethod('momo')}
                 className={`flex items-center gap-6 p-6 rounded-[2rem] border-2 transition-all ${method === 'momo' ? 'border-[#D4AF37] bg-white shadow-xl' : 'border-white bg-white/50 hover:border-[#D4AF37]/30'}`}
               >
-                <div className="w-12 h-12 bg-[#FFCC00] rounded-xl flex items-center justify-center text-[#0F172A] text-3xl font-medium tracking-tight">M</div>
+                <div className="w-12 h-12 bg-[#FFCC00] rounded-md flex items-center justify-center text-[#0F172A] text-3xl font-medium tracking-tight">M</div>
                 <div className="text-left">
                   <h4 className="font-medium text-lg leading-tight text-[#0F172A]">Direct MoMo Push</h4>
                   <p className="text-[10px] font-medium opacity-50 uppercase tracking-widest uppercase">MTN / Vodafone / Telecel</p>
@@ -97,7 +97,7 @@ export default function UpgradePage() {
                 onClick={() => setMethod('stripe')}
                 className={`flex items-center gap-6 p-6 rounded-[2rem] border-2 transition-all ${method === 'stripe' ? 'border-[#D4AF37] bg-white shadow-xl' : 'border-white bg-white/50 hover:border-[#D4AF37]/30'}`}
               >
-                <div className="w-12 h-12 bg-[#635BFF] rounded-xl flex items-center justify-center text-white text-3xl font-medium tracking-tight">S</div>
+                <div className="w-12 h-12 bg-[#635BFF] rounded-md flex items-center justify-center text-white text-3xl font-medium tracking-tight">S</div>
                 <div className="text-left">
                   <h4 className="font-medium text-lg leading-tight text-[#0F172A]">Stripe International</h4>
                   <p className="text-[10px] font-medium opacity-50 uppercase tracking-widest uppercase">Global Currency Settlement</p>
@@ -106,7 +106,7 @@ export default function UpgradePage() {
             </div>
 
             <button 
-              className="w-full bg-[#0F172A] text-[#D4AF37] py-6 rounded-[2rem] font-medium text-xl hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4 group"
+              className="w-full bg-syntry-obsidian text-[#D4AF37] py-6 rounded-[2rem] font-medium text-xl hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4 group"
               onClick={() => alert(`Redirecting to ${method.toUpperCase()} secure node...`)}
             >
               <span>Initialize Secure Settlement</span>
@@ -114,9 +114,9 @@ export default function UpgradePage() {
             </button>
             
             <p className="text-center text-[10px] font-medium tracking-tight uppercase tracking-[0.2em] text-[#0F172A]/40 flex items-center justify-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></span>
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-md"></span>
               Secured by Sovereign Escrow Nodes
-              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></span>
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-md"></span>
             </p>
           </div>
         </div>

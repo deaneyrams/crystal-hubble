@@ -31,7 +31,7 @@ export default function RegisterPage() {
       <button 
         type="button" 
         onClick={() => console.log(`${mode} with Google`)}
-        className="w-full flex items-center justify-center gap-3 bg-white border-2 border-slate-200 text-slate-700 py-3.5 rounded-xl font-medium hover:bg-slate-50 hover:border-slate-300 transition-all group"
+        className="w-full flex items-center justify-center gap-3 bg-white border-2 border-slate-200 text-slate-700 py-3.5 rounded-md font-medium hover:bg-slate-50 hover:border-slate-300 transition-all group"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:scale-110 transition-transform">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -44,7 +44,7 @@ export default function RegisterPage() {
       <button 
         type="button" 
         onClick={() => console.log(`${mode} with Apple`)}
-        className="w-full flex items-center justify-center gap-3 bg-slate-900 border-2 border-slate-900 text-white py-3.5 rounded-xl font-medium hover:bg-slate-800 hover:border-slate-800 transition-all shadow-md group"
+        className="w-full flex items-center justify-center gap-3 bg-slate-900 border-2 border-slate-900 text-white py-3.5 rounded-md font-medium hover:bg-slate-800 hover:border-slate-800 transition-all shadow-md group"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="group-hover:scale-110 transition-transform">
           <path d="M16.365 1.488C15.426 1.488 14.28 2.062 13.568 2.864c-.655.736-1.127 1.83-1.127 2.864h.013c.961 0 2.22-.628 2.888-1.39.585-.68 1.096-1.745 1.096-2.736-.013-.013-.053-.027-.073-.114zM16.892 5.952c-1.282.027-2.458.831-3.126.831-.669 0-1.701-.736-2.825-.723-1.47.013-2.825.856-3.587 2.193-1.55 2.71-1.1s 6.848.428 9.471C8.25 18.98 9.387 20.304 10.844 20.33c1.376.027 1.964-.83 3.557-.83 1.576 0 2.097.803 3.543.83 1.483.027 2.458-1.162 3.06-2.031.575-.923 1.002-1.872 1.002-1.926-.027-.013-1.804-.696-1.83-2.75-.013-1.725 1.403-2.553 1.47-2.592-1.323-1.926-3.328-1.939-3.754-1.979z"/>
@@ -67,7 +67,7 @@ export default function RegisterPage() {
            
            {/* Header / Intro */}
            <div className="text-center mb-8">
-              <div className="inline-block bg-[#0D9488]/10 p-3 rounded-2xl mb-6 border border-[#0D9488]/20 shadow-sm">
+              <div className="inline-block bg-syntry-teal-600/10 p-3 rounded-md mb-6 border border-[#0D9488]/20 shadow-sm">
                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#0D9488"/>
                     <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -89,14 +89,14 @@ export default function RegisterPage() {
                    className={`flex-1 py-5 text-sm font-medium uppercase tracking-wider transition-colors relative ${activeTab === 'login' ? 'text-slate-900' : 'text-slate-400 hover:text-slate-600'}`}
                  >
                     Log In
-                    {activeTab === 'login' && <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#0D9488] rounded-t-full"></div>}
+                    {activeTab === 'login' && <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-syntry-teal-600 rounded-t-full"></div>}
                  </button>
                  <button 
                    onClick={() => { setActiveTab('signup'); setAuthError(''); }}
                    className={`flex-1 py-5 text-sm font-medium uppercase tracking-wider transition-colors relative ${activeTab === 'signup' ? 'text-slate-900' : 'text-slate-400 hover:text-slate-600'}`}
                  >
                     Sign Up
-                    {activeTab === 'signup' && <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#0D9488] rounded-t-full"></div>}
+                    {activeTab === 'signup' && <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-syntry-teal-600 rounded-t-full"></div>}
                  </button>
               </div>
 
@@ -111,7 +111,7 @@ export default function RegisterPage() {
                          <input 
                            type="text" 
                            placeholder="Enter your credential" 
-                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
+                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3.5 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
                          />
                        </div>
 
@@ -121,7 +121,7 @@ export default function RegisterPage() {
                            <input 
                              type={showPassword ? "text" : "password"} 
                              placeholder="••••••••" 
-                             className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400 pr-16"
+                             className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3.5 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400 pr-16"
                            />
                            <button 
                              type="button"
@@ -138,15 +138,15 @@ export default function RegisterPage() {
                            <div className="border border-slate-300 w-5 h-5 rounded flex items-center justify-center transition-colors group-hover:border-[#0D9488]">
                              <input type="checkbox" className="hidden" />
                              {/* Custom checkbox visual */}
-                             <div className="w-3 h-3 bg-[#0D9488] rounded-sm opacity-0 group-active:opacity-50"></div>
+                             <div className="w-3 h-3 bg-syntry-teal-600 rounded-sm opacity-0 group-active:opacity-50"></div>
                            </div>
                            <span className="text-sm font-medium text-slate-600 select-none group-hover:text-slate-900 transition-colors">Remember me</span>
                          </label>
-                         <a href="/reset-password" className="text-sm font-medium text-[#0D9488] hover:text-[#0F766E] transition-colors">Forgot Password?</a>
+                         <a href="/reset-password" className="text-sm font-medium text-syntry-teal-600 hover:text-[#0F766E] transition-colors">Forgot Password?</a>
                        </div>
 
                        <div className="pt-2">
-                         <button type="submit" className="w-full bg-[#0D9488] text-white py-4 rounded-xl font-medium text-lg hover:bg-[#0F766E] transition-colors shadow-[0_10px_20px_-10px_rgba(0,200,83,0.4)]">
+                         <button type="submit" className="w-full bg-syntry-teal-600 text-white py-4 rounded-md font-medium text-lg hover:bg-[#0F766E] transition-colors shadow-[0_10px_20px_-10px_rgba(0,200,83,0.4)]">
                            Log In
                          </button>
                        </div>
@@ -172,7 +172,7 @@ export default function RegisterPage() {
                      <form className="space-y-4" onSubmit={handleSignupSubmit}>
                        
                        {authError && (
-                         <div className="bg-red-50 border border-red-100 text-red-600 text-[13px] font-medium py-3 px-4 rounded-xl mb-4 animate-in fade-in duration-300">
+                         <div className="bg-red-50 border border-red-100 text-red-600 text-[13px] font-medium py-3 px-4 rounded-md mb-4 animate-in fade-in duration-300">
                            ⚠️ {authError}
                          </div>
                        )}
@@ -182,7 +182,7 @@ export default function RegisterPage() {
                          <input 
                            type="text" 
                            placeholder="Kwame Mensah" 
-                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
+                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
                          />
                        </div>
 
@@ -191,13 +191,13 @@ export default function RegisterPage() {
                          <input 
                            type="email" 
                            placeholder="kwame@example.com" 
-                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
+                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
                          />
                        </div>
 
                        <div>
                          <label className="block text-sm font-medium text-slate-900 mb-1.5">WhatsApp / Phone Number</label>
-                         <div className="flex border border-slate-200 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-[#0D9488]/50 focus-within:border-[#0D9488] transition-all">
+                         <div className="flex border border-slate-200 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-[#0D9488]/50 focus-within:border-[#0D9488] transition-all">
                            <div className="bg-slate-100 px-4 py-3 border-r border-slate-200 flex items-center justify-center text-slate-600 font-medium whitespace-nowrap">
                              +233
                            </div>
@@ -215,7 +215,7 @@ export default function RegisterPage() {
                            <input 
                              type={showPassword ? "text" : "password"} 
                              placeholder="••••••••" 
-                             className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400 pr-16"
+                             className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400 pr-16"
                            />
                            <button 
                              type="button"
@@ -232,14 +232,14 @@ export default function RegisterPage() {
                          <input 
                            type={showPassword ? "text" : "password"} 
                            placeholder="••••••••" 
-                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
+                           className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium placeholder-slate-400"
                          />
                        </div>
 
                        <div>
                          <label className="block text-sm font-medium text-slate-900 mb-1.5">I am a...</label>
                          <div className="relative">
-                           <select defaultValue="" className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium appearance-none">
+                           <select defaultValue="" className="w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0D9488]/50 focus:border-[#0D9488] transition-all font-medium appearance-none">
                              <option value="" disabled>Select your account type</option>
                              <option value="owner">Property Owner</option>
                              <option value="diaspora">Diaspora Investor</option>
@@ -255,7 +255,7 @@ export default function RegisterPage() {
 
                        <div className="pt-2">
                          <label className="flex items-start gap-3 cursor-pointer group">
-                           <div className={`relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border-2 transition-all ${isTermsAccepted ? 'border-[#0D9488] bg-[#0D9488]' : 'border-slate-300 bg-slate-50 group-hover:border-[#0D9488]'}`}>
+                           <div className={`relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border-2 transition-all ${isTermsAccepted ? 'border-[#0D9488] bg-syntry-teal-600' : 'border-slate-300 bg-slate-50 group-hover:border-[#0D9488]'}`}>
                              <input 
                                type="checkbox" 
                                className="absolute opacity-0 cursor-pointer w-full h-full z-10" 
@@ -270,7 +270,7 @@ export default function RegisterPage() {
                              </svg>
                            </div>
                            <span className="text-[13px] font-medium text-slate-600 leading-snug select-none group-hover:text-slate-900 transition-colors">
-                             I agree to the <a href="/legal/accord" className="text-[#0D9488] font-medium hover:underline">Terms of Service</a>, <a href="/privacy" className="text-[#0D9488] font-medium hover:underline">Privacy Policy</a>, and consent to digital KYC processing.
+                             I agree to the <a href="/legal/accord" className="text-syntry-teal-600 font-medium hover:underline">Terms of Service</a>, <a href="/privacy" className="text-syntry-teal-600 font-medium hover:underline">Privacy Policy</a>, and consent to digital KYC processing.
                            </span>
                          </label>
                        </div>
@@ -278,7 +278,7 @@ export default function RegisterPage() {
                        <div className="pt-4">
                          <button 
                            type="submit" 
-                           className={`w-full py-4 rounded-xl font-medium text-lg transition-all shadow-[0_10px_20px_-10px_rgba(0,200,83,0.4)] ${isTermsAccepted ? 'bg-[#0D9488] text-white hover:bg-[#0F766E]' : 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'}`}
+                           className={`w-full py-4 rounded-md font-medium text-lg transition-all shadow-[0_10px_20px_-10px_rgba(0,200,83,0.4)] ${isTermsAccepted ? 'bg-syntry-teal-600 text-white hover:bg-[#0F766E]' : 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'}`}
                          >
                            Create Free Account
                          </button>
@@ -295,7 +295,7 @@ export default function RegisterPage() {
                      <SocialAuthButtons mode="Sign Up" />
 
                      <div className="mt-8 text-center text-sm font-medium text-slate-500">
-                       Already have an account? <button type="button" onClick={() => setActiveTab('login')} className="text-[#0D9488] font-medium hover:underline focus:outline-none">Log In</button>
+                       Already have an account? <button type="button" onClick={() => setActiveTab('login')} className="text-syntry-teal-600 font-medium hover:underline focus:outline-none">Log In</button>
                      </div>
                    </div>
                  )}
@@ -305,25 +305,25 @@ export default function RegisterPage() {
 
            {/* Security Badges Moved Up for Visibility */}
            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-             <div className="flex items-center gap-1.5 bg-green-50 border border-green-100 px-2 py-1 rounded text-[9px] font-medium text-green-700 uppercase tracking-wider">
-               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Verified Security Layer Active
+             <div className="flex items-center gap-1.5 bg-green-50 border border-green-100 px-2 py-1 rounded text-[9px] font-medium text-syntry-teal-600 uppercase tracking-wider">
+               <span className="w-1.5 h-1.5 bg-syntry-teal-600 rounded-md animate-pulse"></span> Verified Security Layer Active
              </div>
              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-2 py-1 rounded text-[9px] font-medium text-slate-500 uppercase tracking-wider">
                Powered by AWS
              </div>
-             <div className="flex items-center gap-1.5 bg-[#0D9488]/5 border border-[#0D9488]/20 px-2 py-1 rounded text-[9px] font-medium text-[#0D9488] uppercase tracking-wider">
+             <div className="flex items-center gap-1.5 bg-syntry-teal-600/5 border border-[#0D9488]/20 px-2 py-1 rounded text-[9px] font-medium text-syntry-teal-600 uppercase tracking-wider">
                8 Layers Protected
              </div>
            </div>
 
            {/* Trust Bar Below Card */}
            <div className="mt-10 text-center">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 text-[11px] font-medium text-slate-400 uppercase tracking-widest bg-white border border-slate-200 py-3 px-6 rounded-full shadow-sm">
-                 <span className="flex items-center gap-2"><span className="text-[#0D9488]">✓</span> 8 Layers of Grounded Truth</span>
+              <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 text-[11px] font-medium text-slate-400 uppercase tracking-widest bg-white border border-slate-200 py-3 px-6 rounded-md shadow-sm">
+                 <span className="flex items-center gap-2"><span className="text-syntry-teal-600">✓</span> 8 Layers of Grounded Truth</span>
                  <span className="hidden md:block text-slate-300">•</span>
-                 <span className="flex items-center gap-2"><span className="text-[#0D9488]">✓</span> Zero Litigation</span>
+                 <span className="flex items-center gap-2"><span className="text-syntry-teal-600">✓</span> Zero Litigation</span>
                  <span className="hidden md:block text-slate-300">•</span>
-                 <span className="flex items-center gap-2"><span className="text-[#0D9488]">✓</span> Bank-Level Security</span>
+                 <span className="flex items-center gap-2"><span className="text-syntry-teal-600">✓</span> Bank-Level Security</span>
               </div>
            </div>
 
@@ -349,11 +349,11 @@ export default function RegisterPage() {
                     { icon: '🏦', title: 'Bank Ready APY', desc: 'Instantly qualify for institutional mortgage liquidity.' }
                   ].map((feature, i) => (
                     <div key={i} className="flex items-start gap-5 group">
-                      <div className="w-12 h-12 rounded-2xl bg-[#0D9488]/10 text-[#0D9488] flex items-center justify-center text-xl flex-shrink-0 shadow-sm border border-[#0D9488]/20 group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-md bg-syntry-teal-600/10 text-syntry-teal-600 flex items-center justify-center text-xl flex-shrink-0 shadow-sm border border-[#0D9488]/20 group-hover:scale-110 transition-transform">
                         {feature.icon}
                       </div>
                       <div>
-                        <h4 className="font-medium text-slate-900 mb-1 lg:text-lg group-hover:text-[#0D9488] transition-colors">{feature.title}</h4>
+                        <h4 className="font-medium text-slate-900 mb-1 lg:text-lg group-hover:text-syntry-teal-600 transition-colors">{feature.title}</h4>
                         <p className="text-sm text-slate-500 font-medium leading-relaxed">{feature.desc}</p>
                       </div>
                     </div>
@@ -361,28 +361,28 @@ export default function RegisterPage() {
                </div>
 
                {/* Trust Testimonial */}
-               <div className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm mb-12 relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#0D9488]/5 rounded-bl-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700"></div>
+               <div className="bg-white border border-slate-200 p-8 rounded-md shadow-sm mb-12 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-syntry-teal-600/5 rounded-bl-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700"></div>
                   <p className="text-slate-600 font-medium italic mb-6 relative z-10 text-[15px] leading-relaxed">
                      "Syntry’s immutable title verification saved us GH₵40,000 in potential litigation fees on a single transaction in East Legon."
                   </p>
                   <div className="flex items-center gap-4 relative z-10">
-                     <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-medium text-slate-600 text-xs border border-slate-200">TA</div>
+                     <div className="w-10 h-10 bg-slate-100 rounded-md flex items-center justify-center font-medium text-slate-600 text-xs border border-slate-200">TA</div>
                      <div>
                         <p className="font-medium text-slate-900 text-sm">Theophilus Asare</p>
-                        <p className="text-[11px] text-[#0D9488] font-medium uppercase tracking-wider">Independent Developer</p>
+                        <p className="text-[11px] text-syntry-teal-600 font-medium uppercase tracking-wider">Independent Developer</p>
                      </div>
                   </div>
                </div>
 
                {/* Need Help CTA */}
                <div className="bg-slate-900 rounded-[2rem] p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#0D9488]/15 rounded-bl-[4rem] -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-syntry-teal-600/15 rounded-bl-[4rem] -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700"></div>
                   <div className="relative z-10 text-center sm:text-left">
                      <h3 className="text-white font-medium mb-1.5 text-lg">Need help getting started?</h3>
                      <p className="text-slate-400 text-sm font-medium">Our onboarding team answers in 2 minutes.</p>
                   </div>
-                  <a href="https://wa.me/233531102292" className="relative z-10 bg-[#0D9488] text-white px-6 py-3.5 rounded-xl text-sm font-medium shadow-[0_10px_20px_-10px_rgba(0,200,83,0.4)] hover:bg-[#0F766E] transition-colors whitespace-nowrap flex items-center gap-2 group-hover:scale-105">
+                  <a href="https://wa.me/233531102292" className="relative z-10 bg-syntry-teal-600 text-white px-6 py-3.5 rounded-md text-sm font-medium shadow-[0_10px_20px_-10px_rgba(0,200,83,0.4)] hover:bg-[#0F766E] transition-colors whitespace-nowrap flex items-center gap-2 group-hover:scale-105">
                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052.005C5.495.005.158 5.346.155 11.907a11.78 11.78 0 0 0 1.579 5.894L0 24l6.357-1.667a11.8 11.8 0 0 0 5.69 1.46h.005c6.554 0 11.895-5.34 11.898-11.903a11.82 11.82 0 0 0-3.486-8.414z"/></svg>
                      053 110 2292
                   </a>

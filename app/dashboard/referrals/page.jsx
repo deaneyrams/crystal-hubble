@@ -25,7 +25,7 @@ const ReferralProgramPage = () => {
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-5xl mx-auto">
         {/* Referral Hero */}
         <section className="mb-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 border border-[#D4AF37]/20">
+          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-md mb-6 border border-[#D4AF37]/20">
             <span className="text-lg">🎁</span>
             <span className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Syntry Rewards Program</span>
           </div>
@@ -48,17 +48,17 @@ const ReferralProgramPage = () => {
         </div>
 
         {/* Share Section */}
-        <section className="bg-[#0F172A] text-[#F8F1E3] p-12 md:p-16 rounded-[3rem] shadow-2xl mb-16 relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <section className="bg-syntry-obsidian text-[#F8F1E3] p-12 md:p-16 rounded-[3rem] shadow-2xl mb-16 relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-32 -mt-32"></div>
            <div className="max-w-xl mx-auto text-center">
              <h2 className="text-2xl font-medium mb-8 italic">Your Unique Referral Link</h2>
-             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl mb-8 flex items-center justify-between gap-4 group">
+             <div className="bg-white/5 border border-white/10 p-6 rounded-md mb-8 flex items-center justify-between gap-4 group">
                <code className="text-sm font-mono text-[#D4AF37] truncate">{referralLink}</code>
                <button className="text-[10px] font-medium uppercase tracking-widest opacity-60 hover:opacity-100 transition-all">Copy</button>
              </div>
              <a 
                href={`https://wa.me/?text=Join%20me%20on%20Syntry.co%20to%20verify%20your%20land%20and%20get%20mortgage%20pre-approval!%20Use%20my%20link:%20${referralLink}`}
-               className="bg-[#25D366] text-white py-4 px-10 rounded-2xl font-medium text-sm block hover:scale-[1.02] transition-all"
+               className="bg-[#25D366] text-white py-4 px-10 rounded-md font-medium text-sm block hover:scale-[1.02] transition-all"
              >
                Share on WhatsApp
              </a>
@@ -89,9 +89,9 @@ const ReferralProgramPage = () => {
               { name: "Naa Ayeley", status: "Signed Up", reward: "GH₵50", date: "Oct 20" },
               { name: "David Mensah", status: "Mortgage Check", reward: "GH₵250", date: "Oct 15" }
             ].map((ref, i) => (
-               <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-3xl flex items-center justify-between shadow-sm group hover:border-[#D4AF37]/20 transition-all">
+               <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-md flex items-center justify-between shadow-sm group hover:border-[#D4AF37]/20 transition-all">
                   <div className="flex gap-6 items-center">
-                    <div className="w-12 h-12 bg-[#0F172A] text-[#D4AF37] rounded-full flex items-center justify-center font-medium text-lg">
+                    <div className="w-12 h-12 bg-syntry-obsidian text-[#D4AF37] rounded-md flex items-center justify-center font-medium text-lg">
                       {ref.name.charAt(0)}
                     </div>
                     <div>
@@ -114,7 +114,7 @@ const ReferralProgramPage = () => {
            <h3 className="text-xl font-medium mb-8 italic">Top referrers this month are winning exclusive land-survey sessions.</h3>
            <div className="flex justify-center -space-x-4">
               {[1,2,3,4].map(i => (
-                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-[#0F172A] text-[#D4AF37] flex items-center justify-center font-medium text-xs ring-2 ring-[#D4AF37]/20 uppercase">
+                <div key={i} className="w-12 h-12 rounded-md border-4 border-white bg-syntry-obsidian text-[#D4AF37] flex items-center justify-center font-medium text-xs ring-2 ring-[#D4AF37]/20 uppercase">
                   {String.fromCharCode(64 + i)}
                 </div>
               ))}
@@ -128,10 +128,10 @@ const ReferralProgramPage = () => {
              <p className="font-medium text-sm mb-2 opacity-80">Help your inner circle ground their truth in verified soil.</p>
            </div>
            <div className="flex flex-col gap-4 w-full md:w-auto">
-             <a href="https://wa.me/233531102292" className="bg-[#0F172A] text-[#F8F1E3] px-12 py-5 rounded-2xl font-medium text-sm text-center hover:scale-[1.02] transition-all shadow-xl">
+             <a href="https://wa.me/233531102292" className="bg-syntry-obsidian text-[#F8F1E3] px-12 py-5 rounded-md font-medium text-sm text-center hover:scale-[1.02] transition-all shadow-xl">
                Connect with Advisor Liaison
              </a>
-             <button className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-2xl font-medium text-sm text-center hover:bg-white/30 transition-all">
+             <button className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-md font-medium text-sm text-center hover:bg-white/30 transition-all">
                View Full Leaderboard
              </button>
            </div>

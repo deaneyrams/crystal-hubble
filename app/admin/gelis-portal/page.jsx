@@ -106,7 +106,7 @@ export default function GelisPortalPage() {
       <div className="w-full max-w-4xl space-y-8">
         
         {/* Header */}
-        <div className={`bg-[#0E1629] border rounded-2xl p-6 flex flex-col md:flex-row justify-between items-center shadow-lg transition-colors duration-1000 ${isCustodyState ? 'border-[#D4AF37]/50 shadow-[0_0_30px_rgba(212,175,55,0.1)]' : 'border-white/10'}`}>
+        <div className={`bg-[#0E1629] border rounded-md p-6 flex flex-col md:flex-row justify-between items-center shadow-lg transition-colors duration-1000 ${isCustodyState ? 'border-[#D4AF37]/50 shadow-[0_0_30px_rgba(212,175,55,0.1)]' : 'border-white/10'}`}>
           <div>
             <h1 className="text-2xl font-light text-white tracking-wide">
               {isCustodyState ? 'Syntry Vault' : 'GELIS 2.0 Secure Portal'}
@@ -128,8 +128,8 @@ export default function GelisPortalPage() {
                 <>
                   <div className="flex items-center gap-3 bg-black/40 border border-[#00F5D4]/20 px-4 py-2 rounded-lg">
                     <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F5D4] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00F5D4]"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#00F5D4] opacity-75"></span>
+                      <span className="relative inline-flex rounded-md h-3 w-3 bg-[#00F5D4]"></span>
                     </span>
                     <span className="text-[10px] uppercase tracking-widest text-[#00F5D4] font-medium">
                       API Live
@@ -148,14 +148,14 @@ export default function GelisPortalPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Left Col: Asset Overview */}
-            <div className={`bg-[#0E1629] border rounded-2xl p-6 space-y-6 transition-colors duration-1000 ${isCustodyState ? 'border-[#D4AF37]/30' : 'border-white/10'}`}>
+            <div className={`bg-[#0E1629] border rounded-md p-6 space-y-6 transition-colors duration-1000 ${isCustodyState ? 'border-[#D4AF37]/30' : 'border-white/10'}`}>
               <h2 className="text-sm border-b border-white/5 pb-2 uppercase tracking-widest font-medium text-gray-400">
                 {isCustodyState ? 'Certificate of Truth' : 'Asset Payload'}
               </h2>
               
               <div className="space-y-4">
                 {isCustodyState ? (
-                   <div className="bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] p-6 rounded-xl border border-[#D4AF37]/40 text-center space-y-3 shadow-inner">
+                   <div className="bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] p-6 rounded-md border border-[#D4AF37]/40 text-center space-y-3 shadow-inner">
                       <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-medium">Master Sovereign Hash</p>
                       <p className="font-mono text-2xl text-white tracking-wider">{mockPlot.deedHash}</p>
                       <p className="text-[9px] text-gray-500 italic mt-2">This is the unalterable, cryptographically secured anchor for the asset.</p>
@@ -174,8 +174,8 @@ export default function GelisPortalPage() {
                        <div>
                           <span className={`px-2 py-1 rounded text-[9px] uppercase font-medium tracking-tight border tracking-widest ${
                              mockPlot.status === 'IN-REGISTRATION' 
-                             ? 'bg-blue-900/40 text-blue-400 border-blue-500/50 animate-pulse'
-                             : 'bg-green-900/40 text-green-400 border-green-500/50'
+                             ? 'bg-syntry-teal-600/40 text-syntry-teal-600 border-blue-500/50 animate-pulse'
+                             : 'bg-syntry-teal-600/40 text-syntry-teal-600 border-green-500/50'
                           }`}>
                              {mockPlot.status}
                           </span>
@@ -189,7 +189,7 @@ export default function GelisPortalPage() {
                 <button
                   onClick={handlePushToRegistry}
                   disabled={isSubmitting}
-                  className={`w-full py-4 text-sm font-medium tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2
+                  className={`w-full py-4 text-sm font-medium tracking-widest uppercase rounded-md transition-all duration-300 flex items-center justify-center gap-2
                     ${isSubmitting 
                      ? 'bg-indigo-900/20 text-indigo-500 border border-indigo-500/30 cursor-wait'
                      : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] border border-indigo-400'
@@ -202,7 +202,7 @@ export default function GelisPortalPage() {
               {isCustodyState && (
                  <button
                    onClick={handleArchiveProperty}
-                   className="w-full py-4 bg-gradient-to-r from-[#D4AF37] to-[#aa8022] hover:from-[#e5c04b] hover:to-[#cfa030] text-black rounded-xl text-sm font-medium tracking-tight tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-[#f0d473]/50 transform hover:scale-[1.02]"
+                   className="w-full py-4 bg-gradient-to-r from-[#D4AF37] to-[#aa8022] hover:from-[#e5c04b] hover:to-[#cfa030] text-black rounded-md text-sm font-medium tracking-tight tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-[#f0d473]/50 transform hover:scale-[1.02]"
                  >
                    📥 Archive Property (.syntry-vault)
                  </button>
@@ -210,7 +210,7 @@ export default function GelisPortalPage() {
             </div>
 
             {/* Right Col: Handshake Terminal or Status Tracker */}
-            <div className={`rounded-2xl relative overflow-hidden flex flex-col transition-colors duration-1000 ${
+            <div className={`rounded-md relative overflow-hidden flex flex-col transition-colors duration-1000 ${
               isCustodyState 
                 ? 'bg-[#111] border border-white/5 p-6' 
                 : mockPlot.status === 'IN-REGISTRATION'
@@ -223,7 +223,7 @@ export default function GelisPortalPage() {
                     <h2 className="text-sm border-b border-white/5 pb-2 uppercase tracking-widest font-medium text-gray-400 mb-4 z-10">
                       Telemetry & Handshake
                     </h2>
-                    <div className="absolute inset-0 opacity-20 pointer-events-none text-blue-500 text-[8px] leading-tight select-none z-0">
+                    <div className="absolute inset-0 opacity-20 pointer-events-none text-syntry-teal-600 text-[8px] leading-tight select-none z-0">
                       {Array.from({length: 40}).map((_, i) => (
                           <div key={i}>0x{Math.random().toString(16).substr(2, 8)} ... {Date.now() - i * 100}ms OK</div>
                       ))}
@@ -234,7 +234,7 @@ export default function GelisPortalPage() {
                           <span>Handshake State</span>
                           <span>{progressStep}/4</span>
                         </div>
-                        <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-2 w-full bg-white/10 rounded-md overflow-hidden">
                             <div 
                               className="h-full bg-gradient-to-r from-indigo-500 to-[#00F5D4] transition-all duration-500 ease-out"
                               style={{ width: `${(progressStep/4) * 100}%` }}
@@ -254,7 +254,7 @@ export default function GelisPortalPage() {
 
                {isCustodyState && (
                   <div className="h-full flex flex-col justify-center items-center text-center space-y-4 animate-in fade-in duration-1000">
-                     <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30">
+                     <div className="w-16 h-16 rounded-md bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30">
                         <span className="text-3xl">🔒</span>
                      </div>
                      <div>

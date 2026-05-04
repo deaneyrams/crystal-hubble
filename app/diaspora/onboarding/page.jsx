@@ -10,7 +10,7 @@ const DiasporaOnboardingSuccessPage = () => {
       <main className="pt-24 pb-20 px-4 md:px-8 max-w-5xl mx-auto flex flex-col items-center">
         {/* Success Hero Section */}
         <header className="text-center mb-16 animate-in fade-in zoom-in duration-1000">
-           <div className="w-24 h-24 bg-[#A8E6CF] text-[#0F172A] rounded-full mx-auto flex items-center justify-center text-5xl mb-10 shadow-2xl shadow-[#A8E6CF]/30 border-4 border-white">
+           <div className="w-24 h-24 bg-[#A8E6CF] text-[#0F172A] rounded-md mx-auto flex items-center justify-center text-5xl mb-10 shadow-2xl shadow-[#A8E6CF]/30 border-4 border-white">
               ✓
            </div>
            <h1 className="text-4xl md:text-6xl font-medium tracking-tighter mb-4 italic">Welcome to Syntry, {userName}!</h1>
@@ -25,14 +25,14 @@ const DiasporaOnboardingSuccessPage = () => {
            {[
              { t: "Verify Your Ghana Property", d: "Lock your land against disputes with 8 Layers.", b: "Start Verification Now – Free", c: "bg-[#D4AF37]", tc: "text-[#0F172A]" },
              { t: "Check Your Buying Power", d: "Discover how much you can borrow for land.", b: "Discover My Buying Power", c: "bg-[#00BFFF]", tc: "text-[#0F172A]" },
-             { t: "Explore the Marketplace", d: "Browse verified institutional-grade plots.", b: "Browse Verified Properties", c: "bg-[#0F172A]", tc: "text-[#F8F1E3]" }
+             { t: "Explore the Marketplace", d: "Browse verified institutional-grade plots.", b: "Browse Verified Properties", c: "bg-syntry-obsidian", tc: "text-[#F8F1E3]" }
            ].map((card, i) => (
              <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all group flex flex-col justify-between h-full">
                 <div>
                    <h3 className="text-xl font-medium mb-3 italic">{card.t}</h3>
                    <p className="text-xs opacity-60 font-medium mb-10 leading-relaxed">{card.d}</p>
                 </div>
-                <button className={`w-full ${card.c} ${card.tc} py-4 rounded-2xl font-medium text-[10px] uppercase tracking-widest hover:scale-[1.02] transition-all shadow-lg`}>
+                <button className={`w-full ${card.c} ${card.tc} py-4 rounded-md font-medium text-[10px] uppercase tracking-widest hover:scale-[1.02] transition-all shadow-lg`}>
                    {card.b}
                 </button>
              </div>
@@ -40,8 +40,8 @@ const DiasporaOnboardingSuccessPage = () => {
         </section>
 
         {/* Progress Indicator */}
-        <section className="w-full bg-[#0F172A] text-[#F8F1E3] p-10 md:p-16 rounded-[4rem] shadow-2xl mb-16 relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <section className="w-full bg-syntry-obsidian text-[#F8F1E3] p-10 md:p-16 rounded-[4rem] shadow-2xl mb-16 relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-32 -mt-32"></div>
            <div className="relative z-10">
               <h3 className="text-[10px] font-medium uppercase tracking-[4px] opacity-40 mb-10 text-center">Onboarding Progress</h3>
               <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
@@ -52,7 +52,7 @@ const DiasporaOnboardingSuccessPage = () => {
                  ].map((step, i) => (
                    <React.Fragment key={i}>
                       <div className={`flex flex-col items-center gap-4 ${step.a ? 'opacity-100' : 'opacity-30'}`}>
-                         <div className={`w-12 h-12 rounded-full flex items-center justify-center font-medium text-sm ${step.a ? 'bg-[#D4AF37] text-[#0F172A]' : 'bg-white/10'}`}>
+                         <div className={`w-12 h-12 rounded-md flex items-center justify-center font-medium text-sm ${step.a ? 'bg-[#D4AF37] text-[#0F172A]' : 'bg-white/10'}`}>
                             {step.s}
                          </div>
                          <p className="text-[10px] font-medium uppercase tracking-widest whitespace-nowrap">{step.l}</p>
@@ -73,11 +73,11 @@ const DiasporaOnboardingSuccessPage = () => {
 
         {/* Final CTA */}
         <section className="w-full flex flex-col md:flex-row gap-6 items-center justify-center mb-32">
-           <button className="w-full md:w-auto bg-[#D4AF37] text-[#0F172A] px-16 py-6 rounded-2xl font-medium text-xl hover:scale-105 transition-all shadow-2xl">
+           <button className="w-full md:w-auto bg-[#D4AF37] text-[#0F172A] px-16 py-6 rounded-md font-medium text-xl hover:scale-105 transition-all shadow-2xl">
               Let's Start by Verifying Your Land
            </button>
            <a href="https://wa.me/233531102292" className="flex items-center gap-4 text-[#0F172A] font-medium text-lg group">
-              <span className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">💬</span>
+              <span className="w-12 h-12 bg-white rounded-md flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">💬</span>
               Chat with a Diaspora Advisor
            </a>
         </section>
@@ -88,7 +88,7 @@ const DiasporaOnboardingSuccessPage = () => {
       {/* Floating WhatsApp Button */}
       <a 
         href="https://wa.me/233531102292" 
-        className="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all z-50 border-4 border-white"
+        className="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-md flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all z-50 border-4 border-white"
         title="Chat with Advisor"
       >
         💬

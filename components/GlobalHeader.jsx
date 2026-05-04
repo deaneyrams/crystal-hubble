@@ -48,9 +48,9 @@ export default function GlobalHeader() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-[2000] h-20 transition-all duration-500 bg-[#0F172A] ${
+        className={`fixed top-0 left-0 right-0 z-[2000] h-20 transition-all duration-500 bg-syntry-obsidian ${
           isScrolled 
-            ? 'border-b border-[#D4AF37]/20 shadow-xl' 
+            ? 'border-b border-syntry-teal-600/20 shadow-xl' 
             : 'border-b border-white/5'
         }`}
       >
@@ -59,8 +59,8 @@ export default function GlobalHeader() {
           {/* LOGO */}
           <a href="/" className="group flex items-center gap-0">
             <div className="flex items-center gap-0">
-              <span className="text-2xl md:text-3xl font-medium tracking-tighter uppercase text-[#D4AF37]">SYN</span>
-              <span className="text-2xl md:text-3xl font-medium tracking-tighter uppercase text-[#F8F1E3]">TRY</span>
+              <span className="text-2xl md:text-3xl font-medium tracking-tighter uppercase text-syntry-teal-600">SYN</span>
+              <span className="text-2xl md:text-3xl font-medium tracking-tighter uppercase text-white">TRY</span>
             </div>
           </a>
 
@@ -70,8 +70,8 @@ export default function GlobalHeader() {
               <a 
                 key={link.label} 
                 href={link.href}
-                className={`font-medium text-[8px] tracking-[2.5px] uppercase transition-all duration-300 hover:text-[#D4AF37] ${
-                  pathname === link.href ? 'text-[#D4AF37]' : 'text-[#F8F1E3]/80'
+                className={`font-medium text-[8px] tracking-[2.5px] uppercase transition-all duration-300 hover:text-syntry-teal-600 ${
+                  pathname === link.href ? 'text-syntry-teal-600' : 'text-white/80'
                 }`}
               >
                 {link.label}
@@ -81,10 +81,10 @@ export default function GlobalHeader() {
 
           {/* ACTION */}
           <div className="flex items-center gap-6">
-            <a href="/login" className="hidden lg:block text-[#F8F1E3]/60 font-medium text-[10px] uppercase tracking-widest hover:text-[#D4AF37] transition-all">
+            <a href="/login" className="hidden lg:block text-white/60 font-medium text-[10px] uppercase tracking-widest hover:text-syntry-teal-600 transition-all">
               Login
             </a>
-            <a href="/verify-land-now" className="hidden md:block bg-[#D4AF37] text-[#0F172A] px-8 py-3.5 rounded-2xl font-medium text-[10px] uppercase tracking-[2px] hover:scale-105 transition-all shadow-xl shadow-[#D4AF37]/20">
+            <a href="/verify-land-now" className="hidden md:block bg-gradient-to-r from-syntry-teal-600 to-syntry-teal-700 text-white px-8 py-3.5 rounded-md font-medium text-[10px] uppercase tracking-[2px] hover:opacity-90 transition-all shadow-xl shadow-syntry-teal-600/20">
               Verify Land Now – Free
             </a>
             
@@ -108,7 +108,7 @@ export default function GlobalHeader() {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-[1999] bg-[#0F172A] flex flex-col items-center justify-center p-8 xl:hidden"
+            className="fixed inset-0 z-[1999] bg-syntry-obsidian flex flex-col items-center justify-center p-8 xl:hidden"
           >
             <nav className="flex flex-col items-center gap-8">
               {navLinks.map((link) => (
@@ -116,13 +116,13 @@ export default function GlobalHeader() {
                   key={link.label}
                   href={link.href}
                   className={`text-2xl font-medium tracking-[3px] uppercase ${
-                    pathname === link.href ? 'text-[#D4AF37]' : 'text-[#F8F1E3]/60'
+                    pathname === link.href ? 'text-syntry-teal-600' : 'text-white/60'
                   }`}
                 >
                   {link.label}
                 </a>
               ))}
-              <a href="/verify-land-now" className="mt-8 bg-[#D4AF37] text-[#0F172A] px-10 py-4 rounded-2xl font-medium text-sm uppercase tracking-widest">
+              <a href="/verify-land-now" className="mt-8 bg-gradient-to-r from-syntry-teal-600 to-syntry-teal-700 text-white px-10 py-4 rounded-md font-medium text-sm uppercase tracking-widest">
                 Verify Land Now – Free
               </a>
             </nav>

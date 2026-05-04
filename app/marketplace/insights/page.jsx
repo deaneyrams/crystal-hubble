@@ -30,12 +30,12 @@ const MarketInsightsPage = () => {
             <h1 className="text-4xl font-medium tracking-tight mb-2">Market Insights</h1>
             <p className="opacity-60 text-sm font-medium italic">Data-driven statutory land market analysis.</p>
           </div>
-          <div className="flex gap-2 bg-[#0F172A]/5 p-1 rounded-xl w-full md:w-auto overflow-x-auto no-scrollbar">
+          <div className="flex gap-2 bg-syntry-obsidian/5 p-1 rounded-md w-full md:w-auto overflow-x-auto no-scrollbar">
             {['30 Days', '90 Days', '1 Year', 'All Time'].map(range => (
               <button 
                 key={range}
                 onClick={() => setTimeRange(range)}
-                className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${timeRange === range ? 'bg-[#0F172A] text-white shadow-lg' : 'opacity-40 hover:opacity-100'}`}
+                className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${timeRange === range ? 'bg-syntry-obsidian text-white shadow-lg' : 'opacity-40 hover:opacity-100'}`}
               >
                 {range}
               </button>
@@ -46,7 +46,7 @@ const MarketInsightsPage = () => {
         {/* KPI Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, i) => (
-             <div key={i} className="bg-white border border-[#D4AF37]/10 p-8 rounded-3xl shadow-sm hover:border-[#D4AF37]/40 transition-all">
+             <div key={i} className="bg-white border border-[#D4AF37]/10 p-8 rounded-md shadow-sm hover:border-[#D4AF37]/40 transition-all">
                 <p className="text-[10px] font-medium uppercase tracking-widest opacity-40 mb-2">{stat.label}</p>
                 <h3 className="text-2xl font-medium text-[#0F172A] tracking-tight">{stat.value}</h3>
                 <p className="text-[9px] font-medium opacity-60 mt-2">{stat.desc}</p>
@@ -56,8 +56,8 @@ const MarketInsightsPage = () => {
 
         {/* Charts & Trends */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-           <div className="lg:col-span-2 bg-[#0F172A] text-[#F8F1E3] p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group border border-[#D4AF37]/20">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+           <div className="lg:col-span-2 bg-syntry-obsidian text-[#F8F1E3] p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group border border-[#D4AF37]/20">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-md blur-3xl -mr-32 -mt-32"></div>
               <h4 className="text-sm font-medium uppercase tracking-widest opacity-40 mb-12">Land Value Trend • Greater Accra</h4>
               <div className="h-48 flex items-end gap-2 opacity-20 px-4">
                  {[30, 45, 40, 65, 55, 80, 75, 100].map((h, i) => (
@@ -72,7 +72,7 @@ const MarketInsightsPage = () => {
               <div className="space-y-6">
                  {[
                    { t: "Residential Plots", p: "62%", c: "bg-[#D4AF37]" },
-                   { t: "Nodal Centers", p: "22%", c: "bg-[#0F172A]" },
+                   { t: "Nodal Centers", p: "22%", c: "bg-syntry-obsidian" },
                    { t: "Industrial Land", p: "16%", c: "bg-[#1D9E75]" }
                  ].map((bar, i) => (
                     <div key={i}>
@@ -80,7 +80,7 @@ const MarketInsightsPage = () => {
                           <span className="opacity-60">{bar.t}</span>
                           <span>{bar.p}</span>
                        </div>
-                       <div className="h-2 w-full bg-[#0F172A]/5 rounded-full overflow-hidden">
+                       <div className="h-2 w-full bg-syntry-obsidian/5 rounded-md overflow-hidden">
                           <div style={{ width: bar.p }} className={`h-full ${bar.c}`}></div>
                        </div>
                     </div>
@@ -92,7 +92,7 @@ const MarketInsightsPage = () => {
 
         {/* Personalized Insight Section */}
         <section className="bg-white border border-[#D4AF37]/30 p-10 rounded-[2.5rem] mb-20 shadow-xl border-l-[12px] border-l-[#D4AF37] relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-2xl"></div>
+           <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-md blur-2xl"></div>
            <p className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37] mb-2">Personalized Recommendation</p>
            <h3 className="text-xl font-medium italic text-[#0F172A]">Based on your portfolio, your identified assets are performing 8.2% above the general market average.</h3>
            <button className="mt-6 text-[10px] font-medium text-[#00BFFF] uppercase tracking-widest hover:underline">Download Personal Audit ↗</button>
@@ -106,8 +106,8 @@ const MarketInsightsPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {insights.map((article, i) => (
-               <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-3xl hover:shadow-xl transition-all group">
-                  <div className="w-10 h-10 bg-[#0F172A]/5 rounded-full flex items-center justify-center mb-6 text-xl">📄</div>
+               <div key={i} className="bg-white border border-[#0F172A]/5 p-8 rounded-md hover:shadow-xl transition-all group">
+                  <div className="w-10 h-10 bg-syntry-obsidian/5 rounded-md flex items-center justify-center mb-6 text-xl">📄</div>
                   <h4 className="font-medium text-lg mb-4 group-hover:text-[#D4AF37] transition-all">{article.title}</h4>
                   <p className="text-xs opacity-60 leading-relaxed font-medium mb-8">{article.desc}</p>
                   <button className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37] group-hover:underline">Read Article</button>
@@ -123,10 +123,10 @@ const MarketInsightsPage = () => {
              <p className="font-medium text-sm mb-2">Deep-dive technical data for banks, family offices, and statutory agencies.</p>
            </div>
            <div className="flex flex-col gap-4 w-full md:w-auto">
-             <button className="bg-[#0F172A] text-[#F8F1E3] px-12 py-5 rounded-2xl font-medium text-sm hover:scale-[1.02] transition-all shadow-xl">
+             <button className="bg-syntry-obsidian text-[#F8F1E3] px-12 py-5 rounded-md font-medium text-sm hover:scale-[1.02] transition-all shadow-xl">
                Subscribe to Weekly Insights
              </button>
-             <a href="https://wa.me/233531102292" className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-2xl font-medium text-sm text-center hover:bg-white/30 transition-all">
+             <a href="https://wa.me/233531102292" className="bg-white/20 border border-[#0F172A]/20 text-[#0F172A] px-12 py-5 rounded-md font-medium text-sm text-center hover:bg-white/30 transition-all">
                Connect with Data Liaison
              </a>
            </div>

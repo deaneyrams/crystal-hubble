@@ -18,17 +18,17 @@ const DiasporaSignupPage = () => {
           </header>
 
           <div className="bg-white border border-[#D4AF37]/10 p-8 md:p-12 rounded-[3.5rem] shadow-xl shadow-[#D4AF37]/5 relative overflow-hidden group">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-2xl"></div>
+             <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-md blur-2xl"></div>
              
              <div className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3 ml-2">Full Name</label>
-                      <input type="text" placeholder="Kofi Kojo Mensah" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm focus:ring-2 focus:ring-[#D4AF37]/20" />
+                      <input type="text" placeholder="Kofi Kojo Mensah" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm focus:ring-2 focus:ring-[#D4AF37]/20" />
                    </div>
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3 ml-2">Email Address</label>
-                      <input type="email" placeholder="kofi@example.com" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" />
+                      <input type="email" placeholder="kofi@example.com" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" />
                    </div>
                 </div>
 
@@ -36,18 +36,18 @@ const DiasporaSignupPage = () => {
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3 ml-2">Phone Number</label>
                       <div className="flex gap-2">
-                         <select className="w-24 bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-[10px] appearance-none">
+                         <select className="w-24 bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-[10px] appearance-none">
                             <option>+44 UK</option>
                             <option>+1 US</option>
                             <option>+1 CA</option>
                             <option>+233 GH</option>
                          </select>
-                         <input type="text" placeholder="7712345678" className="flex-1 bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" />
+                         <input type="text" placeholder="7712345678" className="flex-1 bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" />
                       </div>
                    </div>
                    <div>
                       <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3 ml-2">Country of Residence</label>
-                      <select className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm">
+                      <select className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm">
                          <option>United Kingdom</option>
                          <option>United States</option>
                          <option>Canada</option>
@@ -62,7 +62,7 @@ const DiasporaSignupPage = () => {
                    <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3 ml-2">Ghanaian Connection</label>
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {["I own family land", "I own investment property", "Planning to buy land", "Managing relatives land"].map((opt) => (
-                        <label key={opt} className="flex items-center gap-4 bg-[#0F172A]/5 p-5 rounded-2xl cursor-pointer hover:bg-[#D4AF37]/10 transition-all border border-transparent hover:border-[#D4AF37]/20">
+                        <label key={opt} className="flex items-center gap-4 bg-syntry-obsidian/5 p-5 rounded-md cursor-pointer hover:bg-[#D4AF37]/10 transition-all border border-transparent hover:border-[#D4AF37]/20">
                            <input type="radio" name="connection" className="w-4 h-4 border-[#0F172A]/20 text-[#0F172A] focus:ring-[#D4AF37]" />
                            <span className="text-xs font-medium leading-none">{opt}</span>
                         </label>
@@ -72,7 +72,7 @@ const DiasporaSignupPage = () => {
 
                 <div>
                    <label className="text-[10px] font-medium uppercase tracking-[2px] opacity-40 block mb-3 ml-2">Create Password</label>
-                   <input type="password" placeholder="••••••••" className="w-full bg-[#0F172A]/5 border-none p-5 rounded-2xl font-medium text-sm" />
+                   <input type="password" placeholder="••••••••" className="w-full bg-syntry-obsidian/5 border-none p-5 rounded-md font-medium text-sm" />
                 </div>
 
                 <div className="flex items-start gap-4">
@@ -82,7 +82,7 @@ const DiasporaSignupPage = () => {
                    </p>
                 </div>
 
-                <button className="w-full bg-[#D4AF37] text-[#0F172A] py-6 rounded-2xl font-medium text-[10px] uppercase tracking-[3px] hover:scale-[1.02] transition-all shadow-xl shadow-[#D4AF37]/20">
+                <button className="w-full bg-[#D4AF37] text-[#0F172A] py-6 rounded-md font-medium text-[10px] uppercase tracking-[3px] hover:scale-[1.02] transition-all shadow-xl shadow-[#D4AF37]/20">
                    Create My Diaspora Account
                 </button>
 
@@ -105,7 +105,7 @@ const DiasporaSignupPage = () => {
                   { t: "Dedicated Advisor", d: "WhatsApp support in your specific timezone.", i: "📱" }
                 ].map((b, i) => (
                   <div key={i} className="flex gap-6 items-start group">
-                     <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-[#0F172A]/5 group-hover:scale-110 transition-transform">{b.i}</div>
+                     <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center text-2xl shadow-sm border border-[#0F172A]/5 group-hover:scale-110 transition-transform">{b.i}</div>
                      <div>
                         <h4 className="font-medium text-lg mb-1">{b.t}</h4>
                         <p className="text-xs opacity-60 leading-relaxed font-medium">{b.d}</p>
@@ -114,8 +114,8 @@ const DiasporaSignupPage = () => {
                 ))}
              </div>
 
-             <div className="bg-[#0F172A] text-[#F8F1E3] p-10 rounded-[3rem] shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-2xl"></div>
+             <div className="bg-syntry-obsidian text-[#F8F1E3] p-10 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-md blur-2xl"></div>
                 <div className="space-y-6 relative z-10">
                    <div className="flex items-center gap-4 border-b border-white/5 pb-4">
                       <span className="text-[#A8E6CF]">🔐</span>

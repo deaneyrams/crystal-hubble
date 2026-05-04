@@ -332,7 +332,7 @@ export default function AdminControlTower() {
 
      plots.forEach(plot => {
         const customIcon = L.divIcon({
-          className: `leaflet-marker-icon plot-marker w-3 h-3 rounded-full shadow-lg border-2 border-[#0b132b] cursor-pointer transition-all duration-700 
+          className: `leaflet-marker-icon plot-marker w-3 h-3 rounded-md shadow-lg border-2 border-[#0b132b] cursor-pointer transition-all duration-700 
                   ${selectedPlot?.id === plot.id ? 'scale-[2.5] z-10 border-white shadow-[0_0_20px_rgba(255,255,255,0.5)]' : 'hover:scale-150'}
                   ${isAuditing && selectedPlot?.id === plot.id ? 'animate-pulse scale-[3] shadow-[0_0_30px_rgba(255,215,0,1)]' : ''}
                   ${plot.status === 'pending' ? 'bg-[#1E3A8A] shadow-[0_0_15px_rgba(30,58,138,0.9)]' : plot.status === 'reserved' || plot.status === 'escrowed' ? 'bg-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.9)]' : 'bg-[#00F5D4] shadow-[0_0_15px_rgba(0,245,212,0.9)]'}`,
@@ -717,7 +717,7 @@ export default function AdminControlTower() {
                      {label}
                  </span>
                  <div className="flex items-center gap-2">
-                     {isRunning && <span className="animate-spin h-3 w-3 border-[1.5px] border-indigo-400 border-t-transparent rounded-full" />}
+                     {isRunning && <span className="animate-spin h-3 w-3 border-[1.5px] border-indigo-400 border-t-transparent rounded-md" />}
                      {(isCompleted || isFailed) && (
                          <span className={`text-xs font-medium ${passed ? 'text-[#00F5D4]' : 'text-red-400'}`}>
                              {passed ? 'PASS' : 'FAIL'}
@@ -760,7 +760,7 @@ export default function AdminControlTower() {
         >
           {!mapLoaded && (
             <div className="absolute inset-0 z-0 flex flex-col items-center justify-center border border-white/5 opacity-80" style={{ backgroundImage: 'radial-gradient(circle, #00F5D4 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
-              <span className="text-[#00F5D4] font-mono text-sm tracking-widest bg-black/60 px-4 py-2 rounded-xl border border-[#00F5D4]/30 backdrop-blur-md animate-pulse shadow-[0_0_15px_rgba(0,245,212,0.2)]">INITIALIZING NATIVE WEBGL...</span>
+              <span className="text-[#00F5D4] font-mono text-sm tracking-widest bg-black/60 px-4 py-2 rounded-md border border-[#00F5D4]/30 backdrop-blur-md animate-pulse shadow-[0_0_15px_rgba(0,245,212,0.2)]">INITIALIZING NATIVE WEBGL...</span>
             </div>
           )}
         </div>
@@ -768,7 +768,7 @@ export default function AdminControlTower() {
         {/* Omni-Search Command Bar */}
         {showSearch && (
            <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-[100] w-[500px] animate-in fade-in zoom-in-95 duration-200">
-               <div className="bg-[#0b132b]/95 backdrop-blur-md border border-indigo-500/50 rounded-xl shadow-[0_0_30px_rgba(79,70,229,0.3)] overflow-hidden">
+               <div className="bg-[#0b132b]/95 backdrop-blur-md border border-indigo-500/50 rounded-md shadow-[0_0_30px_rgba(79,70,229,0.3)] overflow-hidden">
                    <div className="flex items-center p-4 border-b border-indigo-500/30">
                        <span className="text-indigo-400 mr-3 animate-pulse">🔍</span>
                        <input 
@@ -800,8 +800,8 @@ export default function AdminControlTower() {
 
         {/* Social Proof FOMO Ticker */}
         {isPublicView && (
-           <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-[45] bg-[#0b132b]/95 backdrop-blur-md border border-indigo-500/50 px-6 py-3 rounded-full shadow-[0_10px_30px_rgba(79,70,229,0.3)] flex items-center justify-center gap-3 w-[700px] overflow-hidden animate-in slide-in-from-bottom-8">
-              <span className="w-2 h-2 rounded-full bg-[#00F5D4] shadow-[0_0_10px_#00F5D4] flex-shrink-0 animate-ping"></span>
+           <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-[45] bg-[#0b132b]/95 backdrop-blur-md border border-indigo-500/50 px-6 py-3 rounded-md shadow-[0_10px_30px_rgba(79,70,229,0.3)] flex items-center justify-center gap-3 w-[700px] overflow-hidden animate-in slide-in-from-bottom-8">
+              <span className="w-2 h-2 rounded-md bg-[#00F5D4] shadow-[0_0_10px_#00F5D4] flex-shrink-0 animate-ping"></span>
               <p className="text-[11px] text-[#00F5D4] font-mono tracking-widest uppercase text-center" key={soldUnits}>
                  {latestFomo}
               </p>
@@ -810,8 +810,8 @@ export default function AdminControlTower() {
 
         {/* Public View Top-Right Map Badge */}
         {isPublicView && (
-           <div className="absolute top-4 right-4 z-[45] bg-emerald-900/80 backdrop-blur-md border border-emerald-500/50 px-4 py-2 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center gap-2 animate-in slide-in-from-right-4 duration-500">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10B981]"></span>
+           <div className="absolute top-4 right-4 z-[45] bg-emerald-900/80 backdrop-blur-md border border-emerald-500/50 px-4 py-2 rounded-md shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center gap-2 animate-in slide-in-from-right-4 duration-500">
+              <span className="w-2 h-2 rounded-md bg-emerald-400 animate-pulse shadow-[0_0_8px_#10B981]"></span>
               <span className="text-[10px] text-emerald-300 uppercase font-medium tracking-tight tracking-widest">Certified by Node 08</span>
            </div>
         )}
@@ -824,7 +824,7 @@ export default function AdminControlTower() {
                  <div key={i} className="w-8 h-8 rounded bg-gradient-to-br from-[#FFD700] to-yellow-600 shadow-[0_0_15px_rgba(255,215,0,0.8)] border border-white/50 animate-bounce" style={{ animationDelay: `${i * 15}ms`, transform: `rotate(${Math.random() * 45}deg)` }} />
                ))}
                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <h1 className="text-4xl font-medium tracking-tight text-white uppercase tracking-widest drop-shadow-[0_0_20px_#FFD700] bg-black/40 px-6 py-2 rounded-xl backdrop-blur-sm border border-white/10">Deed Decomposition...</h1>
+                  <h1 className="text-4xl font-medium tracking-tight text-white uppercase tracking-widest drop-shadow-[0_0_20px_#FFD700] bg-black/40 px-6 py-2 rounded-md backdrop-blur-sm border border-white/10">Deed Decomposition...</h1>
                </div>
             </div>
             <p className="mt-8 text-[#00F5D4] font-mono animate-pulse text-lg tracking-widest uppercase">Converting SYN-DEED to Liquid Fragments</p>
@@ -834,7 +834,7 @@ export default function AdminControlTower() {
         {/* AI Oracle Overlay */}
         {selectedPlot && showOracleView && (
            <div className="absolute top-4 right-[360px] w-[800px] z-30 animate-in fade-in slide-in-from-right-8 duration-500">
-              <Suspense fallback={<div className="bg-[#0a0514] border border-indigo-500/30 rounded-2xl p-6 text-indigo-400 text-center animate-pulse">Loading Sovereign Data...</div>}>
+              <Suspense fallback={<div className="bg-[#0a0514] border border-indigo-500/30 rounded-md p-6 text-indigo-400 text-center animate-pulse">Loading Sovereign Data...</div>}>
                 <OracleView plotData={selectedPlot} />
               </Suspense>
            </div>
@@ -842,7 +842,7 @@ export default function AdminControlTower() {
 
         {/* Selected Plot Drawer Overlay */}
         {selectedPlot && (
-          <div className="absolute top-4 right-4 w-80 bg-[#0E1629]/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 z-20 animate-in fade-in slide-in-from-right-8 duration-300">
+          <div className="absolute top-4 right-4 w-80 bg-[#0E1629]/95 backdrop-blur-md border border-white/10 rounded-md shadow-2xl p-6 z-20 animate-in fade-in slide-in-from-right-8 duration-300">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-2">
                  <h3 className="text-lg font-medium text-white tracking-wide uppercase">Oracle Detail</h3>
@@ -857,8 +857,8 @@ export default function AdminControlTower() {
             </div>
             
             {isSyncing && (
-              <div className="absolute inset-0 bg-indigo-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-50 rounded-2xl border border-white/10 animate-in fade-in duration-300">
-                <div className="w-16 h-16 border-4 border-t-[#00F5D4] border-indigo-500/20 rounded-full animate-spin"></div>
+              <div className="absolute inset-0 bg-indigo-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-50 rounded-md border border-white/10 animate-in fade-in duration-300">
+                <div className="w-16 h-16 border-4 border-t-[#00F5D4] border-indigo-500/20 rounded-md animate-spin"></div>
                 <p className="mt-4 text-xs font-mono text-[#00F5D4] animate-pulse uppercase tracking-widest text-center px-4">
                   GELIS HANDSHAKE IN PROGRESS...
                 </p>
@@ -870,7 +870,7 @@ export default function AdminControlTower() {
             )}
             
             <div className="space-y-4 max-h-[75vh] overflow-y-auto pr-2 custom-scrollbar">
-              <div className="bg-black/30 p-4 rounded-xl border border-white/5 relative">
+              <div className="bg-black/30 p-4 rounded-md border border-white/5 relative">
                 
                 {/* Proximity Overlay Label */}
                 <span className="absolute -top-3 left-4 bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/30 px-2 py-0.5 rounded text-[8px] uppercase font-medium tracking-tight tracking-widest shadow-[0_0_8px_rgba(0,245,212,0.3)] backdrop-blur-sm">
@@ -889,7 +889,7 @@ export default function AdminControlTower() {
                      <span className="text-2xl font-light text-white tracking-tight">${selectedPlot.value.toLocaleString()}</span>
                   </div>
                   <div className="bg-emerald-900/20 border border-emerald-500/50 px-2 py-1 rounded flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                     <span className="w-1.5 h-1.5 rounded-md bg-emerald-400 animate-pulse"></span>
                      <span className="text-[8px] uppercase tracking-widest font-medium tracking-tight text-emerald-300">Node 08 Verified</span>
                   </div>
                 </div>
@@ -917,7 +917,7 @@ export default function AdminControlTower() {
                   </div>
                   <button 
                     onClick={handleInitiateEscrow}
-                    className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:from-yellow-500 hover:to-[#ffd700] text-black font-medium tracking-tight py-3 px-4 rounded-xl text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-[1.02] flex justify-center items-center gap-2 border border-yellow-400/50"
+                    className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:from-yellow-500 hover:to-[#ffd700] text-black font-medium tracking-tight py-3 px-4 rounded-md text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-[1.02] flex justify-center items-center gap-2 border border-yellow-400/50"
                   >
                     Reserve Packet - ${Math.round((selectedPlot.value * 0.01) * 1.025).toLocaleString()}
                   </button>
@@ -942,7 +942,7 @@ export default function AdminControlTower() {
                                    setSelectedPlot(prev => ({ ...prev, ministerialId: 'VERIFIED' }));
                                  }, 3000);
                              }}
-                             className="text-[9px] bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-full font-medium uppercase tracking-widest transition-colors shadow-[0_0_10px_rgba(79,70,229,0.4)]"
+                             className="text-[9px] bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-md font-medium uppercase tracking-widest transition-colors shadow-[0_0_10px_rgba(79,70,229,0.4)]"
                            >
                              Run Audit
                            </button>
@@ -998,10 +998,10 @@ export default function AdminControlTower() {
                 {/* [MISSION: TRANSPARENCY DASHBOARD] Anti-Corruption Filter */}
                 {selectedPlot.transparencyStatus && (
                   <div className="mt-4 pt-4 border-t border-white/5 space-y-3">
-                    <div className="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/10">
+                    <div className="flex justify-between items-center bg-white/5 p-3 rounded-md border border-white/10">
                       <span className="text-[10px] uppercase tracking-widest text-gray-500 font-medium">Anti-Corruption Audit</span>
                       <div className="relative group cursor-help">
-                        <span className={`text-[9px] px-2 py-1 rounded-full font-medium tracking-tight uppercase tracking-tighter shadow-sm inline-block
+                        <span className={`text-[9px] px-2 py-1 rounded-md font-medium tracking-tight uppercase tracking-tighter shadow-sm inline-block
                           ${selectedPlot.transparencyStatus === 'verified_clean' 
                             ? 'bg-[#00F5D4]/20 text-[#00F5D4] border border-[#00F5D4]/30' 
                             : 'bg-yellow-500/20 text-yellow-500 border border-yellow-500/30'}`}>
@@ -1071,7 +1071,7 @@ export default function AdminControlTower() {
                    </button>
 
                    {shareLink && (
-                      <div className="mt-3 p-3 bg-red-900/20 border border-red-500/30 rounded-xl space-y-2 animate-in fade-in zoom-in-95">
+                      <div className="mt-3 p-3 bg-red-900/20 border border-red-500/30 rounded-md space-y-2 animate-in fade-in zoom-in-95">
                          <p className="text-[10px] text-red-400 font-medium uppercase tracking-widest leading-relaxed flex items-center gap-2">
                             <span className="animate-pulse">⚠️</span> SOVEREIGN SECURITY
                          </p>
@@ -1124,7 +1124,7 @@ export default function AdminControlTower() {
                     <span>Scanning...</span>
                     <span>{Math.round(auditProgress)}%</span>
                   </div>
-                  <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                  <div className="h-1.5 w-full bg-white/5 rounded-md overflow-hidden border border-white/5">
                     <div 
                       className="h-full bg-gradient-to-r from-[#FFD700] to-[#00F5D4] transition-all duration-1000 ease-out"
                       style={{ width: `${auditProgress}%` }}
@@ -1162,8 +1162,8 @@ export default function AdminControlTower() {
               )}
 
               {(selectedPlot.status === 'verified' || selectedPlot.status === 'MINTED - IMMUTABLE') && (
-                 <Suspense fallback={<div className="text-white text-sm p-6 border border-white/10 rounded-2xl mt-6 text-center uppercase tracking-widest font-medium tracking-tight flex items-center justify-center gap-3">
-                   <div className="w-4 h-4 rounded-full border-2 border-t-[#00F5D4] border-white/20 animate-spin"></div> Loading Sovereign Data...</div>}>
+                 <Suspense fallback={<div className="text-white text-sm p-6 border border-white/10 rounded-md mt-6 text-center uppercase tracking-widest font-medium tracking-tight flex items-center justify-center gap-3">
+                   <div className="w-4 h-4 rounded-md border-2 border-t-[#00F5D4] border-white/20 animate-spin"></div> Loading Sovereign Data...</div>}>
                    <MintingPanel 
                      plot={selectedPlot} 
                      sovereignLink={shareLink}
@@ -1199,7 +1199,7 @@ export default function AdminControlTower() {
 
                {/* [MISSION: GELIS SITE PLAN SYNC] Drop Zone */}
                {!uploadedFile && !isSyncing && selectedPlot.status !== 'MINTED - IMMUTABLE' && (
-                 <div className="mt-4 p-4 border-2 border-dashed border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group relative cursor-pointer">
+                 <div className="mt-4 p-4 border-2 border-dashed border-white/10 rounded-md bg-white/5 hover:bg-white/10 transition-colors group relative cursor-pointer">
                     <input 
                       type="file" 
                       accept=".pdf"
@@ -1215,7 +1215,7 @@ export default function AdminControlTower() {
                )}
 
                {uploadedFile && (
-                 <div className="mt-4 p-3 bg-indigo-500/10 border border-indigo-500/30 rounded-xl flex items-center justify-between animate-in zoom-in-95">
+                 <div className="mt-4 p-3 bg-indigo-500/10 border border-indigo-500/30 rounded-md flex items-center justify-between animate-in zoom-in-95">
                     <div className="flex items-center gap-3">
                       <span className="text-lg">📄</span>
                       <div className="overflow-hidden">
@@ -1264,7 +1264,7 @@ export default function AdminControlTower() {
         {/* Floating Emergency Overlays */}
         {isEmergencyLocked && (
           <div className="absolute inset-0 bg-red-900/30 pointer-events-none flex items-center justify-center backdrop-blur-[2px] z-10 transition-all duration-500">
-            <div className="bg-[#0b132b]/90 border border-red-500 px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(239,68,68,0.6)]">
+            <div className="bg-[#0b132b]/90 border border-red-500 px-8 py-4 rounded-md shadow-[0_0_30px_rgba(239,68,68,0.6)]">
               <h2 className="text-red-500 text-2xl font-medium uppercase tracking-wider flex items-center gap-3">
                 <span className="animate-pulse">⚠️</span> Vault Transitions Paused
               </h2>
@@ -1275,14 +1275,14 @@ export default function AdminControlTower() {
         {/* Fractional Sale Modal */}
         {showFractionalModal && selectedPlot && (
           <div className="absolute inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
-             <div className="bg-[#0b132b] border border-indigo-500/30 p-8 rounded-2xl w-[500px] shadow-2xl relative animate-in zoom-in-95">
+             <div className="bg-[#0b132b] border border-indigo-500/30 p-8 rounded-md w-[500px] shadow-2xl relative animate-in zoom-in-95">
                 <button onClick={() => { setShowFractionalModal(false); setFractionalToken(null); }} className="absolute top-4 right-4 text-gray-500 hover:text-white">&times;</button>
                 <h2 className="text-xl font-medium text-white uppercase tracking-widest mb-2 flex items-center gap-2">
                    <span className="text-indigo-400">⚡</span> Sovereign Liquidity Exit
                 </h2>
                 <p className="text-xs text-gray-400 mb-6">Offering public micro-investor liquidity slice against the SYN-DEED hash.</p>
                 
-                <div className="bg-white/5 border border-indigo-500/20 rounded-xl p-4 mb-6 space-y-3">
+                <div className="bg-white/5 border border-indigo-500/20 rounded-md p-4 mb-6 space-y-3">
                    <div className="flex justify-between items-center text-sm">
                       <span className="text-gray-500 uppercase tracking-wider text-[10px] font-medium">Total Asset Value</span>
                       <span className="text-gray-300 font-mono">${selectedPlot.value.toLocaleString()}</span>
@@ -1302,13 +1302,13 @@ export default function AdminControlTower() {
                        const token = await generateSovereignToken(selectedPlot.id + "-10PERCENT");
                        setTimeout(() => setFractionalToken(token), 1500);
                      }}
-                     className="w-full bg-[#00F5D4] hover:bg-[#00f5d4]/80 text-black py-3 rounded-xl font-medium tracking-tight uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(0,245,212,0.4)]"
+                     className="w-full bg-[#00F5D4] hover:bg-[#00f5d4]/80 text-black py-3 rounded-md font-medium tracking-tight uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(0,245,212,0.4)]"
                    >
                      Mint Participation Rights
                    </button>
                 ) : (
                    <div className="space-y-3">
-                      <div className="bg-emerald-900/20 border border-emerald-500/30 p-3 rounded-xl flex items-center gap-3 animate-in slide-in-from-bottom-2">
+                      <div className="bg-emerald-900/20 border border-emerald-500/30 p-3 rounded-md flex items-center gap-3 animate-in slide-in-from-bottom-2">
                          <span className="text-emerald-400 text-xl">✅</span>
                          <div>
                             <p className="text-[10px] uppercase text-emerald-400/80 font-medium tracking-widest">Public Listing Active</p>
@@ -1331,11 +1331,11 @@ export default function AdminControlTower() {
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 via-[#00F5D4] to-indigo-500"></div>
                 <h1 className="text-2xl font-light tracking-wide text-white flex items-center gap-2">
                   Exchange <span className="font-medium text-[#00F5D4]">Live</span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#00F5D4] animate-ping ml-1"></span>
+                  <span className="w-2.5 h-2.5 rounded-md bg-[#00F5D4] animate-ping ml-1"></span>
                 </h1>
                 
                 {/* Live Sales Ticker Hero */}
-                <div className="mt-4 bg-black/40 border border-[#00F5D4]/20 rounded-xl p-4 shadow-[0_0_20px_rgba(0,245,212,0.05)] text-center relative">
+                <div className="mt-4 bg-black/40 border border-[#00F5D4]/20 rounded-md p-4 shadow-[0_0_20px_rgba(0,245,212,0.05)] text-center relative">
                    <span className="text-[9px] uppercase tracking-widest text-[#00F5D4] font-medium tracking-tight absolute top-2 right-2 border border-[#00F5D4]/30 bg-[#00F5D4]/10 px-1.5 py-0.5 rounded">High Demand</span>
                    <p className="text-[10px] text-gray-500 uppercase tracking-widest font-medium mb-1">Ashifla-Otatten Pipeline</p>
                    <div className="text-3xl font-light tabular-nums tracking-tight text-white mb-2">
@@ -1344,7 +1344,7 @@ export default function AdminControlTower() {
                    <p className="text-[10px] uppercase font-mono tracking-widest text-indigo-400">Packets Remaining</p>
                    
                    {/* Mini Progress Bar */}
-                   <div className="w-full h-1.5 bg-gray-900 rounded-full mt-3 overflow-hidden border border-white/5">
+                   <div className="w-full h-1.5 bg-gray-900 rounded-md mt-3 overflow-hidden border border-white/5">
                        <div 
                          className="h-full bg-gradient-to-r from-indigo-500 to-[#00F5D4] transition-all duration-1000" 
                          style={{ width: `${soldUnits}%` }}
@@ -1363,30 +1363,30 @@ export default function AdminControlTower() {
 
           <div className={`mt-4 flex flex-col gap-3 ${isPublicView ? 'hidden' : ''}`}>
             {/* Infrastructure Toggle */}
-            <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/10">
+            <div className="flex items-center justify-between bg-white/5 p-3 rounded-md border border-white/10">
               <div className="flex items-center gap-3">
-                 <div className={`w-2 h-2 rounded-full ${showInfrastructure ? 'bg-[#7c3aed] animate-pulse shadow-[0_0_8px_rgba(124,58,237,0.8)]' : 'bg-gray-600'}`}></div>
+                 <div className={`w-2 h-2 rounded-md ${showInfrastructure ? 'bg-[#7c3aed] animate-pulse shadow-[0_0_8px_rgba(124,58,237,0.8)]' : 'bg-gray-600'}`}></div>
                  <span className="text-[10px] uppercase tracking-widest font-medium text-gray-300">Infrastructure Catalyst</span>
               </div>
               <button 
                 onClick={() => setShowInfrastructure(!showInfrastructure)}
-                className={`w-10 h-5 rounded-full relative transition-colors duration-300 ${showInfrastructure ? 'bg-[#7c3aed]' : 'bg-gray-700'}`}
+                className={`w-10 h-5 rounded-md relative transition-colors duration-300 ${showInfrastructure ? 'bg-[#7c3aed]' : 'bg-gray-700'}`}
               >
-                <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all duration-300 ${showInfrastructure ? 'left-6' : 'left-1'}`}></div>
+                <div className={`absolute top-1 w-3 h-3 bg-white rounded-md transition-all duration-300 ${showInfrastructure ? 'left-6' : 'left-1'}`}></div>
               </button>
             </div>
             
             {/* Public Prospectus Toggle */}
-            <div className="flex items-center justify-between bg-emerald-900/10 p-3 rounded-xl border border-[#00F5D4]/30 shadow-[0_0_15px_rgba(0,245,212,0.05)]">
+            <div className="flex items-center justify-between bg-emerald-900/10 p-3 rounded-md border border-[#00F5D4]/30 shadow-[0_0_15px_rgba(0,245,212,0.05)]">
               <div className="flex items-center gap-3">
-                 <div className={`w-2 h-2 rounded-full ${isPublicView ? 'bg-[#00F5D4] animate-pulse shadow-[0_0_10px_rgba(0,245,212,0.8)]' : 'bg-gray-600'}`}></div>
+                 <div className={`w-2 h-2 rounded-md ${isPublicView ? 'bg-[#00F5D4] animate-pulse shadow-[0_0_10px_rgba(0,245,212,0.8)]' : 'bg-gray-600'}`}></div>
                  <span className={`text-[10px] uppercase tracking-widest font-medium tracking-tight transition-colors ${isPublicView ? 'text-[#00F5D4]' : 'text-gray-400'}`}>Public Gateway</span>
               </div>
               <button 
                 onClick={() => setIsPublicView(!isPublicView)}
-                className={`w-10 h-5 rounded-full relative transition-colors duration-300 outline-none ${isPublicView ? 'bg-[#00F5D4]' : 'bg-gray-700'}`}
+                className={`w-10 h-5 rounded-md relative transition-colors duration-300 outline-none ${isPublicView ? 'bg-[#00F5D4]' : 'bg-gray-700'}`}
               >
-                <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all duration-300 ${isPublicView ? 'left-6' : 'left-1'}`}></div>
+                <div className={`absolute top-1 w-3 h-3 bg-white rounded-md transition-all duration-300 ${isPublicView ? 'left-6' : 'left-1'}`}></div>
               </button>
             </div>
           </div>
@@ -1409,13 +1409,13 @@ export default function AdminControlTower() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mt-10">
-            <div className="bg-white/5 p-4 rounded-xl border border-[#00F5D4]/20 shadow-[0_0_15px_rgba(0,245,212,0.05)]">
+            <div className="bg-white/5 p-4 rounded-md border border-[#00F5D4]/20 shadow-[0_0_15px_rgba(0,245,212,0.05)]">
               <h4 className="text-[10px] uppercase tracking-wider text-[#00F5D4] font-medium mb-1">Mint (Verified)</h4>
               <div className="text-xl font-semibold">${(stats.verifiedValue / 1000000).toFixed(2)}M</div>
               <div className="text-xs text-gray-400 mt-1">{stats.verifiedCount} vaults active</div>
             </div>
             
-            <div className="bg-white/5 p-4 rounded-xl border border-[#FFD700]/30">
+            <div className="bg-white/5 p-4 rounded-md border border-[#FFD700]/30">
               <h4 className="text-[10px] uppercase tracking-wider text-[#FFD700] font-medium mb-1">Gold (Escrowed)</h4>
               <div className="text-xl font-semibold">${((stats.reservedValue + stats.escrowedValue) / 1000000).toFixed(2)}M</div>
               <div className="text-xs text-gray-400 mt-1">{stats.reservedCount + stats.escrowedCount} vaults locked</div>
@@ -1424,10 +1424,10 @@ export default function AdminControlTower() {
 
           <div className="pt-8 space-y-4">
             <h3 className="text-xs uppercase tracking-widest text-indigo-400 font-semibold flex items-center gap-2">
-               <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+               <span className="w-2 h-2 rounded-md bg-indigo-400"></span>
                Regional Growth Index
             </h3>
-            <div className="bg-gradient-to-br from-indigo-900/20 to-black/40 border border-indigo-500/20 rounded-xl p-4 cursor-crosshair group relative">
+            <div className="bg-gradient-to-br from-indigo-900/20 to-black/40 border border-indigo-500/20 rounded-md p-4 cursor-crosshair group relative">
                <div className="flex justify-between items-end mb-4">
                  <div>
                    <p className="text-[10px] text-gray-500 uppercase tracking-widest font-medium">West Hills Alpha</p>
@@ -1438,7 +1438,7 @@ export default function AdminControlTower() {
                    <div className="flex items-center justify-end gap-2 mt-1">
                      <p className="text-[9px] text-[#00F5D4] uppercase font-medium">+84% Yld</p>
                      <p className="text-[8px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-medium uppercase tracking-wider flex items-center gap-1 animate-pulse border border-emerald-500/40">
-                        <span className="w-1 h-1 bg-emerald-400 rounded-full"></span> 
+                        <span className="w-1 h-1 bg-emerald-400 rounded-md"></span> 
                         +1.2% MoM
                      </p>
                    </div>
@@ -1478,19 +1478,19 @@ export default function AdminControlTower() {
 
           <div className="pt-8 space-y-4">
             <h3 className="text-xs uppercase tracking-widest text-[#00F5D4] font-semibold flex items-center gap-2">
-               <span className="w-2 h-2 rounded-full bg-[#00F5D4]"></span>
+               <span className="w-2 h-2 rounded-md bg-[#00F5D4]"></span>
                2017–2024 Transparency Disclosure
             </h3>
-            <div className="bg-black/40 border border-white/10 rounded-xl p-4 space-y-4">
+            <div className="bg-black/40 border border-white/10 rounded-md p-4 space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-400">Verified Clean</span>
-                <span className="text-xs font-medium text-[#00F5D4] bg-[#00F5D4]/10 px-2 py-0.5 rounded-full border border-[#00F5D4]/20">
+                <span className="text-xs font-medium text-[#00F5D4] bg-[#00F5D4]/10 px-2 py-0.5 rounded-md border border-[#00F5D4]/20">
                   {stats.cleanAuditCount} Plots
                 </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-400">Case-by-Case Review</span>
-                <span className="text-xs font-medium text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-full border border-yellow-500/20">
+                <span className="text-xs font-medium text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-md border border-yellow-500/20">
                   {stats.reviewAuditCount} Plots
                 </span>
               </div>
@@ -1508,13 +1508,13 @@ export default function AdminControlTower() {
               <div className="flex justify-between items-center text-sm">
                 <span className="text-gray-400">Oracle Network</span>
                 <span className="text-[#00F5D4] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse shadow-[0_0_8px_rgba(0,245,212,0.8)]"></span> Online
+                  <span className="w-2 h-2 rounded-md bg-[#00F5D4] animate-pulse shadow-[0_0_8px_rgba(0,245,212,0.8)]"></span> Online
                 </span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-gray-400">Database Sync</span>
                 <span className="text-[#00F5D4] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse shadow-[0_0_8px_rgba(0,245,212,0.8)]"></span> 99.9% Uptime
+                  <span className="w-2 h-2 rounded-md bg-[#00F5D4] animate-pulse shadow-[0_0_8px_rgba(0,245,212,0.8)]"></span> 99.9% Uptime
                 </span>
               </div>
               <div className="flex justify-between items-center text-sm">
@@ -1540,7 +1540,7 @@ export default function AdminControlTower() {
              <div className="p-6 border-t border-white/10 bg-gradient-to-b from-indigo-900/20 to-black/40 animate-in fade-in duration-500">
                 <div className="flex justify-between items-center mb-4">
                    <h3 className="text-[10px] uppercase tracking-widest text-[#FFD700] font-medium tracking-tight flex items-center gap-2">
-                       <span className="w-2 h-2 rounded-full bg-[#FFD700] animate-pulse shadow-[0_0_8px_#FFD700]"></span> Treasury Payout
+                       <span className="w-2 h-2 rounded-md bg-[#FFD700] animate-pulse shadow-[0_0_8px_#FFD700]"></span> Treasury Payout
                    </h3>
                    <span className="text-[8px] bg-white/10 px-2 py-0.5 rounded text-gray-300 font-mono uppercase tracking-widest border border-white/5">0.5% Protocol Fee</span>
                 </div>
@@ -1554,7 +1554,7 @@ export default function AdminControlTower() {
                    <button 
                      onClick={(e) => {
                         const btn = e.currentTarget;
-                        btn.innerHTML = `<span class="animate-spin inline-block w-4 h-4 border-[3px] border-black border-t-transparent rounded-full mr-2"></span> Initiating ZK-Proof Payout...`;
+                        btn.innerHTML = `<span class="animate-spin inline-block w-4 h-4 border-[3px] border-black border-t-transparent rounded-md mr-2"></span> Initiating ZK-Proof Payout...`;
                         btn.classList.add("opacity-80", "cursor-wait");
                         setTimeout(() => {
                            btn.innerHTML = `✅ Escrow Settled to Founder Balance`;
@@ -1563,7 +1563,7 @@ export default function AdminControlTower() {
                            btn.disabled = true;
                         }, 2500);
                      }}
-                     className="w-full py-4 text-[11px] font-medium tracking-tight tracking-widest uppercase rounded-xl transition-all shadow-[0_0_20px_rgba(255,215,0,0.2)] bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:scale-[1.02] border border-yellow-400/50 text-black flex justify-center items-center"
+                     className="w-full py-4 text-[11px] font-medium tracking-tight tracking-widest uppercase rounded-md transition-all shadow-[0_0_20px_rgba(255,215,0,0.2)] bg-gradient-to-r from-yellow-600 to-[#FFD700] hover:scale-[1.02] border border-yellow-400/50 text-black flex justify-center items-center"
                    >
                       Withdraw to Bank/Wallet
                    </button>
@@ -1622,7 +1622,7 @@ export default function AdminControlTower() {
              </div>
              <button 
                onClick={handleInitiateEscrow}
-               className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] text-black font-medium tracking-tight py-3.5 rounded-xl uppercase tracking-widest shadow-[0_0_20px_rgba(255,215,0,0.3)] flex justify-center items-center"
+               className="w-full bg-gradient-to-r from-yellow-600 to-[#FFD700] text-black font-medium tracking-tight py-3.5 rounded-md uppercase tracking-widest shadow-[0_0_20px_rgba(255,215,0,0.3)] flex justify-center items-center"
              >
                Reserve Instantly
              </button>

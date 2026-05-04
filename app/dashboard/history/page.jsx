@@ -64,7 +64,7 @@ const TransactionHistoryPage = () => {
              { l: "Total Value Processed", v: "GH₵5,872,000", c: "text-[#D4AF37]" },
              { l: "Success Rate", v: "100%", c: "text-[#1D9E75]" }
            ].map((stat, i) => (
-             <div key={i} className="bg-white border border-[#D4AF37]/10 p-8 rounded-2xl shadow-sm">
+             <div key={i} className="bg-white border border-[#D4AF37]/10 p-8 rounded-md shadow-sm">
                <p className="text-[10px] font-medium uppercase tracking-widest opacity-40 mb-2">{stat.l}</p>
                <h3 className={`text-2xl font-medium ${stat.c}`}>{stat.v}</h3>
              </div>
@@ -78,7 +78,7 @@ const TransactionHistoryPage = () => {
               <button 
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 rounded-full text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-[#0F172A] text-white' : 'bg-white border border-[#0F172A]/10 opacity-60 hover:opacity-100'}`}
+                className={`px-6 py-2 rounded-md text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-syntry-obsidian text-white' : 'bg-white border border-[#0F172A]/10 opacity-60 hover:opacity-100'}`}
               >
                 {tab}
               </button>
@@ -88,7 +88,7 @@ const TransactionHistoryPage = () => {
             <input 
               type="text" 
               placeholder="Search Ledger..."
-              className="w-full py-3 px-6 rounded-xl border border-[#0F172A]/10 bg-white text-xs"
+              className="w-full py-3 px-6 rounded-md border border-[#0F172A]/10 bg-white text-xs"
             />
             <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-20">🔍</span>
           </div>
@@ -98,9 +98,9 @@ const TransactionHistoryPage = () => {
         <div className="space-y-4">
           {filteredHistory.length > 0 ? (
             filteredHistory.map((tx) => (
-              <div key={tx.id} className="bg-white border border-[#D4AF37]/5 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
+              <div key={tx.id} className="bg-white border border-[#D4AF37]/5 p-6 md:p-8 rounded-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
                 <div className="flex items-center gap-6 w-full md:w-auto">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-medium text-lg ${tx.category === 'Rent' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 'bg-[#0F172A]/5 text-[#D4AF37]'}`}>
+                  <div className={`w-12 h-12 rounded-md flex items-center justify-center font-medium text-lg ${tx.category === 'Rent' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 'bg-syntry-obsidian/5 text-[#D4AF37]'}`}>
                     {tx.category === 'Rent' ? '💰' : '📄'}
                   </div>
                   <div>
@@ -116,7 +116,7 @@ const TransactionHistoryPage = () => {
 
                 <div className="text-center md:text-right w-full md:w-40">
                    <p className="text-xs font-medium mb-1">{tx.amount}</p>
-                   <span className={`text-[9px] font-medium uppercase px-3 py-1 rounded-full ${tx.status === 'Completed' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 'bg-orange-100 text-orange-600'}`}>
+                   <span className={`text-[9px] font-medium uppercase px-3 py-1 rounded-md ${tx.status === 'Completed' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 'bg-orange-100 text-orange-600'}`}>
                      {tx.status}
                    </span>
                 </div>

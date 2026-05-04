@@ -39,10 +39,10 @@ const SupportPage = () => {
           ))}
         </div>
 
-        <div className="mt-20 bg-[#0F172A] text-[#D4AF37] p-12 rounded-[3rem] text-center shadow-2xl">
+        <div className="mt-20 bg-syntry-obsidian text-[#D4AF37] p-12 rounded-[3rem] text-center shadow-2xl">
           <h2 className="text-3xl font-medium mb-6">Need immediate help?</h2>
           <p className="text-lg opacity-80 mb-8 font-medium">Our agents are active 24/7 on WhatsApp.</p>
-          <a href="https://wa.me/233531102292" className="bg-[#D4AF37] text-[#0F172A] px-10 py-5 rounded-2xl font-medium tracking-tight text-lg hover:scale-105 transition-all inline-block shadow-xl">
+          <a href="https://wa.me/233531102292" className="bg-[#D4AF37] text-[#0F172A] px-10 py-5 rounded-md font-medium tracking-tight text-lg hover:scale-105 transition-all inline-block shadow-xl">
             WhatsApp Support: 053 110 2292
           </a>
         </div>

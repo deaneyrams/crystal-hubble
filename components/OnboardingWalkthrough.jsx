@@ -76,11 +76,11 @@ export default function OnboardingWalkthrough() {
       <div className="absolute inset-0 bg-[#050810]/95 backdrop-blur-md animate-in fade-in duration-500"></div>
       
       {/* Modal content */}
-      <div className="relative w-full max-w-lg bg-[#0E1629] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl animate-in zoom-in-95 duration-500 overflow-hidden group">
+      <div className="relative w-full max-w-lg bg-[#0E1629] border border-white/10 rounded-md p-8 md:p-12 shadow-2xl animate-in zoom-in-95 duration-500 overflow-hidden group">
         
         {/* Animated Glow Backdrops */}
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-600/20 rounded-full blur-[100px] animate-pulse"></div>
-        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#00F5D4]/10 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-600/20 rounded-md blur-[100px] animate-pulse"></div>
+        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#00F5D4]/10 rounded-md blur-[100px] animate-pulse"></div>
 
         <div className="relative z-10 flex flex-col items-center text-center">
           
@@ -89,13 +89,13 @@ export default function OnboardingWalkthrough() {
             {slides.map((_, i) => (
               <div 
                 key={i} 
-                className={`h-1 rounded-full transition-all duration-500 ${i === currentSlide ? 'w-8 bg-[#00F5D4]' : 'w-2 bg-white/10'}`}
+                className={`h-1 rounded-md transition-all duration-500 ${i === currentSlide ? 'w-8 bg-[#00F5D4]' : 'w-2 bg-white/10'}`}
               ></div>
             ))}
           </div>
 
           {/* Icon with Animation Key */}
-          <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5 shadow-inner">
+          <div className="mb-8 p-6 rounded-md bg-white/5 border border-white/5 shadow-inner">
              {activeSlide.icon}
           </div>
 
@@ -110,7 +110,7 @@ export default function OnboardingWalkthrough() {
           <div className="flex flex-col w-full gap-4">
             <button 
               onClick={handleNext}
-              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-medium py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:scale-[1.02] active:scale-95 border border-indigo-400/30"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-medium py-4 rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:scale-[1.02] active:scale-95 border border-indigo-400/30"
             >
               {currentSlide === slides.length - 1 ? 'Get Started' : 'Continue Walkthrough'}
             </button>

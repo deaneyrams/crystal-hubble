@@ -58,14 +58,14 @@ const MyTransactionsPage = () => {
             <p className="opacity-60 text-sm">Review your sovereign financial interactions and asset movements.</p>
           </div>
           <div className="flex gap-3 w-full md:w-auto">
-             <button className="flex-1 md:flex-none border border-[#0F172A]/10 px-6 py-3 rounded-xl font-medium text-[10px] uppercase tracking-widest hover:bg-[#0F172A]/5 transition-all">
+             <button className="flex-1 md:flex-none border border-[#0F172A]/10 px-6 py-3 rounded-md font-medium text-[10px] uppercase tracking-widest hover:bg-syntry-obsidian/5 transition-all">
                Export CSV
              </button>
              <div className="flex-1 md:w-64 relative">
                <input 
                  type="text" 
                  placeholder="Search ledger..."
-                 className="w-full py-3 px-10 rounded-xl border border-[#0F172A]/10 text-xs"
+                 className="w-full py-3 px-10 rounded-md border border-[#0F172A]/10 text-xs"
                />
                <span className="absolute left-4 top-1/2 -translate-y-1/2 opacity-20">🔍</span>
              </div>
@@ -80,7 +80,7 @@ const MyTransactionsPage = () => {
             { l: "Successful Verifications", v: "18", c: "text-[#1D9E75]" },
             { l: "Pending Items", v: "3", c: "text-orange-500" }
           ].map((stat, i) => (
-             <div key={i} className="bg-white border border-[#D4AF37]/10 p-6 rounded-2xl shadow-sm">
+             <div key={i} className="bg-white border border-[#D4AF37]/10 p-6 rounded-md shadow-sm">
                 <p className="text-[10px] font-medium uppercase tracking-widest opacity-40 mb-1">{stat.l}</p>
                 <p className={`text-sm md:text-lg font-medium ${stat.c}`}>{stat.v}</p>
              </div>
@@ -93,7 +93,7 @@ const MyTransactionsPage = () => {
              <button 
                key={tab}
                onClick={() => setActiveTab(tab)}
-               className={`px-6 py-2 rounded-full text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-[#0F172A] text-white shadow-lg' : 'bg-white border border-[#0F172A]/10 opacity-60 hover:opacity-100'}`}
+               className={`px-6 py-2 rounded-md text-[10px] font-medium uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-syntry-obsidian text-white shadow-lg' : 'bg-white border border-[#0F172A]/10 opacity-60 hover:opacity-100'}`}
              >
                {tab}
              </button>
@@ -104,9 +104,9 @@ const MyTransactionsPage = () => {
         <div className="space-y-4">
           {filteredTransactions.length > 0 ? (
             filteredTransactions.map((tx) => (
-              <div key={tx.id} className="bg-white border border-[#D4AF37]/5 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
+              <div key={tx.id} className="bg-white border border-[#D4AF37]/5 p-6 md:p-8 rounded-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
                 <div className="flex items-center gap-6 w-full md:w-1/2">
-                   <div className={`w-12 h-12 rounded-full flex items-center justify-center font-medium text-lg ${tx.category === 'Rent' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 'bg-[#0F172A]/5 text-[#D4AF37]'}`}>
+                   <div className={`w-12 h-12 rounded-md flex items-center justify-center font-medium text-lg ${tx.category === 'Rent' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : 'bg-syntry-obsidian/5 text-[#D4AF37]'}`}>
                      {tx.category === 'Rent' ? '💰' : '📄'}
                    </div>
                    <div>
@@ -122,7 +122,7 @@ const MyTransactionsPage = () => {
 
                 <div className="text-center md:text-right w-full md:w-40">
                    <p className="text-xs font-medium mb-2">{tx.amount}</p>
-                   <span className={`text-[9px] font-medium uppercase px-3 py-1 rounded-full ${tx.status === 'Completed' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : tx.status === 'Failed' ? 'bg-red-50 text-red-500' : 'bg-orange-50 text-orange-500'}`}>
+                   <span className={`text-[9px] font-medium uppercase px-3 py-1 rounded-md ${tx.status === 'Completed' ? 'bg-[#1D9E75]/10 text-[#1D9E75]' : tx.status === 'Failed' ? 'bg-red-50 text-red-500' : 'bg-orange-50 text-orange-500'}`}>
                      {tx.status}
                    </span>
                 </div>

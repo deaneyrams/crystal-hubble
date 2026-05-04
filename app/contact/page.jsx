@@ -17,21 +17,21 @@ const ContactPage = () => {
 
           <div className="space-y-8">
             <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm">📍</div>
+              <div className="w-16 h-16 bg-white rounded-md flex items-center justify-center text-3xl shadow-sm">📍</div>
               <div>
                 <p className="font-medium text-lg">Main Secretariat</p>
                 <p className="font-medium opacity-60">East Legon, Accra, Ghana</p>
               </div>
             </div>
             <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm">📱</div>
+              <div className="w-16 h-16 bg-white rounded-md flex items-center justify-center text-3xl shadow-sm">📱</div>
               <div>
                 <p className="font-medium text-lg">WhatsApp Hotline</p>
                 <p className="font-medium opacity-60">053 110 2292</p>
               </div>
             </div>
             <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm">📧</div>
+              <div className="w-16 h-16 bg-white rounded-md flex items-center justify-center text-3xl shadow-sm">📧</div>
               <div>
                 <p className="font-medium text-lg">Email Support</p>
                 <p className="font-medium opacity-60">info@syntry.co</p>
@@ -44,17 +44,17 @@ const ContactPage = () => {
           <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Message sent to Syntry Protocol Team.'); }}>
             <div>
               <label className="block text-[10px] font-medium uppercase tracking-widest opacity-40 mb-2 pl-2">Full Name</label>
-              <input type="text" placeholder="Kwame Osei" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all font-medium" />
+              <input type="text" placeholder="Kwame Osei" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all font-medium" />
             </div>
             <div>
               <label className="block text-[10px] font-medium uppercase tracking-widest opacity-40 mb-2 pl-2">Email Address</label>
-              <input type="email" placeholder="kwame@example.com" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all font-medium" />
+              <input type="email" placeholder="kwame@example.com" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all font-medium" />
             </div>
             <div>
               <label className="block text-[10px] font-medium uppercase tracking-widest opacity-40 mb-2 pl-2">Message</label>
-              <textarea placeholder="How can we help you today?" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all font-medium h-40 resize-none"></textarea>
+              <textarea placeholder="How can we help you today?" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all font-medium h-40 resize-none"></textarea>
             </div>
-            <button type="submit" className="w-full bg-[#0F172A] text-[#D4AF37] py-5 rounded-2xl font-medium tracking-tight text-xl hover:scale-[1.02] transition-all shadow-xl">
+            <button type="submit" className="w-full bg-syntry-obsidian text-[#D4AF37] py-5 rounded-md font-medium tracking-tight text-xl hover:scale-[1.02] transition-all shadow-xl">
               Send Message
             </button>
           </form>

@@ -12,7 +12,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center bg-white/[0.02] p-12 rounded-3xl border border-white/5">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center bg-white/[0.02] p-12 rounded-md border border-white/5">
         <div className="space-y-6">
           <h3 className="text-3xl font-bold italic font-serif">"Wealth begins with a secure deed."</h3>
           <p className="text-white/60 leading-relaxed text-lg">
@@ -25,7 +25,7 @@ export default function AboutPage() {
             <p className="text-[#b8ff3c] font-mono text-xs uppercase tracking-tighter">Founder & CEO, Syntry Sovereign</p>
           </div>
         </div>
-        <div className="bg-neutral-900 aspect-square rounded-2xl border border-white/10 flex items-center justify-center text-white/10 text-sm italic">
+        <div className="bg-neutral-900 aspect-square rounded-md border border-white/10 flex items-center justify-center text-white/10 text-sm italic">
           [Founder Portrait: Eyram Abusah]
         </div>
       </div>

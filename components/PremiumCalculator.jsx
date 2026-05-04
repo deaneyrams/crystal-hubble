@@ -7,7 +7,7 @@ export default function PremiumCalculator() {
   const groundRent = value * 0.3;
 
   return (
-    <div className="p-6 bg-[#050810]/80 border border-indigo-500/30 rounded-xl backdrop-blur-md">
+    <div className="p-6 bg-[#050810]/80 border border-indigo-500/30 rounded-md backdrop-blur-md">
       <h3 className="text-indigo-400 font-mono text-sm mb-4 tracking-widest uppercase">
         ⚖️ 2026 Reform Compliance: Form 5 Calculator
       </h3>

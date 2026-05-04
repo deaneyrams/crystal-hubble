@@ -22,7 +22,7 @@ The following keys are mandatory and must be "baked" into the production build. 
 * **Database:** `DATABASE_URL` (PostgreSQL connection string).
 * **Supabase:** `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Required for real-time land verification).
 * **SendGrid:** `SENDGRID_API_KEY` (Must strictly begin with the `SG.` prefix).
-* **Mapbox:** `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` for GIS and land identification features.
+* **Map Engine:** Swapped to Pure Leaflet (OpenStreetMap/DarkMatter) for stable hydration.
 
 ---
 

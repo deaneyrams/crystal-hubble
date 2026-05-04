@@ -37,8 +37,8 @@ const DiasporaPage = () => {
         <section className="px-4 md:px-8 max-w-7xl mx-auto mb-32 pt-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Hero Content Layout */}
           <div className="text-center lg:text-left z-10 relative">
-            <div className="inline-flex items-center gap-3 bg-[#1D9E75]/10 px-5 py-2.5 rounded-full mb-8 border border-[#1D9E75]/20 shadow-sm backdrop-blur-sm">
-              <span className="w-2.5 h-2.5 bg-[#1D9E75] rounded-full animate-pulse shadow-[0_0_8px_#1D9E75]"></span>
+            <div className="inline-flex items-center gap-3 bg-[#1D9E75]/10 px-5 py-2.5 rounded-md mb-8 border border-[#1D9E75]/20 shadow-sm backdrop-blur-sm">
+              <span className="w-2.5 h-2.5 bg-[#1D9E75] rounded-md animate-pulse shadow-[0_0_8px_#1D9E75]"></span>
               <span className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-[#1D9E75]">Diaspora Sovereign Hub</span>
             </div>
             
@@ -59,20 +59,20 @@ const DiasporaPage = () => {
             </p>
             
             <div className="flex flex-col xl:flex-row items-center justify-center lg:justify-start gap-4 mb-10 w-full max-w-xl mx-auto lg:mx-0">
-               <a href="/diaspora/signup" className="w-full bg-[#1D9E75] text-white px-8 py-5 rounded-2xl font-medium text-lg hover:bg-[#157a5a] transition-all shadow-xl shadow-[#1D9E75]/30 flex items-center justify-center gap-3">
+               <a href="/diaspora/signup" className="w-full bg-[#1D9E75] text-white px-8 py-5 rounded-md font-medium text-lg hover:bg-[#157a5a] transition-all shadow-xl shadow-[#1D9E75]/30 flex items-center justify-center gap-3">
                  <span className="text-xl">🌍</span> Register as Diaspora Now – Free
                </a>
-               <a href="/check-my-property" className="w-full bg-white border border-[#0F172A]/20 text-[#0F172A] px-8 py-5 rounded-2xl font-medium text-lg hover:border-[#1D9E75] hover:text-[#1D9E75] hover:bg-[#1D9E75]/5 transition-all shadow-sm flex items-center justify-center gap-2">
+               <a href="/check-my-property" className="w-full bg-white border border-[#0F172A]/20 text-[#0F172A] px-8 py-5 rounded-md font-medium text-lg hover:border-[#1D9E75] hover:text-[#1D9E75] hover:bg-[#1D9E75]/5 transition-all shadow-sm flex items-center justify-center gap-2">
                  <span className="text-xl">🛡️</span> Verify My Family Property Free Today
                </a>
             </div>
 
             {/* Social Proof Trust Bar */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 p-5 bg-white rounded-2xl border border-[#0F172A]/10 max-w-fit mx-auto lg:mx-0 shadow-sm">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 p-5 bg-white rounded-md border border-[#0F172A]/10 max-w-fit mx-auto lg:mx-0 shadow-sm">
               <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-[#0F172A] border-2 border-white flex items-center justify-center text-xs shadow-sm shadow-[#0F172A]/20">🇬🇧</div>
-                <div className="w-10 h-10 rounded-full bg-[#1D9E75] border-2 border-white flex items-center justify-center text-xs shadow-sm shadow-[#1D9E75]/20">🇺🇸</div>
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37] border-2 border-white flex items-center justify-center text-xs shadow-sm shadow-[#D4AF37]/20">🇨🇦</div>
+                <div className="w-10 h-10 rounded-md bg-syntry-obsidian border-2 border-white flex items-center justify-center text-xs shadow-sm shadow-[#0F172A]/20">🇬🇧</div>
+                <div className="w-10 h-10 rounded-md bg-[#1D9E75] border-2 border-white flex items-center justify-center text-xs shadow-sm shadow-[#1D9E75]/20">🇺🇸</div>
+                <div className="w-10 h-10 rounded-md bg-[#D4AF37] border-2 border-white flex items-center justify-center text-xs shadow-sm shadow-[#D4AF37]/20">🇨🇦</div>
               </div>
               <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#0F172A]/60 leading-relaxed text-center sm:text-left">
                 Trusted by 400+ Diaspora Ghanaians in <br/>
@@ -85,26 +85,26 @@ const DiasporaPage = () => {
           <div className="hidden lg:block relative z-0">
              <div className="w-full h-[600px] border-[12px] border-white bg-white rounded-[4rem] shadow-2xl overflow-hidden p-4 relative group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#1D9E75]/5 to-transparent z-10 pointer-events-none rounded-[3.5rem]"></div>
-                <div className="w-full h-full bg-[#0F172A] rounded-[3.5rem] flex flex-col p-10 overflow-hidden relative transition-transform duration-700">
-                   <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[80px] -mr-48 -mt-48 group-hover:bg-[#1D9E75]/20 transition-colors duration-1000"></div>
+                <div className="w-full h-full bg-syntry-obsidian rounded-[3.5rem] flex flex-col p-10 overflow-hidden relative transition-transform duration-700">
+                   <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/10 rounded-md blur-[80px] -mr-48 -mt-48 group-hover:bg-[#1D9E75]/20 transition-colors duration-1000"></div>
                    
                    <div className="flex justify-between items-center mb-12 relative z-20">
-                      <div className="text-[10px] font-medium text-[#D4AF37] uppercase tracking-[0.2em] bg-[#D4AF37]/10 px-3 py-1.5 rounded-full border border-[#D4AF37]/20">Global Node: Active</div>
+                      <div className="text-[10px] font-medium text-[#D4AF37] uppercase tracking-[0.2em] bg-[#D4AF37]/10 px-3 py-1.5 rounded-md border border-[#D4AF37]/20">Global Node: Active</div>
                       <div className="flex gap-2">
-                         <div className="w-3 h-3 bg-[#1D9E75] rounded-full animate-pulse shadow-[0_0_10px_#1D9E75]"></div>
-                         <div className="w-3 h-3 bg-[#D4AF37] rounded-full"></div>
+                         <div className="w-3 h-3 bg-[#1D9E75] rounded-md animate-pulse shadow-[0_0_10px_#1D9E75]"></div>
+                         <div className="w-3 h-3 bg-[#D4AF37] rounded-md"></div>
                       </div>
                    </div>
                    
                    <div className="space-y-6 relative z-20">
                       <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm relative overflow-hidden group-hover:border-[#D4AF37]/30 transition-colors">
                          <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-bl-[100px] -mr-10 -mt-10"></div>
-                         <p className="text-[9px] font-medium text-[#F8F1E3]/50 uppercase tracking-[0.2em] mb-2 flex items-center gap-2">Live Valuation (Ghana Indexed) <span className="w-2 h-2 rounded-full bg-[#1D9E75]"></span></p>
+                         <p className="text-[9px] font-medium text-[#F8F1E3]/50 uppercase tracking-[0.2em] mb-2 flex items-center gap-2">Live Valuation (Ghana Indexed) <span className="w-2 h-2 rounded-md bg-[#1D9E75]"></span></p>
                          <h3 className="text-4xl font-medium text-white tracking-tight italic">GH₵8,450,000</h3>
                       </div>
                       <div className="space-y-3 pl-2 border-l-2 border-[#1D9E75]/30">
                          <p className="text-[9px] font-medium text-[#1D9E75] uppercase tracking-widest pl-2">Recent Automated Inflows</p>
-                         <div className="bg-[#1D9E75]/10 border border-[#1D9E75]/20 px-6 py-5 rounded-2xl flex justify-between items-center text-[10px] font-medium backdrop-blur-sm ml-2">
+                         <div className="bg-[#1D9E75]/10 border border-[#1D9E75]/20 px-6 py-5 rounded-md flex justify-between items-center text-[10px] font-medium backdrop-blur-sm ml-2">
                             <span className="text-[#F8F1E3]/70 uppercase tracking-wider flex items-center gap-3">
                               <span className="text-base leading-none bg-[#1D9E75]/20 p-1.5 rounded-lg text-[#1D9E75]">🏠</span> 
                               Rent: Aburi Eco Lodge
@@ -118,9 +118,9 @@ const DiasporaPage = () => {
                       {/* Simulating Map Grid */}
                       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white to-transparent" style={{ backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-[#1D9E75]/20 rounded-full animate-ping absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                        <div className="w-4 h-4 bg-[#1D9E75] rounded-full mx-auto mb-2 relative z-10 shadow-[0_0_15px_#1D9E75] border-2 border-white"></div>
-                        <span className="text-white/40 font-medium uppercase tracking-widest text-[10px] italic relative z-10 bg-[#0F172A]/80 px-4 py-1.5 rounded-full">Secure GPS Lock Active</span>
+                        <div className="w-12 h-12 bg-[#1D9E75]/20 rounded-md animate-ping absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                        <div className="w-4 h-4 bg-[#1D9E75] rounded-md mx-auto mb-2 relative z-10 shadow-[0_0_15px_#1D9E75] border-2 border-white"></div>
+                        <span className="text-white/40 font-medium uppercase tracking-widest text-[10px] italic relative z-10 bg-syntry-obsidian/80 px-4 py-1.5 rounded-md">Secure GPS Lock Active</span>
                       </div>
                    </div>
                 </div>
@@ -129,13 +129,13 @@ const DiasporaPage = () => {
         </section>
 
         {/* Unified Diaspora Benefits Grid */}
-        <section className="bg-[#0F172A] relative overflow-hidden py-32 px-4 md:px-8 mb-32 z-10">
-           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4AF37]/10 rounded-full blur-[120px] -mr-[400px] -mt-[400px] pointer-events-none"></div>
-           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#1D9E75]/10 rounded-full blur-[100px] -ml-[300px] -mb-[300px] pointer-events-none"></div>
+        <section className="bg-syntry-obsidian relative overflow-hidden py-32 px-4 md:px-8 mb-32 z-10">
+           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4AF37]/10 rounded-md blur-[120px] -mr-[400px] -mt-[400px] pointer-events-none"></div>
+           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#1D9E75]/10 rounded-md blur-[100px] -ml-[300px] -mb-[300px] pointer-events-none"></div>
            
            <div className="max-w-7xl mx-auto relative z-20">
               <div className="text-center mb-20">
-                 <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6 border border-[#D4AF37]/20">
+                 <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-md mb-6 border border-[#D4AF37]/20">
                    <span className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-[#D4AF37]">The Syntry Standard</span>
                  </div>
                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6 italic text-[#F8F1E3] tracking-tight">Empowering Diaspora Ownership</h2>
@@ -159,7 +159,7 @@ const DiasporaPage = () => {
                        <p className="text-sm text-[#A8E6CF] opacity-70 leading-relaxed mb-auto">{item.desc}</p>
                        <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                           <span className="text-[10px] font-medium uppercase tracking-widest text-[#D4AF37]">Syntry Verified</span>
-                          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1D9E75]/20 text-[#1D9E75] text-sm font-medium shadow-[0_0_10px_rgba(29,158,117,0.3)]">✓</span>
+                          <span className="inline-flex items-center justify-center w-8 h-8 rounded-md bg-[#1D9E75]/20 text-[#1D9E75] text-sm font-medium shadow-[0_0_10px_rgba(29,158,117,0.3)]">✓</span>
                        </div>
                     </div>
                  ))}
@@ -169,11 +169,11 @@ const DiasporaPage = () => {
 
         {/* Upgraded Diaspora Trust & Stories */}
         <section className="px-4 md:px-8 max-w-7xl mx-auto mb-40 relative">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[400px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[400px] bg-[#D4AF37]/5 rounded-md blur-[100px] pointer-events-none z-0"></div>
            
            <div className="text-center mb-20 relative z-10">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6 italic tracking-tight text-[#0F172A]">Real Diaspora Stories</h2>
-              <p className="text-lg md:text-xl font-medium text-[#D4AF37] uppercase tracking-widest bg-[#D4AF37]/10 inline-block px-6 py-2 rounded-full border border-[#D4AF37]/20">
+              <p className="text-lg md:text-xl font-medium text-[#D4AF37] uppercase tracking-widest bg-[#D4AF37]/10 inline-block px-6 py-2 rounded-md border border-[#D4AF37]/20">
                  From London, New York & Toronto
               </p>
            </div>
@@ -186,7 +186,7 @@ const DiasporaPage = () => {
               ].map((t, i) => (
                 <div key={i} className="flex flex-col text-center bg-white p-10 md:p-12 rounded-[3.5rem] border border-[#0F172A]/10 shadow-[0_30px_60px_-15px_rgba(0,51,0,0.05)] hover:-translate-y-3 transition-transform duration-500 relative flex-grow h-full">
                    <div className="absolute top-10 left-10 text-8xl opacity-5 font-serif leading-none text-[#0F172A]">"</div>
-                   <div className="w-24 h-24 bg-[#0F172A] text-[#D4AF37] rounded-[2.5rem] mx-auto flex items-center justify-center text-5xl mb-10 shadow-xl shadow-[#0F172A]/20 border-[6px] border-[#F8F1E3] relative z-10">{t.photo}</div>
+                   <div className="w-24 h-24 bg-syntry-obsidian text-[#D4AF37] rounded-[2.5rem] mx-auto flex items-center justify-center text-5xl mb-10 shadow-xl shadow-[#0F172A]/20 border-[6px] border-[#F8F1E3] relative z-10">{t.photo}</div>
                    <p className="text-xl md:text-2xl font-medium italic opacity-90 mb-12 leading-relaxed text-[#0F172A] flex-grow relative z-10">"{t.quote}"</p>
                    <div className="pt-8 border-t border-[#0F172A]/10 bg-[#F8F1E3]/50 -mx-10 md:-mx-12 -mb-10 md:-mb-12 p-8 md:p-10 rounded-b-[3.5rem] mt-auto">
                       <h4 className="font-medium tracking-tight text-[#0F172A] text-3xl tracking-tight mb-3">{t.name}</h4>
@@ -201,7 +201,7 @@ const DiasporaPage = () => {
 
            {/* Metrics & Trust Bar Element */}
            <div className="relative z-10 max-w-5xl mx-auto transform translate-y-4">
-              <div className="bg-[#0F172A] text-white p-2 border-[12px] border-white rounded-[4rem] shadow-2xl flex flex-col lg:flex-row items-stretch divide-y lg:divide-y-0 lg:divide-x divide-white/10 relative overflow-hidden group">
+              <div className="bg-syntry-obsidian text-white p-2 border-[12px] border-white rounded-[4rem] shadow-2xl flex flex-col lg:flex-row items-stretch divide-y lg:divide-y-0 lg:divide-x divide-white/10 relative overflow-hidden group">
                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                  
                  <div className="flex-1 p-8 md:p-12 text-center lg:text-left flex flex-col justify-center relative z-10">
@@ -215,7 +215,7 @@ const DiasporaPage = () => {
                  
                  <div className="flex-1 p-8 md:p-12 lg:text-right flex flex-col justify-center bg-white/5 rounded-[3rem] lg:rounded-l-none relative z-10">
                     <div className="flex gap-2 items-center justify-center lg:justify-end mb-4">
-                       <span className="w-2.5 h-2.5 bg-[#1D9E75] rounded-full animate-pulse shadow-[0_0_10px_#1D9E75]"></span>
+                       <span className="w-2.5 h-2.5 bg-[#1D9E75] rounded-md animate-pulse shadow-[0_0_10px_#1D9E75]"></span>
                        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#1D9E75]">Live Protocol Network</p>
                     </div>
                     <p className="text-lg md:text-2xl font-medium opacity-90 italic text-center lg:text-right">
@@ -248,7 +248,7 @@ const DiasporaPage = () => {
                 <div key={i} className="bg-white p-10 rounded-[2.5rem] border border-[#0F172A]/10 shadow-[0_20px_40px_-20px_rgba(0,51,0,0.05)] hover:-translate-y-2 transition-transform duration-500 group relative overflow-hidden text-center flex flex-col h-full h-full">
                    <div className="absolute top-0 left-0 w-full h-1.5 bg-[#1D9E75] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 z-10"></div>
                    <div className="text-8xl text-[#0F172A]/5 font-medium tracking-tight absolute -top-6 -right-6 pointer-events-none group-hover:text-[#D4AF37]/10 transition-colors duration-500 z-0">{step.s}</div>
-                   <div className="w-16 h-16 bg-[#F8F1E3] text-[#0F172A] rounded-2xl mx-auto flex items-center justify-center text-3xl mb-8 group-hover:bg-[#1D9E75] group-hover:text-white transition-colors duration-500 shadow-sm relative z-10">{step.icon}</div>
+                   <div className="w-16 h-16 bg-[#F8F1E3] text-[#0F172A] rounded-md mx-auto flex items-center justify-center text-3xl mb-8 group-hover:bg-[#1D9E75] group-hover:text-white transition-colors duration-500 shadow-sm relative z-10">{step.icon}</div>
                    <h4 className="font-medium tracking-tight text-2xl mb-4 tracking-tight leading-tight text-[#0F172A] relative z-10">{step.t}</h4>
                    <p className="text-sm opacity-70 leading-relaxed font-medium mb-auto text-[#0F172A] relative z-10">{step.d}</p>
                 </div>
@@ -263,8 +263,8 @@ const DiasporaPage = () => {
               
               {/* Form Area */}
               <div className="relative z-10 max-w-2xl mx-auto mb-16 pt-4">
-                 <div className="inline-flex items-center gap-2 bg-[#1D9E75]/10 px-4 py-2 rounded-full mb-6 border border-[#1D9E75]/20">
-                   <span className="w-2 h-2 bg-[#1D9E75] rounded-full animate-pulse shadow-[0_0_8px_#1D9E75]"></span>
+                 <div className="inline-flex items-center gap-2 bg-[#1D9E75]/10 px-4 py-2 rounded-md mb-6 border border-[#1D9E75]/20">
+                   <span className="w-2 h-2 bg-[#1D9E75] rounded-md animate-pulse shadow-[0_0_8px_#1D9E75]"></span>
                    <span className="text-[10px] font-medium uppercase tracking-widest text-[#1D9E75]">Global Verification Node</span>
                  </div>
                  
@@ -275,39 +275,39 @@ const DiasporaPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                        <div>
                           <label className="block text-[10px] font-medium uppercase tracking-widest text-[#0F172A]/70 mb-2 pl-3">Full Name</label>
-                          <input type="text" required placeholder="Kwame Osei" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
+                          <input type="text" required placeholder="Kwame Osei" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
                        </div>
                        <div>
                           <label className="block text-[10px] font-medium uppercase tracking-widest text-[#0F172A]/70 mb-2 pl-3">WhatsApp / Phone (Intl)</label>
-                          <input type="tel" required placeholder="+44 7700 900077" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
+                          <input type="tel" required placeholder="+44 7700 900077" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
                        </div>
                     </div>
                     <div>
                        <label className="block text-[10px] font-medium uppercase tracking-widest text-[#0F172A]/70 mb-2 pl-3">Property Location / Title Number</label>
-                       <input type="text" placeholder="e.g. Plot 42, Aburi or Title #GA-1234" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
+                       <input type="text" placeholder="e.g. Plot 42, Aburi or Title #GA-1234" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
                     </div>
                     <div>
                        <label className="block text-[10px] font-medium uppercase tracking-widest text-[#0F172A]/70 mb-2 pl-3">Email Address (Optional)</label>
-                       <input type="email" placeholder="kwame@example.com" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
+                       <input type="email" placeholder="kwame@example.com" className="w-full bg-[#F8F1E3]/50 border border-[#0F172A]/10 rounded-md px-6 py-5 focus:outline-none focus:border-[#1D9E75] focus:ring-2 focus:ring-[#1D9E75]/30 transition-all font-medium text-sm" />
                     </div>
                     
-                    <button type="submit" className="w-full bg-[#1D9E75] text-white px-8 py-6 rounded-2xl font-medium tracking-tight text-xl hover:bg-[#157a5a] transition-all shadow-[0_20px_40px_-10px_rgba(29,158,117,0.4)] mt-8 flex items-center justify-center gap-3 group">
+                    <button type="submit" className="w-full bg-[#1D9E75] text-white px-8 py-6 rounded-md font-medium tracking-tight text-xl hover:bg-[#157a5a] transition-all shadow-[0_20px_40px_-10px_rgba(29,158,117,0.4)] mt-8 flex items-center justify-center gap-3 group">
                        Submit for Free 8-Layer Verification Report 
                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                     <p className="text-center text-[10px] font-medium uppercase tracking-widest text-[#0F172A]/40 mt-5 flex items-center justify-center gap-2">
-                       <span className="w-1.5 h-1.5 bg-[#1D9E75] rounded-full inline-block"></span> Secure encrypted transmission
+                       <span className="w-1.5 h-1.5 bg-[#1D9E75] rounded-md inline-block"></span> Secure encrypted transmission
                     </p>
                  </form>
               </div>
 
               {/* Final Split CTAs */}
               <div className="pt-10 md:pt-12 border-t border-[#0F172A]/5 flex flex-col sm:flex-row gap-4 md:gap-6 items-center justify-center relative z-10 w-full max-w-xl mx-auto">
-                 <a href="/marketplace" className="w-full sm:w-auto bg-[#0F172A] text-[#D4AF37] px-8 py-4.5 rounded-xl font-medium text-sm hover:bg-[#002200] transition-all shadow-lg flex items-center justify-center gap-2 whitespace-nowrap">
+                 <a href="/marketplace" className="w-full sm:w-auto bg-syntry-obsidian text-[#D4AF37] px-8 py-4.5 rounded-md font-medium text-sm hover:bg-[#002200] transition-all shadow-lg flex items-center justify-center gap-2 whitespace-nowrap">
                    Browse Verified Properties Now
                  </a>
                  <span className="text-[#0F172A]/30 font-medium italic hidden sm:block">or</span>
-                 <a href="https://wa.me/233531102292" className="w-full sm:w-auto bg-transparent border border-[#0F172A]/20 text-[#0F172A] px-8 py-4 rounded-xl font-medium text-sm hover:border-[#1D9E75] hover:text-[#1D9E75] hover:bg-[#1D9E75]/5 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                 <a href="https://wa.me/233531102292" className="w-full sm:w-auto bg-transparent border border-[#0F172A]/20 text-[#0F172A] px-8 py-4 rounded-md font-medium text-sm hover:border-[#1D9E75] hover:text-[#1D9E75] hover:bg-[#1D9E75]/5 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
                    Talk to Diaspora Support Team
                  </a>
               </div>
@@ -320,13 +320,13 @@ const DiasporaPage = () => {
       {/* Floating Global Support Widget */}
       <a 
         href="https://wa.me/233531102292" 
-        className="fixed bottom-10 right-10 z-[3000] bg-[#25D366] text-white p-4 md:p-5 rounded-full shadow-[0_20px_50px_rgba(37,211,102,0.4)] hover:scale-110 transition-all group flex items-center gap-3 border border-white/20 hover:animate-pulse"
+        className="fixed bottom-10 right-10 z-[3000] bg-[#25D366] text-white p-4 md:p-5 rounded-md shadow-[0_20px_50px_rgba(37,211,102,0.4)] hover:scale-110 transition-all group flex items-center gap-3 border border-white/20 hover:animate-pulse"
         title="Contact Syntry Global Support"
       >
         <span className="text-3xl group-hover:rotate-12 transition-transform">💬</span>
         <span className="text-xs font-medium uppercase tracking-widest hidden md:flex items-center gap-2">
           <span>053 110 2292</span>
-          <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping ml-1"></span>
+          <span className="w-1.5 h-1.5 bg-white rounded-md animate-ping ml-1"></span>
         </span>
       </a>
     </div>
